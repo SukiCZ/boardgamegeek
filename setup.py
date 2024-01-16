@@ -1,20 +1,16 @@
 # coding=utf-8
 
 from setuptools import find_packages, setup
-from setuptools.command.test import test as TestCommand
 
 from codecs import open
 
-version = {}
-with open("boardgamegeek/version.py") as fp:
-    exec(fp.read(), version)
-
-long_description = open("README.rst", encoding="utf-8").read()
+with open("README.rst", encoding="utf-8") as f:
+    long_description = f.read()
 
 
 setup(
     name="boardgamegeek2",
-    version=version["__version__"],
+    version="1.0.1",
     packages=find_packages(),
     license="BSD",
     author="Cosmin Luță",
@@ -35,8 +31,10 @@ setup(
         "Topic :: Games/Entertainment :: Board Games",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     ],
-    install_requires=["requests>=2.31.0",
-                      "requests-cache>=1.1.1"],
+    install_requires=[
+        "requests>=2.31.0,<3.0.0",
+        "requests-cache>=1.1.1,<2.0.0",
+    ],
     entry_points={
         "console_scripts": [
             "boardgamegeek = boardgamegeek.main:main"
