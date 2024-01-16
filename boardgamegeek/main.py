@@ -10,21 +10,15 @@ log_fmt = "[%(levelname)s] %(message)s"
 
 
 def brief_game_stats(game):
-    try:
-        desc = '''"{}",{},{}-{},{},{},{},{},"{}","{}"'''.format(game.name, game.year,
-               game.min_players, game.max_players,
-               game.playing_time,
-               game.rating_average, game.rating_average_weight, game.users_rated,
-               " / ".join(game.categories).lower(),
-               " / ".join(game.mechanics).lower())
+    # XXX: Is it needed?
+    desc = '''"{}",{},{}-{},{},{},{},{},"{}","{}"'''.format(game.name, game.year,
+           game.min_players, game.max_players,
+           game.playing_time,
+           game.rating_average, game.rating_average_weight, game.users_rated,
+           " / ".join(game.categories).lower(),
+           " / ".join(game.mechanics).lower())
 
-        print >>sys.stderr, "{}".format(desc)
-        sys.stdout.flush()
-    except Exception as e:
-        pass
-
-    return
-
+    log.info(desc)
     log.info("Name        : {}".format(game.name))
     log.info("Categories  : {}".format(game.categories))
     log.info("Mechanics   : {}".format(game.mechanics))
@@ -34,7 +28,6 @@ def brief_game_stats(game):
     log.info("Game weight : {}".format(game.rating_average_weight))
     log.info("Score       : {}".format(game.rating_average))
     log.info("Votes       : {}".format(game.users_rated))
-    log.info("MY SCORE    : {}".format(my_score))
 
 
 def main():

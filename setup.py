@@ -12,19 +12,6 @@ with open("boardgamegeek/version.py") as fp:
 long_description = open("README.rst", encoding="utf-8").read()
 
 
-class PyTest(TestCommand):
-
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
-
-    def run_tests(self):
-        import pytest
-        pytest.main(self.test_args)
-
-tests_require = ["pytest", "pytest-mock"]
-
 setup(
     name="boardgamegeek2",
     version=version["__version__"],
@@ -35,16 +22,12 @@ setup(
     description="A Python interface to boardgamegeek.com's API",
     long_description=long_description,
     url="https://github.com/lcosmin/boardgamegeek",
-    tests_require=tests_require,
-    extras_require={'test': tests_require},
-    cmdclass={'test': PyTest},
     classifiers=[
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.2",
-        "Programming Language :: Python :: 3.3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "License :: OSI Approved :: BSD License",
         "Development Status :: 4 - Beta",
         "Operating System :: OS Independent",
