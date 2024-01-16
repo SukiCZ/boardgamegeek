@@ -52,8 +52,8 @@ setup(
         "Topic :: Games/Entertainment :: Board Games",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     ],
-    install_requires=["requests>=2.3.0",
-                      "requests-cache>=0.4.4"],
+    install_requires=["requests>=2.31.0",
+                      "requests-cache>=1.1.1"],
     entry_points={
         "console_scripts": [
             "boardgamegeek = boardgamegeek.main:main"
