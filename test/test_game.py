@@ -1,6 +1,5 @@
 # coding: utf-8
 import datetime
-import mock
 import requests
 import pytest
 import sys
