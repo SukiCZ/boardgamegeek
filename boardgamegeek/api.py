@@ -124,7 +124,7 @@ class BGGCommon(object):
         # add the rate limiting adapter
         self.requests_session.mount(api_endpoint, RateLimitingAdapter(rpm=requests_per_minute))
 
-    def _get_game_id(self, name, game_type, choose):
+    def _get_game_id(self, name, game_type, choose, exact=True):
         """
         Returns the BGG ID of a game, searching by name
 
@@ -133,6 +133,7 @@ class BGGCommon(object):
                                                   BGGItemType.BOARD_GAME_EXPANSION)
         :param str choose: method of selecting the game by name, when having multiple results. Valid values are:
                            `BGGChoose.FIRST`, `BGGChoose.RECENT`, `BGGChoose.BEST_RANK`
+        :param bool exact: limit results to items that match the `name` exactly
         :return: game's id
         :raises: :py:exc:`boardgamegeek.exceptions.BGGValueError` in case of invalid parameter(s)
         :raises: :py:exc:`boardgamegeek.exceptions.BGGItemNotFoundError` if the game hasn't been found
@@ -145,7 +146,7 @@ class BGGCommon(object):
             raise BGGValueError("invalid value for parameter 'choose': {}".format(choose))
 
         log.debug("getting game id for '{}'".format(name))
-        res = self.search(name, search_type=[game_type], exact=True)
+        res = self.search(name, search_type=[game_type], exact=exact)
 
         if not res:
             raise BGGItemNotFoundError("can't find '{}'".format(name))
@@ -726,19 +727,20 @@ class BGGClient(BGGCommon):
     """
     def __init__(self, cache=CacheBackendMemory(ttl=3600), timeout=15, retries=3, retry_delay=5, disable_ssl=False, requests_per_minute=DEFAULT_REQUESTS_PER_MINUTE):
 
-        super(BGGClient, self).__init__(api_endpoint="https://www.boardgamegeek.com/xmlapi2",
+        super(BGGClient, self).__init__(api_endpoint="https://boardgamegeek.com/xmlapi2",
                                         cache=cache,
                                         timeout=timeout,
                                         retries=retries,
                                         retry_delay=retry_delay,
                                         requests_per_minute=requests_per_minute)
 
-    def get_game_id(self, name, choose=BGGChoose.FIRST):
+    def get_game_id(self, name, choose=BGGChoose.FIRST, exact=True):
         """
         Returns the BGG ID of a game, searching by name
 
         :param str name: The name of the game to search for
         :param boardgamegeek.BGGChoose choose: method of selecting the game by name, when dealing with multiple results.
+        :param bool exact: limit results to items that match the `name` exactly
         :return: the game's id
         :rtype: integer
         :return: ``None`` if game wasn't found
@@ -747,7 +749,7 @@ class BGGClient(BGGCommon):
         :raises: :py:exc:`boardgamegeek.exceptions.BGGApiError` if the response couldn't be parsed
         :raises: :py:exc:`boardgamegeek.exceptions.BGGApiTimeoutError` if there was a timeout
         """
-        return self._get_game_id(name, game_type=BGGRestrictSearchResultsTo.BOARD_GAME, choose=choose)
+        return self._get_game_id(name, game_type=BGGRestrictSearchResultsTo.BOARD_GAME, choose=choose, exact=exact)
 
     def game_list(self, game_id_list, versions=False,
                   videos=False, historical=False, marketplace=False):
@@ -803,7 +805,7 @@ class BGGClient(BGGCommon):
         return game_list
 
     def game(self, name=None, game_id=None, choose=BGGChoose.FIRST, versions=False, videos=False, historical=False,
-             marketplace=False, comments=False, rating_comments=False, progress=None):
+             marketplace=False, comments=False, rating_comments=False, progress=None, exact=True):
         """
         Get information about a game.
 
@@ -818,6 +820,7 @@ class BGGClient(BGGCommon):
         :param bool comments: include comments
         :param bool rating_comments: include comments with rating (ignored in favor of ``comments``, if that is true)
         :param callable progress: callable for reporting progress if fetching comments
+        :param bool exact: limit results to items that match the `name` exactly
         :return: ``BoardGame`` object
         :rtype: :py:class:`boardgamegeek.games.BoardGame`
 
@@ -832,7 +835,7 @@ class BGGClient(BGGCommon):
             raise BGGError("game name or id not specified")
 
         if game_id is None:
-            game_id = self.get_game_id(name, choose=choose)
+            game_id = self.get_game_id(name, choose=choose, exact=exact)
             if game_id is None:
                 raise BGGItemNotFoundError
 

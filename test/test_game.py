@@ -208,6 +208,14 @@ def test_get_game_id_by_name(bgg, mocker):
     assert game_id == best_id
 
 
+def test_get_game_by_name_not_exact(bgg, mocker):
+    mock_get = mocker.patch("requests.sessions.Session.get")
+    mock_get.side_effect = simulate_bgg
+
+    game = bgg.game("scythe the rise of fenris", exact=False)
+    assert game.name == 'Scythe: The Rise of Fenris'
+
+
 def test_get_games_by_name(bgg, mocker, null_logger):
     mock_get = mocker.patch("requests.sessions.Session.get")
     mock_get.side_effect = simulate_bgg
