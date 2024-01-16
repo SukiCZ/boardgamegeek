@@ -32,10 +32,7 @@ TEST_GUILD_ID_2 = 930
 
 TEST_GAME_ACCESSORY_ID = 104163 # Descent: Journeys in the Dark (second edition) – Conversion Kit
 
-if sys.version_info >= (3,):
-    STR_TYPES_OR_NONE = [str, type(None)]
-else:
-    STR_TYPES_OR_NONE = [str, unicode, type(None)]
+STR_TYPES_OR_NONE = [str, type(None)]
 
 # The top level directory for our XML files
 XML_PATH = os.path.join(os.path.dirname(__file__), "xml")
