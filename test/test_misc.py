@@ -23,6 +23,7 @@ def test_no_caching(mocker):
     assert user.name == TEST_VALID_USER
 
 
+@pytest.mark.integration
 def test_sqlite_caching(mocker):
     mock_get = mocker.patch("requests.sessions.Session.get")
     mock_get.side_effect = simulate_bgg

@@ -119,6 +119,7 @@ def test_serialization():
     assert type(dummy_unserialized) == Thing
 
 
+@pytest.mark.integration
 def test_rate_limiting_for_requests():
     # create two threads, give each a list of games to fetch, disable cache and time the amount needed to
     # fetch the data. requests should be serialized, even if made from two different threads
