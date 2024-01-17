@@ -1,117 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgame" id="1653">
          <thumbnail>https://cf.geekdo-images.com/images/pic160459_t.jpg</thumbnail>
       <image>https://cf.geekdo-images.com/images/pic160459.jpg</image>
-                                     				
+
 				<name type="primary" sortindex="1" value="Coup" />
-			
-						                           
+
+
 						               													<description>A simple two-player game pitting the revolutionaries against the entrenched leader.  Think of it as two-player Junta.&amp;#10;The components are really flimsy (map and counters).&amp;#10;&amp;#10;The map is real simple, city and outlying sections, with victory locations (Radio/TV, Armoury, Capitol, etc.) scattered about.  Small, but fun.&amp;#10;&amp;#10;Try this: You lose points for rubble-izing the city hexes...so you -have- to overrun...&amp;#10;&amp;#10;</description>
 										      	               				<yearpublished value="1991" />
 						               				<minplayers value="2" />
 						               				<maxplayers value="2" />
 						      			<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="0">
-			
-		<results numplayers="1">		
+
+		<results numplayers="1">
 					<result value="Best" numvotes="0" />
 					<result value="Recommended" numvotes="0" />
 					<result value="Not Recommended" numvotes="0" />
-				</results>					
-			
-		<results numplayers="2">		
+				</results>
+
+		<results numplayers="2">
 					<result value="Best" numvotes="0" />
 					<result value="Recommended" numvotes="0" />
 					<result value="Not Recommended" numvotes="0" />
-				</results>					
-			
-		<results numplayers="2+">		
+				</results>
+
+		<results numplayers="2+">
 					<result value="Best" numvotes="0" />
 					<result value="Recommended" numvotes="0" />
 					<result value="Not Recommended" numvotes="0" />
-				</results>					
-	</poll> 
+				</results>
+	</poll>
 			               				<playingtime value="60" />
 						               				<minplaytime value="60" />
 						               				<maxplaytime value="60" />
 						               				<minage value="12" />
 						      			<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="0">
-	</poll> 
+	</poll>
 			      			<poll name="language_dependence" title="Language Dependence" totalvotes="1">
-			
-		<results>		
+
+		<results>
 					<result level="1" value="No necessary in-game text" numvotes="1" />
 					<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="0" />
 					<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="0" />
 					<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
 					<result level="5" value="Unplayable in another language" numvotes="0" />
-				</results>					
-	</poll> 
-			      			 
-			      				
-		 			
+				</results>
+	</poll>
 
-			
-		
+
+
+
+
+
 					<link type="boardgamecategory" id="1019" value="Wargame" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2026" value="Hex-and-Counter" />
-		
-									
-			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      	      	      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					<link type="boardgamedesigner" id="22" value="Steve Jackson (I)" />
-		
-									
-			
 
-			      			
 
-			      	      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="19" value="Steve Jackson Games" />
-		
-									
-			
 
-			
-	
 
-	
 
-	
-	
-	
+
+
+
+
+
+
+
+
+
    		<statistics page="1">
 								<ratings >
 			<usersrated value="78" />
@@ -134,8 +134,8 @@
 			<averageweight value="1.8571" />
 			</ratings>
 								</statistics>
-     
-	
-          
+
+
+
 </item>
 </items>

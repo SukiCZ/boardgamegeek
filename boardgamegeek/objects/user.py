@@ -1,4 +1,3 @@
-# coding: utf-8
 """
 :mod:`boardgamegeek.user` - BoardGameGeek "Users"
 =================================================
@@ -10,7 +9,6 @@
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 
 """
-from __future__ import unicode_literals
 
 from copy import copy
 
@@ -21,6 +19,7 @@ class User(Thing):
     """
     Information about an user.
     """
+
     def __init__(self, data):
         kw = copy(data)
         if "buddies" not in kw:
@@ -48,13 +47,13 @@ class User(Thing):
         for i in kw["top"]:
             self._top.append(Thing(i))
 
-        super(User, self).__init__(kw)
+        super().__init__(kw)
 
     def __str__(self):
-        return "User: {} {}".format(self.firstname, self.lastname)
+        return f"User: {self.firstname} {self.lastname}"
 
     def __repr__(self):
-        return "User: {} (id: {})".format(self.name, self.id)
+        return f"User: {self.name} (id: {self.id})"
 
     def add_buddy(self, data):
         """
@@ -63,11 +62,11 @@ class User(Thing):
         :param dict data: buddy's data
         """
         self._buddies.append(Thing(data))
-        #self._data["buddies"].append(data)
+        # self._data["buddies"].append(data)
 
     def add_guild(self, data):
         self._guilds.append(Thing(data))
-        #self._data["guilds"].append(data)
+        # self._data["guilds"].append(data)
 
     def add_top_item(self, data):
         self._data["top"].append(data)
@@ -78,41 +77,45 @@ class User(Thing):
         self._hot.append(Thing(data))
 
     def _format(self, log):
-        log.info("id          : {}".format(self.id))
-        log.info("login name  : {}".format(self.name))
-        log.info("first name  : {}".format(self.firstname))
-        log.info("last name   : {}".format(self.lastname))
-        log.info("state       : {}".format(self.state))
-        log.info("country     : {}".format(self.country))
-        log.info("home page   : {}".format(self.homepage))
-        log.info("avatar      : {}".format(self.avatar))
-        log.info("xbox acct   : {}".format(self.xbox_account))
-        log.info("wii acct    : {}".format(self.wii_account))
-        log.info("steam acct  : {}".format(self.steam_account))
-        log.info("psn acct    : {}".format(self.psn_account))
-        log.info("last login  : {}".format(self.last_login))
-        log.info("trade rating: {}".format(self.trade_rating))
+        log.info(f"id          : {self.id}")
+        log.info(f"login name  : {self.name}")
+        log.info(f"first name  : {self.firstname}")
+        log.info(f"last name   : {self.lastname}")
+        log.info(f"state       : {self.state}")
+        log.info(f"country     : {self.country}")
+        log.info(f"home page   : {self.homepage}")
+        log.info(f"avatar      : {self.avatar}")
+        log.info(f"xbox acct   : {self.xbox_account}")
+        log.info(f"wii acct    : {self.wii_account}")
+        log.info(f"steam acct  : {self.steam_account}")
+        log.info(f"psn acct    : {self.psn_account}")
+        log.info(f"last login  : {self.last_login}")
+        log.info(f"trade rating: {self.trade_rating}")
 
-        log.info("user has {} buddies{}".format(self.total_buddies,
-                                                " (forever alone :'( )" if self.total_buddies == 0 else ""))
+        log.info(
+            "user has {} buddies{}".format(
+                self.total_buddies,
+                " (forever alone :'( )" if self.total_buddies == 0 else "",
+            )
+        )
         buddies = self.buddies
         if buddies:
             for b in buddies:
-                log.info("- {}".format(b.name))
+                log.info(f"- {b.name}")
 
-        log.info("user is member in {} guilds".format(self.total_guilds))
+        log.info(f"user is member in {self.total_guilds} guilds")
         guilds = self.guilds
         if guilds:
             for g in guilds:
-                log.info("- {}".format(g.name))
+                log.info(f"- {g.name}")
 
         log.info("top10 items")
         for i in self.top10:
-            log.info("- {} (id: {})".format(i.name, i.id))
+            log.info(f"- {i.name} (id: {i.id})")
 
         log.info("hot10 items")
         for i in self.hot10:
-            log.info("- {} (id: {})".format(i.name, i.id))
+            log.info(f"- {i.name} (id: {i.id})")
 
     @property
     def total_buddies(self):

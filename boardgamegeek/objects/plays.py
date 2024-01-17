@@ -1,4 +1,3 @@
-# coding: utf-8
 """
 :mod:`boardgamegeek.plays` - BoardGameGeek "Plays"
 ==================================================
@@ -10,9 +9,8 @@
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 
 """
-from __future__ import unicode_literals
-from copy import copy
 import datetime
+from copy import copy
 
 from boardgamegeek.exceptions import BGGError
 from boardgamegeek.utils import DictObject
@@ -126,40 +124,41 @@ class PlaySession(DictObject):
         kw = copy(data)
 
         if "date" in kw:
-            if type(kw["date"]) != datetime.datetime:
+            if not isinstance(kw["date"], datetime.datetime):
                 try:
                     kw["date"] = datetime.datetime.strptime(kw["date"], "%Y-%m-%d")
-                except:
+                except ValueError:
                     kw["date"] = None
 
         # create "nice" dictionaries out of plain ones, so you can .dot access stuff.
         self._players = [PlaysessionPlayer(player) for player in kw.get("players", [])]
 
-        super(PlaySession, self).__init__(kw)
+        super().__init__(kw)
 
     def _format(self, log):
-        log.info("play id         : {}".format(self.id))
-        log.info("play user id    : {}".format(self.user_id))
+        log.info(f"play id         : {self.id}")
+        log.info(f"play user id    : {self.user_id}")
         if self.date:
             try:
                 log.info("play date       : {}".format(self.date.strftime("%Y-%m-%d")))
-            except:
-                # strftime doesn't like dates before 1900 (and is seems that someone logged plays before 1900 :D)
+            except ValueError:
+                # strftime doesn't like dates before 1900 (and it seems that someone logged plays before 1900 :D)
                 pass
-        log.info("play quantity   : {}".format(self.quantity))
-        log.info("play duration   : {}".format(self.duration))
-        log.info("play incomplete : {}".format(self.incomplete))
-        log.info("play nowinstats : {}".format(self.nowinstats))
-        log.info("play game       : {} ({})".format(self.game_name, self.game_id))
-        log.info("play comment    : {}".format(self.comment))
+        log.info(f"play quantity   : {self.quantity}")
+        log.info(f"play duration   : {self.duration}")
+        log.info(f"play incomplete : {self.incomplete}")
+        log.info(f"play nowinstats : {self.nowinstats}")
+        log.info(f"play game       : {self.game_name} ({self.game_id})")
+        log.info(f"play comment    : {self.comment}")
 
         if self.players:
             log.info("players")
             for player in self.players:
-                log.info("\t{} ({}): name: {}, score: {}".format(player.username,
-                                                                 player.user_id,
-                                                                 player.name,
-                                                                 player.score))
+                log.info(
+                    "\t{} ({}): name: {}, score: {}".format(
+                        player.username, player.user_id, player.name, player.score
+                    )
+                )
 
     @property
     def id(self):
@@ -274,7 +273,7 @@ class Plays(DictObject):
         for p in kw.get("plays", []):
             self._plays.append(PlaySession(p))
 
-        super(Plays, self).__init__(kw)
+        super().__init__(kw)
 
     def __getitem__(self, item):
         return self._plays.__getitem__(item)
@@ -300,10 +299,9 @@ class Plays(DictObject):
 
 
 class UserPlays(Plays):
-
     def _format(self, log):
-        log.info("plays of        : {} ({})".format(self.user, self.user_id))
-        log.info("count           : {}".format(len(self)))
+        log.info(f"plays of        : {self.user} ({self.user_id})")
+        log.info(f"count           : {len(self)}")
         for p in self.plays:
             p._format(log)
             log.info("")
@@ -334,10 +332,9 @@ class UserPlays(Plays):
 
 
 class GamePlays(Plays):
-
     def _format(self, log):
-        log.info("plays of game id: {}".format(self.game_id))
-        log.info("count           : {}".format(len(self)))
+        log.info(f"plays of game id: {self.game_id}")
+        log.info(f"count           : {len(self)}")
         for p in self.plays:
             p._format(log)
             log.info("")

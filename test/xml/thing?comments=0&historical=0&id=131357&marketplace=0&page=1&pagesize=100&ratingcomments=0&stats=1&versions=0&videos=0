@@ -1,88 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgame" id="131357">
          <thumbnail>https://cf.geekdo-images.com/images/pic2016054_t.jpg</thumbnail>
       <image>https://cf.geekdo-images.com/images/pic2016054.jpg</image>
-                                     				
+
 				<name type="primary" sortindex="1" value="Coup" />
-			
-						                               				
+
+
 				<name type="alternate" sortindex="1" value="Coup. Переворот" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Coup: City State" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Coup: Ciudad Corrupta" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Coup: Noční klub" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Coup: The Resistance Universe" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Coup: Urbis" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Entrika" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Światowy Konflikt" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Το Κόλπο" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Το Κόλπο: 2ος Κύκλος" />
-			    				
+
 				<name type="alternate" sortindex="1" value="הפיכה עיר-מדינה" />
-			    				
+
 				<name type="alternate" sortindex="1" value="クー" />
-			
+
 						               													<description>You are head of a family in an Italian city-state, a city run by a weak and corrupt court. You need to manipulate, bluff and bribe your way to power. Your object is to destroy the influence of all the other families, forcing them into exile. Only one family will survive...&amp;#10;&amp;#10;In Coup, you want to be the last player with influence in the game, with influence being represented by face-down character cards in your playing area.&amp;#10;&amp;#10;Each player starts the game with two coins and two influence &amp;ndash; i.e., two face-down character cards; the fifteen card deck consists of three copies of five different characters, each with a unique set of powers:&amp;#10;&amp;#10;&amp;#10;     Duke: Take three coins from the treasury. Block someone from taking foreign aid.&amp;#10;     Assassin: Pay three coins and try to assassinate another player's character.&amp;#10;     Contessa: Block an assassination attempt against yourself.&amp;#10;     Captain: Take two coins from another player, or block someone from stealing coins from you.&amp;#10;     Ambassador: Draw two character cards from the Court (the deck), choose which (if any) to exchange with your face-down characters, then return two. Block someone from stealing coins from you.&amp;#10;&amp;#10;&amp;#10;On your turn, you can take any of the actions listed above, regardless of which characters you actually have in front of you, or you can take one of three other actions:&amp;#10;&amp;#10;&amp;#10;     Income: Take one coin from the treasury.&amp;#10;     Foreign aid: Take two coins from the treasury.&amp;#10;     Coup: Pay seven coins and launch a coup against an opponent, forcing that player to lose an influence. (If you have ten coins or more, you must take this action.)&amp;#10;&amp;#10;&amp;#10;When you take one of the character actions &amp;ndash; whether actively on your turn, or defensively in response to someone else's action &amp;ndash; that character's action automatically succeeds unless an opponent challenges you. In this case, if you can't (or don't) reveal the appropriate character, you lose an influence, turning one of your characters face-up. Face-up characters cannot be used, and if both of your characters are face-up, you're out of the game.&amp;#10;&amp;#10;If you do have the character in question and choose to reveal it, the opponent loses an influence, then you shuffle that character into the deck and draw a new one, perhaps getting the same character again and perhaps not.&amp;#10;&amp;#10;The last player to still have influence &amp;ndash; that is, a face-down character &amp;ndash; wins the game!&amp;#10;&amp;#10;A new &amp;amp; optional character called the Inquisitor has been added (currently, the only English edition with the Inquisitor included is the Kickstarter Version from Indie Boards &amp;amp; Cards. Copies in stores may not be the Kickstarter versions and may only be the base game). The Inquisitor character cards may be used to replace the Ambassador cards.&amp;#10;&amp;#10;&amp;#10;     Inquisitor: Draw one character card from the Court deck and choose whether or not to exchange it with one of your face-down characters. OR Force an opponent to show you one of their character cards (their choice which). If you wish it, you may then force them to draw a new card from the Court deck. They then shuffle the old card into the Court deck. Block someone from stealing coins from you.&amp;#10;&amp;#10;&amp;#10;</description>
 										      	               				<yearpublished value="2012" />
 						               				<minplayers value="2" />
 						               				<maxplayers value="6" />
 						      			<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="300">
-			
-		<results numplayers="1">		
+
+		<results numplayers="1">
 					<result value="Best" numvotes="2" />
 					<result value="Recommended" numvotes="0" />
 					<result value="Not Recommended" numvotes="194" />
-				</results>					
-			
-		<results numplayers="2">		
+				</results>
+
+		<results numplayers="2">
 					<result value="Best" numvotes="9" />
 					<result value="Recommended" numvotes="29" />
 					<result value="Not Recommended" numvotes="198" />
-				</results>					
-			
-		<results numplayers="3">		
+				</results>
+
+		<results numplayers="3">
 					<result value="Best" numvotes="17" />
 					<result value="Recommended" numvotes="134" />
 					<result value="Not Recommended" numvotes="90" />
-				</results>					
-			
-		<results numplayers="4">		
+				</results>
+
+		<results numplayers="4">
 					<result value="Best" numvotes="102" />
 					<result value="Recommended" numvotes="159" />
 					<result value="Not Recommended" numvotes="7" />
-				</results>					
-			
-		<results numplayers="5">		
+				</results>
+
+		<results numplayers="5">
 					<result value="Best" numvotes="179" />
 					<result value="Recommended" numvotes="81" />
 					<result value="Not Recommended" numvotes="5" />
-				</results>					
-			
-		<results numplayers="6">		
+				</results>
+
+		<results numplayers="6">
 					<result value="Best" numvotes="88" />
 					<result value="Recommended" numvotes="125" />
 					<result value="Not Recommended" numvotes="22" />
-				</results>					
-			
-		<results numplayers="6+">		
+				</results>
+
+		<results numplayers="6+">
 					<result value="Best" numvotes="8" />
 					<result value="Recommended" numvotes="23" />
 					<result value="Not Recommended" numvotes="125" />
-				</results>					
-	</poll> 
+				</results>
+	</poll>
 			               				<playingtime value="15" />
 						               				<minplaytime value="15" />
 						               				<maxplaytime value="15" />
 						               				<minage value="9" />
 						      			<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="59">
-			<results>		
+			<results>
 					<result value="2" numvotes="0" />
 					<result value="3" numvotes="0" />
 					<result value="4" numvotes="0" />
@@ -95,429 +95,429 @@
 					<result value="16" numvotes="0" />
 					<result value="18" numvotes="0" />
 					<result value="21 and up" numvotes="0" />
-				</results>					
-	</poll> 
+				</results>
+	</poll>
 			      			<poll name="language_dependence" title="Language Dependence" totalvotes="53">
-			
-		<results>		
+
+		<results>
 					<result level="1" value="No necessary in-game text" numvotes="9" />
 					<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="42" />
 					<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="2" />
 					<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
 					<result level="5" value="Unplayable in another language" numvotes="0" />
-				</results>					
-	</poll> 
-			      			 
-			      				
-		 			
+				</results>
+	</poll>
 
-			
-		
+
+
+
+
+
 					<link type="boardgamecategory" id="1023" value="Bluffing" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1002" value="Card Game" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1039" value="Deduction" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1030" value="Party Game" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1001" value="Political" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2047" value="Memory" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2685" value="Player Elimination" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2686" value="Take That" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2015" value="Variable Player Powers" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamefamily" id="8374" value="Crowdfunding: Kickstarter" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamefamily" id="20304" value="Dystopian Universe" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamefamily" id="7958" value="Postcard Box Games" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="178527" value="Coup:  Inquisitor Promo" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="186356" value="Coup: Inquisition" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="186524" value="Coup: Jester and Bureaucrat Promos" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="148931" value="Coup: Reformation" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="217578" value="Coup: Socialist" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="186532" value="Coup: Speculator Promo" />
-		
-									
-			
 
-			      			
 
-			      			
 
-			      			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
+
+
+
 					<link type="boardgamecompilation" id="158408" value="Coup: Deluxe Edition" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgameimplementation" id="188188" value="Complots" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameimplementation" id="233085" value="Coup Deluxe:  Mobile Edition" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameimplementation" id="148943" value="Coup: Rebellion G54" />
-		
-									
-			
 
-			      			
 
-			      	      	      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
+
 					<link type="boardgamedesigner" id="64108" value="Rikki Tahta" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgameartist" id="14650" value="Luis Francisco" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameartist" id="81815" value="Stephanie Gustafsson" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameartist" id="64109" value="Andrew Higgins" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameartist" id="68154" value="Alexandr Kiselev" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameartist" id="74048" value="Tomasz Larek" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameartist" id="38447" value="Jarek Nocoń" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameartist" id="12172" value="Guillermo H. Nuñez" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameartist" id="88679" value="Alejo Vigliani" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameartist" id="90478" value="Uros Vuckovic" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameartist" id="72369" value="Weberson Santiago" />
-		
-									
-			
 
-			      	      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="10290" value="Indie Boards &amp; Cards" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="23600" value="La Mame Games" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="29797" value="El Dragón Azul" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="26380" value="Foxgames (Poland)" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="24298" value="FunBox Jogos" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="264" value="Heidelberger Spieleverlag" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="25022" value="Igrato" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="6214" value="Kaissa Chess &amp; Games" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="35035" value="Mandala Jogos" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="32395" value="NeoTroy Games" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="9881" value="New Games Order, LLC" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="21053" value="REXhry" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="22609" value="テンデイズゲームズ (Ten Days Games)" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="25973" value="Zacatrus" />
-		
-									
-			
 
-			
-	
 
-	
 
-	
-	
-	
+
+
+
+
+
+
+
+
+
    		<statistics page="1">
 								<ratings >
 			<usersrated value="23800" />
@@ -540,8 +540,8 @@
 			<averageweight value="1.4344" />
 			</ratings>
 								</statistics>
-     
-	
-          
+
+
+
 </item>
 </items>

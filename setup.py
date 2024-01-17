@@ -1,8 +1,6 @@
-# coding=utf-8
+from codecs import open
 
 from setuptools import find_packages, setup
-
-from codecs import open
 
 with open("README.rst", encoding="utf-8") as f:
     long_description = f.read()
@@ -35,9 +33,5 @@ setup(
         "requests>=2.31.0,<3.0.0",
         "requests-cache>=1.1.1,<2.0.0",
     ],
-    entry_points={
-        "console_scripts": [
-            "boardgamegeek = boardgamegeek.main:main"
-        ]
-    }
+    entry_points={"console_scripts": ["boardgamegeek = boardgamegeek.main:main"]},
 )

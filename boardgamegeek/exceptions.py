@@ -1,4 +1,3 @@
-# coding: utf-8
 """
 :mod:`boardgamegeek.exceptions` - Exceptions
 ============================================
@@ -12,7 +11,8 @@
 
 
 class BGGValueError(ValueError):
-    """ invalid parameters """
+    """invalid parameters"""
+
     pass
 
 
@@ -21,22 +21,26 @@ class BGGError(Exception):
 
 
 class BGGItemNotFoundError(BGGError):
-    """ Requested item was not found """
+    """Requested item was not found"""
+
     pass
 
 
 class BGGApiTimeoutError(BGGError):
-    """ Network timeout conditions """
+    """Network timeout conditions"""
+
     pass
 
 
 class BGGApiError(BGGError):
-    """ An error related to the BGG XML2 API """
+    """An error related to the BGG XML2 API"""
+
     pass
 
 
 class BGGApiRetryError(BGGApiError):
-    """ The request to the BGG XML2 API should be retried """
+    """The request to the BGG XML2 API should be retried"""
+
     pass
 
 

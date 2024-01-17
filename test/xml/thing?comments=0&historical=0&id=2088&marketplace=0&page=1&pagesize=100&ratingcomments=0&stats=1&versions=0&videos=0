@@ -1,193 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgame" id="2088">
          <thumbnail>https://cf.geekdo-images.com/images/pic312636_t.jpg</thumbnail>
       <image>https://cf.geekdo-images.com/images/pic312636.jpg</image>
-                                     				
+
 				<name type="primary" sortindex="1" value="Coup" />
-			
-						                               				
+
+
 				<name type="alternate" sortindex="1" value="Holiday AG" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Τουριστικές Επιχειρήσεις" />
-			
+
 						               													<description>Players attempt to acquire shares in the most valuable companies. Companies work to build valuable blocks of adjacent properties and see that they are booked full of tourists. Players maneuver to boost the value of companies in which they own stock.&amp;#10;&amp;#10;The gaming board consists of 6 columns of different colors with fields numbered from 1-20, so 120 fields. Then there are wooden bits with the corresponding colors and numbers to the columns, and chips of the different colors of the columns. Every player secretly draws the wooden bits and tries to make series of numbers in the different columns. The longer the series, the more points it will generate at the end. At each players turn, beside putting the wooden bits, they can buy the colored chips. The more colored chips of the column with the longest series you have the better are your chances of winning. Players can also change unwanted wooden bits with new ones during their turn.&amp;#10;&amp;#10;</description>
 										      	               				<yearpublished value="1975" />
 						               				<minplayers value="2" />
 						               				<maxplayers value="6" />
 						      			<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="1">
-			
-		<results numplayers="1">		
+
+		<results numplayers="1">
 					<result value="Best" numvotes="0" />
 					<result value="Recommended" numvotes="0" />
 					<result value="Not Recommended" numvotes="0" />
-				</results>					
-			
-		<results numplayers="2">		
+				</results>
+
+		<results numplayers="2">
 					<result value="Best" numvotes="0" />
 					<result value="Recommended" numvotes="0" />
 					<result value="Not Recommended" numvotes="0" />
-				</results>					
-			
-		<results numplayers="3">		
+				</results>
+
+		<results numplayers="3">
 					<result value="Best" numvotes="1" />
 					<result value="Recommended" numvotes="0" />
 					<result value="Not Recommended" numvotes="0" />
-				</results>					
-			
-		<results numplayers="4">		
+				</results>
+
+		<results numplayers="4">
 					<result value="Best" numvotes="0" />
 					<result value="Recommended" numvotes="1" />
 					<result value="Not Recommended" numvotes="0" />
-				</results>					
-			
-		<results numplayers="5">		
+				</results>
+
+		<results numplayers="5">
 					<result value="Best" numvotes="0" />
 					<result value="Recommended" numvotes="0" />
 					<result value="Not Recommended" numvotes="0" />
-				</results>					
-			
-		<results numplayers="6">		
+				</results>
+
+		<results numplayers="6">
 					<result value="Best" numvotes="0" />
 					<result value="Recommended" numvotes="0" />
 					<result value="Not Recommended" numvotes="0" />
-				</results>					
-			
-		<results numplayers="6+">		
+				</results>
+
+		<results numplayers="6+">
 					<result value="Best" numvotes="0" />
 					<result value="Recommended" numvotes="0" />
 					<result value="Not Recommended" numvotes="0" />
-				</results>					
-	</poll> 
+				</results>
+	</poll>
 			               				<playingtime value="90" />
 						               				<minplaytime value="90" />
 						               				<maxplaytime value="90" />
 						               				<minage value="10" />
 						      			<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="0">
-	</poll> 
+	</poll>
 			      			<poll name="language_dependence" title="Language Dependence" totalvotes="0">
-	</poll> 
-			      			 
-			      				
-		 			
+	</poll>
 
-			
-		
+
+
+
+
+
 					<link type="boardgamecategory" id="1009" value="Abstract Strategy" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1021" value="Economic" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1098" value="Number" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2013" value="Commodity Speculation" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2002" value="Tile Placement" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamefamily" id="37878" value="Krone Spiele für Erwachsene" />
-		
-									
-			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      	      	      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					<link type="boardgamedesigner" id="7" value="Wolfgang Kramer" />
-		
-									
-			
 
-			      			
 
-			      	      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="74" value="ASS Altenburger Spielkarten" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="11" value="F.X. Schmid" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="5193" value="Krone Spiele (ASS)" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="6892" value="MIKA" />
-		
-									
-			
 
-			
-	
 
-	
 
-	
-	
-	
+
+
+
+
+
+
+
+
+
    		<statistics page="1">
 								<ratings >
 			<usersrated value="130" />
@@ -211,8 +211,8 @@
 			<averageweight value="1.8125" />
 			</ratings>
 								</statistics>
-     
-	
-          
+
+
+
 </item>
 </items>

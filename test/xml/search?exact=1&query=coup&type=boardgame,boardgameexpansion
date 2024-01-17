@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?><items total="3" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">			<item type="boardgame" id="1653">
-			<name type="primary" value="Coup"/>			
+			<name type="primary" value="Coup"/>
 							<yearpublished value="1991" />
 					</item>
 			<item type="boardgame" id="2088">
-			<name type="primary" value="Coup"/>			
+			<name type="primary" value="Coup"/>
 							<yearpublished value="1975" />
 					</item>
 			<item type="boardgame" id="131357">
-			<name type="primary" value="Coup"/>			
+			<name type="primary" value="Coup"/>
 							<yearpublished value="2012" />
 					</item>
 		</items>

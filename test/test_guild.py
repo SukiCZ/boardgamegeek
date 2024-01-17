@@ -1,17 +1,16 @@
-import time
+import logging
+
+import _common
 import pytest
 
 from boardgamegeek import BGGItemNotFoundError, BGGValueError
-
-from _common import *
-
 
 progress_called = False
 
 
 def progress_cb(items, total):
     global progress_called
-    logging.debug("progress_cb: fetched {} items out of {}".format(items, total))
+    logging.debug(f"progress_cb: fetched {items} items out of {total}")
     progress_called = True
 
 
@@ -24,16 +23,16 @@ def test_get_guild_with_invalid_parameters(bgg):
 
 def test_get_valid_guild_info(bgg, mocker, null_logger):
     mock_get = mocker.patch("requests.sessions.Session.get")
-    mock_get.side_effect = simulate_bgg
+    mock_get.side_effect = _common.simulate_bgg
 
     global progress_called
 
     progress_called = False
     # Test with a guild with a big number members so that we can cover the code that fetches the next pages
-    guild = bgg.guild(TEST_GUILD_ID, progress=progress_cb)
+    guild = bgg.guild(_common.TEST_GUILD_ID, progress=progress_cb)
 
     assert progress_called
-    assert guild.id == TEST_GUILD_ID
+    assert guild.id == _common.TEST_GUILD_ID
     assert guild.name == "Geek Tools"
 
     assert guild.addr1 is None
@@ -52,15 +51,15 @@ def test_get_valid_guild_info(bgg, mocker, null_logger):
     assert type(guild.data()) == dict
 
     # try to fetch a guild that also has an address besides members :D
-    guild = bgg.guild(TEST_GUILD_ID_2)
+    guild = bgg.guild(_common.TEST_GUILD_ID_2)
 
-    assert guild.id == TEST_GUILD_ID_2
+    assert guild.id == _common.TEST_GUILD_ID_2
     assert guild.addr1 is not None
     assert guild.addr2 is not None
-    assert guild.address == "{} {}".format(guild.addr1, guild.addr2)
+    assert guild.address == f"{guild.addr1} {guild.addr2}"
 
     # fetch guild, but without members this time
-    guild = bgg.guild(TEST_GUILD_ID, members=False)
+    guild = bgg.guild(_common.TEST_GUILD_ID, members=False)
 
     assert guild.members_count == 0
     assert guild.members == set()
@@ -68,7 +67,7 @@ def test_get_valid_guild_info(bgg, mocker, null_logger):
 
 def test_get_invalid_guild_info(bgg, mocker):
     mock_get = mocker.patch("requests.sessions.Session.get")
-    mock_get.side_effect = simulate_bgg
+    mock_get.side_effect = _common.simulate_bgg
 
     with pytest.raises(BGGItemNotFoundError):
         bgg.guild(0, progress=progress_cb)

@@ -1,4 +1,3 @@
-# coding: utf-8
 """
 :mod:`boardgamegeek.guild` - Guild information
 ==============================================
@@ -10,7 +9,6 @@
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 
 """
-from __future__ import unicode_literals
 
 from copy import copy
 
@@ -21,25 +19,25 @@ class Guild(Thing):
     """
     Class containing guild information
     """
+
     def _format(self, log):
-        log.info("id         : {}".format(self.id))
-        log.info("name       : {}".format(self.name))
-        log.info("category   : {}".format(self.category))
-        log.info("manager    : {}".format(self.manager))
-        log.info("website    : {}".format(self.website))
-        log.info("description: {}".format(self.description))
-        log.info("country    : {}".format(self.country))
-        log.info("state      : {}".format(self.state))
-        log.info("city       : {}".format(self.city))
-        log.info("address    : {}".format(self.address))
-        log.info("postal code: {}".format(self.postalcode))
+        log.info(f"id         : {self.id}")
+        log.info(f"name       : {self.name}")
+        log.info(f"category   : {self.category}")
+        log.info(f"manager    : {self.manager}")
+        log.info(f"website    : {self.website}")
+        log.info(f"description: {self.description}")
+        log.info(f"country    : {self.country}")
+        log.info(f"state      : {self.state}")
+        log.info(f"city       : {self.city}")
+        log.info(f"address    : {self.address}")
+        log.info(f"postal code: {self.postalcode}")
         if self.members:
-            log.info("{} members".format(len(self.members)))
+            log.info(f"{len(self.members)} members")
             for i in self.members:
-                log.info(" - {}".format(i))
+                log.info(f" - {i}")
 
     def __init__(self, data):
-
         kw = copy(data)
 
         if "members" in kw:
@@ -47,7 +45,7 @@ class Guild(Thing):
         else:
             self._members = set()
 
-        super(Guild, self).__init__(kw)
+        super().__init__(kw)
 
     @property
     def country(self):
@@ -180,8 +178,7 @@ class Guild(Thing):
         return len(self._members)
 
     def __repr__(self):
-        return "Guild (id: {})".format(self.id)
+        return f"Guild (id: {self.id})"
 
     def __iter__(self):
-        for member in self._members:
-            yield member
+        yield from self._members

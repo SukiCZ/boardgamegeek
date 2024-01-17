@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?><items total="5" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">			<item type="boardgame" id="11542">
-			<name type="primary" value="Eclipse"/>			
+			<name type="primary" value="Eclipse"/>
 							<yearpublished value="1999" />
 					</item>
 			<item type="boardgame" id="23272">
-			<name type="primary" value="Eclipse"/>			
+			<name type="primary" value="Eclipse"/>
 					</item>
 			<item type="boardgame" id="72125">
-			<name type="primary" value="Eclipse"/>			
+			<name type="primary" value="Eclipse"/>
 							<yearpublished value="2011" />
 					</item>
 			<item type="boardgame" id="824">
-			<name type="alternate" value="Eclipse"/>			
+			<name type="alternate" value="Eclipse"/>
 							<yearpublished value="1995" />
 					</item>
 			<item type="boardgame" id="8148">
-			<name type="alternate" value="Eclipse"/>			
+			<name type="alternate" value="Eclipse"/>
 							<yearpublished value="1972" />
 					</item>
 		</items>

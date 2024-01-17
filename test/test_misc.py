@@ -1,10 +1,10 @@
 import os
 import tempfile
-import time
+
+import _common
 import pytest
 
-from _common import *
-from boardgamegeek import BGGValueError, CacheBackendNone, CacheBackendSqlite
+from boardgamegeek import BGGClient, BGGValueError, CacheBackendNone, CacheBackendSqlite
 
 
 #
@@ -12,21 +12,21 @@ from boardgamegeek import BGGValueError, CacheBackendNone, CacheBackendSqlite
 #
 def test_no_caching(mocker):
     mock_get = mocker.patch("requests.sessions.Session.get")
-    mock_get.side_effect = simulate_bgg
+    mock_get.side_effect = _common.simulate_bgg
 
     # test that we can disable caching
     bgg = BGGClient(cache=CacheBackendNone())
 
-    user = bgg.user(TEST_VALID_USER)
+    user = bgg.user(_common.TEST_VALID_USER)
 
     assert user is not None
-    assert user.name == TEST_VALID_USER
+    assert user.name == _common.TEST_VALID_USER
 
 
 @pytest.mark.integration
 def test_sqlite_caching(mocker):
     mock_get = mocker.patch("requests.sessions.Session.get")
-    mock_get.side_effect = simulate_bgg
+    mock_get.side_effect = _common.simulate_bgg
 
     # test that we can use the SQLite cache
     # generate a temporary file
@@ -44,9 +44,9 @@ def test_sqlite_caching(mocker):
 
     bgg = BGGClient(cache=CacheBackendSqlite(name, ttl=1000))
 
-    user = bgg.user(TEST_VALID_USER)
+    user = bgg.user(_common.TEST_VALID_USER)
     assert user is not None
-    assert user.name == TEST_VALID_USER
+    assert user.name == _common.TEST_VALID_USER
 
     assert os.path.isfile(name)
 

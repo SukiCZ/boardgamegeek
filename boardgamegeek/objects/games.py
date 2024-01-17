@@ -1,4 +1,3 @@
-# coding: utf-8
 """
 :mod:`boardgamegeek.games` - Games information
 ==============================================
@@ -10,14 +9,13 @@
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 
 """
-from __future__ import unicode_literals
 
 import datetime
 from copy import copy
 
-from .things import Thing
 from ..exceptions import BGGError
-from ..utils import fix_url, DictObject, fix_unsigned_negative
+from ..utils import DictObject, fix_unsigned_negative, fix_url
+from .things import Thing
 
 
 class BoardGameRank(Thing):
@@ -42,8 +40,9 @@ class PlayerSuggestion(DictObject):
     """
     Player Suggestion
     """
+
     def __init__(self, data):
-        super(PlayerSuggestion, self).__init__(data)
+        super().__init__(data)
 
     @property
     def numeric_player_count(self):
@@ -62,6 +61,7 @@ class BoardGameStats(DictObject):
     """
     Statistics about a board game
     """
+
     def __init__(self, data):
         self._ranks = []
 
@@ -73,7 +73,7 @@ class BoardGameStats(DictObject):
                     self._bgg_rank = None
             self._ranks.append(BoardGameRank(rank))
 
-        super(BoardGameStats, self).__init__(data)
+        super().__init__(data)
 
     @property
     def bgg_rank(self):
@@ -193,7 +193,6 @@ class BoardGameStats(DictObject):
 
 
 class BoardGameComment(DictObject):
-
     @property
     def commenter(self):
         return self._data["username"]
@@ -207,37 +206,40 @@ class BoardGameComment(DictObject):
         return self._data["rating"]
 
     def _format(self, log):
-        log.info(u"comment by {} (rating: {}): {}".format(self.commenter, self.rating, self.comment))
+        log.info(f"comment by {self.commenter} (rating: {self.rating}): {self.comment}")
 
 
 class BoardGameVideo(Thing):
     """
     Object containing information about a board game video
     """
+
     def __init__(self, data):
         kw = copy(data)
 
         if "post_date" in kw:
             date = kw["post_date"]
-            if type(date) != datetime.datetime:
+            if not isinstance(date, datetime.datetime):
                 try:
-                    kw["post_date"] = datetime.datetime.strptime(date[:-6], "%Y-%m-%dT%H:%M:%S")
-                except:
+                    kw["post_date"] = datetime.datetime.strptime(
+                        date[:-6], "%Y-%m-%dT%H:%M:%S"
+                    )
+                except ValueError:
                     kw["post_date"] = None
 
         kw["uploader_id"] = int(kw["uploader_id"])
 
-        super(BoardGameVideo, self).__init__(kw)
+        super().__init__(kw)
 
     def _format(self, log):
-        log.info("video id          : {}".format(self.id))
-        log.info("video title       : {}".format(self.name))
-        log.info("video category    : {}".format(self.category))
-        log.info("video link        : {}".format(self.link))
-        log.info("video language    : {}".format(self.language))
-        log.info("video uploader    : {}".format(self.uploader))
-        log.info("video uploader id : {}".format(self.uploader_id))
-        log.info("video posted at   : {}".format(self.post_date))
+        log.info(f"video id          : {self.id}")
+        log.info(f"video title       : {self.name}")
+        log.info(f"video category    : {self.category}")
+        log.info(f"video link        : {self.link}")
+        log.info(f"video language    : {self.language}")
+        log.info(f"video uploader    : {self.uploader}")
+        log.info(f"video uploader id : {self.uploader_id}")
+        log.info(f"video posted at   : {self.post_date}")
 
     @property
     def category(self):
@@ -298,6 +300,7 @@ class BoardGameVersion(Thing):
     """
     Object containing information about a board game version
     """
+
     def __init__(self, data):
         kw = copy(data)
 
@@ -305,21 +308,21 @@ class BoardGameVersion(Thing):
             if to_fix in kw:
                 kw[to_fix] = fix_url(kw[to_fix])
 
-        super(BoardGameVersion, self).__init__(kw)
+        super().__init__(kw)
 
     def __repr__(self):
-        return "BoardGameVersion (id: {})".format(self.id)
+        return f"BoardGameVersion (id: {self.id})"
 
     def _format(self, log):
-        log.info("version id           : {}".format(self.id))
-        log.info("version name         : {}".format(self.name))
-        log.info("version language     : {}".format(self.language))
-        log.info("version publisher    : {}".format(self.publisher))
-        log.info("version artist       : {}".format(self.artist))
-        log.info("version product code : {}".format(self.product_code))
-        log.info("W x L x D            : {} x {} x {}".format(self.width, self.length, self.depth))
-        log.info("weight               : {}".format(self.weight))
-        log.info("year                 : {}".format(self.year))
+        log.info(f"version id           : {self.id}")
+        log.info(f"version name         : {self.name}")
+        log.info(f"version language     : {self.language}")
+        log.info(f"version publisher    : {self.publisher}")
+        log.info(f"version artist       : {self.artist}")
+        log.info(f"version product code : {self.product_code}")
+        log.info(f"W x L x D            : {self.width} x {self.length} x {self.depth}")
+        log.info(f"weight               : {self.weight}")
+        log.info(f"year                 : {self.year}")
 
     @property
     def artist(self):
@@ -416,9 +419,7 @@ class BoardGameVersion(Thing):
 
 
 class BaseGame(Thing):
-
     def __init__(self, data):
-
         self._thumbnail = fix_url(data["thumbnail"]) if "thumbnail" in data else None
         self._image = fix_url(data["image"]) if "image" in data else None
         if "stats" not in data:
@@ -431,7 +432,7 @@ class BaseGame(Thing):
 
         try:
             self._year_published = fix_unsigned_negative(data["yearpublished"])
-        except:
+        except KeyError:
             self._year_published = None
 
         for version in data.get("versions", []):
@@ -442,7 +443,7 @@ class BaseGame(Thing):
             except KeyError:
                 raise BGGError("invalid version data")
 
-        super(BaseGame, self).__init__(data)
+        super().__init__(data)
 
     @property
     def thumbnail(self):
@@ -565,7 +566,7 @@ class BaseGame(Thing):
 
     @property
     def ranks(self):
-        #TODO: document this change. It's not returning list of dicts anymore, but BoardGameRank objects
+        # TODO: document this change. It's not returning list of dicts anymore, but BoardGameRank objects
         """
         :return: rankings of this game
         :rtype: list of dicts, keys: ``friendlyname`` (the friendly name of the rank, e.g. "Board Game Rank"), ``name``
@@ -595,27 +596,27 @@ class CollectionBoardGame(BaseGame):
     """
 
     def __init__(self, data):
-        super(CollectionBoardGame, self).__init__(data)
+        super().__init__(data)
 
     def __repr__(self):
-        return "CollectionBoardGame (id: {})".format(self.id)
+        return f"CollectionBoardGame (id: {self.id})"
 
     def _format(self, log):
-        log.info("boardgame id      : {}".format(self.id))
-        log.info("boardgame name    : {}".format(self.name))
-        log.info("number of plays   : {}".format(self.numplays))
-        log.info("last modified     : {}".format(self.lastmodified))
-        log.info("rating            : {}".format(self.rating))
-        log.info("own               : {}".format(self.owned))
-        log.info("preordered        : {}".format(self.preordered))
-        log.info("previously owned  : {}".format(self.prev_owned))
-        log.info("want              : {}".format(self.want))
-        log.info("want to buy       : {}".format(self.want_to_buy))
-        log.info("want to play      : {}".format(self.want_to_play))
-        log.info("wishlist          : {}".format(self.wishlist))
-        log.info("wishlist priority : {}".format(self.wishlist_priority))
-        log.info("for trade         : {}".format(self.for_trade))
-        log.info("comment           : {}".format(self.comment))
+        log.info(f"boardgame id      : {self.id}")
+        log.info(f"boardgame name    : {self.name}")
+        log.info(f"number of plays   : {self.numplays}")
+        log.info(f"last modified     : {self.lastmodified}")
+        log.info(f"rating            : {self.rating}")
+        log.info(f"own               : {self.owned}")
+        log.info(f"preordered        : {self.preordered}")
+        log.info(f"previously owned  : {self.prev_owned}")
+        log.info(f"want              : {self.want}")
+        log.info(f"want to buy       : {self.want_to_buy}")
+        log.info(f"want to play      : {self.want_to_play}")
+        log.info(f"wishlist          : {self.wishlist}")
+        log.info(f"wishlist priority : {self.wishlist_priority}")
+        log.info(f"for trade         : {self.for_trade}")
+        log.info(f"comment           : {self.comment}")
         for v in self._versions:
             v._format(log)
 
@@ -734,10 +735,10 @@ class BoardGame(BaseGame):
     """
     Object containing information about a board game
     """
-    def __init__(self, data):
 
-        self._expansions = []                      # list of Thing for the expansions
-        self._expansions_set = set()               # set for making sure things are unique
+    def __init__(self, data):
+        self._expansions = []  # list of Thing for the expansions
+        self._expansions_set = set()  # set for making sure things are unique
         for exp in data.get("expansions", []):
             try:
                 if exp["id"] not in self._expansions_set:
@@ -746,9 +747,11 @@ class BoardGame(BaseGame):
             except KeyError:
                 raise BGGError("invalid expansion data")
 
-        self._expands = []                         # list of Thing which this item expands
-        self._expands_set = set()                  # set for keeping things unique
-        for exp in data.get("expands", []):        # for all the items this game expands, create a Thing
+        self._expands = []  # list of Thing which this item expands
+        self._expands_set = set()  # set for keeping things unique
+        for exp in data.get(
+            "expands", []
+        ):  # for all the items this game expands, create a Thing
             try:
                 if exp["id"] not in self._expands_set:
                     self._expands_set.add(exp["id"])
@@ -773,16 +776,18 @@ class BoardGame(BaseGame):
         self._player_suggestion = []
         if "suggested_players" in data and "results" in data["suggested_players"]:
             for count, result in data["suggested_players"]["results"].items():
-                suggestion_data = {"player_count": count,
-                                   "best": result["best_rating"],
-                                   "recommended": result["recommended_rating"],
-                                   "not_recommended": result["not_recommended_rating"]}
+                suggestion_data = {
+                    "player_count": count,
+                    "best": result["best_rating"],
+                    "recommended": result["recommended_rating"],
+                    "not_recommended": result["not_recommended_rating"],
+                }
                 self._player_suggestion.append(PlayerSuggestion(suggestion_data))
 
-        super(BoardGame, self).__init__(data)
+        super().__init__(data)
 
     def __repr__(self):
-        return "BoardGame (id: {})".format(self.id)
+        return f"BoardGame (id: {self.id})"
 
     def add_comment(self, data):
         self._comments.append(BoardGameComment(data))
@@ -818,67 +823,67 @@ class BoardGame(BaseGame):
             raise BGGError("invalid expansion data")
 
     def _format(self, log):
-        log.info("boardgame id      : {}".format(self.id))
-        log.info("boardgame name    : {}".format(self.name))
-        log.info("boardgame rank    : {}".format(self.bgg_rank))
+        log.info(f"boardgame id      : {self.id}")
+        log.info(f"boardgame name    : {self.name}")
+        log.info(f"boardgame rank    : {self.bgg_rank}")
         if self.alternative_names:
             for i in self.alternative_names:
-                log.info("alternative name  : {}".format(i))
-        log.info("year published    : {}".format(self.year))
-        log.info("minimum players   : {}".format(self.min_players))
-        log.info("maximum players   : {}".format(self.max_players))
-        log.info("playing time      : {}".format(self.playing_time))
-        log.info("minimum age       : {}".format(self.min_age))
-        log.info("thumbnail         : {}".format(self.thumbnail))
-        log.info("image             : {}".format(self.image))
+                log.info(f"alternative name  : {i}")
+        log.info(f"year published    : {self.year}")
+        log.info(f"minimum players   : {self.min_players}")
+        log.info(f"maximum players   : {self.max_players}")
+        log.info(f"playing time      : {self.playing_time}")
+        log.info(f"minimum age       : {self.min_age}")
+        log.info(f"thumbnail         : {self.thumbnail}")
+        log.info(f"image             : {self.image}")
 
-        log.info("is expansion      : {}".format(self.expansion))
-        log.info("is accessory      : {}".format(self.accessory))
+        log.info(f"is expansion      : {self.expansion}")
+        log.info(f"is accessory      : {self.accessory}")
 
         if self.expansions:
             log.info("expansions")
             for i in self.expansions:
-                log.info("- {}".format(i.name))
+                log.info(f"- {i.name}")
 
         if self.expands:
             log.info("expands")
             for i in self.expands:
-                log.info("- {}".format(i.name))
+                log.info(f"- {i.name}")
 
         if self.categories:
             log.info("categories")
             for i in self.categories:
-                log.info("- {}".format(i))
+                log.info(f"- {i}")
 
         if self.families:
             log.info("families")
             for i in self.families:
-                log.info("- {}".format(i))
+                log.info(f"- {i}")
 
         if self.mechanics:
             log.info("mechanics")
             for i in self.mechanics:
-                log.info("- {}".format(i))
+                log.info(f"- {i}")
 
         if self.implementations:
             log.info("implementations")
             for i in self.implementations:
-                log.info("- {}".format(i))
+                log.info(f"- {i}")
 
         if self.designers:
             log.info("designers")
             for i in self.designers:
-                log.info("- {}".format(i))
+                log.info(f"- {i}")
 
         if self.artists:
             log.info("artistis")
             for i in self.artists:
-                log.info("- {}".format(i))
+                log.info(f"- {i}")
 
         if self.publishers:
             log.info("publishers")
             for i in self.publishers:
-                log.info("- {}".format(i))
+                log.info(f"- {i}")
 
         if self.videos:
             log.info("videos")
@@ -895,21 +900,23 @@ class BoardGame(BaseGame):
         if self.player_suggestions:
             log.info("Player Suggestions")
             for v in self.player_suggestions:
-                log.info("- {} - Best: {}, Recommended: {}, Not Recommended: {}"
-                         .format(v.player_count, v.best,
-                                 v.recommended, v.not_recommended))
+                log.info(
+                    "- {} - Best: {}, Recommended: {}, Not Recommended: {}".format(
+                        v.player_count, v.best, v.recommended, v.not_recommended
+                    )
+                )
                 log.info("--------")
 
-        log.info("users rated game  : {}".format(self.users_rated))
-        log.info("users avg rating  : {}".format(self.rating_average))
-        log.info("users b-avg rating: {}".format(self.rating_bayes_average))
-        log.info("users commented   : {}".format(self.users_commented))
-        log.info("users owned       : {}".format(self.users_owned))
-        log.info("users wanting     : {}".format(self.users_wanting))
-        log.info("users wishing     : {}".format(self.users_wishing))
-        log.info("users trading     : {}".format(self.users_trading))
-        log.info("ranks             : {}".format(self.ranks))
-        log.info("description       : {}".format(self.description))
+        log.info(f"users rated game  : {self.users_rated}")
+        log.info(f"users avg rating  : {self.rating_average}")
+        log.info(f"users b-avg rating: {self.rating_bayes_average}")
+        log.info(f"users commented   : {self.users_commented}")
+        log.info(f"users owned       : {self.users_owned}")
+        log.info(f"users wanting     : {self.users_wanting}")
+        log.info(f"users wishing     : {self.users_wishing}")
+        log.info(f"users trading     : {self.users_trading}")
+        log.info(f"ranks             : {self.ranks}")
+        log.info(f"description       : {self.description}")
         if self.comments:
             for c in self.comments:
                 c._format(log)
