@@ -1,4 +1,3 @@
-# coding: utf-8
 """
 :mod:`boardgamegeek.things` - Generic objects
 =============================================
@@ -10,7 +9,6 @@
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 
 """
-from __future__ import unicode_literals
 
 from ..exceptions import BGGError
 from ..utils import DictObject
@@ -20,19 +18,22 @@ class Thing(DictObject):
     """
     A thing, an object with a name and an id. Base class for various objects in the library.
     """
+
     def __init__(self, data):
         for i in ["id", "name"]:
             if i not in data:
-                raise BGGError("missing '{}' when trying to create a Thing".format(i))
+                raise BGGError(f"missing '{i}' when trying to create a Thing")
 
         try:
             self._id = int(data["id"])
-        except:
-            raise BGGError("id ({}) is not an int when trying to create a Thing".format(data["id"]))
+        except ValueError:
+            raise BGGError(
+                "id ({}) is not an int when trying to create a Thing".format(data["id"])
+            )
 
         self._name = data["name"]
 
-        super(Thing, self).__init__(data)
+        super().__init__(data)
 
     @property
     def name(self):
@@ -51,4 +52,4 @@ class Thing(DictObject):
         return self._id
 
     def __repr__(self):
-        return "Thing (id: {})".format(self.id)
+        return f"Thing (id: {self.id})"

@@ -1,4 +1,3 @@
-# coding: utf-8
 """
 :mod:`boardgamegeek.utils` - Generic helper functions
 =====================================================
@@ -10,7 +9,6 @@
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 
 """
-from __future__ import unicode_literals
 
 import html
 import logging
@@ -38,9 +36,11 @@ class RateLimitingAdapter(HTTPAdapter):
     so that we don't get throttled
     """
 
-    __last_request_timestamp = None     # time when the last request was made
-    __time_between_requests = 0         # interval to wait between requests in order to match the expected number of
-                                        # requests per second
+    __last_request_timestamp = None  # time when the last request was made
+    __time_between_requests = (
+        0  # interval to wait between requests in order to match the expected number of
+    )
+    # requests per second
 
     __rate_limit_lock = threading.Lock()
 
@@ -52,26 +52,33 @@ class RateLimitingAdapter(HTTPAdapter):
         :return:
         """
         if rpm <= 0:
-            log.warning("invalid requests per minute value ({}), falling back to default".format(rpm))
+            log.warning(
+                f"invalid requests per minute value ({rpm}), falling back to default"
+            )
             rpm = DEFAULT_REQUESTS_PER_MINUTE
 
         RateLimitingAdapter.__time_between_requests = 60.0 / float(rpm)
 
-        super(RateLimitingAdapter, self).__init__(**kw)
+        super().__init__(**kw)
 
     def send(self, request, **kw):
         log.debug("acquiring rate limiting lock")
         with RateLimitingAdapter.__rate_limit_lock:
-
-            log.debug("time between requests:{}, last request timestamp: {}".format(RateLimitingAdapter.__time_between_requests,
-                                                                                    RateLimitingAdapter.__last_request_timestamp))
+            log.debug(
+                "time between requests:{}, last request timestamp: {}".format(
+                    RateLimitingAdapter.__time_between_requests,
+                    RateLimitingAdapter.__last_request_timestamp,
+                )
+            )
 
             # determine if we need to sleep in order to enforce the maximum requested amount of requests per minute
             if RateLimitingAdapter.__last_request_timestamp is not None:
                 time_delta = time.time() - RateLimitingAdapter.__last_request_timestamp
                 need_to_wait = RateLimitingAdapter.__time_between_requests - time_delta
 
-                log.debug("time since last request: {}, need to wait: {}".format(time_delta, need_to_wait))
+                log.debug(
+                    f"time since last request: {time_delta}, need to wait: {need_to_wait}"
+                )
 
                 if need_to_wait > 0:
                     time.sleep(need_to_wait)
@@ -79,11 +86,11 @@ class RateLimitingAdapter(HTTPAdapter):
             RateLimitingAdapter.__last_request_timestamp = time.time()
             log.debug("releasing rate limiting lock")
 
-        log.debug("sending request: {}".format(request))
-        return super(RateLimitingAdapter, self).send(request, **kw)
+        log.debug(f"sending request: {request}")
+        return super().send(request, **kw)
 
 
-class DictObject(object):
+class DictObject:
     """
     Just a fancy wrapper over a dictionary
     """
@@ -95,7 +102,8 @@ class DictObject(object):
         # allow accessing user's variables using .attribute
         try:
             return self._data[item]
-        except:
+        except Exception:
+            # TODO Too broad?
             raise AttributeError
 
     # TODO: remove this ? Turn to property ?
@@ -107,7 +115,16 @@ class DictObject(object):
         return self._data
 
 
-def xml_subelement_attr_by_attr(xml_elem, subelement, filter_attr, filter_value, convert=None, attribute="value", default=None, quiet=False):
+def xml_subelement_attr_by_attr(
+    xml_elem,
+    subelement,
+    filter_attr,
+    filter_value,
+    convert=None,
+    attribute="value",
+    default=None,
+    quiet=False,
+):
     """
     Search for a sub-element having an attribute ``filter_attr`` set to ``filter_value``
 
@@ -136,23 +153,25 @@ def xml_subelement_attr_by_attr(xml_elem, subelement, filter_attr, filter_value,
     if xml_elem is None or not subelement:
         return None
 
-    for subel in xml_elem.findall('.//{}[@{}="{}"]'.format(subelement, filter_attr, filter_value)):
+    for subel in xml_elem.findall(f'.//{subelement}[@{filter_attr}="{filter_value}"]'):
         value = subel.attrib.get(attribute)
         if value is None:
             value = default
         elif convert:
             try:
                 value = convert(value)
-            except:
+            except Exception as e:
                 if quiet:
                     value = default
                 else:
-                    raise
+                    raise e
         return value
     return default
 
 
-def xml_subelement_attr(xml_elem, subelement, convert=None, attribute="value", default=None, quiet=False):
+def xml_subelement_attr(
+    xml_elem, subelement, convert=None, attribute="value", default=None, quiet=False
+):
     """
     Search for a sub-element and return the value of its attribute.
 
@@ -189,15 +208,17 @@ def xml_subelement_attr(xml_elem, subelement, convert=None, attribute="value", d
         elif convert:
             try:
                 value = convert(value)
-            except:
+            except Exception as e:
                 if quiet:
                     value = default
                 else:
-                    raise
+                    raise e
     return value
 
 
-def xml_subelement_attr_list(xml_elem, subelement, convert=None, attribute="value", default=None, quiet=False):
+def xml_subelement_attr_list(
+    xml_elem, subelement, convert=None, attribute="value", default=None, quiet=False
+):
     """
     Search for sub-elements and return a list of the specified attribute.
 
@@ -231,11 +252,11 @@ def xml_subelement_attr_list(xml_elem, subelement, convert=None, attribute="valu
         elif convert:
             try:
                 value = convert(value)
-            except:
+            except Exception as e:
                 if quiet:
                     value = default
                 else:
-                    raise
+                    raise e
         res.append(value)
 
     return res
@@ -275,15 +296,17 @@ def xml_subelement_text(xml_elem, subelement, convert=None, default=None, quiet=
         elif convert:
             try:
                 text = convert(text)
-            except:
+            except Exception as e:
                 if quiet:
                     text = default
                 else:
-                    raise
+                    raise e
     return text
 
 
-def request_and_parse_xml(requests_session, url, params=None, timeout=15, retries=3, retry_delay=5):
+def request_and_parse_xml(
+    requests_session, url, params=None, timeout=15, retries=3, retry_delay=5
+):
     """
     Downloads an XML from the specified url, parses it and returns the xml ElementTree.
 
@@ -315,10 +338,14 @@ def request_and_parse_xml(requests_session, url, params=None, timeout=15, retrie
                     raise BGGApiRetryError
                 elif retr == 0:
                     # retries were requested, but we reached 0. Signal the application that it needs to retry itself.
-                    raise BGGApiRetryError("failed to retrieve data after {} retries".format(retries))
+                    raise BGGApiRetryError(
+                        f"failed to retrieve data after {retries} retries"
+                    )
                 else:
                     # sleep for the specified delay and retry
-                    log.debug("API call will be retried in {} seconds ({} more retries)".format(retry_delay, retr))
+                    log.debug(
+                        f"API call will be retried in {retry_delay} seconds ({retr} more retries)"
+                    )
                     if retr >= 0:
                         time.sleep(retry_delay)
                         retry_delay *= 1.5
@@ -346,20 +373,24 @@ def request_and_parse_xml(requests_session, url, params=None, timeout=15, retrie
                 raise BGGApiTimeoutError
             elif retr == 0:
                 # ... reached 0 retries
-                raise BGGApiTimeoutError("failed to retrieve data after {} retries".format(retries))
+                raise BGGApiTimeoutError(
+                    f"failed to retrieve data after {retries} retries"
+                )
             else:
-                log.debug("API request timeout, retrying {} more times w/timeout {}".format(retr, timeout))
+                log.debug(
+                    f"API request timeout, retrying {retr} more times w/timeout {timeout}"
+                )
                 timeout *= 2.5
                 continue
 
         except ETParseError as e:
-            raise BGGApiError("error decoding BGG API response: {}".format(e))
+            raise BGGApiError(f"error decoding BGG API response: {e}")
 
         except (BGGApiRetryError, BGGApiTimeoutError):
             raise
 
         except Exception as e:
-            raise BGGApiError("error fetching BGG API response: {}".format(e))
+            raise BGGApiError(f"error fetching BGG API response: {e}")
 
     raise BGGApiError("couldn't fetch data within the configured number of retries")
 
@@ -373,12 +404,12 @@ def fix_url(url):
     :return: the fixed url
     """
     if url and url.startswith("//"):
-        url = "http:{}".format(url)
+        url = f"http:{url}"
     return url
 
 
 def fix_unsigned_negative(value):
-    # the BGG api seems to return negative years casted to unsigned ints (32 bit) in search results. This function
+    # the BGG api seems to return negative years cast to unsigned ints (32 bit) in search results. This function
     # fixes the values so that they're negative again.
     if value > 0x7FFFFFFF:
         value -= 0x100000000
@@ -386,21 +417,29 @@ def fix_unsigned_negative(value):
 
 
 def get_board_game_version_from_element(xml_elem):
-    data = {"id": int(xml_elem.attrib["id"]),
-            "yearpublished": fix_unsigned_negative(xml_subelement_attr(xml_elem,
-                                                                       "yearpublished",
-                                                                       convert=int,
-                                                                       default=0,
-                                                                       quiet=True)),
-            "language": xml_subelement_attr_by_attr(xml_elem, "link", "type", "language"),
-            "publisher": xml_subelement_attr_by_attr(xml_elem, "link", "type", "boardgamepublisher"),
-            "artist": xml_subelement_attr_by_attr(xml_elem, "link", "type", "boardgameartist"),
-            "thumbnail": xml_subelement_text(xml_elem, "thumbnail"),
-            "image": xml_subelement_text(xml_elem, "image"),
-            "name": xml_subelement_attr(xml_elem, "name"),
-            "product_code": xml_subelement_attr(xml_elem, "productcode")}
+    data = {
+        "id": int(xml_elem.attrib["id"]),
+        "yearpublished": fix_unsigned_negative(
+            xml_subelement_attr(
+                xml_elem, "yearpublished", convert=int, default=0, quiet=True
+            )
+        ),
+        "language": xml_subelement_attr_by_attr(xml_elem, "link", "type", "language"),
+        "publisher": xml_subelement_attr_by_attr(
+            xml_elem, "link", "type", "boardgamepublisher"
+        ),
+        "artist": xml_subelement_attr_by_attr(
+            xml_elem, "link", "type", "boardgameartist"
+        ),
+        "thumbnail": xml_subelement_text(xml_elem, "thumbnail"),
+        "image": xml_subelement_text(xml_elem, "image"),
+        "name": xml_subelement_attr(xml_elem, "name"),
+        "product_code": xml_subelement_attr(xml_elem, "productcode"),
+    }
 
     for item in ["width", "length", "depth", "weight"]:
-        data[item] = xml_subelement_attr(xml_elem, item, convert=float, quiet=True, default=0.0)
+        data[item] = xml_subelement_attr(
+            xml_elem, item, convert=float, quiet=True, default=0.0
+        )
 
     return data

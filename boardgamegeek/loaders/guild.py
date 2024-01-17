@@ -1,36 +1,42 @@
 import logging
 
-from ..objects.guild import Guild
 from ..exceptions import BGGItemNotFoundError
-from ..utils import xml_subelement_text, html_unescape
-
+from ..objects.guild import Guild
+from ..utils import html_unescape, xml_subelement_text
 
 log = logging.getLogger("boardgamegeek.loaders.guild")
 
 
 def create_guild_from_xml(xml_root):
-
     if "name" not in xml_root.attrib:
         raise BGGItemNotFoundError("name not found")
 
-    data = {"name": xml_root.attrib["name"],
-            "created": xml_root.attrib.get("created"),
-            "id": int(xml_root.attrib["id"]),
-            "members": [],
-            "category": xml_subelement_text(xml_root, "category"),
-            "website": xml_subelement_text(xml_root, "website"),
-            "manager": xml_subelement_text(xml_root, "manager"),
-            "description": xml_subelement_text(xml_root, "description", convert=html_unescape, quiet=True)}
+    data = {
+        "name": xml_root.attrib["name"],
+        "created": xml_root.attrib.get("created"),
+        "id": int(xml_root.attrib["id"]),
+        "members": [],
+        "category": xml_subelement_text(xml_root, "category"),
+        "website": xml_subelement_text(xml_root, "website"),
+        "manager": xml_subelement_text(xml_root, "manager"),
+        "description": xml_subelement_text(
+            xml_root, "description", convert=html_unescape, quiet=True
+        ),
+    }
 
     # Grab location info
     location = xml_root.find("location")
     if location is not None:
-        data.update({"city": xml_subelement_text(location, "city"),
-                     "country": xml_subelement_text(location, "country"),
-                     "postalcode": xml_subelement_text(location, "postalcode"),
-                     "addr1": xml_subelement_text(location, "addr1"),
-                     "addr2": xml_subelement_text(location, "addr2"),
-                     "stateorprovince": xml_subelement_text(location, "stateorprovince")})
+        data.update(
+            {
+                "city": xml_subelement_text(location, "city"),
+                "country": xml_subelement_text(location, "country"),
+                "postalcode": xml_subelement_text(location, "postalcode"),
+                "addr1": xml_subelement_text(location, "addr1"),
+                "addr2": xml_subelement_text(location, "addr2"),
+                "stateorprovince": xml_subelement_text(location, "stateorprovince"),
+            }
+        )
 
     members = xml_root.find("members")
     if members is not None:

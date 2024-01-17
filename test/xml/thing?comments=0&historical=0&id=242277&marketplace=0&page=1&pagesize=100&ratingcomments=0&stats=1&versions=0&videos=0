@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?><items termsofuse="https://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgameexpansion" id="242277">
          <thumbnail>https://cf.geekdo-images.com/GRp__UYY-wM-i2fg4Qzefw__thumb/img/qLl_YEnA_TiXfhinS8yqAARKUFY=/fit-in/200x150/filters:strip_icc()/pic3911078.jpg</thumbnail>
       <image>https://cf.geekdo-images.com/GRp__UYY-wM-i2fg4Qzefw__original/img/XJgcyfvPBsrxdew_vyvf96MUK6I=/0x0/filters:format(jpeg)/pic3911078.jpg</image>
-                                     				
+
 				<name type="primary" sortindex="1" value="Scythe: The Rise of Fenris" />
-			
-						                               				
+
+
 				<name type="alternate" sortindex="1" value="Scythe: A Fenris felemelkedése" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Scythe: Aufstand der Fenris" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Scythe: Aufstieg der Fenris" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Scythe: El auge de Fenris" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Scythe: Fenris Powstaje" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Scythe: L&#039;Éveil de Fenris" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Scythe: Le Réveil de Fenris" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Scythe: Vzestup Fenrise" />
-			    				
+
 				<name type="alternate" sortindex="1" value="Серп: Восхождение Фенриса" />
-			    				
+
 				<name type="alternate" sortindex="1" value="サイズ-大鎌戦役-拡張　フェンリス襲来" />
-			    				
+
 				<name type="alternate" sortindex="1" value="鐮刀戰爭：惡狼的崛起" />
-			    				
+
 				<name type="alternate" sortindex="1" value="사이드: 라이즈 오브 펜리스" />
-			
+
 						               													<description>Empires have risen and fallen in the aftermath of the Great War, and Europa stands on the precipice of a new era. The economy is robust, morale is high, and defenses are strong. There are reports from the countryside of strange soldiers with glowing eyes, but they seem distant and harmless.&amp;#10;&amp;#10;Scythe: The Rise of Fenris, the conclusion to the Scythe expansion trilogy, enables two different options for any player count (1-5 if you have Scythe; 1-7 players if you have Invaders from Afar):&amp;#10;&amp;#10;&amp;#10;     Campaign (8 games): The story of Scythe continues and concludes with an eight-episode campaign. While the campaign includes surprises, unlocks, and persistent elements, it is fully resettable and replayable.&amp;#10;     Modular (11 modules): Instead of&amp;mdash;or after&amp;mdash;the campaign, the new modules in The Rise of Fenris can be used in various combinations to cater to player preferences. These modules are compatible with all Scythe expansions, and they include a fully cooperative module.&amp;#10;&amp;#10;&amp;#10;While the exact nature of the episodes and modules will remain a mystery (most of these components are in 5 secret tuckboxes and on 6 punchboards), the components in this expansion include a detailed episodic guidebook, 13 plastic miniatures, 62 wooden tokens, 2 custom dice, 25 tiles, and 100+ cardboard tokens.&amp;#10;&amp;#10;&amp;mdash;description from the publisher&amp;#10;&amp;#10;</description>
 										      	               				<yearpublished value="2018" />
 						               				<minplayers value="1" />
 						               				<maxplayers value="5" />
 						      			<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="51">
-			
-		<results numplayers="1">		
+
+		<results numplayers="1">
 					<result value="Best" numvotes="1" />
 					<result value="Recommended" numvotes="21" />
 					<result value="Not Recommended" numvotes="9" />
-				</results>					
-			
-		<results numplayers="2">		
+				</results>
+
+		<results numplayers="2">
 					<result value="Best" numvotes="1" />
 					<result value="Recommended" numvotes="30" />
 					<result value="Not Recommended" numvotes="8" />
-				</results>					
-			
-		<results numplayers="3">		
+				</results>
+
+		<results numplayers="3">
 					<result value="Best" numvotes="13" />
 					<result value="Recommended" numvotes="24" />
 					<result value="Not Recommended" numvotes="2" />
-				</results>					
-			
-		<results numplayers="4">		
+				</results>
+
+		<results numplayers="4">
 					<result value="Best" numvotes="23" />
 					<result value="Recommended" numvotes="12" />
 					<result value="Not Recommended" numvotes="0" />
-				</results>					
-			
-		<results numplayers="5">		
+				</results>
+
+		<results numplayers="5">
 					<result value="Best" numvotes="12" />
 					<result value="Recommended" numvotes="15" />
 					<result value="Not Recommended" numvotes="3" />
-				</results>					
-			
-		<results numplayers="5+">		
+				</results>
+
+		<results numplayers="5+">
 					<result value="Best" numvotes="5" />
 					<result value="Recommended" numvotes="10" />
 					<result value="Not Recommended" numvotes="14" />
-				</results>					
+				</results>
 	</poll> 			               				<playingtime value="150" />
 						               				<minplaytime value="75" />
 						               				<maxplaytime value="150" />
 						               				<minage value="12" />
 						      			<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="5">
-			<results>		
+			<results>
 					<result value="2" numvotes="0" />
 					<result value="3" numvotes="0" />
 					<result value="4" numvotes="0" />
@@ -88,282 +88,282 @@
 					<result value="16" numvotes="0" />
 					<result value="18" numvotes="0" />
 					<result value="21 and up" numvotes="0" />
-				</results>					
+				</results>
 	</poll> 			      			<poll name="language_dependence" title="Language Dependence" totalvotes="2">
-			
-		<results>		
+
+		<results>
 					<result level="1" value="No necessary in-game text" numvotes="0" />
 					<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="0" />
 					<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="0" />
 					<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="2" />
 					<result level="5" value="Unplayable in another language" numvotes="0" />
-				</results>					
-	</poll> 			      			 			      				
-		 			
+				</results>
+	</poll>
 
-			
-		
+
+
+
 					<link type="boardgamecategory" id="1015" value="Civilization" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1021" value="Economic" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1042" value="Expansion for Base-game" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1046" value="Fighting" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1086" value="Territory Building" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2080" value="Area Majority / Influence" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2018" value="Campaign / Battle Card Driven" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2023" value="Cooperative Game" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2015" value="Variable Player Powers" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamefamily" id="38432" value="Game: Scythe" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamefamily" id="24281" value="Mechanism: Campaign Games" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamefamily" id="5666" value="Players: Games with Solitaire Rules" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamefamily" id="63004" value="Theme: Mech Warfare" />
-		
-									
-			
 
-			      			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="169786" value="Scythe" inbound="true"/>
-		
-									
-			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      	      	      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
+
+
+
+
+
 					<link type="boardgamedesigner" id="105661" value="Ryan Lopez DeVinaspre" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamedesigner" id="62640" value="Jamey Stegmaier" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgameartist" id="33148" value="Jakub Rozalski" />
-		
-									
-			
 
-			      	      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="23202" value="Stonemaier Games" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="4304" value="Albi" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="3475" value="Arclight" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="34522" value="CrowD Games" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="6194" value="Delta Vision Publishing" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="22380" value="Feuerland Spiele" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="4785" value="Ghenos Games" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="8291" value="Korea Boardgames Co., Ltd." />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="30677" value="Maldito Games" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="5400" value="Matagot" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="36186" value="PHALANX" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="36763" value="Surfin' Meeple China" />
-		
-									
-			
 
-			
-	
 
-	
 
-	
-	
-	
+
+
+
+
+
+
+
+
+
    		<statistics page="1">
 								<ratings >
 			<usersrated value="5128" />
@@ -386,8 +386,8 @@
 			<averageweight value="3.2903" />
 			</ratings>
 								</statistics>
-     
-	
-          
+
+
+
 </item>
 </items>

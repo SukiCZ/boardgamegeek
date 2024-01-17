@@ -1,13 +1,12 @@
-import time
+import _common
 import pytest
 
-from _common import *
-from boardgamegeek import BGGValueError, BGGRestrictSearchResultsTo
+from boardgamegeek import BGGRestrictSearchResultsTo, BGGValueError
 
 
 def test_search(bgg, mocker):
     mock_get = mocker.patch("requests.sessions.Session.get")
-    mock_get.side_effect = simulate_bgg
+    mock_get.side_effect = _common.simulate_bgg
 
     res = bgg.search("some invalid game name", exact=True)
     assert not len(res)
@@ -17,9 +16,7 @@ def test_search(bgg, mocker):
 
     # test that the new type of search works
     res = bgg.search("Agricola", search_type=[BGGRestrictSearchResultsTo.BOARD_GAME])
-    assert type(res[0].id) == int
+    assert isinstance(res[0].id, int)
 
     with pytest.raises(BGGValueError):
         bgg.search("Agricola", search_type=["invalid-search-type"])
-
-

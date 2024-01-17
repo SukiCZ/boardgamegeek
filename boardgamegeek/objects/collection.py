@@ -1,4 +1,3 @@
-# coding: utf-8
 """
 :mod:`boardgamegeek.collection` - Collection information
 ========================================================
@@ -10,7 +9,6 @@
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 
 """
-from __future__ import unicode_literals
 
 from copy import copy
 
@@ -26,6 +24,7 @@ class Collection(DictObject):
     :param dict data: a dictionary containing the collection data
     :raises: :py:class:`boardgamegeek.exceptions.BoardGameGeekError` in case of invalid data
     """
+
     def __init__(self, data):
         kw = copy(data)
 
@@ -35,11 +34,11 @@ class Collection(DictObject):
         for game in kw.get("items", []):
             self.add_game(game)
 
-        super(Collection, self).__init__(kw)
+        super().__init__(kw)
 
     def _format(self, log):
-        log.info("owner    : {}".format(self.owner))
-        log.info("size     : {} items".format(len(self)))
+        log.info(f"owner    : {self.owner}")
+        log.info(f"size     : {len(self)} items")
 
         log.info("items")
 
@@ -67,10 +66,10 @@ class Collection(DictObject):
         return self._items.__getitem__(item)
 
     def __str__(self):
-        return "{}'s collection, {} items".format(self.owner, len(self))
+        return f"{self.owner}'s collection, {len(self)} items"
 
     def __repr__(self):
-        return "Collection: (owner: {}, items: {})".format(self.owner, len(self))
+        return f"Collection: (owner: {self.owner}, items: {len(self)})"
 
     def __len__(self):
         return len(self._items)
@@ -96,5 +95,4 @@ class Collection(DictObject):
         return self._items
 
     def __iter__(self):
-        for item in self._items:
-            yield item
+        yield from self._items

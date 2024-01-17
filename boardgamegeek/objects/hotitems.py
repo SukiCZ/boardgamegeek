@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
 :mod:`boardgamegeek.hotitems` - BoardGameGeek "Hot Items"
 =========================================================
@@ -10,13 +8,12 @@
 
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 """
-from __future__ import unicode_literals
 
 from copy import copy
 
-from .things import Thing
 from ..exceptions import BGGError
 from ..utils import DictObject, fix_url
+from .things import Thing
 
 
 class HotItem(Thing):
@@ -33,17 +30,17 @@ class HotItem(Thing):
         if "thumbnail" in data:
             data["thumbnail"] = fix_url(data["thumbnail"])
 
-        super(HotItem, self).__init__(data)
+        super().__init__(data)
 
     def __repr__(self):
-        return "HotItem (id: {})".format(self.id)
+        return f"HotItem (id: {self.id})"
 
     def _format(self, log):
-        log.info("hot item id        : {}".format(self.id))
-        log.info("hot item name      : {}".format(self.name))
-        log.info("hot item rank      : {}".format(self.rank))
-        log.info("hot item published : {}".format(self.year))
-        log.info("hot item thumbnail : {}".format(self.thumbnail))
+        log.info(f"hot item id        : {self.id}")
+        log.info(f"hot item name      : {self.name}")
+        log.info(f"hot item rank      : {self.rank}")
+        log.info(f"hot item published : {self.year}")
+        log.info(f"hot item thumbnail : {self.thumbnail}")
 
     @property
     def rank(self):
@@ -76,6 +73,7 @@ class HotItems(DictObject):
     """
     A collection of :py:class:`boardgamegeek.hotitems.HotItem`
     """
+
     def __init__(self, data):
         kw = copy(data)
         if "items" not in kw:
@@ -85,7 +83,7 @@ class HotItems(DictObject):
         for data in kw["items"]:
             self._items.append(HotItem(data))
 
-        super(HotItems, self).__init__(kw)
+        super().__init__(kw)
 
     def add_hot_item(self, data):
         """

@@ -1,4 +1,3 @@
-# coding: utf8
 """
 :mod:`boardgamegeek.search` - Search results
 ============================================
@@ -10,10 +9,9 @@
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 
 """
-from __future__ import unicode_literals
 
-from boardgamegeek.objects.things import Thing
 from boardgamegeek.exceptions import BGGError
+from boardgamegeek.objects.things import Thing
 from boardgamegeek.utils import fix_unsigned_negative
 
 
@@ -30,13 +28,13 @@ class SearchResult(Thing):
 
             self._yearpublished = fix_unsigned_negative(data["yearpublished"])
 
-        super(SearchResult, self).__init__(data)
+        super().__init__(data)
 
     def _format(self, log):
-        log.info("searched item id   : {}".format(self.id))
-        log.info("searched item name : {}".format(self.name))
-        log.info("searched item type : {}".format(self.type))
-        log.info("searched item year : {}".format(self.year))
+        log.info(f"searched item id   : {self.id}")
+        log.info(f"searched item name : {self.name}")
+        log.info(f"searched item type : {self.type}")
+        log.info(f"searched item year : {self.year}")
 
     @property
     def type(self):

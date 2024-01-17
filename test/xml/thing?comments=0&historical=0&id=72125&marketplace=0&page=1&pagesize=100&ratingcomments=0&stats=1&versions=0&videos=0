@@ -1,66 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgame" id="72125">
          <thumbnail>https://cf.geekdo-images.com/images/pic1974056_t.jpg</thumbnail>
       <image>https://cf.geekdo-images.com/images/pic1974056.jpg</image>
-                                     				
+
 				<name type="primary" sortindex="1" value="Eclipse" />
-			
-						                               				
+
+
 				<name type="alternate" sortindex="1" value="星蚀" />
-			
+
 						               													<description>The galaxy has been a peaceful place for many years. After the ruthless Terran&amp;ndash;Hegemony War (30.027&amp;ndash;33.364), much effort has been employed by all major spacefaring species to prevent the terrifying events from repeating themselves. The Galactic Council was formed to enforce precious peace, and it has taken many courageous efforts to prevent the escalation of malicious acts. Nevertheless, tension and discord are growing among the seven major species and in the Council itself. Old alliances are shattering, and hasty diplomatic treaties are made in secrecy. A confrontation of the superpowers seems inevitable &amp;ndash; only the outcome of the galactic conflict remains to be seen. Which faction will emerge victorious and lead the galaxy under its rule?&amp;#10;&amp;#10;A game of Eclipse places you in control of a vast interstellar civilization, competing for success with its rivals. You will explore new star systems, research technologies, and build spaceships with which to wage war. There are many potential paths to victory, so you need to plan your strategy according to the strengths and weaknesses of your species, while paying attention to the other civilizations' endeavors.&amp;#10;&amp;#10;The shadows of the great civilizations are about to eclipse the galaxy. Lead your people to victory!&amp;#10;&amp;#10;</description>
 										      	               				<yearpublished value="2011" />
 						               				<minplayers value="2" />
 						               				<maxplayers value="6" />
 						      			<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="540">
-			
-		<results numplayers="1">		
+
+		<results numplayers="1">
 					<result value="Best" numvotes="2" />
 					<result value="Recommended" numvotes="15" />
 					<result value="Not Recommended" numvotes="285" />
-				</results>					
-			
-		<results numplayers="2">		
+				</results>
+
+		<results numplayers="2">
 					<result value="Best" numvotes="31" />
 					<result value="Recommended" numvotes="235" />
 					<result value="Not Recommended" numvotes="150" />
-				</results>					
-			
-		<results numplayers="3">		
+				</results>
+
+		<results numplayers="3">
 					<result value="Best" numvotes="73" />
 					<result value="Recommended" numvotes="317" />
 					<result value="Not Recommended" numvotes="47" />
-				</results>					
-			
-		<results numplayers="4">		
+				</results>
+
+		<results numplayers="4">
 					<result value="Best" numvotes="376" />
 					<result value="Recommended" numvotes="110" />
 					<result value="Not Recommended" numvotes="7" />
-				</results>					
-			
-		<results numplayers="5">		
+				</results>
+
+		<results numplayers="5">
 					<result value="Best" numvotes="117" />
 					<result value="Recommended" numvotes="262" />
 					<result value="Not Recommended" numvotes="61" />
-				</results>					
-			
-		<results numplayers="6">		
+				</results>
+
+		<results numplayers="6">
 					<result value="Best" numvotes="243" />
 					<result value="Recommended" numvotes="147" />
 					<result value="Not Recommended" numvotes="45" />
-				</results>					
-			
-		<results numplayers="6+">		
+				</results>
+
+		<results numplayers="6+">
 					<result value="Best" numvotes="10" />
 					<result value="Recommended" numvotes="34" />
 					<result value="Not Recommended" numvotes="176" />
-				</results>					
-	</poll> 
+				</results>
+	</poll>
 			               				<playingtime value="200" />
 						               				<minplaytime value="60" />
 						               				<maxplaytime value="200" />
 						               				<minage value="14" />
 						      			<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="158">
-			<results>		
+			<results>
 					<result value="2" numvotes="1" />
 					<result value="3" numvotes="0" />
 					<result value="4" numvotes="0" />
@@ -73,349 +73,349 @@
 					<result value="16" numvotes="14" />
 					<result value="18" numvotes="0" />
 					<result value="21 and up" numvotes="0" />
-				</results>					
-	</poll> 
+				</results>
+	</poll>
 			      			<poll name="language_dependence" title="Language Dependence" totalvotes="195">
-			
-		<results>		
+
+		<results>
 					<result level="1" value="No necessary in-game text" numvotes="130" />
 					<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="57" />
 					<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="6" />
 					<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
 					<result level="5" value="Unplayable in another language" numvotes="2" />
-				</results>					
-	</poll> 
-			      			 
-			      				
-		 			
+				</results>
+	</poll>
 
-			
-		
+
+
+
+
+
 					<link type="boardgamecategory" id="1015" value="Civilization" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1046" value="Fighting" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1016" value="Science Fiction" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1113" value="Space Exploration" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamecategory" id="1019" value="Wargame" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2080" value="Area Control / Area Influence" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2072" value="Dice Rolling" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2676" value="Grid Movement" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2011" value="Modular Board" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2685" value="Player Elimination" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2002" value="Tile Placement" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2079" value="Variable Phase Order" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamemechanic" id="2015" value="Variable Player Powers" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamefamily" id="12210" value="4X games" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamefamily" id="21459" value="Eclipse" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="217786" value="Eclipse:  Anticipation of the Elders" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="184256" value="Eclipse: Black Hole" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="136155" value="Eclipse: Elders of the Solstice" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="190742" value="Eclipse: Gift of the Elders" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="152898" value="Eclipse: Minions of the Solstice" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="154785" value="Eclipse: Nebula" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="131415" value="Eclipse: Pulsar" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="125898" value="Eclipse: Rise of the Ancients" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="133967" value="Eclipse: Rise of the Ancients – The Tractor Beam" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="135838" value="Eclipse: Rockets of Celebration" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="179255" value="Eclipse: Shadow of the Rift" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="146690" value="Eclipse: Ship Pack One" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="104746" value="Eclipse: Supernova" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameexpansion" id="171114" value="Eclipse: The Galactic North" />
-		
-									
-			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      			
 
-			      	      	      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
+
+
+
+
+
+
 					<link type="boardgamedesigner" id="13000" value="Touko Tahkokallio" />
-		
-									
-			
 
-			      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgameartist" id="19023" value="Ossi Hiekkala" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgameartist" id="32143" value="Sampo Sikiö" />
-		
-									
-			
 
-			      	      				
-		 			
 
-			
-		
+
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="3218" value="Lautapelit.fi" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="157" value="Asmodee" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="15889" value="Asterion Press" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="7466" value="Rebel" />
-		
-									
-				
-		 			
 
-			
-		
+
+
+
+
+
+
 					<link type="boardgamepublisher" id="2861" value="Ystari Games" />
-		
-									
-			
 
-			
-	
 
-	
 
-	
-	
-	
+
+
+
+
+
+
+
+
+
    		<statistics page="1">
 								<ratings >
 			<usersrated value="21819" />
@@ -438,8 +438,8 @@
 			<averageweight value="3.6826" />
 			</ratings>
 								</statistics>
-     
-	
-          
+
+
+
 </item>
 </items>

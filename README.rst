@@ -27,4 +27,4 @@ Documentation is available at http://lcosmin.github.io/boardgamegeek
       :target: https://travis-ci.org/lcosmin/boardgamegeek
 
 .. |coveralls-boardgamegeek2| image:: https://coveralls.io/repos/lcosmin/boardgamegeek/badge.png?branch=develop
-      :target: https://coveralls.io/r/lcosmin/boardgamegeek?branch=develop      
+      :target: https://coveralls.io/r/lcosmin/boardgamegeek?branch=develop
