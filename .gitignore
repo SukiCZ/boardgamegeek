@@ -11,4 +11,5 @@ build
 _modules
 dist
 .coverage
+coverage.xml
 .tox
