@@ -7,15 +7,15 @@ with open("README.rst", encoding="utf-8") as f:
 
 
 setup(
-    name="boardgamegeek2",
+    name="bgg-api",
     version="1.0.1",
     packages=find_packages(),
     license="BSD",
-    author="Cosmin Luță",
-    author_email="q4break@gmail.com",
-    description="A Python interface to boardgamegeek.com's API",
+    author="Jakub Boukal",
+    author_email="www.bagr@gmail.com",
+    description="A Python API for boardgamegeek.com",
     long_description=long_description,
-    url="https://github.com/lcosmin/boardgamegeek",
+    url="https://github.com/SukiCZ/boardgamegeek",
     classifiers=[
         "Programming Language :: Python",
         "Programming Language :: Python :: 3.8",

@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+1.1.0
+-----
+
+* Fix compatibility with request-cache 1.+
+* Align code with PEP8
+
+
 1.0.1
 -----
 
