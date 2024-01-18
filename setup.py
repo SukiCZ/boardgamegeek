@@ -15,6 +15,7 @@ setup(
     author_email="www.bagr@gmail.com",
     description="A Python API for boardgamegeek.com",
     long_description=long_description,
+    long_description_content_type="text/markdown",
     url="https://github.com/SukiCZ/boardgamegeek",
     classifiers=[
         "Programming Language :: Python",
