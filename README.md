@@ -45,10 +45,8 @@ tox
 ```bash
 # Bump version (patch, minor, major)
 bumpversion patch
-# Build package
-python setup.py sdist bdist_wheel
-# Upload package to PyPI
-twine upload dist/*
+# Push to github
+git push --tags origin master
 ```
 
 
