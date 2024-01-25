@@ -1,11 +1,13 @@
-# boardgamegeek
+# BGG-API
 
 ### A Python API for [boardgamegeek.com](https://boardgamegeek.com/)
 
 
+[![docs status](https://readthedocs.org/projects/bgg-api/badge/?version=latest)](https://bgg-api.readthedocs.io/en/latest/)
 [![ci workflow status](https://github.com/SukiCZ/boardgamegeek/actions/workflows/ci.yml/badge.svg)](https://github.com/SukiCZ/boardgamegeek/actions)
 [![codecov](https://codecov.io/gh/SukiCZ/boardgamegeek/graph/badge.svg?token=LMOWZ62OIS)](https://codecov.io/gh/SukiCZ/boardgamegeek)
-[![Black code style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+[![Black code style](https://img.shields.io/badge/code_style-black-000000.svg)](https://github.com/ambv/black)
+![Contributions welcome](https://img.shields.io/badge/contributions-welcome-green.svg)
 
 ## Installation
 
@@ -44,13 +46,7 @@ tox
 
 ```bash
 # Bump version (patch, minor, major)
-bumpversion patch
+bump2version patch
 # Push to github
 git push --tags origin master
 ```
-
-
-## Documentation
-<!-- TODO Restructure docs, publish to readthedocs.io -->
-
-Documentation is available at <http://lcosmin.github.io/boardgamegeek>

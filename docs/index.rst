@@ -1,6 +1,8 @@
-==================================================
-boardgamegeek - A Python API for boardgamegeek.com
-==================================================
+=======
+BGG-API
+=======
+
+A Python API wrapper for BoardGameGeek_
 
 .. note::
 
@@ -11,10 +13,9 @@ Introduction
 ============
 
 
-``boardgamegeek`` is a Python library which makes it easy to access data from BoardGameGeek_ using their official XML
-API.
+``bgg-api`` is a Python wrapper to easily access data from BoardGameGeek_ XML API.
 
-It's an almost completely rewritten fork of libBGG_.
+It's continuation of boardgamegeek2_, which is an almost completely rewritten fork of libBGG_.
 
 Table of Contents
 =================
@@ -22,16 +23,17 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
 
-   changelog
    modules
+   changelog
+
 
 Features
 ========
 
 This library exposes (as Python objects with properties) the following BoardGameGeek_ entities:
 
-* Users
 * Games
+* Users
 * User collections
 * Player guilds
 * Plays
@@ -44,39 +46,30 @@ requests-cache_ is used for locally caching replies in order to reduce the amoun
     persistent cache.
 
 
-Quick Install
-=============
+Installation
+============
 
-To install ``boardgamegeek``, just use pip::
+.. code-block:: shell
 
-    > pip install boardgamegeek2
-
-If you had previously used this library before it was rewritten, you'll need to uninstall it first::
-
-    > pip uninstall boardgamegeek
-
+        pip install bgg-api
 
 Usage
 =====
 
-Here's a quick usage example:
+.. code-block:: python
 
-.. code-block:: pycon
+    from boardgamegeek import BGGClient
 
-    >>> from boardgamegeek import BGGClient
-    >>> bgg = BGGClient()
-    >>> g = bgg.game("Android: Netrunner")
-    >>> g.name
-    'Android: Netrunner'
-    >>> g.id
-    124742
-    >>> for n in g.alternative_names: print n.encode("utf-8")
-    ...
-    安卓纪元：矩阵潜袭
+    bgg = BGGClient()
+
+    game = bgg.game("Monopoly")
+
+    print(game.year)  # 1935
+    print(game.rating_average)  # 4.36166
 
 
-To Do
-=====
+TODO
+====
 
 * Not all the information exposed by the official API is stored into the Python objects. Need to improve this.
 * Try to support the other sites from the boardgamegeek's family
@@ -91,6 +84,7 @@ Credits
 
 Original authors:
 
+* Cosmin Luță (github:lcosmin)
 * Phil S. Stein (github:philsstein)
 * Geoff Lawler (github:glawler)
 
@@ -113,5 +107,6 @@ Indices and tables
 * :ref:`search`
 
 .. _BoardGameGeek: http://www.boardgamegeek.com
+.. _boardgamegeek2: https://github.com/lcosmin/boardgamegeek
 .. _libBGG: https://github.com/philsstein/libBGG
 .. _requests-cache: https://pypi.python.org/pypi/requests-cache

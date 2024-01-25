@@ -2,6 +2,14 @@ Changelog
 =========
 
 
+1.1.1
+-----
+
+* Upgrade Sphinx documentation
+* Publish documentation to `readthedocs.io <https://bgg-api.readthedocs.io>`_
+* Initialize Github Publish Action
+
+
 1.1.0
 -----
 
