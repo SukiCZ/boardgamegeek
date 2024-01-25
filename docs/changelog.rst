@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.1.2
+-----
+
+* Use Trusted Publishers for PyPI
+
+
 1.1.1
 -----
 
