@@ -8,6 +8,7 @@ from boardgamegeek.objects.games import (
     BoardGameRank,
     BoardGameVersion,
     BoardGameVideo,
+    MarketplaceListing,
     PlayerSuggestion,
 )
 
@@ -146,6 +147,17 @@ def check_game(game):
     # should have found suggestions for all number of players
     assert not len(suggestions_not_found)
 
+    # check marketplace listings were retrieved
+    assert isinstance(game.marketplace, list)
+    for listing in game.marketplace:
+        assert isinstance(listing, MarketplaceListing)
+        assert isinstance(listing.price, float)
+        assert isinstance(listing.currency, str)
+        assert isinstance(listing.condition, str)
+        assert isinstance(listing.link, str)
+        assert isinstance(listing.list_date, datetime.datetime)
+        assert isinstance(listing.notes, str)
+
     # make sure no exception gets thrown
     repr(game)
 
@@ -155,7 +167,9 @@ def test_get_known_game_info(bgg, mocker, null_logger):
     mock_get.side_effect = _common.simulate_bgg
 
     # use an older game that's not so likely to change
-    game = bgg.game(_common.TEST_GAME_NAME, videos=True, versions=True)
+    game = bgg.game(
+        _common.TEST_GAME_NAME, videos=True, versions=True, marketplace=True
+    )
 
     check_game(game)
 
@@ -169,7 +183,9 @@ def test_get_known_game_info_by_id(bgg, mocker):
     mock_get = mocker.patch("requests.sessions.Session.get")
     mock_get.side_effect = _common.simulate_bgg
 
-    game = bgg.game(None, game_id=_common.TEST_GAME_ID, videos=True, versions=True)
+    game = bgg.game(
+        None, game_id=_common.TEST_GAME_ID, videos=True, versions=True, marketplace=True
+    )
     check_game(game)
 
 
@@ -181,6 +197,7 @@ def test_get_known_game_info_by_id_list(bgg, mocker):
         game_id_list=[_common.TEST_GAME_ID, _common.TEST_GAME_ID_2],
         videos=True,
         versions=True,
+        marketplace=True,
     )
     check_game(game_list[0])
 

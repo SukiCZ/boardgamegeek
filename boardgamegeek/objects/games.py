@@ -418,6 +418,75 @@ class BoardGameVersion(Thing):
         return self._data.get("yearpublished")
 
 
+class MarketplaceListing(DictObject):
+    """
+    Object containing information about a marketplace listing
+    """
+
+    def __init__(self, data):
+        kw = copy(data)
+        super().__init__(kw)
+
+    def _format(self, log):
+        log.info(f"listing date       : {self.list_date}")
+        log.info(f"listing price    : {self.price}")
+        log.info(f"listing currency : {self.currency}")
+        log.info(f"listing condition: {self.condition}")
+        log.info(f"listing notes    : {self.notes}")
+        log.info(f"listing link     : {self.link}")
+
+    @property
+    def list_date(self):
+        """
+        :return: date when this listing was created
+        :rtype: datetime.datetime
+        :return: ``None`` on parse error
+        """
+        return self._data.get("list_date")
+
+    @property
+    def price(self):
+        """
+        :return: price of the item
+        :rtype: float
+        """
+        return self._data.get("price")
+
+    @property
+    def currency(self):
+        """
+        :return: ISO code of the currency (EUR, USD, etc.)
+        :rtype: string
+        """
+        return self._data.get("currency")
+
+    @property
+    def condition(self):
+        """
+        :return: condition of the item ((like)new, (very)good, acceptable, etc.)
+        :rtype: string
+        """
+        return self._data.get("condition")
+
+    @property
+    def notes(self):
+        """
+        :return: notes about the item
+            Example: "Game is in great shape, but the box has shelf-wear."
+        :rtype: string
+        """
+        return self._data.get("notes")
+
+    @property
+    def link(self):
+        """
+        :return: link to the item
+            Example: https://boardgamegeek.com/market/product/633634
+        :rtype: string
+        """
+        return self._data.get("link")
+
+
 class BaseGame(Thing):
     def __init__(self, data):
         self._thumbnail = fix_url(data["thumbnail"]) if "thumbnail" in data else None
@@ -442,6 +511,14 @@ class BaseGame(Thing):
                     self._versions_set.add(version["id"])
             except KeyError:
                 raise BGGError("invalid version data")
+
+        self._marketplace = []
+
+        for listing in data.get("marketplace", []):
+            try:
+                self._marketplace.append(MarketplaceListing(listing))
+            except KeyError:
+                raise BGGError("invalid marketplace data")
 
         super().__init__(data)
 
@@ -1116,6 +1193,14 @@ class BoardGame(BaseGame):
         :rtype: list of :py:class:`boardgamegeek.game.BoardGameVersion`
         """
         return self._versions
+
+    @property
+    def marketplace(self):
+        """
+        :return: marketplace listings of this game
+        :rtype: list of :py:class:`boardgamegeek.game.MarketplaceListing`
+        """
+        return self._marketplace
 
     @property
     def player_suggestions(self):

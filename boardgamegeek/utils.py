@@ -9,7 +9,7 @@
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 
 """
-
+import datetime
 import html
 import logging
 import threading
@@ -441,5 +441,26 @@ def get_board_game_version_from_element(xml_elem):
         data[item] = xml_subelement_attr(
             xml_elem, item, convert=float, quiet=True, default=0.0
         )
+
+    return data
+
+
+def get_marketplace_listing_from_element(xml_elem):
+    try:
+        list_date_string = xml_subelement_attr(xml_elem, "listdate")
+        list_date = datetime.datetime.strptime(
+            list_date_string, "%a, %d %b %Y %H:%M:%S %z"
+        )
+    except ValueError:
+        list_date = None
+
+    data = {
+        "list_date": list_date,
+        "price": xml_subelement_attr(xml_elem, "price", convert=float, default=0.0),
+        "currency": xml_subelement_attr(xml_elem, "price", attribute="currency"),
+        "condition": xml_subelement_attr(xml_elem, "condition"),
+        "notes": xml_subelement_attr(xml_elem, "notes"),
+        "link": xml_subelement_attr(xml_elem, "link", attribute="href"),
+    }
 
     return data

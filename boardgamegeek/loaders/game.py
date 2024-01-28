@@ -4,6 +4,7 @@ from ..exceptions import BGGApiError
 from ..objects.games import BoardGame
 from ..utils import (
     get_board_game_version_from_element,
+    get_marketplace_listing_from_element,
     html_unescape,
     xml_subelement_attr,
     xml_subelement_attr_list,
@@ -116,6 +117,20 @@ def create_game_from_xml(xml_root, game_id):
                 raise BGGApiError("malformed XML element ('versions')")
 
         data["versions"] = ver_list
+
+    # look for marketplace
+    marketplace = xml_root.find("marketplacelistings")
+    if marketplace is not None:
+        listings = []
+
+        for listing in marketplace.findall("listing"):
+            try:
+                ld = get_marketplace_listing_from_element(listing)
+                listings.append(ld)
+            except KeyError:
+                raise BGGApiError("malformed XML element ('marketplacelistings')")
+
+        data["marketplace"] = listings
 
     # look for the statistics
     stats = xml_root.find("statistics/ratings")
