@@ -2,6 +2,11 @@ Changelog
 =========
 
 
+1.1.3
+-----
+
+* Add marketplace listing to Game
+
 1.1.2
 -----
 
