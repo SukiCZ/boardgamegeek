@@ -1,202 +1,253 @@
-<?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-			<item id="174430" rank="1">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2437871_t.jpg"/>
-			<name value="Gloomhaven"/>
-			<yearpublished value="2017" />		</item>
-			<item id="242277" rank="2">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3911078_t.jpg"/>
-			<name value="Scythe: The Rise of Fenris"/>
-			<yearpublished value="2018" />		</item>
-			<item id="239189" rank="3">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3858448_t.jpg"/>
-			<name value="Chronicle X"/>
-			<yearpublished value="2018" />		</item>
-			<item id="169786" rank="4">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3163924_t.jpg"/>
-			<name value="Scythe"/>
-			<yearpublished value="2016" />		</item>
-			<item id="197376" rank="5">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3322613_t.jpg"/>
-			<name value="Charterstone"/>
-			<yearpublished value="2017" />		</item>
-			<item id="221194" rank="6">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3429338_t.png"/>
-			<name value="Dinosaur Island"/>
-			<yearpublished value="2017" />		</item>
-			<item id="167791" rank="7">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3536616_t.jpg"/>
-			<name value="Terraforming Mars"/>
-			<yearpublished value="2016" />		</item>
-			<item id="219100" rank="8">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3895673_t.jpg"/>
-			<name value="UBOOT: The Board Game"/>
-			<yearpublished value="2018" />		</item>
-			<item id="220308" rank="9">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3763556_t.jpg"/>
-			<name value="Gaia Project"/>
-			<yearpublished value="2017" />		</item>
-			<item id="230802" rank="10">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3718275_t.jpg"/>
-			<name value="Azul"/>
-			<yearpublished value="2017" />		</item>
-			<item id="55690" rank="11">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2931007_t.jpg"/>
-			<name value="Kingdom Death: Monster"/>
-			<yearpublished value="2015" />		</item>
-			<item id="205637" rank="12">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3122349_t.jpg"/>
-			<name value="Arkham Horror: The Card Game"/>
-			<yearpublished value="2016" />		</item>
-			<item id="98734" rank="13">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic991288_t.jpg"/>
-			<name value="Herocults"/>
-			<yearpublished value="1990" />		</item>
-			<item id="180263" rank="14">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2648303_t.jpg"/>
-			<name value="The 7th Continent"/>
-			<yearpublished value="2017" />		</item>
-			<item id="162886" rank="15">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3615739_t.png"/>
-			<name value="Spirit Island"/>
-			<yearpublished value="2017" />		</item>
-			<item id="232918" rank="16">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3728149_t.jpg"/>
-			<name value="Fallout"/>
-			<yearpublished value="2017" />		</item>
-			<item id="233078" rank="17">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3727516_t.jpg"/>
-			<name value="Twilight Imperium: Fourth Edition"/>
-			<yearpublished value="2017" />		</item>
-			<item id="202426" rank="18">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3476762_t.png"/>
-			<name value="Sidereal Confluence: Trading and Negotiation in the Elysian Quadrant"/>
-			<yearpublished value="2017" />		</item>
-			<item id="187645" rank="19">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2737530_t.png"/>
-			<name value="Star Wars: Rebellion"/>
-			<yearpublished value="2016" />		</item>
-			<item id="216132" rank="20">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3511783_t.png"/>
-			<name value="Clans of Caledonia"/>
-			<yearpublished value="2017" />		</item>
-			<item id="193738" rank="21">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3113247_t.jpg"/>
-			<name value="Great Western Trail"/>
-			<yearpublished value="2016" />		</item>
-			<item id="164153" rank="22">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2247647_t.jpg"/>
-			<name value="Star Wars: Imperial Assault"/>
-			<yearpublished value="2014" />		</item>
-			<item id="218603" rank="23">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3364832_t.jpg"/>
-			<name value="Photosynthesis"/>
-			<yearpublished value="2017" />		</item>
-			<item id="221107" rank="24">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3763549_t.jpg"/>
-			<name value="Pandemic Legacy: Season 2"/>
-			<yearpublished value="2017" />		</item>
-			<item id="186751" rank="25">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3235453_t.jpg"/>
-			<name value="Mythic Battles: Pantheon"/>
-			<yearpublished value="2017" />		</item>
-			<item id="161936" rank="26">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2452831_t.png"/>
-			<name value="Pandemic Legacy: Season 1"/>
-			<yearpublished value="2015" />		</item>
-			<item id="96848" rank="27">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1083380_t.jpg"/>
-			<name value="Mage Knight Board Game"/>
-			<yearpublished value="2011" />		</item>
-			<item id="222509" rank="28">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3592207_t.jpg"/>
-			<name value="Lords of Hellas"/>
-			<yearpublished value="2017" />		</item>
-			<item id="205059" rank="29">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3118622_t.jpg"/>
-			<name value="Mansions of Madness: Second Edition"/>
-			<yearpublished value="2016" />		</item>
-			<item id="120677" rank="30">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1356616_t.jpg"/>
-			<name value="Terra Mystica"/>
-			<yearpublished value="2012" />		</item>
-			<item id="183394" rank="31">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2649952_t.jpg"/>
-			<name value="Viticulture Essential Edition"/>
-			<yearpublished value="2015" />		</item>
-			<item id="84876" rank="32">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1176894_t.jpg"/>
-			<name value="The Castles of Burgundy"/>
-			<yearpublished value="2011" />		</item>
-			<item id="228341" rank="33">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3736981_t.jpg"/>
-			<name value="Pulsar 2849"/>
-			<yearpublished value="2017" />		</item>
-			<item id="121921" rank="34">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3165731_t.jpg"/>
-			<name value="Robinson Crusoe: Adventures on the Cursed Island"/>
-			<yearpublished value="2012" />		</item>
-			<item id="68448" rank="35">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic860217_t.jpg"/>
-			<name value="7 Wonders"/>
-			<yearpublished value="2010" />		</item>
-			<item id="199561" rank="36">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3525224_t.jpg"/>
-			<name value="Sagrada"/>
-			<yearpublished value="2017" />		</item>
-			<item id="188920" rank="37">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3315915_t.jpg"/>
-			<name value="This War of Mine: The Board Game"/>
-			<yearpublished value="2017" />		</item>
-			<item id="234669" rank="38">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3754388_t.jpg"/>
-			<name value="Legacy of Dragonholt"/>
-			<yearpublished value="2017" />		</item>
-			<item id="182028" rank="39">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2663291_t.jpg"/>
-			<name value="Through the Ages: A New Story of Civilization"/>
-			<yearpublished value="2015" />		</item>
-			<item id="173346" rank="40">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3376065_t.jpg"/>
-			<name value="7 Wonders Duel"/>
-			<yearpublished value="2015" />		</item>
-			<item id="227789" rank="41">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3563904_t.jpg"/>
-			<name value="Heaven &amp; Ale"/>
-			<yearpublished value="2017" />		</item>
-			<item id="194655" rank="42">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3283110_t.png"/>
-			<name value="Santorini"/>
-			<yearpublished value="2016" />		</item>
-			<item id="201808" rank="43">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3056966_t.jpg"/>
-			<name value="Clank!: A Deck-Building Adventure"/>
-			<yearpublished value="2016" />		</item>
-			<item id="226501" rank="44">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3534544_t.png"/>
-			<name value="Dragonfire"/>
-			<yearpublished value="2017" />		</item>
-			<item id="12333" rank="45">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic361592_t.jpg"/>
-			<name value="Twilight Struggle"/>
-			<yearpublished value="2005" />		</item>
-			<item id="170216" rank="46">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2439223_t.jpg"/>
-			<name value="Blood Rage"/>
-			<yearpublished value="2015" />		</item>
-			<item id="195421" rank="47">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3605785_t.jpg"/>
-			<name value="Near and Far"/>
-			<yearpublished value="2017" />		</item>
-			<item id="233247" rank="48">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3764168_t.jpg"/>
-			<name value="Sid Meier&#039;s Civilization: A New Dawn"/>
-			<yearpublished value="2017" />		</item>
-			<item id="204583" rank="49">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3132685_t.png"/>
-			<name value="Kingdomino"/>
-			<yearpublished value="2016" />		</item>
-			<item id="30549" rank="50">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1534148_t.jpg"/>
-			<name value="Pandemic"/>
-			<yearpublished value="2008" />		</item>
-	</items>
+<?xml version="1.0" encoding="utf-8"?>
+<items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <item id="174430" rank="1">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2437871_t.jpg"/>
+    <name value="Gloomhaven"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="242277" rank="2">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3911078_t.jpg"/>
+    <name value="Scythe: The Rise of Fenris"/>
+    <yearpublished value="2018"/>
+  </item>
+  <item id="239189" rank="3">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3858448_t.jpg"/>
+    <name value="Chronicle X"/>
+    <yearpublished value="2018"/>
+  </item>
+  <item id="169786" rank="4">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3163924_t.jpg"/>
+    <name value="Scythe"/>
+    <yearpublished value="2016"/>
+  </item>
+  <item id="197376" rank="5">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3322613_t.jpg"/>
+    <name value="Charterstone"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="221194" rank="6">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3429338_t.png"/>
+    <name value="Dinosaur Island"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="167791" rank="7">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3536616_t.jpg"/>
+    <name value="Terraforming Mars"/>
+    <yearpublished value="2016"/>
+  </item>
+  <item id="219100" rank="8">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3895673_t.jpg"/>
+    <name value="UBOOT: The Board Game"/>
+    <yearpublished value="2018"/>
+  </item>
+  <item id="220308" rank="9">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3763556_t.jpg"/>
+    <name value="Gaia Project"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="230802" rank="10">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3718275_t.jpg"/>
+    <name value="Azul"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="55690" rank="11">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2931007_t.jpg"/>
+    <name value="Kingdom Death: Monster"/>
+    <yearpublished value="2015"/>
+  </item>
+  <item id="205637" rank="12">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3122349_t.jpg"/>
+    <name value="Arkham Horror: The Card Game"/>
+    <yearpublished value="2016"/>
+  </item>
+  <item id="98734" rank="13">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic991288_t.jpg"/>
+    <name value="Herocults"/>
+    <yearpublished value="1990"/>
+  </item>
+  <item id="180263" rank="14">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2648303_t.jpg"/>
+    <name value="The 7th Continent"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="162886" rank="15">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3615739_t.png"/>
+    <name value="Spirit Island"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="232918" rank="16">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3728149_t.jpg"/>
+    <name value="Fallout"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="233078" rank="17">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3727516_t.jpg"/>
+    <name value="Twilight Imperium: Fourth Edition"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="202426" rank="18">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3476762_t.png"/>
+    <name value="Sidereal Confluence: Trading and Negotiation in the Elysian Quadrant"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="187645" rank="19">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2737530_t.png"/>
+    <name value="Star Wars: Rebellion"/>
+    <yearpublished value="2016"/>
+  </item>
+  <item id="216132" rank="20">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3511783_t.png"/>
+    <name value="Clans of Caledonia"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="193738" rank="21">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3113247_t.jpg"/>
+    <name value="Great Western Trail"/>
+    <yearpublished value="2016"/>
+  </item>
+  <item id="164153" rank="22">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2247647_t.jpg"/>
+    <name value="Star Wars: Imperial Assault"/>
+    <yearpublished value="2014"/>
+  </item>
+  <item id="218603" rank="23">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3364832_t.jpg"/>
+    <name value="Photosynthesis"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="221107" rank="24">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3763549_t.jpg"/>
+    <name value="Pandemic Legacy: Season 2"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="186751" rank="25">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3235453_t.jpg"/>
+    <name value="Mythic Battles: Pantheon"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="161936" rank="26">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2452831_t.png"/>
+    <name value="Pandemic Legacy: Season 1"/>
+    <yearpublished value="2015"/>
+  </item>
+  <item id="96848" rank="27">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1083380_t.jpg"/>
+    <name value="Mage Knight Board Game"/>
+    <yearpublished value="2011"/>
+  </item>
+  <item id="222509" rank="28">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3592207_t.jpg"/>
+    <name value="Lords of Hellas"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="205059" rank="29">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3118622_t.jpg"/>
+    <name value="Mansions of Madness: Second Edition"/>
+    <yearpublished value="2016"/>
+  </item>
+  <item id="120677" rank="30">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1356616_t.jpg"/>
+    <name value="Terra Mystica"/>
+    <yearpublished value="2012"/>
+  </item>
+  <item id="183394" rank="31">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2649952_t.jpg"/>
+    <name value="Viticulture Essential Edition"/>
+    <yearpublished value="2015"/>
+  </item>
+  <item id="84876" rank="32">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1176894_t.jpg"/>
+    <name value="The Castles of Burgundy"/>
+    <yearpublished value="2011"/>
+  </item>
+  <item id="228341" rank="33">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3736981_t.jpg"/>
+    <name value="Pulsar 2849"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="121921" rank="34">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3165731_t.jpg"/>
+    <name value="Robinson Crusoe: Adventures on the Cursed Island"/>
+    <yearpublished value="2012"/>
+  </item>
+  <item id="68448" rank="35">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic860217_t.jpg"/>
+    <name value="7 Wonders"/>
+    <yearpublished value="2010"/>
+  </item>
+  <item id="199561" rank="36">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3525224_t.jpg"/>
+    <name value="Sagrada"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="188920" rank="37">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3315915_t.jpg"/>
+    <name value="This War of Mine: The Board Game"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="234669" rank="38">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3754388_t.jpg"/>
+    <name value="Legacy of Dragonholt"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="182028" rank="39">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2663291_t.jpg"/>
+    <name value="Through the Ages: A New Story of Civilization"/>
+    <yearpublished value="2015"/>
+  </item>
+  <item id="173346" rank="40">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3376065_t.jpg"/>
+    <name value="7 Wonders Duel"/>
+    <yearpublished value="2015"/>
+  </item>
+  <item id="227789" rank="41">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3563904_t.jpg"/>
+    <name value="Heaven &amp; Ale"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="194655" rank="42">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3283110_t.png"/>
+    <name value="Santorini"/>
+    <yearpublished value="2016"/>
+  </item>
+  <item id="201808" rank="43">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3056966_t.jpg"/>
+    <name value="Clank!: A Deck-Building Adventure"/>
+    <yearpublished value="2016"/>
+  </item>
+  <item id="226501" rank="44">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3534544_t.png"/>
+    <name value="Dragonfire"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="12333" rank="45">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic361592_t.jpg"/>
+    <name value="Twilight Struggle"/>
+    <yearpublished value="2005"/>
+  </item>
+  <item id="170216" rank="46">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2439223_t.jpg"/>
+    <name value="Blood Rage"/>
+    <yearpublished value="2015"/>
+  </item>
+  <item id="195421" rank="47">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3605785_t.jpg"/>
+    <name value="Near and Far"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="233247" rank="48">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3764168_t.jpg"/>
+    <name value="Sid Meier's Civilization: A New Dawn"/>
+    <yearpublished value="2017"/>
+  </item>
+  <item id="204583" rank="49">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3132685_t.png"/>
+    <name value="Kingdomino"/>
+    <yearpublished value="2016"/>
+  </item>
+  <item id="30549" rank="50">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1534148_t.jpg"/>
+    <name value="Pandemic"/>
+    <yearpublished value="2008"/>
+  </item>
+</items>

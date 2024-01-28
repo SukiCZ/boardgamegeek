@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+</guild>

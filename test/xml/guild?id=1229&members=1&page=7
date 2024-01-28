@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="7">
-					<member name="futiles" date="Tue, 11 Mar 2014 04:54:01 +0000" />
-					<member name="gaaloechild" date="Mon, 03 Jul 2017 04:57:48 +0000" />
-					<member name="Galapagos" date="Sun, 06 May 2012 09:28:22 +0000" />
-					<member name="gamefool" date="Mon, 02 Nov 2015 03:15:59 +0000" />
-					<member name="game_boy" date="Fri, 18 Oct 2013 08:42:45 +0000" />
-					<member name="Ganlron" date="Fri, 02 Aug 2013 18:00:42 +0000" />
-					<member name="gca3020" date="Mon, 25 Apr 2016 11:56:56 +0000" />
-					<member name="GearPimp" date="Thu, 11 Apr 2013 22:27:11 +0000" />
-					<member name="geggakloss" date="Sun, 22 Jan 2012 15:15:25 +0000" />
-					<member name="gekekoons3" date="Sun, 30 Jul 2017 02:10:20 +0000" />
-					<member name="gerald" date="Mon, 08 Sep 2014 06:38:52 +0000" />
-					<member name="ghalidrim" date="Mon, 25 Apr 2016 14:29:39 +0000" />
-					<member name="ghizi" date="Fri, 03 Jul 2015 01:53:17 +0000" />
-					<member name="gladiator_posse" date="Tue, 20 Jan 2015 23:10:52 +0000" />
-					<member name="gmc14" date="Mon, 23 Feb 2015 14:39:31 +0000" />
-					<member name="gmcnish" date="Wed, 14 Jun 2017 10:04:33 +0000" />
-					<member name="Gomez" date="Sat, 14 Feb 2015 06:05:53 +0000" />
-					<member name="grafpoo" date="Fri, 30 Aug 2013 17:38:47 +0000" />
-					<member name="grandslam" date="Tue, 05 Jun 2012 23:10:17 +0000" />
-					<member name="grasa_total" date="Sun, 06 Oct 2013 20:27:51 +0000" />
-					<member name="Gregski" date="Wed, 06 Jun 2012 09:32:47 +0000" />
-					<member name="Grimwold" date="Sun, 22 Jan 2012 15:16:03 +0000" />
-					<member name="grozon" date="Tue, 31 Jan 2012 21:21:56 +0000" />
-					<member name="Halvard" date="Wed, 30 Aug 2017 05:37:02 +0000" />
-					<member name="HanClinto" date="Tue, 23 Oct 2012 16:37:04 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="7">
+    <member name="futiles" date="Tue, 11 Mar 2014 04:54:01 +0000"/>
+    <member name="gaaloechild" date="Mon, 03 Jul 2017 04:57:48 +0000"/>
+    <member name="Galapagos" date="Sun, 06 May 2012 09:28:22 +0000"/>
+    <member name="gamefool" date="Mon, 02 Nov 2015 03:15:59 +0000"/>
+    <member name="game_boy" date="Fri, 18 Oct 2013 08:42:45 +0000"/>
+    <member name="Ganlron" date="Fri, 02 Aug 2013 18:00:42 +0000"/>
+    <member name="gca3020" date="Mon, 25 Apr 2016 11:56:56 +0000"/>
+    <member name="GearPimp" date="Thu, 11 Apr 2013 22:27:11 +0000"/>
+    <member name="geggakloss" date="Sun, 22 Jan 2012 15:15:25 +0000"/>
+    <member name="gekekoons3" date="Sun, 30 Jul 2017 02:10:20 +0000"/>
+    <member name="gerald" date="Mon, 08 Sep 2014 06:38:52 +0000"/>
+    <member name="ghalidrim" date="Mon, 25 Apr 2016 14:29:39 +0000"/>
+    <member name="ghizi" date="Fri, 03 Jul 2015 01:53:17 +0000"/>
+    <member name="gladiator_posse" date="Tue, 20 Jan 2015 23:10:52 +0000"/>
+    <member name="gmc14" date="Mon, 23 Feb 2015 14:39:31 +0000"/>
+    <member name="gmcnish" date="Wed, 14 Jun 2017 10:04:33 +0000"/>
+    <member name="Gomez" date="Sat, 14 Feb 2015 06:05:53 +0000"/>
+    <member name="grafpoo" date="Fri, 30 Aug 2013 17:38:47 +0000"/>
+    <member name="grandslam" date="Tue, 05 Jun 2012 23:10:17 +0000"/>
+    <member name="grasa_total" date="Sun, 06 Oct 2013 20:27:51 +0000"/>
+    <member name="Gregski" date="Wed, 06 Jun 2012 09:32:47 +0000"/>
+    <member name="Grimwold" date="Sun, 22 Jan 2012 15:16:03 +0000"/>
+    <member name="grozon" date="Tue, 31 Jan 2012 21:21:56 +0000"/>
+    <member name="Halvard" date="Wed, 30 Aug 2017 05:37:02 +0000"/>
+    <member name="HanClinto" date="Tue, 23 Oct 2012 16:37:04 +0000"/>
+  </members>
+</guild>

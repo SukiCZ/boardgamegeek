@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="930" name="Crazy Squirrel Game Store" created="Wed, 27 Oct 2010 19:02:33 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>store</category>
-	<website>http://www.crazysquirrelgamestore.com/</website>
-	<manager>delveg</manager>
-	<description>Crazy Squirrel is place to gather for gaming; every Thursday is Board Game Night (6 pm), plus monthly board game meetups-- and other gaming throughout the week.</description>
-	<location>
-		<addr1>464 E Bullard Ave</addr1>
-		<addr2>Suite 105</addr2>
-		<city>Fresno</city>
-		<stateorprovince>California</stateorprovince>
-		<postalcode>93710</postalcode>
-		<country>United States</country>
-	</location>
-		<members count="31" page="1">
-					<member name="alxamp21" date="Mon, 30 May 2011 15:48:38 +0000" />
-					<member name="andinthend" date="Mon, 10 Aug 2015 21:51:52 +0000" />
-					<member name="CapAp" date="Mon, 01 Nov 2010 21:28:00 +0000" />
-					<member name="captwhiffle" date="Wed, 07 Jan 2015 08:20:05 +0000" />
-					<member name="CluelessNewbie" date="Fri, 29 Oct 2010 05:31:00 +0000" />
-					<member name="conanb" date="Thu, 28 Oct 2010 16:52:25 +0000" />
-					<member name="cphpitts" date="Thu, 28 Oct 2010 16:22:50 +0000" />
-					<member name="delveg" date="Wed, 27 Oct 2010 19:02:33 +0000" />
-					<member name="doctoryes0" date="Sun, 31 Mar 2013 15:35:54 +0000" />
-					<member name="gamemark" date="Thu, 28 Oct 2010 16:30:24 +0000" />
-					<member name="Ghandi2010" date="Thu, 28 Oct 2010 19:29:14 +0000" />
-					<member name="Hobiecat" date="Fri, 29 Oct 2010 22:01:07 +0000" />
-					<member name="Jaric" date="Thu, 28 Oct 2010 16:59:59 +0000" />
-					<member name="jaxin" date="Thu, 28 Oct 2010 16:22:25 +0000" />
-					<member name="ken52682" date="Thu, 28 Oct 2010 17:58:44 +0000" />
-					<member name="KevinWing" date="Thu, 28 Oct 2010 19:06:46 +0000" />
-					<member name="lionandlamb" date="Sat, 03 Nov 2012 19:22:16 +0000" />
-					<member name="LordCuilte" date="Sat, 05 Feb 2011 02:42:13 +0000" />
-					<member name="mattraptor" date="Thu, 28 Oct 2010 20:20:09 +0000" />
-					<member name="middleclassjoe" date="Thu, 28 Oct 2010 16:24:54 +0000" />
-					<member name="nymiesrose" date="Thu, 28 Oct 2010 17:52:37 +0000" />
-					<member name="onibaku06" date="Thu, 28 Oct 2010 23:25:57 +0000" />
-					<member name="rmjordan" date="Thu, 27 Sep 2012 22:57:56 +0000" />
-					<member name="ShyTrbleMaker" date="Thu, 28 Oct 2010 19:24:32 +0000" />
-					<member name="stinslow" date="Tue, 24 May 2011 12:21:16 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="930" name="Crazy Squirrel Game Store" created="Wed, 27 Oct 2010 19:02:33 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>store</category>
+  <website>http://www.crazysquirrelgamestore.com/</website>
+  <manager>delveg</manager>
+  <description>Crazy Squirrel is place to gather for gaming; every Thursday is Board Game Night (6 pm), plus monthly board game meetups-- and other gaming throughout the week.</description>
+  <location>
+    <addr1>464 E Bullard Ave</addr1>
+    <addr2>Suite 105</addr2>
+    <city>Fresno</city>
+    <stateorprovince>California</stateorprovince>
+    <postalcode>93710</postalcode>
+    <country>United States</country>
+  </location>
+  <members count="31" page="1">
+    <member name="alxamp21" date="Mon, 30 May 2011 15:48:38 +0000"/>
+    <member name="andinthend" date="Mon, 10 Aug 2015 21:51:52 +0000"/>
+    <member name="CapAp" date="Mon, 01 Nov 2010 21:28:00 +0000"/>
+    <member name="captwhiffle" date="Wed, 07 Jan 2015 08:20:05 +0000"/>
+    <member name="CluelessNewbie" date="Fri, 29 Oct 2010 05:31:00 +0000"/>
+    <member name="conanb" date="Thu, 28 Oct 2010 16:52:25 +0000"/>
+    <member name="cphpitts" date="Thu, 28 Oct 2010 16:22:50 +0000"/>
+    <member name="delveg" date="Wed, 27 Oct 2010 19:02:33 +0000"/>
+    <member name="doctoryes0" date="Sun, 31 Mar 2013 15:35:54 +0000"/>
+    <member name="gamemark" date="Thu, 28 Oct 2010 16:30:24 +0000"/>
+    <member name="Ghandi2010" date="Thu, 28 Oct 2010 19:29:14 +0000"/>
+    <member name="Hobiecat" date="Fri, 29 Oct 2010 22:01:07 +0000"/>
+    <member name="Jaric" date="Thu, 28 Oct 2010 16:59:59 +0000"/>
+    <member name="jaxin" date="Thu, 28 Oct 2010 16:22:25 +0000"/>
+    <member name="ken52682" date="Thu, 28 Oct 2010 17:58:44 +0000"/>
+    <member name="KevinWing" date="Thu, 28 Oct 2010 19:06:46 +0000"/>
+    <member name="lionandlamb" date="Sat, 03 Nov 2012 19:22:16 +0000"/>
+    <member name="LordCuilte" date="Sat, 05 Feb 2011 02:42:13 +0000"/>
+    <member name="mattraptor" date="Thu, 28 Oct 2010 20:20:09 +0000"/>
+    <member name="middleclassjoe" date="Thu, 28 Oct 2010 16:24:54 +0000"/>
+    <member name="nymiesrose" date="Thu, 28 Oct 2010 17:52:37 +0000"/>
+    <member name="onibaku06" date="Thu, 28 Oct 2010 23:25:57 +0000"/>
+    <member name="rmjordan" date="Thu, 27 Sep 2012 22:57:56 +0000"/>
+    <member name="ShyTrbleMaker" date="Thu, 28 Oct 2010 19:24:32 +0000"/>
+    <member name="stinslow" date="Tue, 24 May 2011 12:21:16 +0000"/>
+  </members>
+</guild>

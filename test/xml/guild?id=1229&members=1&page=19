@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="19">
-					<member name="Valien" date="Sun, 31 Dec 2017 00:28:17 +0000" />
-					<member name="velvetvoulge" date="Mon, 13 Nov 2017 16:15:08 +0000" />
-					<member name="virre" date="Sat, 21 Dec 2013 03:06:29 +0000" />
-					<member name="Vrooman" date="Wed, 04 Mar 2015 00:40:38 +0000" />
-					<member name="walkie" date="Wed, 11 May 2016 06:52:10 +0000" />
-					<member name="Warna" date="Tue, 11 Mar 2014 18:13:04 +0000" />
-					<member name="wavedog98" date="Fri, 04 Jul 2014 23:22:07 +0000" />
-					<member name="wayabo" date="Fri, 09 Nov 2012 18:50:00 +0000" />
-					<member name="WebKoala" date="Sat, 02 Feb 2013 09:15:55 +0000" />
-					<member name="web_navajo" date="Sat, 12 Mar 2016 13:51:42 +0000" />
-					<member name="weizur" date="Fri, 15 Mar 2013 02:02:17 +0000" />
-					<member name="welou" date="Tue, 24 Mar 2015 21:35:12 +0000" />
-					<member name="wesbaker" date="Tue, 01 Jul 2014 15:27:57 +0000" />
-					<member name="WhoDislikesKittens" date="Wed, 21 Jun 2017 17:28:43 +0000" />
-					<member name="wildthayne" date="Wed, 20 Aug 2014 19:45:34 +0000" />
-					<member name="Windmilling" date="Thu, 26 May 2016 18:30:58 +0000" />
-					<member name="Wizball" date="Fri, 20 Jun 2014 07:34:10 +0000" />
-					<member name="wolftruck" date="Thu, 08 Jan 2015 19:19:20 +0000" />
-					<member name="woodsbendwarrior" date="Sat, 18 Feb 2012 03:04:12 +0000" />
-					<member name="wwscrispin" date="Sun, 22 Jan 2012 13:24:20 +0000" />
-					<member name="wwwebb" date="Tue, 24 Jan 2012 02:13:28 +0000" />
-					<member name="XanthosDeia" date="Tue, 13 Nov 2012 07:27:35 +0000" />
-					<member name="xSuperioRx" date="Fri, 08 Sep 2017 12:50:33 +0000" />
-					<member name="yellek" date="Thu, 29 May 2014 01:20:05 +0000" />
-					<member name="Yesman Tim" date="Sun, 09 Nov 2014 14:27:16 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="19">
+    <member name="Valien" date="Sun, 31 Dec 2017 00:28:17 +0000"/>
+    <member name="velvetvoulge" date="Mon, 13 Nov 2017 16:15:08 +0000"/>
+    <member name="virre" date="Sat, 21 Dec 2013 03:06:29 +0000"/>
+    <member name="Vrooman" date="Wed, 04 Mar 2015 00:40:38 +0000"/>
+    <member name="walkie" date="Wed, 11 May 2016 06:52:10 +0000"/>
+    <member name="Warna" date="Tue, 11 Mar 2014 18:13:04 +0000"/>
+    <member name="wavedog98" date="Fri, 04 Jul 2014 23:22:07 +0000"/>
+    <member name="wayabo" date="Fri, 09 Nov 2012 18:50:00 +0000"/>
+    <member name="WebKoala" date="Sat, 02 Feb 2013 09:15:55 +0000"/>
+    <member name="web_navajo" date="Sat, 12 Mar 2016 13:51:42 +0000"/>
+    <member name="weizur" date="Fri, 15 Mar 2013 02:02:17 +0000"/>
+    <member name="welou" date="Tue, 24 Mar 2015 21:35:12 +0000"/>
+    <member name="wesbaker" date="Tue, 01 Jul 2014 15:27:57 +0000"/>
+    <member name="WhoDislikesKittens" date="Wed, 21 Jun 2017 17:28:43 +0000"/>
+    <member name="wildthayne" date="Wed, 20 Aug 2014 19:45:34 +0000"/>
+    <member name="Windmilling" date="Thu, 26 May 2016 18:30:58 +0000"/>
+    <member name="Wizball" date="Fri, 20 Jun 2014 07:34:10 +0000"/>
+    <member name="wolftruck" date="Thu, 08 Jan 2015 19:19:20 +0000"/>
+    <member name="woodsbendwarrior" date="Sat, 18 Feb 2012 03:04:12 +0000"/>
+    <member name="wwscrispin" date="Sun, 22 Jan 2012 13:24:20 +0000"/>
+    <member name="wwwebb" date="Tue, 24 Jan 2012 02:13:28 +0000"/>
+    <member name="XanthosDeia" date="Tue, 13 Nov 2012 07:27:35 +0000"/>
+    <member name="xSuperioRx" date="Fri, 08 Sep 2017 12:50:33 +0000"/>
+    <member name="yellek" date="Thu, 29 May 2014 01:20:05 +0000"/>
+    <member name="Yesman Tim" date="Sun, 09 Nov 2014 14:27:16 +0000"/>
+  </members>
+</guild>

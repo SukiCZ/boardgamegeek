@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="10">
-					<member name="khinners" date="Fri, 10 Jun 2016 18:16:38 +0000" />
-					<member name="kifty" date="Tue, 24 Jan 2012 16:58:56 +0000" />
-					<member name="killerTree" date="Mon, 13 Aug 2012 21:08:21 +0000" />
-					<member name="Kiyote" date="Wed, 02 Jan 2013 19:40:59 +0000" />
-					<member name="klark78" date="Sun, 01 Mar 2015 20:47:41 +0000" />
-					<member name="klawton" date="Fri, 23 Jun 2017 00:29:20 +0000" />
-					<member name="kleric42" date="Sun, 22 Jan 2012 17:08:12 +0000" />
-					<member name="kokigami" date="Wed, 30 Aug 2017 04:51:48 +0000" />
-					<member name="Korosu_Itai" date="Mon, 10 Oct 2016 19:05:32 +0000" />
-					<member name="krcko" date="Tue, 26 Apr 2016 18:12:33 +0000" />
-					<member name="kresh" date="Thu, 14 Feb 2013 07:21:07 +0000" />
-					<member name="ksuquix" date="Fri, 06 Jan 2017 16:07:50 +0000" />
-					<member name="kupad" date="Tue, 03 Dec 2013 16:12:58 +0000" />
-					<member name="labrhat22" date="Tue, 01 Oct 2013 11:18:50 +0000" />
-					<member name="Langalore" date="Tue, 06 Jun 2017 15:03:50 +0000" />
-					<member name="ldd23" date="Sat, 11 Feb 2017 18:54:36 +0000" />
-					<member name="Leader Desslok" date="Tue, 24 Jun 2014 19:48:17 +0000" />
-					<member name="leochab" date="Mon, 06 Jul 2015 21:35:55 +0000" />
-					<member name="LetsGetTrivial" date="Mon, 20 Aug 2012 23:36:29 +0000" />
-					<member name="lightforx" date="Sat, 05 Jul 2014 09:22:06 +0000" />
-					<member name="Lindsey" date="Sat, 06 Feb 2016 05:34:06 +0000" />
-					<member name="ljelewis" date="Mon, 09 May 2016 23:23:52 +0000" />
-					<member name="llopis" date="Sat, 10 Nov 2012 04:21:44 +0000" />
-					<member name="logicalgambit" date="Sat, 04 Feb 2012 18:09:38 +0000" />
-					<member name="lolcese" date="Wed, 20 Mar 2013 19:21:36 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="10">
+    <member name="khinners" date="Fri, 10 Jun 2016 18:16:38 +0000"/>
+    <member name="kifty" date="Tue, 24 Jan 2012 16:58:56 +0000"/>
+    <member name="killerTree" date="Mon, 13 Aug 2012 21:08:21 +0000"/>
+    <member name="Kiyote" date="Wed, 02 Jan 2013 19:40:59 +0000"/>
+    <member name="klark78" date="Sun, 01 Mar 2015 20:47:41 +0000"/>
+    <member name="klawton" date="Fri, 23 Jun 2017 00:29:20 +0000"/>
+    <member name="kleric42" date="Sun, 22 Jan 2012 17:08:12 +0000"/>
+    <member name="kokigami" date="Wed, 30 Aug 2017 04:51:48 +0000"/>
+    <member name="Korosu_Itai" date="Mon, 10 Oct 2016 19:05:32 +0000"/>
+    <member name="krcko" date="Tue, 26 Apr 2016 18:12:33 +0000"/>
+    <member name="kresh" date="Thu, 14 Feb 2013 07:21:07 +0000"/>
+    <member name="ksuquix" date="Fri, 06 Jan 2017 16:07:50 +0000"/>
+    <member name="kupad" date="Tue, 03 Dec 2013 16:12:58 +0000"/>
+    <member name="labrhat22" date="Tue, 01 Oct 2013 11:18:50 +0000"/>
+    <member name="Langalore" date="Tue, 06 Jun 2017 15:03:50 +0000"/>
+    <member name="ldd23" date="Sat, 11 Feb 2017 18:54:36 +0000"/>
+    <member name="Leader Desslok" date="Tue, 24 Jun 2014 19:48:17 +0000"/>
+    <member name="leochab" date="Mon, 06 Jul 2015 21:35:55 +0000"/>
+    <member name="LetsGetTrivial" date="Mon, 20 Aug 2012 23:36:29 +0000"/>
+    <member name="lightforx" date="Sat, 05 Jul 2014 09:22:06 +0000"/>
+    <member name="Lindsey" date="Sat, 06 Feb 2016 05:34:06 +0000"/>
+    <member name="ljelewis" date="Mon, 09 May 2016 23:23:52 +0000"/>
+    <member name="llopis" date="Sat, 10 Nov 2012 04:21:44 +0000"/>
+    <member name="logicalgambit" date="Sat, 04 Feb 2012 18:09:38 +0000"/>
+    <member name="lolcese" date="Wed, 20 Mar 2013 19:21:36 +0000"/>
+  </members>
+</guild>

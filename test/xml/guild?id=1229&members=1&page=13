@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="13">
-					<member name="MueveFicha" date="Mon, 26 May 2014 11:11:22 +0000" />
-					<member name="MungSu" date="Wed, 07 Oct 2015 12:44:06 +0000" />
-					<member name="MutantEnemy" date="Wed, 23 Aug 2017 13:41:56 +0000" />
-					<member name="Mwroskam" date="Mon, 18 Dec 2017 18:55:19 +0000" />
-					<member name="MydKnight" date="Tue, 28 Aug 2012 02:49:54 +0000" />
-					<member name="Mystica_love" date="Thu, 21 Apr 2016 08:20:08 +0000" />
-					<member name="N0Tgod" date="Sun, 19 Feb 2017 01:56:45 +0000" />
-					<member name="nagelfar" date="Sat, 16 Jan 2016 00:50:56 +0000" />
-					<member name="natepelzel" date="Sat, 23 Jan 2016 06:38:32 +0000" />
-					<member name="nclavio" date="Wed, 25 Feb 2015 16:20:11 +0000" />
-					<member name="nearx" date="Fri, 29 Apr 2016 15:06:47 +0000" />
-					<member name="netzhuffle" date="Tue, 17 Jun 2014 15:15:19 +0000" />
-					<member name="NickB" date="Tue, 20 Jun 2017 14:24:12 +0000" />
-					<member name="nimdil" date="Thu, 27 Nov 2014 13:37:20 +0000" />
-					<member name="NoodlePDX" date="Wed, 28 Oct 2015 17:01:53 +0000" />
-					<member name="Northburns" date="Fri, 03 Feb 2012 15:52:26 +0000" />
-					<member name="notclive" date="Thu, 30 Mar 2017 23:11:37 +0000" />
-					<member name="NowOrNever88" date="Tue, 18 Nov 2014 02:29:45 +0000" />
-					<member name="nukeu666" date="Thu, 25 Jun 2015 18:03:04 +0000" />
-					<member name="n_and" date="Sun, 22 Jan 2012 11:47:37 +0000" />
-					<member name="Odin_Knight" date="Thu, 29 Mar 2012 13:31:29 +0000" />
-					<member name="oiencp" date="Thu, 12 Oct 2017 20:53:38 +0000" />
-					<member name="OldManJim" date="Sun, 22 Jan 2012 11:46:21 +0000" />
-					<member name="ollybh" date="Sat, 16 Aug 2014 22:53:05 +0000" />
-					<member name="Omertron" date="Sun, 14 Aug 2016 16:03:02 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="13">
+    <member name="MueveFicha" date="Mon, 26 May 2014 11:11:22 +0000"/>
+    <member name="MungSu" date="Wed, 07 Oct 2015 12:44:06 +0000"/>
+    <member name="MutantEnemy" date="Wed, 23 Aug 2017 13:41:56 +0000"/>
+    <member name="Mwroskam" date="Mon, 18 Dec 2017 18:55:19 +0000"/>
+    <member name="MydKnight" date="Tue, 28 Aug 2012 02:49:54 +0000"/>
+    <member name="Mystica_love" date="Thu, 21 Apr 2016 08:20:08 +0000"/>
+    <member name="N0Tgod" date="Sun, 19 Feb 2017 01:56:45 +0000"/>
+    <member name="nagelfar" date="Sat, 16 Jan 2016 00:50:56 +0000"/>
+    <member name="natepelzel" date="Sat, 23 Jan 2016 06:38:32 +0000"/>
+    <member name="nclavio" date="Wed, 25 Feb 2015 16:20:11 +0000"/>
+    <member name="nearx" date="Fri, 29 Apr 2016 15:06:47 +0000"/>
+    <member name="netzhuffle" date="Tue, 17 Jun 2014 15:15:19 +0000"/>
+    <member name="NickB" date="Tue, 20 Jun 2017 14:24:12 +0000"/>
+    <member name="nimdil" date="Thu, 27 Nov 2014 13:37:20 +0000"/>
+    <member name="NoodlePDX" date="Wed, 28 Oct 2015 17:01:53 +0000"/>
+    <member name="Northburns" date="Fri, 03 Feb 2012 15:52:26 +0000"/>
+    <member name="notclive" date="Thu, 30 Mar 2017 23:11:37 +0000"/>
+    <member name="NowOrNever88" date="Tue, 18 Nov 2014 02:29:45 +0000"/>
+    <member name="nukeu666" date="Thu, 25 Jun 2015 18:03:04 +0000"/>
+    <member name="n_and" date="Sun, 22 Jan 2012 11:47:37 +0000"/>
+    <member name="Odin_Knight" date="Thu, 29 Mar 2012 13:31:29 +0000"/>
+    <member name="oiencp" date="Thu, 12 Oct 2017 20:53:38 +0000"/>
+    <member name="OldManJim" date="Sun, 22 Jan 2012 11:46:21 +0000"/>
+    <member name="ollybh" date="Sat, 16 Aug 2014 22:53:05 +0000"/>
+    <member name="Omertron" date="Sun, 14 Aug 2016 16:03:02 +0000"/>
+  </members>
+</guild>

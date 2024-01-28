@@ -1,34 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?><plays total="104" page="2" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-<play id="8675584" userid="312367" date="1111-01-01" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
-			<item name="Advanced Third Reich" objecttype="thing" objectid="283">
-				<subtypes>
-										<subtype value="boardgame" />
-										<subtype value="boardgameimplementation" />
-									</subtypes>
-			</item>
-								</play>
-	<play id="19155331" userid="1134390" date="0000-00-00" quantity="10" length="0" incomplete="0" nowinstats="0" location="">
-			<item name="Advanced Third Reich" objecttype="thing" objectid="283">
-				<subtypes>
-										<subtype value="boardgame" />
-										<subtype value="boardgameimplementation" />
-									</subtypes>
-			</item>
-								</play>
-	<play id="10938552" userid="20917" date="0000-00-00" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
-			<item name="Advanced Third Reich" objecttype="thing" objectid="283">
-				<subtypes>
-										<subtype value="boardgame" />
-										<subtype value="boardgameimplementation" />
-									</subtypes>
-			</item>
-								</play>
-	<play id="17816024" userid="684312" date="0000-00-00" quantity="5" length="0" incomplete="0" nowinstats="0" location="">
-			<item name="Advanced Third Reich" objecttype="thing" objectid="283">
-				<subtypes>
-										<subtype value="boardgame" />
-										<subtype value="boardgameimplementation" />
-									</subtypes>
-			</item>
-								</play>
-	</plays>
+<?xml version="1.0" encoding="utf-8"?>
+<plays total="104" page="2" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <play id="8675584" userid="312367" date="1111-01-01" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
+    <item name="Advanced Third Reich" objecttype="thing" objectid="283">
+      <subtypes>
+        <subtype value="boardgame"/>
+        <subtype value="boardgameimplementation"/>
+      </subtypes>
+    </item>
+  </play>
+  <play id="19155331" userid="1134390" date="0000-00-00" quantity="10" length="0" incomplete="0" nowinstats="0" location="">
+    <item name="Advanced Third Reich" objecttype="thing" objectid="283">
+      <subtypes>
+        <subtype value="boardgame"/>
+        <subtype value="boardgameimplementation"/>
+      </subtypes>
+    </item>
+  </play>
+  <play id="10938552" userid="20917" date="0000-00-00" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
+    <item name="Advanced Third Reich" objecttype="thing" objectid="283">
+      <subtypes>
+        <subtype value="boardgame"/>
+        <subtype value="boardgameimplementation"/>
+      </subtypes>
+    </item>
+  </play>
+  <play id="17816024" userid="684312" date="0000-00-00" quantity="5" length="0" incomplete="0" nowinstats="0" location="">
+    <item name="Advanced Third Reich" objecttype="thing" objectid="283">
+      <subtypes>
+        <subtype value="boardgame"/>
+        <subtype value="boardgameimplementation"/>
+      </subtypes>
+    </item>
+  </play>
+</plays>

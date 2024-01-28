@@ -1,125 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgameaccessory" id="104163">
-         <thumbnail>https://cf.geekdo-images.com/images/pic1180639_t.jpg</thumbnail>
-      <image>https://cf.geekdo-images.com/images/pic1180639.jpg</image>
-
-				<name type="primary" sortindex="1" value="Descent: Journeys in the Dark (second edition) – Conversion Kit" />
-
-
-				<name type="alternate" sortindex="1" value="Descent: Die Reise ins Dunkel – Zweite Edition Upgrade-Kit" />
-
-				<name type="alternate" sortindex="1" value="Descent: Viaje a las Tinieblas – Segunda Edición Kit de Conversión" />
-
-				<name type="alternate" sortindex="1" value="descent: voyages dans les ténèbres  (seconde édition) Kit de conversion" />
-
-				<name type="alternate" sortindex="1" value="深入絕地: 暗黑世界之旅第二版 – 轉換套件 (繁體版)" />
-
-						               													<description>Game description from the publisher:&amp;#10;&amp;#10;The Descent: Journeys in the Dark - Second Edition Conversion Kit includes everything you need to transfer your first edition heroes and monsters to Descent: Journeys in the Dark - Second Edition.&amp;#10;&amp;#10;With Second Edition-compatible cards for every monster and hero ever produced (including promotional heroes!), this convenient conversion kit is an indispensable tool. So whether you want to bring your extensive Descent collection with you on new adventures, or you've got a favorite hero that you choose every time, you're covered.&amp;#10;&amp;#10;The Overlord marshals his forces, intent on bringing a new darkness to the world. only you can stop him!&amp;#10;&amp;#10;List of Components&amp;#10;&amp;#10;The pack contains:&amp;#10;&amp;#10;48 Hero Sheets&amp;#10;3  Familiar Cards&amp;#10;50 Monster Cards&amp;#10;&amp;#10;Each of these components functions identically to the corresponding components in Descent: Journeys in the Dark - Second Edition. This Conversion Kit does not feature any plastic figures; you will need to own the corresponding First Edition plastic figure or use a suitable proxy to use any of these components in your Descent: Journeys in the Dark - Second Edition game.&amp;#10;&amp;#10;Players should find the cards or sheets matching the plastic figures from their First Edition releases and add them to the supply of available heroes and monsters from their copy of Descent: Journeys in the Dark - Second Edition.&amp;#10;&amp;#10;Each of the components in this Conversion Kit is marked with a set icon corresponding to the First Edition product in which the hero or monster first appeared. (also includes promo figures)&amp;#10;&amp;#10;The 3 Familiar cards are associated with certain heroes (whose portraits appear on the back of the card).&amp;#10;&amp;#10;</description>
-										      	               				<yearpublished value="2012" />
-
-
-
-
-
-					<link type="boardgamedesigner" id="11413" value="Daniel Clark (I)" />
-
-
-
-
-
-
-
-					<link type="boardgamedesigner" id="6651" value="Corey Konieczka" />
-
-
-
-
-
-
-
-					<link type="boardgamedesigner" id="50880" value="Adam Sadler" />
-
-
-
-
-
-
-
-
-
-
-
-					<link type="boardgamepublisher" id="2973" value="Edge Entertainment" />
-
-
-
-
-
-
-
-					<link type="boardgamepublisher" id="17" value="Fantasy Flight Games" />
-
-
-
-
-
-
-
-					<link type="boardgamepublisher" id="264" value="Heidelberger Spieleverlag" />
-
-
-
-
-
-
-
-					<link type="boardgamepublisher" id="8759" value="Wargames Club Publishing" />
-
-
-
-
-
-
-
-
-
-					<link type="boardgameaccessory" id="104162" value="Descent: Journeys in the Dark (Second Edition)" inbound="true"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   		<statistics page="1">
-								<ratings >
-			<usersrated value="318" />
-			<average value="8.11775" />
-			<bayesaverage value="7.70162" />
-
-			<ranks>
-															<rank type="subtype" id="62" name="boardgameaccessory" friendlyname="Accessory Rank" value="6" bayesaverage="7.70162" />
-												</ranks>
-
-			<stddev value="1.25799" />
-			<median value="0" />
-			<owned value="2441" />
-			<trading value="43" />
-			<wanting value="46" />
-			<wishing value="258" />
-			<numcomments value="105" />
-			<numweights value="10" />
-			<averageweight value="3.3" />
-			</ratings>
-								</statistics>
-
-
-
-</item>
+<?xml version="1.0" encoding="utf-8"?>
+<items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <item type="boardgameaccessory" id="104163">
+    <thumbnail>https://cf.geekdo-images.com/images/pic1180639_t.jpg</thumbnail>
+    <image>https://cf.geekdo-images.com/images/pic1180639.jpg</image>
+    <name type="primary" sortindex="1" value="Descent: Journeys in the Dark (second edition) – Conversion Kit"/>
+    <name type="alternate" sortindex="1" value="Descent: Die Reise ins Dunkel – Zweite Edition Upgrade-Kit"/>
+    <name type="alternate" sortindex="1" value="Descent: Viaje a las Tinieblas – Segunda Edición Kit de Conversión"/>
+    <name type="alternate" sortindex="1" value="descent: voyages dans les ténèbres  (seconde édition) Kit de conversion"/>
+    <name type="alternate" sortindex="1" value="深入絕地: 暗黑世界之旅第二版 – 轉換套件 (繁體版)"/>
+    <description>Game description from the publisher:&amp;#10;&amp;#10;The Descent: Journeys in the Dark - Second Edition Conversion Kit includes everything you need to transfer your first edition heroes and monsters to Descent: Journeys in the Dark - Second Edition.&amp;#10;&amp;#10;With Second Edition-compatible cards for every monster and hero ever produced (including promotional heroes!), this convenient conversion kit is an indispensable tool. So whether you want to bring your extensive Descent collection with you on new adventures, or you've got a favorite hero that you choose every time, you're covered.&amp;#10;&amp;#10;The Overlord marshals his forces, intent on bringing a new darkness to the world. only you can stop him!&amp;#10;&amp;#10;List of Components&amp;#10;&amp;#10;The pack contains:&amp;#10;&amp;#10;48 Hero Sheets&amp;#10;3  Familiar Cards&amp;#10;50 Monster Cards&amp;#10;&amp;#10;Each of these components functions identically to the corresponding components in Descent: Journeys in the Dark - Second Edition. This Conversion Kit does not feature any plastic figures; you will need to own the corresponding First Edition plastic figure or use a suitable proxy to use any of these components in your Descent: Journeys in the Dark - Second Edition game.&amp;#10;&amp;#10;Players should find the cards or sheets matching the plastic figures from their First Edition releases and add them to the supply of available heroes and monsters from their copy of Descent: Journeys in the Dark - Second Edition.&amp;#10;&amp;#10;Each of the components in this Conversion Kit is marked with a set icon corresponding to the First Edition product in which the hero or monster first appeared. (also includes promo figures)&amp;#10;&amp;#10;The 3 Familiar cards are associated with certain heroes (whose portraits appear on the back of the card).&amp;#10;&amp;#10;</description>
+    <yearpublished value="2012"/>
+    <link type="boardgamedesigner" id="11413" value="Daniel Clark (I)"/>
+    <link type="boardgamedesigner" id="6651" value="Corey Konieczka"/>
+    <link type="boardgamedesigner" id="50880" value="Adam Sadler"/>
+    <link type="boardgamepublisher" id="2973" value="Edge Entertainment"/>
+    <link type="boardgamepublisher" id="17" value="Fantasy Flight Games"/>
+    <link type="boardgamepublisher" id="264" value="Heidelberger Spieleverlag"/>
+    <link type="boardgamepublisher" id="8759" value="Wargames Club Publishing"/>
+    <link type="boardgameaccessory" id="104162" value="Descent: Journeys in the Dark (Second Edition)" inbound="true"/>
+    <statistics page="1">
+      <ratings>
+        <usersrated value="318"/>
+        <average value="8.11775"/>
+        <bayesaverage value="7.70162"/>
+        <ranks>
+          <rank type="subtype" id="62" name="boardgameaccessory" friendlyname="Accessory Rank" value="6" bayesaverage="7.70162"/>
+        </ranks>
+        <stddev value="1.25799"/>
+        <median value="0"/>
+        <owned value="2441"/>
+        <trading value="43"/>
+        <wanting value="46"/>
+        <wishing value="258"/>
+        <numcomments value="105"/>
+        <numweights value="10"/>
+        <averageweight value="3.3"/>
+      </ratings>
+    </statistics>
+  </item>
 </items>

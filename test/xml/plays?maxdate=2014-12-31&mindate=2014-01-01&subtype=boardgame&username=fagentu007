@@ -1,77 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><plays username="fagentu007" userid="818216" total="9" page="1" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-<play id="12671517" date="2014-09-14" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
-			<item name="Thunderstone Advance: Towers of Ruin" objecttype="thing" objectid="116998">
-				<subtypes>
-										<subtype value="boardgame" />
-										<subtype value="boardgameimplementation" />
-										<subtype value="boardgameintegration" />
-									</subtypes>
-			</item>
-								</play>
-	<play id="12680692" date="2014-09-14" quantity="1" length="0" incomplete="0" nowinstats="0" location="Ludic">
-			<item name="Thunderstone Advance: Towers of Ruin" objecttype="thing" objectid="116998">
-				<subtypes>
-										<subtype value="boardgame" />
-										<subtype value="boardgameimplementation" />
-										<subtype value="boardgameintegration" />
-									</subtypes>
-			</item>
-								</play>
-	<play id="12649971" date="2014-09-10" quantity="1" length="80" incomplete="1" nowinstats="0" location="">
-			<item name="Thunderstone Advance: Towers of Ruin" objecttype="thing" objectid="116998">
-				<subtypes>
-										<subtype value="boardgame" />
-										<subtype value="boardgameimplementation" />
-										<subtype value="boardgameintegration" />
-									</subtypes>
-			</item>
-								</play>
-	<play id="12441518" date="2014-08-13" quantity="1" length="200" incomplete="0" nowinstats="0" location="DejaVU Cocktail Pub">
-			<item name="Eldritch Horror" objecttype="thing" objectid="146021">
-				<subtypes>
-										<subtype value="boardgame" />
-										<subtype value="boardgameimplementation" />
-									</subtypes>
-			</item>
-								</play>
-	<play id="12414780" date="2014-08-10" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
-			<item name="Eldritch Horror" objecttype="thing" objectid="146021">
-				<subtypes>
-										<subtype value="boardgame" />
-										<subtype value="boardgameimplementation" />
-									</subtypes>
-			</item>
-								</play>
-	<play id="12385967" date="2014-08-06" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
-			<item name="Praetor" objecttype="thing" objectid="137776">
-				<subtypes>
-										<subtype value="boardgame" />
-									</subtypes>
-			</item>
-								</play>
-	<play id="12338427" date="2014-07-30" quantity="1" length="0" incomplete="0" nowinstats="0" location="DejaVU Cocktail Pub">
-			<item name="Camel Up" objecttype="thing" objectid="153938">
-				<subtypes>
-										<subtype value="boardgame" />
-									</subtypes>
-			</item>
-								</play>
-	<play id="12338446" date="2014-07-30" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
-			<item name="Istanbul" objecttype="thing" objectid="148949">
-				<subtypes>
-										<subtype value="boardgame" />
-									</subtypes>
-			</item>
-								</play>
-	<play id="12186824" date="2014-07-09" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
-			<item name="Lords of Waterdeep" objecttype="thing" objectid="110327">
-				<subtypes>
-										<subtype value="boardgame" />
-									</subtypes>
-			</item>
-									<players>
-									<player username="fagentu007" userid="818216" name="cosmin" startposition="1" color="blue" score="123" new="0" rating="9" win="1" />
-						<player username="" userid="0" name="dummy" startposition="2" color="red" score="56" new="1" rating="0" win="0" />
-						</players>
-					</play>
-	</plays>
+<?xml version="1.0" encoding="utf-8"?>
+<plays username="fagentu007" userid="818216" total="9" page="1" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <play id="12671517" date="2014-09-14" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
+    <item name="Thunderstone Advance: Towers of Ruin" objecttype="thing" objectid="116998">
+      <subtypes>
+        <subtype value="boardgame"/>
+        <subtype value="boardgameimplementation"/>
+        <subtype value="boardgameintegration"/>
+      </subtypes>
+    </item>
+  </play>
+  <play id="12680692" date="2014-09-14" quantity="1" length="0" incomplete="0" nowinstats="0" location="Ludic">
+    <item name="Thunderstone Advance: Towers of Ruin" objecttype="thing" objectid="116998">
+      <subtypes>
+        <subtype value="boardgame"/>
+        <subtype value="boardgameimplementation"/>
+        <subtype value="boardgameintegration"/>
+      </subtypes>
+    </item>
+  </play>
+  <play id="12649971" date="2014-09-10" quantity="1" length="80" incomplete="1" nowinstats="0" location="">
+    <item name="Thunderstone Advance: Towers of Ruin" objecttype="thing" objectid="116998">
+      <subtypes>
+        <subtype value="boardgame"/>
+        <subtype value="boardgameimplementation"/>
+        <subtype value="boardgameintegration"/>
+      </subtypes>
+    </item>
+  </play>
+  <play id="12441518" date="2014-08-13" quantity="1" length="200" incomplete="0" nowinstats="0" location="DejaVU Cocktail Pub">
+    <item name="Eldritch Horror" objecttype="thing" objectid="146021">
+      <subtypes>
+        <subtype value="boardgame"/>
+        <subtype value="boardgameimplementation"/>
+      </subtypes>
+    </item>
+  </play>
+  <play id="12414780" date="2014-08-10" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
+    <item name="Eldritch Horror" objecttype="thing" objectid="146021">
+      <subtypes>
+        <subtype value="boardgame"/>
+        <subtype value="boardgameimplementation"/>
+      </subtypes>
+    </item>
+  </play>
+  <play id="12385967" date="2014-08-06" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
+    <item name="Praetor" objecttype="thing" objectid="137776">
+      <subtypes>
+        <subtype value="boardgame"/>
+      </subtypes>
+    </item>
+  </play>
+  <play id="12338427" date="2014-07-30" quantity="1" length="0" incomplete="0" nowinstats="0" location="DejaVU Cocktail Pub">
+    <item name="Camel Up" objecttype="thing" objectid="153938">
+      <subtypes>
+        <subtype value="boardgame"/>
+      </subtypes>
+    </item>
+  </play>
+  <play id="12338446" date="2014-07-30" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
+    <item name="Istanbul" objecttype="thing" objectid="148949">
+      <subtypes>
+        <subtype value="boardgame"/>
+      </subtypes>
+    </item>
+  </play>
+  <play id="12186824" date="2014-07-09" quantity="1" length="0" incomplete="0" nowinstats="0" location="">
+    <item name="Lords of Waterdeep" objecttype="thing" objectid="110327">
+      <subtypes>
+        <subtype value="boardgame"/>
+      </subtypes>
+    </item>
+    <players>
+      <player username="fagentu007" userid="818216" name="cosmin" startposition="1" color="blue" score="123" new="0" rating="9" win="1"/>
+      <player username="" userid="0" name="dummy" startposition="2" color="red" score="56" new="1" rating="0" win="0"/>
+    </players>
+  </play>
+</plays>

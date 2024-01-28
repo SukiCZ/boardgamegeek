@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="16">
-					<member name="rrayburn" date="Mon, 03 Sep 2012 15:06:11 +0000" />
-					<member name="Rune" date="Sun, 29 May 2016 20:40:10 +0000" />
-					<member name="rvinyard" date="Wed, 23 Dec 2015 19:26:26 +0000" />
-					<member name="Sam N" date="Thu, 02 Apr 2015 23:23:35 +0000" />
-					<member name="Samort7" date="Mon, 06 Feb 2017 19:29:45 +0000" />
-					<member name="Sandman1973" date="Fri, 15 Nov 2013 17:38:39 +0000" />
-					<member name="sarquin" date="Thu, 09 Feb 2012 14:44:26 +0000" />
-					<member name="satxbeaver" date="Fri, 11 May 2012 16:17:16 +0000" />
-					<member name="saunderl" date="Mon, 10 Apr 2017 17:26:39 +0000" />
-					<member name="sbauer9" date="Wed, 23 Oct 2013 20:28:20 +0000" />
-					<member name="scleavelin" date="Fri, 02 May 2014 01:39:39 +0000" />
-					<member name="scottf2" date="Thu, 01 Dec 2016 18:53:58 +0000" />
-					<member name="scraimer" date="Tue, 17 Apr 2012 06:47:37 +0000" />
-					<member name="SD40" date="Sun, 10 Jul 2016 23:44:17 +0000" />
-					<member name="sdonohue" date="Sun, 22 Jan 2012 13:32:22 +0000" />
-					<member name="selwyth" date="Sat, 18 Aug 2012 08:02:30 +0000" />
-					<member name="sethly" date="Wed, 08 Jan 2014 15:44:07 +0000" />
-					<member name="sharplet" date="Tue, 21 Aug 2012 01:53:24 +0000" />
-					<member name="shaswa" date="Tue, 12 Jan 2016 19:49:16 +0000" />
-					<member name="shoegoo" date="Mon, 24 Jul 2017 18:00:40 +0000" />
-					<member name="Shondoit" date="Fri, 26 Jun 2015 12:01:41 +0000" />
-					<member name="Sigafoos" date="Sat, 14 Jun 2014 21:02:14 +0000" />
-					<member name="Silvast" date="Thu, 13 Oct 2016 03:49:13 +0000" />
-					<member name="Simple_Man" date="Thu, 14 Dec 2017 01:18:51 +0000" />
-					<member name="sirgeekcsp" date="Sat, 15 Nov 2014 18:47:50 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="16">
+    <member name="rrayburn" date="Mon, 03 Sep 2012 15:06:11 +0000"/>
+    <member name="Rune" date="Sun, 29 May 2016 20:40:10 +0000"/>
+    <member name="rvinyard" date="Wed, 23 Dec 2015 19:26:26 +0000"/>
+    <member name="Sam N" date="Thu, 02 Apr 2015 23:23:35 +0000"/>
+    <member name="Samort7" date="Mon, 06 Feb 2017 19:29:45 +0000"/>
+    <member name="Sandman1973" date="Fri, 15 Nov 2013 17:38:39 +0000"/>
+    <member name="sarquin" date="Thu, 09 Feb 2012 14:44:26 +0000"/>
+    <member name="satxbeaver" date="Fri, 11 May 2012 16:17:16 +0000"/>
+    <member name="saunderl" date="Mon, 10 Apr 2017 17:26:39 +0000"/>
+    <member name="sbauer9" date="Wed, 23 Oct 2013 20:28:20 +0000"/>
+    <member name="scleavelin" date="Fri, 02 May 2014 01:39:39 +0000"/>
+    <member name="scottf2" date="Thu, 01 Dec 2016 18:53:58 +0000"/>
+    <member name="scraimer" date="Tue, 17 Apr 2012 06:47:37 +0000"/>
+    <member name="SD40" date="Sun, 10 Jul 2016 23:44:17 +0000"/>
+    <member name="sdonohue" date="Sun, 22 Jan 2012 13:32:22 +0000"/>
+    <member name="selwyth" date="Sat, 18 Aug 2012 08:02:30 +0000"/>
+    <member name="sethly" date="Wed, 08 Jan 2014 15:44:07 +0000"/>
+    <member name="sharplet" date="Tue, 21 Aug 2012 01:53:24 +0000"/>
+    <member name="shaswa" date="Tue, 12 Jan 2016 19:49:16 +0000"/>
+    <member name="shoegoo" date="Mon, 24 Jul 2017 18:00:40 +0000"/>
+    <member name="Shondoit" date="Fri, 26 Jun 2015 12:01:41 +0000"/>
+    <member name="Sigafoos" date="Sat, 14 Jun 2014 21:02:14 +0000"/>
+    <member name="Silvast" date="Thu, 13 Oct 2016 03:49:13 +0000"/>
+    <member name="Simple_Man" date="Thu, 14 Dec 2017 01:18:51 +0000"/>
+    <member name="sirgeekcsp" date="Sat, 15 Nov 2014 18:47:50 +0000"/>
+  </members>
+</guild>

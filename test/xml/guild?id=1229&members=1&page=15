@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="15">
-					<member name="qribba" date="Thu, 15 Jun 2017 12:26:36 +0000" />
-					<member name="r2d2rogers" date="Wed, 30 Sep 2015 18:25:45 +0000" />
-					<member name="rachavez" date="Fri, 02 May 2014 17:39:01 +0000" />
-					<member name="rafal100" date="Wed, 15 Oct 2014 10:46:28 +0000" />
-					<member name="ragados" date="Tue, 20 Sep 2016 22:53:58 +0000" />
-					<member name="ragendem" date="Tue, 04 Apr 2017 20:04:29 +0000" />
-					<member name="ralphie" date="Tue, 17 Mar 2015 16:29:45 +0000" />
-					<member name="ramblurr" date="Wed, 04 Jun 2014 08:23:36 +0000" />
-					<member name="Ramsey54" date="Mon, 05 Oct 2015 13:24:58 +0000" />
-					<member name="Randy Cox" date="Sun, 22 Jan 2012 16:14:03 +0000" />
-					<member name="redrigdiva" date="Fri, 13 Apr 2012 13:52:05 +0000" />
-					<member name="rekinom" date="Fri, 02 May 2014 21:30:05 +0000" />
-					<member name="rePhil" date="Mon, 30 Jan 2017 12:17:36 +0000" />
-					<member name="rheiser" date="Tue, 15 Oct 2013 15:48:42 +0000" />
-					<member name="RichardE1969" date="Tue, 10 May 2016 02:02:30 +0000" />
-					<member name="rickbill" date="Sun, 22 Jan 2012 22:02:31 +0000" />
-					<member name="Rieke" date="Thu, 26 Sep 2013 05:59:56 +0000" />
-					<member name="ripetrescu" date="Thu, 09 May 2013 17:06:02 +0000" />
-					<member name="robinz" date="Thu, 29 Jun 2017 19:38:38 +0000" />
-					<member name="rodneys" date="Fri, 30 Nov 2012 17:59:33 +0000" />
-					<member name="Rokusho" date="Tue, 02 Jul 2013 21:33:43 +0000" />
-					<member name="roll2tv" date="Thu, 04 Feb 2016 12:34:44 +0000" />
-					<member name="rosborn" date="Wed, 18 Jun 2014 17:47:24 +0000" />
-					<member name="roshne" date="Thu, 13 Aug 2015 21:43:37 +0000" />
-					<member name="rouie_a" date="Sun, 29 Oct 2017 06:42:33 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="15">
+    <member name="qribba" date="Thu, 15 Jun 2017 12:26:36 +0000"/>
+    <member name="r2d2rogers" date="Wed, 30 Sep 2015 18:25:45 +0000"/>
+    <member name="rachavez" date="Fri, 02 May 2014 17:39:01 +0000"/>
+    <member name="rafal100" date="Wed, 15 Oct 2014 10:46:28 +0000"/>
+    <member name="ragados" date="Tue, 20 Sep 2016 22:53:58 +0000"/>
+    <member name="ragendem" date="Tue, 04 Apr 2017 20:04:29 +0000"/>
+    <member name="ralphie" date="Tue, 17 Mar 2015 16:29:45 +0000"/>
+    <member name="ramblurr" date="Wed, 04 Jun 2014 08:23:36 +0000"/>
+    <member name="Ramsey54" date="Mon, 05 Oct 2015 13:24:58 +0000"/>
+    <member name="Randy Cox" date="Sun, 22 Jan 2012 16:14:03 +0000"/>
+    <member name="redrigdiva" date="Fri, 13 Apr 2012 13:52:05 +0000"/>
+    <member name="rekinom" date="Fri, 02 May 2014 21:30:05 +0000"/>
+    <member name="rePhil" date="Mon, 30 Jan 2017 12:17:36 +0000"/>
+    <member name="rheiser" date="Tue, 15 Oct 2013 15:48:42 +0000"/>
+    <member name="RichardE1969" date="Tue, 10 May 2016 02:02:30 +0000"/>
+    <member name="rickbill" date="Sun, 22 Jan 2012 22:02:31 +0000"/>
+    <member name="Rieke" date="Thu, 26 Sep 2013 05:59:56 +0000"/>
+    <member name="ripetrescu" date="Thu, 09 May 2013 17:06:02 +0000"/>
+    <member name="robinz" date="Thu, 29 Jun 2017 19:38:38 +0000"/>
+    <member name="rodneys" date="Fri, 30 Nov 2012 17:59:33 +0000"/>
+    <member name="Rokusho" date="Tue, 02 Jul 2013 21:33:43 +0000"/>
+    <member name="roll2tv" date="Thu, 04 Feb 2016 12:34:44 +0000"/>
+    <member name="rosborn" date="Wed, 18 Jun 2014 17:47:24 +0000"/>
+    <member name="roshne" date="Thu, 13 Aug 2015 21:43:37 +0000"/>
+    <member name="rouie_a" date="Sun, 29 Oct 2017 06:42:33 +0000"/>
+  </members>
+</guild>

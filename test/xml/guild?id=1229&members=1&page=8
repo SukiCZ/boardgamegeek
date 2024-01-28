@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="8">
-					<member name="hardeep" date="Wed, 31 May 2017 02:46:47 +0000" />
-					<member name="haroth9842" date="Wed, 02 Dec 2015 14:43:06 +0000" />
-					<member name="herace" date="Thu, 26 May 2016 17:52:36 +0000" />
-					<member name="hervan" date="Wed, 30 Aug 2017 04:47:27 +0000" />
-					<member name="Hoffy" date="Fri, 02 Jun 2017 15:19:33 +0000" />
-					<member name="HokieGeek" date="Tue, 25 Nov 2014 13:02:49 +0000" />
-					<member name="holgaard" date="Wed, 27 Apr 2016 16:44:19 +0000" />
-					<member name="HolisticDeveloper" date="Mon, 20 Nov 2017 15:34:29 +0000" />
-					<member name="HQ063" date="Fri, 05 Aug 2016 20:14:30 +0000" />
-					<member name="ianne" date="Thu, 05 Jun 2014 21:58:29 +0000" />
-					<member name="igorknop" date="Sun, 17 Jan 2016 19:47:00 +0000" />
-					<member name="iisjreg" date="Mon, 11 Mar 2013 13:53:24 +0000" />
-					<member name="Ilmion" date="Tue, 10 Jan 2017 20:28:03 +0000" />
-					<member name="Inbl" date="Mon, 23 Mar 2015 21:19:13 +0000" />
-					<member name="Iron_Forge" date="Wed, 21 Aug 2013 17:00:00 +0000" />
-					<member name="israperrillo" date="Wed, 27 Nov 2013 08:55:55 +0000" />
-					<member name="JadtheGerbil" date="Mon, 04 Dec 2017 16:40:57 +0000" />
-					<member name="JaedenStormes" date="Wed, 30 Nov 2016 01:12:32 +0000" />
-					<member name="jamesbradt" date="Mon, 09 Nov 2015 01:08:57 +0000" />
-					<member name="Janiv" date="Mon, 23 Jan 2012 03:39:14 +0000" />
-					<member name="JavaJoe96" date="Wed, 13 Sep 2017 23:11:09 +0000" />
-					<member name="jcavalchini" date="Fri, 07 Nov 2014 09:33:01 +0000" />
-					<member name="jclem82" date="Sat, 06 Apr 2013 14:23:13 +0000" />
-					<member name="JDC_Wolfpack" date="Tue, 19 May 2015 00:12:04 +0000" />
-					<member name="jdludlow" date="Thu, 11 Apr 2013 19:32:31 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="8">
+    <member name="hardeep" date="Wed, 31 May 2017 02:46:47 +0000"/>
+    <member name="haroth9842" date="Wed, 02 Dec 2015 14:43:06 +0000"/>
+    <member name="herace" date="Thu, 26 May 2016 17:52:36 +0000"/>
+    <member name="hervan" date="Wed, 30 Aug 2017 04:47:27 +0000"/>
+    <member name="Hoffy" date="Fri, 02 Jun 2017 15:19:33 +0000"/>
+    <member name="HokieGeek" date="Tue, 25 Nov 2014 13:02:49 +0000"/>
+    <member name="holgaard" date="Wed, 27 Apr 2016 16:44:19 +0000"/>
+    <member name="HolisticDeveloper" date="Mon, 20 Nov 2017 15:34:29 +0000"/>
+    <member name="HQ063" date="Fri, 05 Aug 2016 20:14:30 +0000"/>
+    <member name="ianne" date="Thu, 05 Jun 2014 21:58:29 +0000"/>
+    <member name="igorknop" date="Sun, 17 Jan 2016 19:47:00 +0000"/>
+    <member name="iisjreg" date="Mon, 11 Mar 2013 13:53:24 +0000"/>
+    <member name="Ilmion" date="Tue, 10 Jan 2017 20:28:03 +0000"/>
+    <member name="Inbl" date="Mon, 23 Mar 2015 21:19:13 +0000"/>
+    <member name="Iron_Forge" date="Wed, 21 Aug 2013 17:00:00 +0000"/>
+    <member name="israperrillo" date="Wed, 27 Nov 2013 08:55:55 +0000"/>
+    <member name="JadtheGerbil" date="Mon, 04 Dec 2017 16:40:57 +0000"/>
+    <member name="JaedenStormes" date="Wed, 30 Nov 2016 01:12:32 +0000"/>
+    <member name="jamesbradt" date="Mon, 09 Nov 2015 01:08:57 +0000"/>
+    <member name="Janiv" date="Mon, 23 Jan 2012 03:39:14 +0000"/>
+    <member name="JavaJoe96" date="Wed, 13 Sep 2017 23:11:09 +0000"/>
+    <member name="jcavalchini" date="Fri, 07 Nov 2014 09:33:01 +0000"/>
+    <member name="jclem82" date="Sat, 06 Apr 2013 14:23:13 +0000"/>
+    <member name="JDC_Wolfpack" date="Tue, 19 May 2015 00:12:04 +0000"/>
+    <member name="jdludlow" date="Thu, 11 Apr 2013 19:32:31 +0000"/>
+  </members>
+</guild>

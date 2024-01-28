@@ -1,3 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="0"  termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-<error>Guild not found.</error>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="0" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <error>Guild not found.</error>
 </guild>

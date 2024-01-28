@@ -1,11 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><user id="818216" name="fagentu007" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-										<firstname value="cos" />			<lastname value="min" />			<avatarlink value="https://cf.geekdo-static.com/avatars/avatar_id79352.png" />			<yearregistered value="2014" />			<lastlogin value="2017-12-20" />			<stateorprovince value="" />			<country value="Romania" />			<webaddress value="" />			<xboxaccount value="" />			<wiiaccount value="" />			<psnaccount value="" />			<battlenetaccount value="" />			<steamaccount value="" />			<traderating value="0" />			<marketrating value="0" />
-				<buddies total="0" page="1"></buddies>
-			<guilds total="4" page="1"><guild id="1042" name="Romania" /><guild id="1229" name="Geek Tools" /><guild id="1303" name="1 Player guild" /><guild id="1622" name="Rahdo Runs Through" /></guilds>
-			<top domain="boardgame">
-			<item rank="1" type="thing" id="146021" name="Eldritch Horror" />
-		</top>
-			<hot domain="boardgame">
-			<item rank="1" type="thing" id="146021" name="Eldritch Horror" />
-		</hot>
-	</user>
+<?xml version="1.0" encoding="utf-8"?>
+<user id="818216" name="fagentu007" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <firstname value="cos"/>
+  <lastname value="min"/>
+  <avatarlink value="https://cf.geekdo-static.com/avatars/avatar_id79352.png"/>
+  <yearregistered value="2014"/>
+  <lastlogin value="2017-12-20"/>
+  <stateorprovince value=""/>
+  <country value="Romania"/>
+  <webaddress value=""/>
+  <xboxaccount value=""/>
+  <wiiaccount value=""/>
+  <psnaccount value=""/>
+  <battlenetaccount value=""/>
+  <steamaccount value=""/>
+  <traderating value="0"/>
+  <marketrating value="0"/>
+  <buddies total="0" page="1"/>
+  <guilds total="4" page="1">
+    <guild id="1042" name="Romania"/>
+    <guild id="1229" name="Geek Tools"/>
+    <guild id="1303" name="1 Player guild"/>
+    <guild id="1622" name="Rahdo Runs Through"/>
+  </guilds>
+  <top domain="boardgame">
+    <item rank="1" type="thing" id="146021" name="Eldritch Horror"/>
+  </top>
+  <hot domain="boardgame">
+    <item rank="1" type="thing" id="146021" name="Eldritch Horror"/>
+  </hot>
+</user>

@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="2">
-					<member name="austropretorian" date="Sat, 01 Aug 2015 08:24:24 +0000" />
-					<member name="Bail Organa" date="Sun, 22 Jan 2012 11:58:04 +0000" />
-					<member name="balesjb1" date="Tue, 01 May 2012 20:21:11 +0000" />
-					<member name="banzayats" date="Tue, 29 Sep 2015 12:03:23 +0000" />
-					<member name="bark" date="Tue, 12 Dec 2017 19:29:12 +0000" />
-					<member name="baschleicher" date="Sat, 03 Jan 2015 05:08:27 +0000" />
-					<member name="bazooka13" date="Tue, 01 Nov 2016 14:20:52 +0000" />
-					<member name="beefsack" date="Mon, 19 Dec 2016 10:06:25 +0000" />
-					<member name="bengkohn" date="Thu, 01 Mar 2012 01:40:08 +0000" />
-					<member name="BeyondMonopoly" date="Mon, 04 Feb 2013 16:21:34 +0000" />
-					<member name="bggboris" date="Mon, 06 Jul 2015 22:18:09 +0000" />
-					<member name="Bien" date="Mon, 15 Feb 2016 17:02:02 +0000" />
-					<member name="BigMacTruck" date="Fri, 23 Aug 2013 19:22:59 +0000" />
-					<member name="BilboAtBagEnd" date="Sat, 17 Aug 2013 08:43:01 +0000" />
-					<member name="bippi" date="Wed, 06 Mar 2013 19:17:33 +0000" />
-					<member name="Black Omega" date="Mon, 18 Dec 2017 21:45:54 +0000" />
-					<member name="blivet" date="Mon, 25 Apr 2016 06:18:05 +0000" />
-					<member name="BoardGameCharts" date="Wed, 04 Oct 2017 19:37:45 +0000" />
-					<member name="BobTHJ" date="Sat, 28 Mar 2015 22:45:51 +0000" />
-					<member name="bootleby" date="Thu, 23 Nov 2017 14:55:32 +0000" />
-					<member name="bortmonkey" date="Sat, 18 Jul 2015 03:29:03 +0000" />
-					<member name="BowsersCastle" date="Thu, 28 Jan 2016 03:18:55 +0000" />
-					<member name="bradbeattie" date="Wed, 31 Dec 2014 07:35:44 +0000" />
-					<member name="briankoser" date="Sun, 26 Apr 2015 17:59:39 +0000" />
-					<member name="briezee" date="Thu, 07 Dec 2017 22:23:14 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="2">
+    <member name="austropretorian" date="Sat, 01 Aug 2015 08:24:24 +0000"/>
+    <member name="Bail Organa" date="Sun, 22 Jan 2012 11:58:04 +0000"/>
+    <member name="balesjb1" date="Tue, 01 May 2012 20:21:11 +0000"/>
+    <member name="banzayats" date="Tue, 29 Sep 2015 12:03:23 +0000"/>
+    <member name="bark" date="Tue, 12 Dec 2017 19:29:12 +0000"/>
+    <member name="baschleicher" date="Sat, 03 Jan 2015 05:08:27 +0000"/>
+    <member name="bazooka13" date="Tue, 01 Nov 2016 14:20:52 +0000"/>
+    <member name="beefsack" date="Mon, 19 Dec 2016 10:06:25 +0000"/>
+    <member name="bengkohn" date="Thu, 01 Mar 2012 01:40:08 +0000"/>
+    <member name="BeyondMonopoly" date="Mon, 04 Feb 2013 16:21:34 +0000"/>
+    <member name="bggboris" date="Mon, 06 Jul 2015 22:18:09 +0000"/>
+    <member name="Bien" date="Mon, 15 Feb 2016 17:02:02 +0000"/>
+    <member name="BigMacTruck" date="Fri, 23 Aug 2013 19:22:59 +0000"/>
+    <member name="BilboAtBagEnd" date="Sat, 17 Aug 2013 08:43:01 +0000"/>
+    <member name="bippi" date="Wed, 06 Mar 2013 19:17:33 +0000"/>
+    <member name="Black Omega" date="Mon, 18 Dec 2017 21:45:54 +0000"/>
+    <member name="blivet" date="Mon, 25 Apr 2016 06:18:05 +0000"/>
+    <member name="BoardGameCharts" date="Wed, 04 Oct 2017 19:37:45 +0000"/>
+    <member name="BobTHJ" date="Sat, 28 Mar 2015 22:45:51 +0000"/>
+    <member name="bootleby" date="Thu, 23 Nov 2017 14:55:32 +0000"/>
+    <member name="bortmonkey" date="Sat, 18 Jul 2015 03:29:03 +0000"/>
+    <member name="BowsersCastle" date="Thu, 28 Jan 2016 03:18:55 +0000"/>
+    <member name="bradbeattie" date="Wed, 31 Dec 2014 07:35:44 +0000"/>
+    <member name="briankoser" date="Sun, 26 Apr 2015 17:59:39 +0000"/>
+    <member name="briezee" date="Thu, 07 Dec 2017 22:23:14 +0000"/>
+  </members>
+</guild>

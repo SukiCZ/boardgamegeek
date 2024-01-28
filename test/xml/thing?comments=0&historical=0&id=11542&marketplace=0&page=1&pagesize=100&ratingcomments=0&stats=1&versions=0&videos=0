@@ -1,181 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgame" id="11542">
-         <thumbnail>https://cf.geekdo-images.com/images/pic1316296_t.jpg</thumbnail>
-      <image>https://cf.geekdo-images.com/images/pic1316296.jpg</image>
-
-				<name type="primary" sortindex="1" value="Eclipse" />
-
-
-				<name type="alternate" sortindex="5" value="The Ball and Chain Game" />
-
-						               													<description>The Ball and Chain Game is an abstract game for two. The oblong board contains hexagonal spaced holes for the ball-shaped pieces to rest. Each player has one large Guard and five pairs of smaller Prisoner pieces. Each pair of Prisoners is connected by a metal chain: two short chains and three long. A Prisoner may move as far as the chain will allow (1 or 2 spaces) while its partner stays put. The opponent's Prisoners may be temporarily immobilized by crossing one of your chains over theirs. The Guard moves one space at a time in any hex-axial direction. If, on your turn, you are unable to move your Guard, you lose.&amp;#10;&amp;#10;</description>
-										      	               				<yearpublished value="1999" />
-						               				<minplayers value="2" />
-						               				<maxplayers value="2" />
-						      			<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="3">
-
-		<results numplayers="1">
-					<result value="Best" numvotes="0" />
-					<result value="Recommended" numvotes="0" />
-					<result value="Not Recommended" numvotes="3" />
-				</results>
-
-		<results numplayers="2">
-					<result value="Best" numvotes="3" />
-					<result value="Recommended" numvotes="0" />
-					<result value="Not Recommended" numvotes="0" />
-				</results>
-
-		<results numplayers="2+">
-					<result value="Best" numvotes="0" />
-					<result value="Recommended" numvotes="0" />
-					<result value="Not Recommended" numvotes="3" />
-				</results>
-	</poll>
-			               				<playingtime value="15" />
-						               				<minplaytime value="15" />
-						               				<maxplaytime value="15" />
-						               				<minage value="8" />
-						      			<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="2">
-			<results>
-					<result value="2" numvotes="0" />
-					<result value="3" numvotes="0" />
-					<result value="4" numvotes="0" />
-					<result value="5" numvotes="0" />
-					<result value="6" numvotes="1" />
-					<result value="8" numvotes="1" />
-					<result value="10" numvotes="0" />
-					<result value="12" numvotes="0" />
-					<result value="14" numvotes="0" />
-					<result value="16" numvotes="0" />
-					<result value="18" numvotes="0" />
-					<result value="21 and up" numvotes="0" />
-				</results>
-	</poll>
-			      			<poll name="language_dependence" title="Language Dependence" totalvotes="2">
-
-		<results>
-					<result level="1" value="No necessary in-game text" numvotes="2" />
-					<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="0" />
-					<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="0" />
-					<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
-					<result level="5" value="Unplayable in another language" numvotes="0" />
-				</results>
-	</poll>
-
-
-
-
-
-
-					<link type="boardgamecategory" id="1009" value="Abstract Strategy" />
-
-
-
-
-
-
-
-
-
-
-
-					<link type="boardgamefamily" id="26432" value="Combinatorial" />
-
-
-
-
-
-
-
-					<link type="boardgamefamily" id="19100" value="Gigamic Classic" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					<link type="boardgamedesigner" id="3690" value="Gerardo Iula" />
-
-
-
-
-
-
-
-					<link type="boardgamedesigner" id="281" value="Mirko Marchesi" />
-
-
-
-
-
-
-
-
-
-
-
-					<link type="boardgamepublisher" id="155" value="Gigamic" />
-
-
-
-
-
-
-
-					<link type="boardgamepublisher" id="124" value="Great American Trading Company" />
-
-
-
-
-
-
-
-
-
-
-
-
-   		<statistics page="1">
-								<ratings >
-			<usersrated value="140" />
-			<average value="6.24107" />
-			<bayesaverage value="5.58389" />
-
-			<ranks>
-															<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="6432" bayesaverage="5.58389" />
-																				<rank type="family" id="4666" name="abstracts" friendlyname="Abstract Game Rank" value="355" bayesaverage="5.80885" />
-												</ranks>
-
-			<stddev value="1.37112" />
-			<median value="0" />
-			<owned value="244" />
-			<trading value="9" />
-			<wanting value="16" />
-			<wishing value="47" />
-			<numcomments value="40" />
-			<numweights value="9" />
-			<averageweight value="1.8889" />
-			</ratings>
-								</statistics>
-
-
-
-</item>
+<?xml version="1.0" encoding="utf-8"?>
+<items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <item type="boardgame" id="11542">
+    <thumbnail>https://cf.geekdo-images.com/images/pic1316296_t.jpg</thumbnail>
+    <image>https://cf.geekdo-images.com/images/pic1316296.jpg</image>
+    <name type="primary" sortindex="1" value="Eclipse"/>
+    <name type="alternate" sortindex="5" value="The Ball and Chain Game"/>
+    <description>The Ball and Chain Game is an abstract game for two. The oblong board contains hexagonal spaced holes for the ball-shaped pieces to rest. Each player has one large Guard and five pairs of smaller Prisoner pieces. Each pair of Prisoners is connected by a metal chain: two short chains and three long. A Prisoner may move as far as the chain will allow (1 or 2 spaces) while its partner stays put. The opponent's Prisoners may be temporarily immobilized by crossing one of your chains over theirs. The Guard moves one space at a time in any hex-axial direction. If, on your turn, you are unable to move your Guard, you lose.&amp;#10;&amp;#10;</description>
+    <yearpublished value="1999"/>
+    <minplayers value="2"/>
+    <maxplayers value="2"/>
+    <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="3">
+      <results numplayers="1">
+        <result value="Best" numvotes="0"/>
+        <result value="Recommended" numvotes="0"/>
+        <result value="Not Recommended" numvotes="3"/>
+      </results>
+      <results numplayers="2">
+        <result value="Best" numvotes="3"/>
+        <result value="Recommended" numvotes="0"/>
+        <result value="Not Recommended" numvotes="0"/>
+      </results>
+      <results numplayers="2+">
+        <result value="Best" numvotes="0"/>
+        <result value="Recommended" numvotes="0"/>
+        <result value="Not Recommended" numvotes="3"/>
+      </results>
+    </poll>
+    <playingtime value="15"/>
+    <minplaytime value="15"/>
+    <maxplaytime value="15"/>
+    <minage value="8"/>
+    <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="2">
+      <results>
+        <result value="2" numvotes="0"/>
+        <result value="3" numvotes="0"/>
+        <result value="4" numvotes="0"/>
+        <result value="5" numvotes="0"/>
+        <result value="6" numvotes="1"/>
+        <result value="8" numvotes="1"/>
+        <result value="10" numvotes="0"/>
+        <result value="12" numvotes="0"/>
+        <result value="14" numvotes="0"/>
+        <result value="16" numvotes="0"/>
+        <result value="18" numvotes="0"/>
+        <result value="21 and up" numvotes="0"/>
+      </results>
+    </poll>
+    <poll name="language_dependence" title="Language Dependence" totalvotes="2">
+      <results>
+        <result level="1" value="No necessary in-game text" numvotes="2"/>
+        <result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="0"/>
+        <result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="0"/>
+        <result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0"/>
+        <result level="5" value="Unplayable in another language" numvotes="0"/>
+      </results>
+    </poll>
+    <link type="boardgamecategory" id="1009" value="Abstract Strategy"/>
+    <link type="boardgamefamily" id="26432" value="Combinatorial"/>
+    <link type="boardgamefamily" id="19100" value="Gigamic Classic"/>
+    <link type="boardgamedesigner" id="3690" value="Gerardo Iula"/>
+    <link type="boardgamedesigner" id="281" value="Mirko Marchesi"/>
+    <link type="boardgamepublisher" id="155" value="Gigamic"/>
+    <link type="boardgamepublisher" id="124" value="Great American Trading Company"/>
+    <statistics page="1">
+      <ratings>
+        <usersrated value="140"/>
+        <average value="6.24107"/>
+        <bayesaverage value="5.58389"/>
+        <ranks>
+          <rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="6432" bayesaverage="5.58389"/>
+          <rank type="family" id="4666" name="abstracts" friendlyname="Abstract Game Rank" value="355" bayesaverage="5.80885"/>
+        </ranks>
+        <stddev value="1.37112"/>
+        <median value="0"/>
+        <owned value="244"/>
+        <trading value="9"/>
+        <wanting value="16"/>
+        <wishing value="47"/>
+        <numcomments value="40"/>
+        <numweights value="9"/>
+        <averageweight value="1.8889"/>
+      </ratings>
+    </statistics>
+  </item>
 </items>

@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="12">
-					<member name="MeepleMechanic" date="Sat, 21 Feb 2015 08:33:02 +0000" />
-					<member name="mentis" date="Mon, 12 Mar 2012 17:52:38 +0000" />
-					<member name="merc007" date="Mon, 04 Feb 2013 08:41:34 +0000" />
-					<member name="merijnv" date="Wed, 01 Feb 2017 14:56:29 +0000" />
-					<member name="Mezmorki" date="Tue, 24 Jan 2012 21:20:30 +0000" />
-					<member name="Michazhn" date="Sat, 28 Jan 2017 09:17:51 +0000" />
-					<member name="mihazelnik" date="Thu, 23 Mar 2017 15:50:57 +0000" />
-					<member name="Mikademus" date="Mon, 10 Sep 2012 00:48:36 +0000" />
-					<member name="mikec" date="Fri, 21 Jul 2017 19:57:54 +0000" />
-					<member name="mikolajl" date="Tue, 21 Feb 2012 13:48:46 +0000" />
-					<member name="mkal" date="Sat, 03 May 2014 21:46:26 +0000" />
-					<member name="mkmccarty" date="Thu, 24 Jul 2014 20:59:13 +0000" />
-					<member name="mkoehlermsu" date="Thu, 25 Jun 2015 19:51:45 +0000" />
-					<member name="MonkeyKnifeFight" date="Sun, 26 Oct 2014 14:00:10 +0000" />
-					<member name="monteslu" date="Sun, 29 Jul 2012 00:17:05 +0000" />
-					<member name="moonty" date="Wed, 13 Jan 2016 09:12:01 +0000" />
-					<member name="moramis" date="Wed, 18 Jun 2014 14:50:32 +0000" />
-					<member name="morbusiff" date="Thu, 29 Oct 2015 13:50:24 +0000" />
-					<member name="Morogan" date="Sat, 27 Aug 2016 14:43:06 +0000" />
-					<member name="Mottchen" date="Thu, 23 Feb 2017 18:28:39 +0000" />
-					<member name="mrizk" date="Wed, 21 Aug 2013 20:21:58 +0000" />
-					<member name="mr_lunch" date="Sun, 22 Jan 2012 13:45:08 +0000" />
-					<member name="MSGreg" date="Thu, 17 Mar 2016 12:49:48 +0000" />
-					<member name="mtwomey" date="Fri, 03 Mar 2017 15:47:36 +0000" />
-					<member name="muclemente" date="Tue, 19 Jan 2016 00:11:56 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="12">
+    <member name="MeepleMechanic" date="Sat, 21 Feb 2015 08:33:02 +0000"/>
+    <member name="mentis" date="Mon, 12 Mar 2012 17:52:38 +0000"/>
+    <member name="merc007" date="Mon, 04 Feb 2013 08:41:34 +0000"/>
+    <member name="merijnv" date="Wed, 01 Feb 2017 14:56:29 +0000"/>
+    <member name="Mezmorki" date="Tue, 24 Jan 2012 21:20:30 +0000"/>
+    <member name="Michazhn" date="Sat, 28 Jan 2017 09:17:51 +0000"/>
+    <member name="mihazelnik" date="Thu, 23 Mar 2017 15:50:57 +0000"/>
+    <member name="Mikademus" date="Mon, 10 Sep 2012 00:48:36 +0000"/>
+    <member name="mikec" date="Fri, 21 Jul 2017 19:57:54 +0000"/>
+    <member name="mikolajl" date="Tue, 21 Feb 2012 13:48:46 +0000"/>
+    <member name="mkal" date="Sat, 03 May 2014 21:46:26 +0000"/>
+    <member name="mkmccarty" date="Thu, 24 Jul 2014 20:59:13 +0000"/>
+    <member name="mkoehlermsu" date="Thu, 25 Jun 2015 19:51:45 +0000"/>
+    <member name="MonkeyKnifeFight" date="Sun, 26 Oct 2014 14:00:10 +0000"/>
+    <member name="monteslu" date="Sun, 29 Jul 2012 00:17:05 +0000"/>
+    <member name="moonty" date="Wed, 13 Jan 2016 09:12:01 +0000"/>
+    <member name="moramis" date="Wed, 18 Jun 2014 14:50:32 +0000"/>
+    <member name="morbusiff" date="Thu, 29 Oct 2015 13:50:24 +0000"/>
+    <member name="Morogan" date="Sat, 27 Aug 2016 14:43:06 +0000"/>
+    <member name="Mottchen" date="Thu, 23 Feb 2017 18:28:39 +0000"/>
+    <member name="mrizk" date="Wed, 21 Aug 2013 20:21:58 +0000"/>
+    <member name="mr_lunch" date="Sun, 22 Jan 2012 13:45:08 +0000"/>
+    <member name="MSGreg" date="Thu, 17 Mar 2016 12:49:48 +0000"/>
+    <member name="mtwomey" date="Fri, 03 Mar 2017 15:47:36 +0000"/>
+    <member name="muclemente" date="Tue, 19 Jan 2016 00:11:56 +0000"/>
+  </members>
+</guild>

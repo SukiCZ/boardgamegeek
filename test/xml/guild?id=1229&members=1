@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="1">
-					<member name="2o1d" date="Thu, 26 Apr 2012 12:04:55 +0000" />
-					<member name="A skinned math nerd" date="Sat, 20 Feb 2016 14:17:42 +0000" />
-					<member name="aaronklaser64" date="Thu, 20 Apr 2017 04:08:16 +0000" />
-					<member name="acarter" date="Mon, 27 Feb 2012 21:39:35 +0000" />
-					<member name="AcceptableIce" date="Tue, 10 May 2016 18:11:37 +0000" />
-					<member name="aCoreyJ" date="Fri, 17 Apr 2015 01:32:24 +0000" />
-					<member name="adambadura" date="Sun, 22 Jan 2012 17:18:24 +0000" />
-					<member name="adiamant" date="Fri, 19 Oct 2012 15:55:46 +0000" />
-					<member name="Aetheros" date="Fri, 27 Jan 2017 19:14:13 +0000" />
-					<member name="agentforsythe" date="Mon, 24 Sep 2012 21:21:15 +0000" />
-					<member name="AI52487963" date="Wed, 12 Apr 2017 17:44:10 +0000" />
-					<member name="aiden7690" date="Thu, 28 Dec 2017 23:36:05 +0000" />
-					<member name="airydisk" date="Wed, 31 May 2017 22:49:50 +0000" />
-					<member name="aisaksen" date="Mon, 03 Feb 2014 15:34:39 +0000" />
-					<member name="Aldie" date="Tue, 22 Oct 2013 06:29:06 +0000" />
-					<member name="amyandpeteb" date="Mon, 26 Nov 2012 11:44:18 +0000" />
-					<member name="AndyInJapan" date="Wed, 15 Feb 2017 21:29:36 +0000" />
-					<member name="AnyMouse" date="Wed, 14 May 2014 15:36:35 +0000" />
-					<member name="ArtyomTrityak" date="Wed, 08 Feb 2017 18:02:57 +0000" />
-					<member name="asdoriak" date="Sun, 21 Aug 2016 13:36:36 +0000" />
-					<member name="Ashlar" date="Wed, 03 Feb 2016 11:30:25 +0000" />
-					<member name="ashrael" date="Thu, 26 Oct 2017 01:05:34 +0000" />
-					<member name="atreides322" date="Mon, 08 Dec 2014 17:02:26 +0000" />
-					<member name="Audacon" date="Tue, 24 Jul 2012 18:25:49 +0000" />
-					<member name="Aurele" date="Sun, 03 Feb 2013 12:17:50 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="1">
+    <member name="2o1d" date="Thu, 26 Apr 2012 12:04:55 +0000"/>
+    <member name="A skinned math nerd" date="Sat, 20 Feb 2016 14:17:42 +0000"/>
+    <member name="aaronklaser64" date="Thu, 20 Apr 2017 04:08:16 +0000"/>
+    <member name="acarter" date="Mon, 27 Feb 2012 21:39:35 +0000"/>
+    <member name="AcceptableIce" date="Tue, 10 May 2016 18:11:37 +0000"/>
+    <member name="aCoreyJ" date="Fri, 17 Apr 2015 01:32:24 +0000"/>
+    <member name="adambadura" date="Sun, 22 Jan 2012 17:18:24 +0000"/>
+    <member name="adiamant" date="Fri, 19 Oct 2012 15:55:46 +0000"/>
+    <member name="Aetheros" date="Fri, 27 Jan 2017 19:14:13 +0000"/>
+    <member name="agentforsythe" date="Mon, 24 Sep 2012 21:21:15 +0000"/>
+    <member name="AI52487963" date="Wed, 12 Apr 2017 17:44:10 +0000"/>
+    <member name="aiden7690" date="Thu, 28 Dec 2017 23:36:05 +0000"/>
+    <member name="airydisk" date="Wed, 31 May 2017 22:49:50 +0000"/>
+    <member name="aisaksen" date="Mon, 03 Feb 2014 15:34:39 +0000"/>
+    <member name="Aldie" date="Tue, 22 Oct 2013 06:29:06 +0000"/>
+    <member name="amyandpeteb" date="Mon, 26 Nov 2012 11:44:18 +0000"/>
+    <member name="AndyInJapan" date="Wed, 15 Feb 2017 21:29:36 +0000"/>
+    <member name="AnyMouse" date="Wed, 14 May 2014 15:36:35 +0000"/>
+    <member name="ArtyomTrityak" date="Wed, 08 Feb 2017 18:02:57 +0000"/>
+    <member name="asdoriak" date="Sun, 21 Aug 2016 13:36:36 +0000"/>
+    <member name="Ashlar" date="Wed, 03 Feb 2016 11:30:25 +0000"/>
+    <member name="ashrael" date="Thu, 26 Oct 2017 01:05:34 +0000"/>
+    <member name="atreides322" date="Mon, 08 Dec 2014 17:02:26 +0000"/>
+    <member name="Audacon" date="Tue, 24 Jul 2012 18:25:49 +0000"/>
+    <member name="Aurele" date="Sun, 03 Feb 2013 12:17:50 +0000"/>
+  </members>
+</guild>

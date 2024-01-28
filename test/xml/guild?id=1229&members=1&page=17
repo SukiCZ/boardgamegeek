@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="17">
-					<member name="sjkellyfetti" date="Tue, 20 May 2014 18:49:20 +0000" />
-					<member name="skobar" date="Thu, 02 May 2013 20:06:14 +0000" />
-					<member name="smok" date="Thu, 14 Dec 2017 09:29:33 +0000" />
-					<member name="Sorp222" date="Fri, 02 May 2014 05:31:34 +0000" />
-					<member name="spacewolf009" date="Tue, 08 Jan 2013 06:24:47 +0000" />
-					<member name="SpectreCollie" date="Thu, 19 Feb 2015 20:53:47 +0000" />
-					<member name="spielboy" date="Thu, 02 Feb 2012 14:10:27 +0000" />
-					<member name="squarepegsys" date="Wed, 04 Nov 2015 20:01:56 +0000" />
-					<member name="Squirrelinabox" date="Tue, 21 Jan 2014 21:07:09 +0000" />
-					<member name="starryknight64" date="Fri, 13 Feb 2015 15:23:26 +0000" />
-					<member name="stfmueller" date="Mon, 06 Mar 2017 15:05:21 +0000" />
-					<member name="stg3095" date="Sat, 07 Jul 2012 19:20:44 +0000" />
-					<member name="stormrover" date="Wed, 12 Nov 2014 11:29:02 +0000" />
-					<member name="stuples" date="Wed, 09 May 2012 10:07:24 +0000" />
-					<member name="syllant" date="Sun, 17 Jan 2016 20:28:09 +0000" />
-					<member name="tangent" date="Tue, 04 Mar 2014 20:08:36 +0000" />
-					<member name="tankbard" date="Thu, 02 Apr 2015 14:29:13 +0000" />
-					<member name="tar3820" date="Mon, 19 Jan 2015 08:21:09 +0000" />
-					<member name="tarini83" date="Tue, 08 Dec 2015 16:01:03 +0000" />
-					<member name="tarmin8" date="Sun, 22 Jan 2012 18:18:36 +0000" />
-					<member name="tasajara" date="Fri, 02 May 2014 03:02:25 +0000" />
-					<member name="teg2" date="Tue, 19 Jan 2016 18:21:35 +0000" />
-					<member name="terskine" date="Thu, 14 Jan 2016 14:04:36 +0000" />
-					<member name="testudinoidea" date="Mon, 17 Mar 2014 00:24:01 +0000" />
-					<member name="theemptypockets" date="Fri, 12 May 2017 18:12:00 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="17">
+    <member name="sjkellyfetti" date="Tue, 20 May 2014 18:49:20 +0000"/>
+    <member name="skobar" date="Thu, 02 May 2013 20:06:14 +0000"/>
+    <member name="smok" date="Thu, 14 Dec 2017 09:29:33 +0000"/>
+    <member name="Sorp222" date="Fri, 02 May 2014 05:31:34 +0000"/>
+    <member name="spacewolf009" date="Tue, 08 Jan 2013 06:24:47 +0000"/>
+    <member name="SpectreCollie" date="Thu, 19 Feb 2015 20:53:47 +0000"/>
+    <member name="spielboy" date="Thu, 02 Feb 2012 14:10:27 +0000"/>
+    <member name="squarepegsys" date="Wed, 04 Nov 2015 20:01:56 +0000"/>
+    <member name="Squirrelinabox" date="Tue, 21 Jan 2014 21:07:09 +0000"/>
+    <member name="starryknight64" date="Fri, 13 Feb 2015 15:23:26 +0000"/>
+    <member name="stfmueller" date="Mon, 06 Mar 2017 15:05:21 +0000"/>
+    <member name="stg3095" date="Sat, 07 Jul 2012 19:20:44 +0000"/>
+    <member name="stormrover" date="Wed, 12 Nov 2014 11:29:02 +0000"/>
+    <member name="stuples" date="Wed, 09 May 2012 10:07:24 +0000"/>
+    <member name="syllant" date="Sun, 17 Jan 2016 20:28:09 +0000"/>
+    <member name="tangent" date="Tue, 04 Mar 2014 20:08:36 +0000"/>
+    <member name="tankbard" date="Thu, 02 Apr 2015 14:29:13 +0000"/>
+    <member name="tar3820" date="Mon, 19 Jan 2015 08:21:09 +0000"/>
+    <member name="tarini83" date="Tue, 08 Dec 2015 16:01:03 +0000"/>
+    <member name="tarmin8" date="Sun, 22 Jan 2012 18:18:36 +0000"/>
+    <member name="tasajara" date="Fri, 02 May 2014 03:02:25 +0000"/>
+    <member name="teg2" date="Tue, 19 Jan 2016 18:21:35 +0000"/>
+    <member name="terskine" date="Thu, 14 Jan 2016 14:04:36 +0000"/>
+    <member name="testudinoidea" date="Mon, 17 Mar 2014 00:24:01 +0000"/>
+    <member name="theemptypockets" date="Fri, 12 May 2017 18:12:00 +0000"/>
+  </members>
+</guild>

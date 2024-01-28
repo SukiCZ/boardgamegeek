@@ -1,199 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse"><item type="boardgame" id="824">
-         <thumbnail>https://cf.geekdo-images.com/images/pic84788_t.jpg</thumbnail>
-      <image>https://cf.geekdo-images.com/images/pic84788.jpg</image>
-
-				<name type="primary" sortindex="1" value="Hijara" />
-
-
-				<name type="alternate" sortindex="1" value="Eclipse" />
-
-						               													<description>Hijara ... 2-player abstract strategy board game of concentration &amp;ndash; using placement of small stones, strategy and points accumulation.&amp;#10;&amp;#10;The original game was named Excel and published by American Airlines, Inc. in their in flight magazine American Way on December 24th 1985 and July 22nd 1986 &amp;ndash; U.S.A.&amp;#10;&amp;#10;Excel was later published as Eclipse by Games Above Board in 1994 and included in Games Magazine 1995 Buyers Guide To Games &amp;ndash; U.S.A.&amp;#10; Excel/Eclipse, renamed Hijara (Arabic for small stones), was published by Great American Trading Company in 1995 and has been in Games Magazine Top 100 since 1996.&amp;#10;&amp;#10;The game was then published as Hijara by Sunnywood, Sterling Games in 2004 &amp;ndash; Hong Kong.&amp;#10;&amp;#10;Also published as Hijara in February 2012 by Ducosim &amp;ndash; The Netherlands.&amp;#10;&amp;#10;The game has been knocked off 4 times &amp;hellip; electronic flash versions (Russia &amp;amp; U.S.A.) + Android (Belgium) and iPhone (India) apps.&amp;#10;&amp;#10;Game play: start with an empty board, end with a full board and the player who accrues the most points is the winner.&amp;#10;&amp;#10;The three ways to score points:&amp;#10;4 numbers of a kind in a row - horizontally, vertically, diagonally scores 10 points.&amp;#10;4 numbers in sequence in a row - horizontally, vertically, diagonally scores 15 points.&amp;#10;4 numbers in a square scores 20 points.&amp;#10;&amp;#10;Two additional optional ways to score points:&amp;#10;4 numbers of a kind in the 4 corner squares scores 10 points.&amp;#10;4 numbers in sequence in the 4 corner squares scores 15 points.&amp;#10;&amp;#10;You snooze, you lose - as overlooked points are forfeited.&amp;#10;&amp;#10;A singular game for two with only one rule - i.e. numbered squares may be filled in any order however, stones must be placed on the square [being filled] in numerical sequence of that square.&amp;#10;&amp;#10;FYI &amp;ndash; contrary to ValJor's opinion and as proved to him (by playing a game), as the game is played for points, the second player cannot break Hijara.&amp;#10;&amp;#10;</description>
-										      	               				<yearpublished value="1995" />
-						               				<minplayers value="2" />
-						               				<maxplayers value="2" />
-						      			<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="0">
-
-		<results numplayers="1">
-					<result value="Best" numvotes="0" />
-					<result value="Recommended" numvotes="0" />
-					<result value="Not Recommended" numvotes="0" />
-				</results>
-
-		<results numplayers="2">
-					<result value="Best" numvotes="0" />
-					<result value="Recommended" numvotes="0" />
-					<result value="Not Recommended" numvotes="0" />
-				</results>
-
-		<results numplayers="2+">
-					<result value="Best" numvotes="0" />
-					<result value="Recommended" numvotes="0" />
-					<result value="Not Recommended" numvotes="0" />
-				</results>
+<?xml version="1.0" encoding="utf-8"?>
+<items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <item type="boardgame" id="824">
+    <thumbnail>https://cf.geekdo-images.com/images/pic84788_t.jpg</thumbnail>
+    <image>https://cf.geekdo-images.com/images/pic84788.jpg</image>
+    <name type="primary" sortindex="1" value="Hijara"/>
+    <name type="alternate" sortindex="1" value="Eclipse"/>
+    <description>Hijara ... 2-player abstract strategy board game of concentration &amp;ndash; using placement of small stones, strategy and points accumulation.&amp;#10;&amp;#10;The original game was named Excel and published by American Airlines, Inc. in their in flight magazine American Way on December 24th 1985 and July 22nd 1986 &amp;ndash; U.S.A.&amp;#10;&amp;#10;Excel was later published as Eclipse by Games Above Board in 1994 and included in Games Magazine 1995 Buyers Guide To Games &amp;ndash; U.S.A.&amp;#10; Excel/Eclipse, renamed Hijara (Arabic for small stones), was published by Great American Trading Company in 1995 and has been in Games Magazine Top 100 since 1996.&amp;#10;&amp;#10;The game was then published as Hijara by Sunnywood, Sterling Games in 2004 &amp;ndash; Hong Kong.&amp;#10;&amp;#10;Also published as Hijara in February 2012 by Ducosim &amp;ndash; The Netherlands.&amp;#10;&amp;#10;The game has been knocked off 4 times &amp;hellip; electronic flash versions (Russia &amp;amp; U.S.A.) + Android (Belgium) and iPhone (India) apps.&amp;#10;&amp;#10;Game play: start with an empty board, end with a full board and the player who accrues the most points is the winner.&amp;#10;&amp;#10;The three ways to score points:&amp;#10;4 numbers of a kind in a row - horizontally, vertically, diagonally scores 10 points.&amp;#10;4 numbers in sequence in a row - horizontally, vertically, diagonally scores 15 points.&amp;#10;4 numbers in a square scores 20 points.&amp;#10;&amp;#10;Two additional optional ways to score points:&amp;#10;4 numbers of a kind in the 4 corner squares scores 10 points.&amp;#10;4 numbers in sequence in the 4 corner squares scores 15 points.&amp;#10;&amp;#10;You snooze, you lose - as overlooked points are forfeited.&amp;#10;&amp;#10;A singular game for two with only one rule - i.e. numbered squares may be filled in any order however, stones must be placed on the square [being filled] in numerical sequence of that square.&amp;#10;&amp;#10;FYI &amp;ndash; contrary to ValJor's opinion and as proved to him (by playing a game), as the game is played for points, the second player cannot break Hijara.&amp;#10;&amp;#10;</description>
+    <yearpublished value="1995"/>
+    <minplayers value="2"/>
+    <maxplayers value="2"/>
+    <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="0">
+      <results numplayers="1">
+        <result value="Best" numvotes="0"/>
+        <result value="Recommended" numvotes="0"/>
+        <result value="Not Recommended" numvotes="0"/>
+      </results>
+      <results numplayers="2">
+        <result value="Best" numvotes="0"/>
+        <result value="Recommended" numvotes="0"/>
+        <result value="Not Recommended" numvotes="0"/>
+      </results>
+      <results numplayers="2+">
+        <result value="Best" numvotes="0"/>
+        <result value="Recommended" numvotes="0"/>
+        <result value="Not Recommended" numvotes="0"/>
+      </results>
+    </poll>
+    <playingtime value="40"/>
+    <minplaytime value="40"/>
+    <maxplaytime value="40"/>
+    <minage value="10"/>
+    <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="0">
 	</poll>
-			               				<playingtime value="40" />
-						               				<minplaytime value="40" />
-						               				<maxplaytime value="40" />
-						               				<minage value="10" />
-						      			<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="0">
+    <poll name="language_dependence" title="Language Dependence" totalvotes="0">
 	</poll>
-			      			<poll name="language_dependence" title="Language Dependence" totalvotes="0">
-	</poll>
-
-
-
-
-
-
-					<link type="boardgamecategory" id="1009" value="Abstract Strategy" />
-
-
-
-
-
-
-
-					<link type="boardgamecategory" id="1052" value="Arabian" />
-
-
-
-
-
-
-
-
-
-					<link type="boardgamemechanic" id="2048" value="Pattern Building" />
-
-
-
-
-
-
-
-
-
-					<link type="boardgamefamily" id="6363" value="Tube Games" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					<link type="boardgameimplementation" id="3656" value="Score Four" inbound="true"/>
-
-
-
-
-
-
-
-
-
-					<link type="boardgamedesigner" id="400" value="Martin H. Samuel" />
-
-
-
-
-
-
-
-
-
-					<link type="boardgameartist" id="400" value="Martin H. Samuel" />
-
-
-
-
-
-
-
-
-
-					<link type="boardgamepublisher" id="12092" value="Ducosim" />
-
-
-
-
-
-
-
-					<link type="boardgamepublisher" id="1394" value="Games Above Board" />
-
-
-
-
-
-
-
-					<link type="boardgamepublisher" id="4826" value="Giseh Verlag" />
-
-
-
-
-
-
-
-					<link type="boardgamepublisher" id="124" value="Great American Trading Company" />
-
-
-
-
-
-
-
-					<link type="boardgamepublisher" id="2625" value="Sterling Games" />
-
-
-
-
-
-
-
-
-
-
-
-
-   		<statistics page="1">
-								<ratings >
-			<usersrated value="41" />
-			<average value="5.77749" />
-			<bayesaverage value="5.50228" />
-
-			<ranks>
-															<rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="11898" bayesaverage="5.50228" />
-																				<rank type="family" id="4666" name="abstracts" friendlyname="Abstract Game Rank" value="689" bayesaverage="5.50555" />
-												</ranks>
-
-			<stddev value="1.48457" />
-			<median value="0" />
-			<owned value="91" />
-			<trading value="7" />
-			<wanting value="1" />
-			<wishing value="9" />
-			<numcomments value="24" />
-			<numweights value="4" />
-			<averageweight value="1.5" />
-			</ratings>
-								</statistics>
-
-
-
-</item>
+    <link type="boardgamecategory" id="1009" value="Abstract Strategy"/>
+    <link type="boardgamecategory" id="1052" value="Arabian"/>
+    <link type="boardgamemechanic" id="2048" value="Pattern Building"/>
+    <link type="boardgamefamily" id="6363" value="Tube Games"/>
+    <link type="boardgameimplementation" id="3656" value="Score Four" inbound="true"/>
+    <link type="boardgamedesigner" id="400" value="Martin H. Samuel"/>
+    <link type="boardgameartist" id="400" value="Martin H. Samuel"/>
+    <link type="boardgamepublisher" id="12092" value="Ducosim"/>
+    <link type="boardgamepublisher" id="1394" value="Games Above Board"/>
+    <link type="boardgamepublisher" id="4826" value="Giseh Verlag"/>
+    <link type="boardgamepublisher" id="124" value="Great American Trading Company"/>
+    <link type="boardgamepublisher" id="2625" value="Sterling Games"/>
+    <statistics page="1">
+      <ratings>
+        <usersrated value="41"/>
+        <average value="5.77749"/>
+        <bayesaverage value="5.50228"/>
+        <ranks>
+          <rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="11898" bayesaverage="5.50228"/>
+          <rank type="family" id="4666" name="abstracts" friendlyname="Abstract Game Rank" value="689" bayesaverage="5.50555"/>
+        </ranks>
+        <stddev value="1.48457"/>
+        <median value="0"/>
+        <owned value="91"/>
+        <trading value="7"/>
+        <wanting value="1"/>
+        <wishing value="9"/>
+        <numcomments value="24"/>
+        <numweights value="4"/>
+        <averageweight value="1.5"/>
+      </ratings>
+    </statistics>
+  </item>
 </items>

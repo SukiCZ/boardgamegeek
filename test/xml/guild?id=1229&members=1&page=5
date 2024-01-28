@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="5">
-					<member name="dmleach" date="Tue, 31 Jan 2012 20:06:43 +0000" />
-					<member name="doerrhb" date="Tue, 10 Apr 2012 13:55:38 +0000" />
-					<member name="dokmatrix" date="Tue, 01 Dec 2015 06:42:54 +0000" />
-					<member name="Dolus" date="Thu, 06 Aug 2015 16:53:32 +0000" />
-					<member name="Donnin" date="Wed, 11 Jan 2017 14:00:23 +0000" />
-					<member name="dorakeen" date="Mon, 18 Feb 2013 10:57:29 +0000" />
-					<member name="DraedGhawl" date="Tue, 31 Mar 2015 17:36:14 +0000" />
-					<member name="draghetto" date="Mon, 17 Oct 2016 07:55:27 +0000" />
-					<member name="Driesguns" date="Thu, 30 Nov 2017 17:36:36 +0000" />
-					<member name="drifblim" date="Wed, 20 Apr 2016 17:19:49 +0000" />
-					<member name="DrugCrazed" date="Fri, 21 Dec 2012 18:21:13 +0000" />
-					<member name="druvey" date="Sun, 10 May 2015 10:49:30 +0000" />
-					<member name="dsutherland" date="Fri, 20 Jun 2014 15:01:54 +0000" />
-					<member name="edaguilar" date="Fri, 13 Oct 2017 20:53:37 +0000" />
-					<member name="edwalter" date="Sun, 19 Jan 2014 07:44:12 +0000" />
-					<member name="efilips" date="Fri, 18 May 2012 05:24:38 +0000" />
-					<member name="egarcha" date="Sun, 17 Apr 2016 11:12:35 +0000" />
-					<member name="egg_salad" date="Thu, 11 Apr 2013 23:13:04 +0000" />
-					<member name="ekted" date="Sun, 19 Aug 2012 21:06:44 +0000" />
-					<member name="emgiees" date="Mon, 03 Apr 2017 16:11:35 +0000" />
-					<member name="EmilJJ" date="Wed, 11 Feb 2015 12:24:54 +0000" />
-					<member name="enz0" date="Wed, 01 Jun 2016 22:41:49 +0000" />
-					<member name="enzian1" date="Fri, 16 Jan 2015 07:12:02 +0000" />
-					<member name="Eremiell" date="Sun, 26 Jan 2014 02:50:04 +0000" />
-					<member name="errazib" date="Tue, 02 Jan 2018 20:57:00 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="5">
+    <member name="dmleach" date="Tue, 31 Jan 2012 20:06:43 +0000"/>
+    <member name="doerrhb" date="Tue, 10 Apr 2012 13:55:38 +0000"/>
+    <member name="dokmatrix" date="Tue, 01 Dec 2015 06:42:54 +0000"/>
+    <member name="Dolus" date="Thu, 06 Aug 2015 16:53:32 +0000"/>
+    <member name="Donnin" date="Wed, 11 Jan 2017 14:00:23 +0000"/>
+    <member name="dorakeen" date="Mon, 18 Feb 2013 10:57:29 +0000"/>
+    <member name="DraedGhawl" date="Tue, 31 Mar 2015 17:36:14 +0000"/>
+    <member name="draghetto" date="Mon, 17 Oct 2016 07:55:27 +0000"/>
+    <member name="Driesguns" date="Thu, 30 Nov 2017 17:36:36 +0000"/>
+    <member name="drifblim" date="Wed, 20 Apr 2016 17:19:49 +0000"/>
+    <member name="DrugCrazed" date="Fri, 21 Dec 2012 18:21:13 +0000"/>
+    <member name="druvey" date="Sun, 10 May 2015 10:49:30 +0000"/>
+    <member name="dsutherland" date="Fri, 20 Jun 2014 15:01:54 +0000"/>
+    <member name="edaguilar" date="Fri, 13 Oct 2017 20:53:37 +0000"/>
+    <member name="edwalter" date="Sun, 19 Jan 2014 07:44:12 +0000"/>
+    <member name="efilips" date="Fri, 18 May 2012 05:24:38 +0000"/>
+    <member name="egarcha" date="Sun, 17 Apr 2016 11:12:35 +0000"/>
+    <member name="egg_salad" date="Thu, 11 Apr 2013 23:13:04 +0000"/>
+    <member name="ekted" date="Sun, 19 Aug 2012 21:06:44 +0000"/>
+    <member name="emgiees" date="Mon, 03 Apr 2017 16:11:35 +0000"/>
+    <member name="EmilJJ" date="Wed, 11 Feb 2015 12:24:54 +0000"/>
+    <member name="enz0" date="Wed, 01 Jun 2016 22:41:49 +0000"/>
+    <member name="enzian1" date="Fri, 16 Jan 2015 07:12:02 +0000"/>
+    <member name="Eremiell" date="Sun, 26 Jan 2014 02:50:04 +0000"/>
+    <member name="errazib" date="Tue, 02 Jan 2018 20:57:00 +0000"/>
+  </members>
+</guild>

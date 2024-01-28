@@ -1,202 +1,203 @@
-<?xml version="1.0" encoding="utf-8"?><items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-			<item id="10" rank="1">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic537818_t.jpg"/>
-			<name value="Uwe Rosenberg"/>
-					</item>
-			<item id="4958" rank="2">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1452960_t.jpg"/>
-			<name value="Stefan Feld"/>
-					</item>
-			<item id="2" rank="3">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic472979_t.jpg"/>
-			<name value="Reiner Knizia"/>
-					</item>
-			<item id="12396" rank="4">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3546633_t.jpg"/>
-			<name value="Vital Lacerda"/>
-					</item>
-			<item id="69802" rank="5">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1755026_t.jpg"/>
-			<name value="Isaac Childres"/>
-					</item>
-			<item id="37589" rank="6">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic589909_t.jpg"/>
-			<name value="Tom Vasel"/>
-					</item>
-			<item id="62640" rank="7">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1403066_t.jpg"/>
-			<name value="Jamey Stegmaier"/>
-					</item>
-			<item id="1727" rank="8">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic837585_t.jpg"/>
-			<name value="Bruno Cathala"/>
-					</item>
-			<item id="42" rank="9">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1685958_t.jpg"/>
-			<name value="Michael Kiesling"/>
-					</item>
-			<item id="1533" rank="10">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2342125_t.jpg"/>
-			<name value="Eric M. Lang"/>
-					</item>
-			<item id="789" rank="11">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic485835_t.jpg"/>
-			<name value="Vlaada Chvátil"/>
-					</item>
-			<item id="6651" rank="12">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic436935_t.jpg"/>
-			<name value="Corey Konieczka"/>
-					</item>
-			<item id="86" rank="13">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1557385_t.jpg"/>
-			<name value="Michael Schacht"/>
-					</item>
-			<item id="11767" rank="14">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1079358_t.png"/>
-			<name value="Alexander Pfister"/>
-					</item>
-			<item id="9714" rank="15">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic477437_t.jpg"/>
-			<name value="Antoine Bauza"/>
-					</item>
-			<item id="6" rank="16">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic388003_t.jpg"/>
-			<name value="Martin Wallace"/>
-					</item>
-			<item id="6045" rank="17">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic487912_t.jpg"/>
-			<name value="Mac Gerdts"/>
-					</item>
-			<item id="104170" rank="18">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3795727_t.jpg"/>
-			<name value="Julia Faeta"/>
-					</item>
-			<item id="141" rank="19">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic260187_t.jpg"/>
-			<name value="Friedemann Friese"/>
-					</item>
-			<item id="4735" rank="20">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2278622_t.jpg"/>
-			<name value="Ignacy Trzewiczek"/>
-					</item>
-			<item id="105352" rank="21">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic0_t.jpg"/>
-			<name value="Glenn Allan"/>
-					</item>
-			<item id="50969" rank="22">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2279517_t.jpg"/>
-			<name value="Marc André"/>
-					</item>
-			<item id="11854" rank="23">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2450036_t.jpg"/>
-			<name value="Ryan Laukat"/>
-					</item>
-			<item id="105661" rank="24">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic0_t.jpg"/>
-			<name value="Ryan Lopez DeVinaspre"/>
-					</item>
-			<item id="9307" rank="25">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic582961_t.jpg"/>
-			<name value="Vladimír Suchý"/>
-					</item>
-			<item id="34517" rank="26">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic654658_t.jpg"/>
-			<name value="Geoff Engelstein"/>
-					</item>
-			<item id="59986" rank="27">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1357525_t.jpg"/>
-			<name value="Daniele Tascini"/>
-					</item>
-			<item id="35418" rank="28">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3674677_t.jpg"/>
-			<name value="Simone Luciani"/>
-					</item>
-			<item id="11655" rank="29">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic542397_t.jpg"/>
-			<name value="Nate French"/>
-					</item>
-			<item id="12679" rank="30">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2303489_t.jpg"/>
-			<name value="Jonathan Gilmour"/>
-					</item>
-			<item id="7" rank="31">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic389228_t.jpg"/>
-			<name value="Wolfgang Kramer"/>
-					</item>
-			<item id="69718" rank="32">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic0_t.jpg"/>
-			<name value="Nikki Valens"/>
-					</item>
-			<item id="6940" rank="33">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic479975_t.jpg"/>
-			<name value="Inka Brand"/>
-					</item>
-			<item id="11825" rank="34">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1450432_t.jpg"/>
-			<name value="Michael Menzel"/>
-					</item>
-			<item id="6941" rank="35">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic479976_t.jpg"/>
-			<name value="Markus Brand"/>
-					</item>
-			<item id="8347" rank="36">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic3257206_t.jpg"/>
-			<name value="Phil Walker-Harding"/>
-					</item>
-			<item id="150" rank="37">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic645053_t.jpg"/>
-			<name value="Thomas Lehmann"/>
-					</item>
-			<item id="6001" rank="38">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic122093_t.jpg"/>
-			<name value="Carl Chudyk"/>
-					</item>
-			<item id="14" rank="39">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic511133_t.jpg"/>
-			<name value="Richard Garfield"/>
-					</item>
-			<item id="174" rank="40">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic394807_t.jpg"/>
-			<name value="Phil Eklund"/>
-					</item>
-			<item id="34699" rank="41">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1125343_t.jpg"/>
-			<name value="Matthias Cramer"/>
-					</item>
-			<item id="142" rank="42">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic498492_t.jpg"/>
-			<name value="Michael Rieneck"/>
-					</item>
-			<item id="78796" rank="43">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2385663_t.jpg"/>
-			<name value="Jonathan Ying"/>
-					</item>
-			<item id="46810" rank="44">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1138325_t.jpg"/>
-			<name value="Nuno Bizarro Sentieiro"/>
-					</item>
-			<item id="10525" rank="45">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic591946_t.jpg"/>
-			<name value="Donald X. Vaccarino"/>
-					</item>
-			<item id="23005" rank="46">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2715341_t.jpg"/>
-			<name value="Jerry Hawthorne"/>
-					</item>
-			<item id="442" rank="47">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1847248_t.jpg"/>
-			<name value="Rob Daviau"/>
-					</item>
-			<item id="117" rank="48">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic211902_t.jpg"/>
-			<name value="Andreas Seyfarth"/>
-					</item>
-			<item id="42166" rank="49">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic2758247_t.jpg"/>
-			<name value="Todd Sanders"/>
-					</item>
-			<item id="125" rank="50">
-			<thumbnail value="https://cf.geekdo-images.com/images/pic1771616_t.jpg"/>
-			<name value="Bruno Faidutti"/>
-					</item>
-	</items>
+<?xml version="1.0" encoding="utf-8"?>
+<items termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <item id="10" rank="1">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic537818_t.jpg"/>
+    <name value="Uwe Rosenberg"/>
+  </item>
+  <item id="4958" rank="2">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1452960_t.jpg"/>
+    <name value="Stefan Feld"/>
+  </item>
+  <item id="2" rank="3">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic472979_t.jpg"/>
+    <name value="Reiner Knizia"/>
+  </item>
+  <item id="12396" rank="4">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3546633_t.jpg"/>
+    <name value="Vital Lacerda"/>
+  </item>
+  <item id="69802" rank="5">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1755026_t.jpg"/>
+    <name value="Isaac Childres"/>
+  </item>
+  <item id="37589" rank="6">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic589909_t.jpg"/>
+    <name value="Tom Vasel"/>
+  </item>
+  <item id="62640" rank="7">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1403066_t.jpg"/>
+    <name value="Jamey Stegmaier"/>
+  </item>
+  <item id="1727" rank="8">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic837585_t.jpg"/>
+    <name value="Bruno Cathala"/>
+  </item>
+  <item id="42" rank="9">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1685958_t.jpg"/>
+    <name value="Michael Kiesling"/>
+  </item>
+  <item id="1533" rank="10">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2342125_t.jpg"/>
+    <name value="Eric M. Lang"/>
+  </item>
+  <item id="789" rank="11">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic485835_t.jpg"/>
+    <name value="Vlaada Chvátil"/>
+  </item>
+  <item id="6651" rank="12">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic436935_t.jpg"/>
+    <name value="Corey Konieczka"/>
+  </item>
+  <item id="86" rank="13">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1557385_t.jpg"/>
+    <name value="Michael Schacht"/>
+  </item>
+  <item id="11767" rank="14">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1079358_t.png"/>
+    <name value="Alexander Pfister"/>
+  </item>
+  <item id="9714" rank="15">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic477437_t.jpg"/>
+    <name value="Antoine Bauza"/>
+  </item>
+  <item id="6" rank="16">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic388003_t.jpg"/>
+    <name value="Martin Wallace"/>
+  </item>
+  <item id="6045" rank="17">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic487912_t.jpg"/>
+    <name value="Mac Gerdts"/>
+  </item>
+  <item id="104170" rank="18">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3795727_t.jpg"/>
+    <name value="Julia Faeta"/>
+  </item>
+  <item id="141" rank="19">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic260187_t.jpg"/>
+    <name value="Friedemann Friese"/>
+  </item>
+  <item id="4735" rank="20">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2278622_t.jpg"/>
+    <name value="Ignacy Trzewiczek"/>
+  </item>
+  <item id="105352" rank="21">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic0_t.jpg"/>
+    <name value="Glenn Allan"/>
+  </item>
+  <item id="50969" rank="22">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2279517_t.jpg"/>
+    <name value="Marc André"/>
+  </item>
+  <item id="11854" rank="23">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2450036_t.jpg"/>
+    <name value="Ryan Laukat"/>
+  </item>
+  <item id="105661" rank="24">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic0_t.jpg"/>
+    <name value="Ryan Lopez DeVinaspre"/>
+  </item>
+  <item id="9307" rank="25">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic582961_t.jpg"/>
+    <name value="Vladimír Suchý"/>
+  </item>
+  <item id="34517" rank="26">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic654658_t.jpg"/>
+    <name value="Geoff Engelstein"/>
+  </item>
+  <item id="59986" rank="27">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1357525_t.jpg"/>
+    <name value="Daniele Tascini"/>
+  </item>
+  <item id="35418" rank="28">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3674677_t.jpg"/>
+    <name value="Simone Luciani"/>
+  </item>
+  <item id="11655" rank="29">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic542397_t.jpg"/>
+    <name value="Nate French"/>
+  </item>
+  <item id="12679" rank="30">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2303489_t.jpg"/>
+    <name value="Jonathan Gilmour"/>
+  </item>
+  <item id="7" rank="31">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic389228_t.jpg"/>
+    <name value="Wolfgang Kramer"/>
+  </item>
+  <item id="69718" rank="32">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic0_t.jpg"/>
+    <name value="Nikki Valens"/>
+  </item>
+  <item id="6940" rank="33">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic479975_t.jpg"/>
+    <name value="Inka Brand"/>
+  </item>
+  <item id="11825" rank="34">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1450432_t.jpg"/>
+    <name value="Michael Menzel"/>
+  </item>
+  <item id="6941" rank="35">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic479976_t.jpg"/>
+    <name value="Markus Brand"/>
+  </item>
+  <item id="8347" rank="36">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic3257206_t.jpg"/>
+    <name value="Phil Walker-Harding"/>
+  </item>
+  <item id="150" rank="37">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic645053_t.jpg"/>
+    <name value="Thomas Lehmann"/>
+  </item>
+  <item id="6001" rank="38">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic122093_t.jpg"/>
+    <name value="Carl Chudyk"/>
+  </item>
+  <item id="14" rank="39">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic511133_t.jpg"/>
+    <name value="Richard Garfield"/>
+  </item>
+  <item id="174" rank="40">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic394807_t.jpg"/>
+    <name value="Phil Eklund"/>
+  </item>
+  <item id="34699" rank="41">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1125343_t.jpg"/>
+    <name value="Matthias Cramer"/>
+  </item>
+  <item id="142" rank="42">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic498492_t.jpg"/>
+    <name value="Michael Rieneck"/>
+  </item>
+  <item id="78796" rank="43">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2385663_t.jpg"/>
+    <name value="Jonathan Ying"/>
+  </item>
+  <item id="46810" rank="44">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1138325_t.jpg"/>
+    <name value="Nuno Bizarro Sentieiro"/>
+  </item>
+  <item id="10525" rank="45">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic591946_t.jpg"/>
+    <name value="Donald X. Vaccarino"/>
+  </item>
+  <item id="23005" rank="46">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2715341_t.jpg"/>
+    <name value="Jerry Hawthorne"/>
+  </item>
+  <item id="442" rank="47">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1847248_t.jpg"/>
+    <name value="Rob Daviau"/>
+  </item>
+  <item id="117" rank="48">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic211902_t.jpg"/>
+    <name value="Andreas Seyfarth"/>
+  </item>
+  <item id="42166" rank="49">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic2758247_t.jpg"/>
+    <name value="Todd Sanders"/>
+  </item>
+  <item id="125" rank="50">
+    <thumbnail value="https://cf.geekdo-images.com/images/pic1771616_t.jpg"/>
+    <name value="Bruno Faidutti"/>
+  </item>
+</items>

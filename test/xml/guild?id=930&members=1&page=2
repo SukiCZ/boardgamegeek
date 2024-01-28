@@ -1,22 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="930" name="Crazy Squirrel Game Store" created="Wed, 27 Oct 2010 19:02:33 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>store</category>
-	<website>http://www.crazysquirrelgamestore.com/</website>
-	<manager>delveg</manager>
-	<description>Crazy Squirrel is place to gather for gaming; every Thursday is Board Game Night (6 pm), plus monthly board game meetups-- and other gaming throughout the week.</description>
-	<location>
-		<addr1>464 E Bullard Ave</addr1>
-		<addr2>Suite 105</addr2>
-		<city>Fresno</city>
-		<stateorprovince>California</stateorprovince>
-		<postalcode>93710</postalcode>
-		<country>United States</country>
-	</location>
-		<members count="31" page="2">
-					<member name="talanhawke" date="Thu, 28 Oct 2010 16:49:39 +0000" />
-					<member name="tebald" date="Thu, 28 Oct 2010 16:32:00 +0000" />
-					<member name="TheDarkshineKnight" date="Thu, 28 Oct 2010 23:24:17 +0000" />
-					<member name="ThreeEyedSloth" date="Mon, 30 Jun 2014 06:22:22 +0000" />
-					<member name="WildaBeast" date="Tue, 02 Apr 2013 21:19:40 +0000" />
-					<member name="Yargo" date="Tue, 21 Jun 2011 04:04:58 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="930" name="Crazy Squirrel Game Store" created="Wed, 27 Oct 2010 19:02:33 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>store</category>
+  <website>http://www.crazysquirrelgamestore.com/</website>
+  <manager>delveg</manager>
+  <description>Crazy Squirrel is place to gather for gaming; every Thursday is Board Game Night (6 pm), plus monthly board game meetups-- and other gaming throughout the week.</description>
+  <location>
+    <addr1>464 E Bullard Ave</addr1>
+    <addr2>Suite 105</addr2>
+    <city>Fresno</city>
+    <stateorprovince>California</stateorprovince>
+    <postalcode>93710</postalcode>
+    <country>United States</country>
+  </location>
+  <members count="31" page="2">
+    <member name="talanhawke" date="Thu, 28 Oct 2010 16:49:39 +0000"/>
+    <member name="tebald" date="Thu, 28 Oct 2010 16:32:00 +0000"/>
+    <member name="TheDarkshineKnight" date="Thu, 28 Oct 2010 23:24:17 +0000"/>
+    <member name="ThreeEyedSloth" date="Mon, 30 Jun 2014 06:22:22 +0000"/>
+    <member name="WildaBeast" date="Tue, 02 Apr 2013 21:19:40 +0000"/>
+    <member name="Yargo" date="Tue, 21 Jun 2011 04:04:58 +0000"/>
+  </members>
+</guild>

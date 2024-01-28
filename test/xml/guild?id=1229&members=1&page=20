@@ -1,24 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="20">
-					<member name="yosz" date="Sun, 22 Jan 2012 10:14:31 +0000" />
-					<member name="yzemaze" date="Thu, 02 Feb 2012 09:27:48 +0000" />
-					<member name="zefquaavius" date="Mon, 23 Jan 2012 14:19:15 +0000" />
-					<member name="zenodotus" date="Fri, 11 Dec 2015 17:34:17 +0000" />
-					<member name="zetaceti" date="Tue, 25 Feb 2014 21:21:10 +0000" />
-					<member name="zodiak" date="Fri, 20 Sep 2013 07:12:51 +0000" />
-					<member name="ZombieCooKiE" date="Mon, 31 Oct 2016 03:10:11 +0000" />
-					<member name="Zwaloo" date="Tue, 09 Aug 2016 18:36:43 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="20">
+    <member name="yosz" date="Sun, 22 Jan 2012 10:14:31 +0000"/>
+    <member name="yzemaze" date="Thu, 02 Feb 2012 09:27:48 +0000"/>
+    <member name="zefquaavius" date="Mon, 23 Jan 2012 14:19:15 +0000"/>
+    <member name="zenodotus" date="Fri, 11 Dec 2015 17:34:17 +0000"/>
+    <member name="zetaceti" date="Tue, 25 Feb 2014 21:21:10 +0000"/>
+    <member name="zodiak" date="Fri, 20 Sep 2013 07:12:51 +0000"/>
+    <member name="ZombieCooKiE" date="Mon, 31 Oct 2016 03:10:11 +0000"/>
+    <member name="Zwaloo" date="Tue, 09 Aug 2016 18:36:43 +0000"/>
+  </members>
+</guild>

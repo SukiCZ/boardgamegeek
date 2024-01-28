@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="11">
-					<member name="LorienEST" date="Sun, 21 Feb 2016 16:56:16 +0000" />
-					<member name="lostdog" date="Tue, 16 Apr 2013 22:24:27 +0000" />
-					<member name="loudmouthman" date="Fri, 07 Feb 2014 10:00:19 +0000" />
-					<member name="Loukas" date="Tue, 12 Sep 2017 15:41:52 +0000" />
-					<member name="LowDrive" date="Wed, 28 Oct 2015 17:24:54 +0000" />
-					<member name="lucasccpp" date="Thu, 28 Sep 2017 14:33:42 +0000" />
-					<member name="LuckyD75" date="Fri, 22 Nov 2013 16:59:29 +0000" />
-					<member name="luminarious" date="Fri, 11 Jul 2014 05:49:48 +0000" />
-					<member name="Lunardirp" date="Sat, 23 May 2015 12:40:41 +0000" />
-					<member name="Lurca" date="Wed, 21 Sep 2016 08:35:19 +0000" />
-					<member name="madmuppet2k" date="Tue, 24 Jan 2012 02:42:16 +0000" />
-					<member name="Magma" date="Thu, 22 Jan 2015 16:52:48 +0000" />
-					<member name="MakiCodes" date="Sat, 16 Sep 2017 14:37:41 +0000" />
-					<member name="makopeti" date="Fri, 06 Oct 2017 09:51:09 +0000" />
-					<member name="Mallgur" date="Tue, 31 May 2016 11:13:35 +0000" />
-					<member name="mantra6" date="Tue, 19 Jan 2016 22:12:05 +0000" />
-					<member name="marcio_os" date="Mon, 15 Jul 2013 06:05:34 +0000" />
-					<member name="MaroonedMorlock" date="Thu, 09 Jan 2014 01:45:52 +0000" />
-					<member name="matax87" date="Tue, 05 Sep 2017 19:11:40 +0000" />
-					<member name="MatroidX" date="Wed, 13 Sep 2017 19:47:42 +0000" />
-					<member name="maudineormsby" date="Sun, 22 Jan 2012 15:45:11 +0000" />
-					<member name="mcosta1973" date="Sun, 18 Jan 2015 23:35:58 +0000" />
-					<member name="mcpranno" date="Tue, 29 Oct 2013 19:34:28 +0000" />
-					<member name="mD DAY" date="Mon, 06 Apr 2015 22:19:05 +0000" />
-					<member name="Meat" date="Sat, 03 Mar 2012 18:02:54 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="11">
+    <member name="LorienEST" date="Sun, 21 Feb 2016 16:56:16 +0000"/>
+    <member name="lostdog" date="Tue, 16 Apr 2013 22:24:27 +0000"/>
+    <member name="loudmouthman" date="Fri, 07 Feb 2014 10:00:19 +0000"/>
+    <member name="Loukas" date="Tue, 12 Sep 2017 15:41:52 +0000"/>
+    <member name="LowDrive" date="Wed, 28 Oct 2015 17:24:54 +0000"/>
+    <member name="lucasccpp" date="Thu, 28 Sep 2017 14:33:42 +0000"/>
+    <member name="LuckyD75" date="Fri, 22 Nov 2013 16:59:29 +0000"/>
+    <member name="luminarious" date="Fri, 11 Jul 2014 05:49:48 +0000"/>
+    <member name="Lunardirp" date="Sat, 23 May 2015 12:40:41 +0000"/>
+    <member name="Lurca" date="Wed, 21 Sep 2016 08:35:19 +0000"/>
+    <member name="madmuppet2k" date="Tue, 24 Jan 2012 02:42:16 +0000"/>
+    <member name="Magma" date="Thu, 22 Jan 2015 16:52:48 +0000"/>
+    <member name="MakiCodes" date="Sat, 16 Sep 2017 14:37:41 +0000"/>
+    <member name="makopeti" date="Fri, 06 Oct 2017 09:51:09 +0000"/>
+    <member name="Mallgur" date="Tue, 31 May 2016 11:13:35 +0000"/>
+    <member name="mantra6" date="Tue, 19 Jan 2016 22:12:05 +0000"/>
+    <member name="marcio_os" date="Mon, 15 Jul 2013 06:05:34 +0000"/>
+    <member name="MaroonedMorlock" date="Thu, 09 Jan 2014 01:45:52 +0000"/>
+    <member name="matax87" date="Tue, 05 Sep 2017 19:11:40 +0000"/>
+    <member name="MatroidX" date="Wed, 13 Sep 2017 19:47:42 +0000"/>
+    <member name="maudineormsby" date="Sun, 22 Jan 2012 15:45:11 +0000"/>
+    <member name="mcosta1973" date="Sun, 18 Jan 2015 23:35:58 +0000"/>
+    <member name="mcpranno" date="Tue, 29 Oct 2013 19:34:28 +0000"/>
+    <member name="mD DAY" date="Mon, 06 Apr 2015 22:19:05 +0000"/>
+    <member name="Meat" date="Sat, 03 Mar 2012 18:02:54 +0000"/>
+  </members>
+</guild>

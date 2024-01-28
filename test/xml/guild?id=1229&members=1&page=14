@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="14">
-					<member name="oudknoei" date="Sun, 22 Jan 2012 13:13:28 +0000" />
-					<member name="paigew" date="Wed, 10 Oct 2012 05:03:28 +0000" />
-					<member name="pak21" date="Sat, 24 Aug 2013 21:11:30 +0000" />
-					<member name="parkrrrr" date="Tue, 10 Apr 2012 13:41:45 +0000" />
-					<member name="paschott" date="Sun, 19 Nov 2017 03:39:22 +0000" />
-					<member name="pastej" date="Mon, 10 Feb 2014 19:52:33 +0000" />
-					<member name="peakhope" date="Fri, 24 Jan 2014 05:54:58 +0000" />
-					<member name="Peukon" date="Mon, 21 Aug 2017 08:02:11 +0000" />
-					<member name="Phadrus00" date="Sat, 06 Sep 2014 15:45:07 +0000" />
-					<member name="Phenick" date="Tue, 23 Oct 2012 18:57:06 +0000" />
-					<member name="philsstein" date="Tue, 29 Apr 2014 03:32:31 +0000" />
-					<member name="PhotonStorm" date="Thu, 15 May 2014 19:08:34 +0000" />
-					<member name="pijll" date="Fri, 07 Apr 2017 15:18:56 +0000" />
-					<member name="pilotboy172" date="Wed, 29 Mar 2017 21:36:17 +0000" />
-					<member name="pirate_chef" date="Thu, 21 Aug 2014 19:39:29 +0000" />
-					<member name="PixelNinja" date="Mon, 27 Oct 2014 05:12:50 +0000" />
-					<member name="PlaneGuy" date="Tue, 18 Aug 2015 20:18:55 +0000" />
-					<member name="PocketAtomic" date="Fri, 20 Nov 2015 06:52:30 +0000" />
-					<member name="pogo_" date="Tue, 26 Apr 2016 08:19:50 +0000" />
-					<member name="Polomease" date="Thu, 25 Sep 2014 23:53:56 +0000" />
-					<member name="Prestoneous" date="Sun, 05 Mar 2017 22:51:40 +0000" />
-					<member name="Pumpkinhead76" date="Sat, 14 Mar 2015 18:46:17 +0000" />
-					<member name="Purple" date="Fri, 02 May 2014 07:35:12 +0000" />
-					<member name="pYr0rAGE" date="Sun, 01 May 2016 04:56:36 +0000" />
-					<member name="Qbaza" date="Fri, 03 Feb 2012 04:36:08 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="14">
+    <member name="oudknoei" date="Sun, 22 Jan 2012 13:13:28 +0000"/>
+    <member name="paigew" date="Wed, 10 Oct 2012 05:03:28 +0000"/>
+    <member name="pak21" date="Sat, 24 Aug 2013 21:11:30 +0000"/>
+    <member name="parkrrrr" date="Tue, 10 Apr 2012 13:41:45 +0000"/>
+    <member name="paschott" date="Sun, 19 Nov 2017 03:39:22 +0000"/>
+    <member name="pastej" date="Mon, 10 Feb 2014 19:52:33 +0000"/>
+    <member name="peakhope" date="Fri, 24 Jan 2014 05:54:58 +0000"/>
+    <member name="Peukon" date="Mon, 21 Aug 2017 08:02:11 +0000"/>
+    <member name="Phadrus00" date="Sat, 06 Sep 2014 15:45:07 +0000"/>
+    <member name="Phenick" date="Tue, 23 Oct 2012 18:57:06 +0000"/>
+    <member name="philsstein" date="Tue, 29 Apr 2014 03:32:31 +0000"/>
+    <member name="PhotonStorm" date="Thu, 15 May 2014 19:08:34 +0000"/>
+    <member name="pijll" date="Fri, 07 Apr 2017 15:18:56 +0000"/>
+    <member name="pilotboy172" date="Wed, 29 Mar 2017 21:36:17 +0000"/>
+    <member name="pirate_chef" date="Thu, 21 Aug 2014 19:39:29 +0000"/>
+    <member name="PixelNinja" date="Mon, 27 Oct 2014 05:12:50 +0000"/>
+    <member name="PlaneGuy" date="Tue, 18 Aug 2015 20:18:55 +0000"/>
+    <member name="PocketAtomic" date="Fri, 20 Nov 2015 06:52:30 +0000"/>
+    <member name="pogo_" date="Tue, 26 Apr 2016 08:19:50 +0000"/>
+    <member name="Polomease" date="Thu, 25 Sep 2014 23:53:56 +0000"/>
+    <member name="Prestoneous" date="Sun, 05 Mar 2017 22:51:40 +0000"/>
+    <member name="Pumpkinhead76" date="Sat, 14 Mar 2015 18:46:17 +0000"/>
+    <member name="Purple" date="Fri, 02 May 2014 07:35:12 +0000"/>
+    <member name="pYr0rAGE" date="Sun, 01 May 2016 04:56:36 +0000"/>
+    <member name="Qbaza" date="Fri, 03 Feb 2012 04:36:08 +0000"/>
+  </members>
+</guild>

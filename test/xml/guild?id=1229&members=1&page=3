@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
-	<category>hobby</category>
-	<website></website>
-	<manager>Jester</manager>
-	<description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
-	<location>
-		<addr1></addr1>
-		<addr2></addr2>
-		<city></city>
-		<stateorprovince></stateorprovince>
-		<postalcode></postalcode>
-		<country></country>
-	</location>
-		<members count="483" page="3">
-					<member name="Caesar!" date="Thu, 29 Jan 2015 22:37:48 +0000" />
-					<member name="cafeine" date="Wed, 26 Dec 2012 18:59:16 +0000" />
-					<member name="calaban9" date="Tue, 19 Aug 2014 00:10:38 +0000" />
-					<member name="capnhubert" date="Mon, 15 Apr 2013 02:05:15 +0000" />
-					<member name="CaptainJax" date="Tue, 06 Jun 2017 08:05:22 +0000" />
-					<member name="CassetteDeck" date="Sat, 25 Jul 2015 15:37:22 +0000" />
-					<member name="ccmonter" date="Tue, 18 Aug 2015 18:46:57 +0000" />
-					<member name="ccomeaux" date="Tue, 24 Jan 2012 16:01:55 +0000" />
-					<member name="celtboy" date="Sat, 23 Jan 2016 22:27:20 +0000" />
-					<member name="cengel60" date="Sun, 22 Jan 2012 16:21:17 +0000" />
-					<member name="cesco" date="Tue, 21 Feb 2012 22:42:18 +0000" />
-					<member name="Charlesworth" date="Wed, 14 Sep 2016 09:32:55 +0000" />
-					<member name="chazlander" date="Fri, 12 Dec 2014 18:54:00 +0000" />
-					<member name="checcco" date="Tue, 04 Apr 2017 13:31:19 +0000" />
-					<member name="chemberger" date="Mon, 21 Dec 2015 03:27:57 +0000" />
-					<member name="ChipChuck" date="Tue, 19 Jan 2016 14:45:21 +0000" />
-					<member name="christo8989" date="Sat, 08 Feb 2014 20:23:46 +0000" />
-					<member name="ChuckS3" date="Fri, 06 Mar 2015 19:01:43 +0000" />
-					<member name="cjboyett" date="Mon, 25 Apr 2016 17:59:18 +0000" />
-					<member name="cjduncana" date="Tue, 11 Aug 2015 18:18:10 +0000" />
-					<member name="CodeAndReload" date="Fri, 28 Sep 2012 22:23:46 +0000" />
-					<member name="collywobbles" date="Sat, 03 May 2014 11:09:21 +0000" />
-					<member name="comat0se" date="Fri, 12 Dec 2014 00:16:59 +0000" />
-					<member name="corey200" date="Sat, 16 Sep 2017 20:22:40 +0000" />
-					<member name="CoreySanders" date="Tue, 18 Jun 2013 22:36:31 +0000" />
-			</members>
-	</guild>
+<?xml version="1.0" encoding="utf-8"?>
+<guild id="1229" name="Geek Tools" created="Sun, 22 Jan 2012 09:53:47 +0000" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <category>hobby</category>
+  <website/>
+  <manager>Jester</manager>
+  <description>This guild is set aside for the developer community building apps or tools for BGG and its sister sites, using the XML API or other data from BGG. It also welcomes developers building tools to augment the BGG community experience. &lt;br/&gt;&lt;br/&gt;Questions about BGG API capabilities or design discussions are welcome here. General discussions of technologies that can be brought to bear on BGG-specific solutions are welcome. General purpose coding questions are probably better suited for other venues on the web.</description>
+  <location>
+    <addr1/>
+    <addr2/>
+    <city/>
+    <stateorprovince/>
+    <postalcode/>
+    <country/>
+  </location>
+  <members count="483" page="3">
+    <member name="Caesar!" date="Thu, 29 Jan 2015 22:37:48 +0000"/>
+    <member name="cafeine" date="Wed, 26 Dec 2012 18:59:16 +0000"/>
+    <member name="calaban9" date="Tue, 19 Aug 2014 00:10:38 +0000"/>
+    <member name="capnhubert" date="Mon, 15 Apr 2013 02:05:15 +0000"/>
+    <member name="CaptainJax" date="Tue, 06 Jun 2017 08:05:22 +0000"/>
+    <member name="CassetteDeck" date="Sat, 25 Jul 2015 15:37:22 +0000"/>
+    <member name="ccmonter" date="Tue, 18 Aug 2015 18:46:57 +0000"/>
+    <member name="ccomeaux" date="Tue, 24 Jan 2012 16:01:55 +0000"/>
+    <member name="celtboy" date="Sat, 23 Jan 2016 22:27:20 +0000"/>
+    <member name="cengel60" date="Sun, 22 Jan 2012 16:21:17 +0000"/>
+    <member name="cesco" date="Tue, 21 Feb 2012 22:42:18 +0000"/>
+    <member name="Charlesworth" date="Wed, 14 Sep 2016 09:32:55 +0000"/>
+    <member name="chazlander" date="Fri, 12 Dec 2014 18:54:00 +0000"/>
+    <member name="checcco" date="Tue, 04 Apr 2017 13:31:19 +0000"/>
+    <member name="chemberger" date="Mon, 21 Dec 2015 03:27:57 +0000"/>
+    <member name="ChipChuck" date="Tue, 19 Jan 2016 14:45:21 +0000"/>
+    <member name="christo8989" date="Sat, 08 Feb 2014 20:23:46 +0000"/>
+    <member name="ChuckS3" date="Fri, 06 Mar 2015 19:01:43 +0000"/>
+    <member name="cjboyett" date="Mon, 25 Apr 2016 17:59:18 +0000"/>
+    <member name="cjduncana" date="Tue, 11 Aug 2015 18:18:10 +0000"/>
+    <member name="CodeAndReload" date="Fri, 28 Sep 2012 22:23:46 +0000"/>
+    <member name="collywobbles" date="Sat, 03 May 2014 11:09:21 +0000"/>
+    <member name="comat0se" date="Fri, 12 Dec 2014 00:16:59 +0000"/>
+    <member name="corey200" date="Sat, 16 Sep 2017 20:22:40 +0000"/>
+    <member name="CoreySanders" date="Tue, 18 Jun 2013 22:36:31 +0000"/>
+  </members>
+</guild>

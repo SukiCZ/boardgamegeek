@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><items total="2" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">			<item type="boardgame" id="31260">
-			<name type="primary" value="Agricola"/>
-							<yearpublished value="2007" />
-					</item>
-			<item type="boardgame" id="197633">
-			<name type="primary" value="Agricola"/>
-							<yearpublished value="2017" />
-					</item>
-	</items>
+<?xml version="1.0" encoding="utf-8"?>
+<items total="2" termsofuse="http://boardgamegeek.com/xmlapi/termsofuse">
+  <item type="boardgame" id="31260">
+    <name type="primary" value="Agricola"/>
+    <yearpublished value="2007"/>
+  </item>
+  <item type="boardgame" id="197633">
+    <name type="primary" value="Agricola"/>
+    <yearpublished value="2017"/>
+  </item>
+</items>
