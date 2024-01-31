@@ -2,11 +2,15 @@ Changelog
 =========
 
 
+1.1.5
+-----
+
+* Move test folder to tests
+
 1.1.4
 -----
 
 * Remove progress callback
-
 
 1.1.3
 -----
