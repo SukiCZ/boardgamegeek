@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.1.4
+-----
+
+* Remove progress callback
+
+
 1.1.3
 -----
 
