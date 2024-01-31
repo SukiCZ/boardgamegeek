@@ -87,9 +87,6 @@ def main():
     stdout.setFormatter(fmt)
     log.addHandler(stdout)
 
-    def progress_cb(items, total):
-        log.debug(f"fetching items: {items*100/total}% complete")
-
     if not any(
         [
             args.user,
@@ -108,7 +105,7 @@ def main():
     bgg = BGGClient(timeout=args.timeout, retries=args.retries)
 
     if args.user:
-        user = bgg.user(args.user, progress=progress_cb)
+        user = bgg.user(args.user)
         user._format(log)
 
     # query by game id
@@ -131,7 +128,7 @@ def main():
         brief_game_stats(game)
 
     if args.guild:
-        guild = bgg.guild(args.guild, progress=progress_cb)
+        guild = bgg.guild(args.guild)
         guild._format(log)
 
     if args.collection:
@@ -139,7 +136,7 @@ def main():
         collection._format(log)
 
     if args.plays:
-        plays = bgg.plays(name=args.plays, progress=progress_cb)
+        plays = bgg.plays(name=args.plays)
         plays._format(log)
 
     if args.plays_by_game:
@@ -148,7 +145,7 @@ def main():
         except ValueError:
             game_id = bgg.get_game_id(args.plays_by_game)
 
-        plays = bgg.plays(game_id=game_id, progress=progress_cb)
+        plays = bgg.plays(game_id=game_id)
         plays._format(log)
 
     if args.hot_items:

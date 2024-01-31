@@ -109,14 +109,6 @@ class BGGRestrictCollectionTo:
     VIDEO_GAME = "videogame"
 
 
-def call_progress_cb(progress_cb, current, total):
-    """
-    Calls the progress callback, if any
-    """
-    if progress_cb is not None:
-        progress_cb(current, total)
-
-
 class BGGCommon:
     """
     Base class for the BoardGameGeek websites APIs. All site-specific clients are derived from this.
@@ -197,12 +189,11 @@ class BGGCommon:
                 else 10000000000,
             ).id
 
-    def guild(self, guild_id, progress=None, members=True):
+    def guild(self, guild_id, members=True):
         """
         Retrieves details about a guild
 
         :param integer guild_id: the id number of the guild
-        :param callable progress: optional callable for progress, takes two integers (``current``, ``total``)
         :param bool members: if ``True``, names of the guild members will be fetched
         :return: ``Guild`` object containing the data
         :return: ``None`` if the information couldn't be retrieved
@@ -235,12 +226,6 @@ class BGGCommon:
         # Add the first page of members
         added_member = add_guild_members_from_xml(guild, xml_root)
 
-        try:
-            call_progress_cb(progress, len(guild), guild.members_count)
-        except Exception:
-            # TODO Too broad
-            return guild
-
         # Fetch the other pages of members
         page = 1
         while len(guild) < guild.members_count and added_member:
@@ -258,19 +243,12 @@ class BGGCommon:
 
             added_member = add_guild_members_from_xml(guild, xml_root)
 
-            try:
-                call_progress_cb(progress, len(guild), guild.members_count)
-            except Exception:
-                # TODO Too broad
-                break
-
         return guild
 
     # TODO: refactor
     def user(
         self,
         name,
-        progress=None,
         buddies=True,
         guilds=True,
         hot=True,
@@ -281,8 +259,6 @@ class BGGCommon:
         Retrieves details about an user
 
         :param str name: user's login name
-        :param callable progress: an optional callable for reporting progress when fetching the buddy list/guilds,
-                                  taking two integers (``current``, ``total``) as arguments
         :param bool buddies: if ``True``, get the user's buddies
         :param bool guilds: if ``True``, get the user's guilds
         :param bool hot: if ``True``, get the user's "hot" list
@@ -411,14 +387,6 @@ class BGGCommon:
 
         max_items_to_fetch = max(total_buddies, total_guilds)
 
-        try:
-            call_progress_cb(
-                progress, max(user.total_buddies, user.total_guilds), max_items_to_fetch
-            )
-        except Exception:
-            # TODO Too broad
-            return user
-
         page = 2
         while max(user.total_buddies, user.total_guilds) < max_items_to_fetch:
             added_buddy = False
@@ -439,16 +407,6 @@ class BGGCommon:
                 user.add_guild({"name": guild.attrib["name"], "id": guild.attrib["id"]})
                 added_guild = True
 
-            try:
-                call_progress_cb(
-                    progress,
-                    max(user.total_buddies, user.total_guilds),
-                    max_items_to_fetch,
-                )
-            except Exception:
-                # TODO Too broad
-                break
-
             page += 1
 
             if not added_buddy and not added_guild:
@@ -463,7 +421,6 @@ class BGGCommon:
         self,
         name=None,
         game_id=None,
-        progress=None,
         min_date=None,
         max_date=None,
         subtype=BGGRestrictPlaysTo.BOARD_GAME,
@@ -473,8 +430,6 @@ class BGGCommon:
 
         :param str name: user name to retrieve the plays for
         :param integer game_id: game id to retrieve the plays for
-        :param callable progress: an optional callable for reporting progress, taking two integers (``current``,
-                                  ``total``) as arguments
         :param datetime.date min_date: return only plays of the specified date or later
         :param datetime.date max_date: return only plays of the specified date or earlier
         :param str subtype: limit plays results to the specified subtype.
@@ -537,12 +492,6 @@ class BGGCommon:
         plays = create_plays_from_xml(xml_root, game_id)
         added_plays = add_plays_from_xml(plays, xml_root)
 
-        try:
-            call_progress_cb(progress, len(plays), plays.plays_count)
-        except Exception:
-            # TODO Too broad
-            return plays
-
         page = 1
 
         # Since the BGG API doesn't seem to report the total number of plays for games correctly (it's 0), just
@@ -564,12 +513,6 @@ class BGGCommon:
             )
 
             added_plays = add_plays_from_xml(plays, xml_root)
-
-            try:
-                call_progress_cb(progress, len(plays), plays.plays_count)
-            except Exception:
-                # TODO Too broad
-                break
 
         return plays
 
@@ -997,7 +940,6 @@ class BGGClient(BGGCommon):
         marketplace=False,
         comments=False,
         rating_comments=False,
-        progress=None,
         exact=True,
     ):
         """
@@ -1013,7 +955,6 @@ class BGGClient(BGGCommon):
         :param bool marketplace: include marketplace data
         :param bool comments: include comments
         :param bool rating_comments: include comments with rating (ignored in favor of ``comments``, if that is true)
-        :param callable progress: callable for reporting progress if fetching comments
         :param bool exact: limit results to items that match the `name` exactly
         :return: ``BoardGame`` object
         :rtype: :py:class:`boardgamegeek.games.BoardGame`
@@ -1074,12 +1015,6 @@ class BGGClient(BGGCommon):
 
         added_items, total = add_game_comments_from_xml(game, xml_root)
 
-        try:
-            call_progress_cb(progress, len(game.comments), total)
-        except Exception:
-            # TODO Too broad
-            return game
-
         page = 1
         while added_items and len(game.comments) < total:
             page += 1
@@ -1108,12 +1043,6 @@ class BGGClient(BGGCommon):
                 raise BGGApiError(msg)
 
             added_items, total = add_game_comments_from_xml(game, xml_root)
-
-            try:
-                call_progress_cb(progress, len(game.comments), total)
-            except Exception:
-                # TODO Too broad
-                break
 
         return game
 

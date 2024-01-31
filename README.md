@@ -36,6 +36,11 @@ pip install -r requirements/develop.txt
 # Install pre-commit hooks
 pre-commit install
 
+# Format XML files
+cd test/xml
+find . -exec sh -c 'xmllint --format "$1" > "$1.tmp" && mv "$1.tmp" "$1"' _ {} \;
+
+
 # Run tests
 pytest .
 # Run tests with tox
