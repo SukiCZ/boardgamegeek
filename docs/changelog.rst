@@ -2,6 +2,11 @@ Changelog
 =========
 
 
+1.1.6
+-----
+
+* Except TypeError when initializing year published
+
 1.1.5
 -----
 
