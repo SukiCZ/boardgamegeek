@@ -1,17 +1,7 @@
-import logging
-
-import _common
 import pytest
 
+import _common
 from boardgamegeek import BGGItemNotFoundError, BGGValueError
-
-progress_called = False
-
-
-def progress_cb(items, total):
-    global progress_called
-    logging.debug(f"progress_cb: fetched {items} items out of {total}")
-    progress_called = True
 
 
 def test_get_guild_with_invalid_parameters(bgg):
@@ -25,13 +15,9 @@ def test_get_valid_guild_info(bgg, mocker, null_logger):
     mock_get = mocker.patch("requests.sessions.Session.get")
     mock_get.side_effect = _common.simulate_bgg
 
-    global progress_called
-
-    progress_called = False
     # Test with a guild with a big number members so that we can cover the code that fetches the next pages
-    guild = bgg.guild(_common.TEST_GUILD_ID, progress=progress_cb)
+    guild = bgg.guild(_common.TEST_GUILD_ID)
 
-    assert progress_called
     assert guild.id == _common.TEST_GUILD_ID
     assert guild.name == "Geek Tools"
 
@@ -70,4 +56,4 @@ def test_get_invalid_guild_info(bgg, mocker):
     mock_get.side_effect = _common.simulate_bgg
 
     with pytest.raises(BGGItemNotFoundError):
-        bgg.guild(0, progress=progress_cb)
+        bgg.guild(0)

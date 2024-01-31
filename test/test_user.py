@@ -1,18 +1,9 @@
 import datetime
-import logging
 
-import _common
 import pytest
 
+import _common
 from boardgamegeek import BGGItemNotFoundError, BGGValueError
-
-progress_called = False
-
-
-def progress_cb(items, total):
-    global progress_called
-    logging.debug(f"progress_cb: fetched {items} items out of {total}")
-    progress_called = True
 
 
 def test_get_user_with_invalid_parameters(bgg):
@@ -30,22 +21,18 @@ def test_get_invalid_user_info(bgg, mocker):
     mock_get.side_effect = _common.simulate_bgg
 
     with pytest.raises(BGGItemNotFoundError):
-        bgg.user(_common.TEST_INVALID_USER, progress=progress_cb)
+        bgg.user(_common.TEST_INVALID_USER)
 
 
 def test_get_valid_user_info(bgg, mocker, null_logger):
     mock_get = mocker.patch("requests.sessions.Session.get")
     mock_get.side_effect = _common.simulate_bgg
 
-    global progress_called
-
-    progress_called = False
-    user = bgg.user(_common.TEST_USER_WITH_LOTS_OF_FRIENDS, progress=progress_cb)
+    user = bgg.user(_common.TEST_USER_WITH_LOTS_OF_FRIENDS)
 
     assert user is not None
     assert user.name == _common.TEST_USER_WITH_LOTS_OF_FRIENDS
     assert isinstance(user.id, int)
-    assert progress_called
 
     assert isinstance(user.buddies, list)
     assert isinstance(user.guilds, list)
@@ -78,7 +65,6 @@ def test_get_valid_user_info(bgg, mocker, null_logger):
     # test that fetching user's data without buddies, guilds, hot & top works
     user = bgg.user(
         _common.TEST_VALID_USER,
-        progress=progress_cb,
         buddies=False,
         guilds=False,
         hot=False,

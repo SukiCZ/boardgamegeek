@@ -1,19 +1,10 @@
 import datetime
-import logging
 
-import _common
 import pytest
 
+import _common
 from boardgamegeek import BGGError, BGGItemNotFoundError, BGGValueError
 from boardgamegeek.objects.plays import GamePlays, Plays, PlaySession, UserPlays
-
-progress_called = False
-
-
-def progress_cb(items, total):
-    global progress_called
-    logging.debug(f"progress_cb: fetched {items} items out of {total}")
-    progress_called = True
 
 
 def test_get_plays_with_invalid_parameters(bgg):
@@ -61,9 +52,7 @@ def test_get_plays_of_user(bgg, mocker, null_logger):
     mock_get = mocker.patch("requests.sessions.Session.get")
     mock_get.side_effect = _common.simulate_bgg
 
-    global progress_called
-
-    plays = bgg.plays(name=_common.TEST_VALID_USER, progress=progress_cb)
+    plays = bgg.plays(name=_common.TEST_VALID_USER)
 
     assert isinstance(plays, UserPlays)
     assert plays.user == _common.TEST_VALID_USER
@@ -102,9 +91,7 @@ def test_get_plays_of_game(bgg, mocker, null_logger):
     mock_get = mocker.patch("requests.sessions.Session.get")
     mock_get.side_effect = _common.simulate_bgg
 
-    global progress_called
-
-    plays = bgg.plays(game_id=_common.TEST_GAME_ID_2, progress=progress_cb)
+    plays = bgg.plays(game_id=_common.TEST_GAME_ID_2)
 
     assert isinstance(plays, GamePlays)
 
