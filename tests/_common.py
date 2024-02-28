@@ -1,4 +1,5 @@
 import os
+import urllib.parse
 
 # TODO Clean up this file:
 #  - Move constants to consts.py
@@ -51,9 +52,9 @@ def simulate_bgg(url, params, timeout):
     *_, fragment = url.split("/")
 
     sorted_params = sorted(params.items(), key=lambda t: t[0])
-    query_string = "&".join([str(k) + "=" + str(v) for k, v in sorted_params])
+    query_string = urllib.parse.urlencode(sorted_params, quote_via=urllib.parse.quote)
 
-    filename = os.path.join(XML_PATH, fragment + "?" + query_string)
+    filename = os.path.join(XML_PATH, fragment + "?" + query_string + ".xml")
 
     with open(filename, encoding="utf-8") as xmlfile:
         response_text = xmlfile.read()
