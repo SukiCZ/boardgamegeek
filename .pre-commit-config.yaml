@@ -1,4 +1,4 @@
-exclude: '^docs/'
+exclude: "^docs/"
 default_stages: [commit]
 
 repos:
@@ -32,7 +32,12 @@ repos:
     rev: 6.1.0
     hooks:
       - id: flake8
-        args: ['--config=setup.cfg']
+        args: ["--config=setup.cfg"]
+
+  - repo: https://github.com/lsst-ts/pre-commit-xmllint
+    rev: v1.0.0
+    hooks:
+      - id: format-xmllint
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:
