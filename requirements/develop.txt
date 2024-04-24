@@ -4,7 +4,7 @@ bump2version==1.0.1
 wheel==0.43.0
 tox==4.14.2
 Sphinx==7.3.7
-myst-parser==2.0.0
+myst-parser==3.0.0
 twine==5.0.0
 pytest==8.1.1
 pytest-mock==3.14.0
