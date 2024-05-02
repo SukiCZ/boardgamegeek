@@ -57,7 +57,7 @@ jobs:
 
       - name: Upload coverage to Codecov
         if: ${{ github.ref == 'refs/heads/master' }}
-        uses: codecov/codecov-action@v4.2.0
+        uses: codecov/codecov-action@v4.3.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
