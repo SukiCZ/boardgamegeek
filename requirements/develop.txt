@@ -6,7 +6,7 @@ tox==4.15.0
 Sphinx==7.3.7
 myst-parser==3.0.1
 twine==5.1.0
-pytest==8.2.1
+pytest==8.2.2
 pytest-mock==3.14.0
 pytest-cov==5.0.0
 pre-commit==3.7.1
