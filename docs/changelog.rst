@@ -2,6 +2,11 @@ Changelog
 =========
 
 
+1.1.7
+-----
+
+* Add geeklist from legacy API
+
 1.1.6
 -----
 
