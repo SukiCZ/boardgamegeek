@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+  <item type="boardgame" id="28720">
+    <thumbnail>https://cf.geekdo-images.com/thumb/img/bY3T4SYX6lAhtfkUGJkC1laqnVw=/fit-in/200x150/pic3469216.jpg</thumbnail>
+    <image>https://cf.geekdo-images.com/original/img/l4dwCcl4Vz0r4TD-2RgQ_uoHvWM=/0x0/pic3469216.jpg</image>
+    <name type="primary" sortindex="1" value="Brass: Lancashire"/>
+    <name type="alternate" sortindex="1" value="Brass"/>
+    <name type="alternate" sortindex="1" value="Brass Deluxe"/>
+    <name type="alternate" sortindex="1" value="Kohle: Mit Volldampf zum Reichtum"/>
+    <name type="alternate" sortindex="1" value="工業革命"/>
+    <description>Brass: Lancashire &amp;mdash; first published as Brass &amp;mdash; is an economic strategy game that tells the story of competing cotton entrepreneurs in Lancashire during the industrial revolution. You must develop, build, and establish your industries and network so that you can capitalize demand for iron, coal and cotton. The game is played over two halves: the canal phase and the rail phase. To win the game, score the most victory points (VPs), which are counted at the end of each half. VPs are gained from your canals, rails, and established (flipped) industry tiles. Each round, players take turns according to the turn order track, receiving two actions to perform any of the following:&amp;#10;&amp;#10;&amp;#10;    Build an industry tile&amp;#10;    Build a rail or canal&amp;#10;    Develop an industry&amp;#10;    Sell cotton&amp;#10;    Take a loan&amp;#10;&amp;#10;&amp;#10;At the end of a player's turn, they replace the two cards they played with two more from the deck. Turn order is determined by how much money a player spent on the previous turn, from lowest spent first to highest spent. This turn order mechanism opens some strategic options for players going later in the turn order, allowing for the possibility of back-to-back turns.&amp;#10;&amp;#10;After all the cards have been played the first time (with the deck size being adjusted for the number of players), the canal phase ends and a scoring round commences. After scoring, all canals and all of the lowest level industries are removed for the game, after which new cards are dealt and the rail phase begins. During this phase, players may now occupy more than one location in a city and a double-connection build (though expensive) is possible. At the end of the rail phase, another scoring round takes place, then a winner is crowned.&amp;#10;&amp;#10;The cards limit where you can build your industries, but any card can be used for the develop, sell cotton or build connections actions. This leads to a strategic timing/storing of cards. Resources are common so that if one player builds a rail line (which requires coal) they have to use the coal from the nearest source, which may be an opponent's coal mine, which in turn gets that coal mine closer to scoring (i.e., being utilized).&amp;#10;&amp;#10;Brass: Lancashire, the 2018 edition from Roxley Games, reboots the original Warfrog Games edition of Brass with new artwork and components, as well as a few rules changes:&amp;#10;&amp;#10;&amp;#10;     The virtual link rules between Birkenhead have been made optional.&amp;#10;     The three-player experience has been brought closer to the ideal experience of four players by shortening each half of the game by one round and tuning the deck and distant market tiles slightly to ensure a consistent experience.&amp;#10;     Two-player rules have been created and are playable without the need for an alternate board.&amp;#10;     The level 1 cotton mill is now worth 5 VP to make it slightly less terrible.&amp;#10;&amp;#10;&amp;#10;</description>
+    <yearpublished value="2007"/>
+    <minplayers value="2"/>
+    <maxplayers value="4"/>
+    <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="395">
+      <results numplayers="1">
+        <result value="Best" numvotes="0"/>
+        <result value="Recommended" numvotes="3"/>
+        <result value="Not Recommended" numvotes="173"/>
+      </results>
+      <results numplayers="2">
+        <result value="Best" numvotes="37"/>
+        <result value="Recommended" numvotes="123"/>
+        <result value="Not Recommended" numvotes="93"/>
+      </results>
+      <results numplayers="3">
+        <result value="Best" numvotes="156"/>
+        <result value="Recommended" numvotes="175"/>
+        <result value="Not Recommended" numvotes="9"/>
+      </results>
+      <results numplayers="4">
+        <result value="Best" numvotes="258"/>
+        <result value="Recommended" numvotes="87"/>
+        <result value="Not Recommended" numvotes="5"/>
+      </results>
+      <results numplayers="4+">
+        <result value="Best" numvotes="0"/>
+        <result value="Recommended" numvotes="0"/>
+        <result value="Not Recommended" numvotes="147"/>
+      </results>
+    </poll>
+    <playingtime value="120"/>
+    <minplaytime value="60"/>
+    <maxplaytime value="120"/>
+    <minage value="14"/>
+    <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="74">
+      <results>
+        <result value="2" numvotes="0"/>
+        <result value="3" numvotes="0"/>
+        <result value="4" numvotes="0"/>
+        <result value="5" numvotes="0"/>
+        <result value="6" numvotes="0"/>
+        <result value="8" numvotes="0"/>
+        <result value="10" numvotes="3"/>
+        <result value="12" numvotes="22"/>
+        <result value="14" numvotes="35"/>
+        <result value="16" numvotes="14"/>
+        <result value="18" numvotes="0"/>
+        <result value="21 and up" numvotes="0"/>
+      </results>
+    </poll>
+    <poll name="language_dependence" title="Language Dependence" totalvotes="92">
+      <results>
+        <result level="1" value="No necessary in-game text" numvotes="82"/>
+        <result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="9"/>
+        <result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="1"/>
+        <result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0"/>
+        <result level="5" value="Unplayable in another language" numvotes="0"/>
+      </results>
+    </poll>
+    <link type="boardgamecategory" id="1021" value="Economic"/>
+    <link type="boardgamecategory" id="1088" value="Industry / Manufacturing"/>
+    <link type="boardgamecategory" id="1011" value="Transportation"/>
+    <link type="boardgamemechanic" id="2040" value="Hand Management"/>
+    <link type="boardgamemechanic" id="2081" value="Route/Network Building"/>
+    <link type="boardgamefamily" id="18587" value="Cities: Manchester"/>
+    <link type="boardgamefamily" id="14759" value="Country: England"/>
+    <link type="boardgameexpansion" id="201381" value="Brass: 2-player board"/>
+    <link type="boardgameexpansion" id="138329" value="Catalonia (fan expansion for Brass)"/>
+    <link type="boardgameimplementation" id="65901" value="Age of Industry"/>
+    <link type="boardgameimplementation" id="224517" value="Brass: Birmingham"/>
+    <link type="boardgamedesigner" id="6" value="Martin Wallace"/>
+    <link type="boardgameartist" id="70571" value="Lina Cossette"/>
+    <link type="boardgameartist" id="11802" value="Peter Dennis"/>
+    <link type="boardgameartist" id="70568" value="David Forest"/>
+    <link type="boardgameartist" id="12011" value="Eckhard Freytag"/>
+    <link type="boardgameartist" id="38179" value="Damien Mammoliti"/>
+    <link type="boardgamepublisher" id="21765" value="Roxley"/>
+    <link type="boardgamepublisher" id="7" value="Warfrog Games"/>
+    <link type="boardgamepublisher" id="34522" value="Crowd Games"/>
+    <link type="boardgamepublisher" id="597" value="Eagle-Gryphon Games"/>
+    <link type="boardgamepublisher" id="7097" value="FRED Distribution, Inc."/>
+    <link type="boardgamepublisher" id="8832" value="Funforge"/>
+    <link type="boardgamepublisher" id="39" value="Pegasus Spiele"/>
+    <link type="boardgamepublisher" id="8759" value="Wargames Club Publishing"/>
+    <link type="boardgamepublisher" id="4932" value="White Goblin Games"/>
+    <statistics page="1">
+      <ratings>
+        <usersrated value="14342"/>
+        <average value="8.11394"/>
+        <bayesaverage value="7.90044"/>
+        <ranks>
+          <rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="23" bayesaverage="7.90044"/>
+          <rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="16" bayesaverage="7.95363"/>
+        </ranks>
+        <stddev value="1.39634"/>
+        <median value="0"/>
+        <owned value="18874"/>
+        <trading value="427"/>
+        <wanting value="870"/>
+        <wishing value="4591"/>
+        <numcomments value="3511"/>
+        <numweights value="1239"/>
+        <averageweight value="3.8733"/>
+      </ratings>
+    </statistics>
+  </item>
+</items>

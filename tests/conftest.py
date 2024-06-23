@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 
 import pytest
 
-from boardgamegeek import BGGClient, CacheBackendNone
+from boardgamegeek import BGGClient, BGGClientLegacy, CacheBackendNone
 
 pytest.mark.serialize = pytest.mark.markers
 
@@ -28,6 +28,11 @@ def xml():
 @pytest.fixture
 def bgg():
     return BGGClient(cache=CacheBackendNone(), retries=2, retry_delay=1)
+
+
+@pytest.fixture
+def legacy_bgg():
+    return BGGClientLegacy(cache=CacheBackendNone(), retries=2, retry_delay=1)
 
 
 @pytest.fixture

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<geeklist id="1" termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+  <postdate>Sun, 27 Aug 2006 06:32:10 +0000</postdate>
+  <postdate_timestamp>1156660330</postdate_timestamp>
+  <editdate>Sun, 27 Aug 2006 06:32:10 +0000</editdate>
+  <editdate_timestamp>1156660330</editdate_timestamp>
+  <thumbs>111</thumbs>
+  <numitems>10</numitems>
+  <username>Aldie</username>
+  <title>First 10 Games Added to BGG</title>
+  <description>These are the first 10 games that were added to the database back in January 2000.  These games are in the database in this order due to the old Metrogamers website reviews.  These were games reviewed by either Derk Solko or Neil Carr back in the day.
+
+Sorry for not putting much in the way of descriptions.  This is pretty much a test list.</description>
+  <item editdate="Mon, 01 Jan 2001 23:09:41 +0000" id="1" imageid="0" objectid="1" objectname="Die Macher" objecttype="thing" postdate="Mon, 01 Jan 2001 23:09:41 +0000" subtype="boardgame" thumbs="4" username="Aldie">
+    <body/>
+  </item>
+  <item editdate="Mon, 01 Jan 2001 23:09:41 +0000" id="2" imageid="0" objectid="2" objectname="Dragonmaster" objecttype="thing" postdate="Mon, 01 Jan 2001 23:09:41 +0000" subtype="boardgame" thumbs="5" username="Aldie">
+    <body/>
+  </item>
+  <item editdate="Mon, 01 Jan 2001 23:09:41 +0000" id="3" imageid="0" objectid="3" objectname="Samurai" objecttype="thing" postdate="Mon, 01 Jan 2001 23:09:41 +0000" subtype="boardgame" thumbs="4" username="Aldie">
+    <body/>
+  </item>
+  <item editdate="Mon, 01 Jan 2001 23:09:41 +0000" id="4" imageid="0" objectid="4" objectname="Tal der K&#xF6;nige" objecttype="thing" postdate="Mon, 01 Jan 2001 23:09:41 +0000" subtype="boardgame" thumbs="0" username="Aldie">
+    <body/>
+  </item>
+  <item editdate="Mon, 01 Jan 2001 23:09:41 +0000" id="5" imageid="0" objectid="5" objectname="Acquire" objecttype="thing" postdate="Mon, 01 Jan 2001 23:09:41 +0000" subtype="boardgame" thumbs="5" username="Aldie">
+    <body/>
+  </item>
+  <item editdate="Fri, 02 Mar 2007 23:01:52 +0000" id="7" imageid="28424" objectid="6" objectname="Mare Mediterraneum" objecttype="thing" postdate="Sun, 27 Aug 2006 06:32:10 +0000" subtype="boardgame" thumbs="1" username="Aldie">
+    <body/>
+  </item>
+  <item editdate="Fri, 02 Mar 2007 22:57:11 +0000" id="9" imageid="37580" objectid="7" objectname="Cathedral" objecttype="thing" postdate="Sun, 27 Aug 2006 06:32:10 +0000" subtype="boardgame" thumbs="1" username="Aldie">
+    <body/>
+  </item>
+  <item editdate="Fri, 02 Mar 2007 22:56:56 +0000" id="100071" imageid="222" objectid="9" objectname="El Caballero" objecttype="thing" postdate="Sun, 27 Aug 2006 06:32:10 +0000" subtype="boardgame" thumbs="3" username="Aldie">
+    <body/>
+  </item>
+  <item editdate="Fri, 02 Mar 2007 23:02:23 +0000" id="100072" imageid="168036" objectid="10" objectname="Elfenland" objecttype="thing" postdate="Sun, 27 Aug 2006 06:32:10 +0000" subtype="boardgame" thumbs="2" username="Aldie">
+    <body/>
+  </item>
+  <item editdate="Fri, 02 Mar 2007 23:02:08 +0000" id="10" imageid="171501" objectid="8" objectname="Lords of Creation" objecttype="thing" postdate="Sun, 27 Aug 2006 06:32:10 +0000" subtype="boardgame" thumbs="1" username="Aldie">
+    <body/>
+  </item>
+</geeklist>

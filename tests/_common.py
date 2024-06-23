@@ -25,14 +25,22 @@ TEST_GAME_ID_2 = 283
 TEST_GUILD_ID = 1229
 TEST_GUILD_ID_2 = 930
 
+TEST_GAME_WITH_IMPLEMENTATIONS_ID = 28720  # Brass
+
+TEST_GAME_EXPANSION_ID = 223555  # Scythe: The Wind Gambit
+
 TEST_GAME_ACCESSORY_ID = (
     104163  # Descent: Journeys in the Dark (second edition) – Conversion Kit
 )
+
+TEST_GEEKLIST_ID = 1
+TEST_GEEKLIST_INVALID_ID = -1
 
 STR_TYPES_OR_NONE = [str, type(None)]
 
 # The top level directory for our XML files
 XML_PATH = os.path.join(os.path.dirname(__file__), "xml")
+STATUS_PATH = os.path.join(os.path.dirname(__file__), "status")
 
 
 class MockResponse:
@@ -42,9 +50,9 @@ class MockResponse:
     :param str text: the text to be returned with the response
     """
 
-    def __init__(self, text):
+    def __init__(self, text, status_code=200):
         self.headers = {"content-type": "text/xml"}
-        self.status_code = 200
+        self.status_code = status_code
         self.text = text
 
 
@@ -60,3 +68,27 @@ def simulate_bgg(url, params, timeout):
         response_text = xmlfile.read()
 
     return MockResponse(response_text)
+
+
+def simulate_legacy_bgg(url, params, timeout):
+    *_, fragment = url.split("/")
+    sorted_params = sorted(params.items(), key=lambda t: t[0])
+    # Response body
+    query_string = urllib.parse.urlencode(sorted_params, quote_via=urllib.parse.quote)
+    if query_string:
+        filename = os.path.join(XML_PATH, fragment + "?" + query_string + ".xml")
+    else:
+        filename = os.path.join(XML_PATH, fragment + ".xml")
+
+    with open(filename, encoding="utf-8") as xmlfile:
+        response_text = xmlfile.read()
+
+    # Response status code
+    filename = os.path.join(STATUS_PATH, fragment)
+    if os.path.isfile(filename):
+        with open(filename, encoding="utf-8") as statusfile:
+            response_status = int(statusfile.read())
+    else:
+        response_status = 200
+
+    return MockResponse(response_text, response_status)

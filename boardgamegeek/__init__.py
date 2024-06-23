@@ -23,9 +23,12 @@ from .exceptions import (
     BGGItemNotFoundError,
     BGGValueError,
 )
+from .legacy_api import BGGClientLegacy
 
-__all__ = [
+
+__all__ = (
     "BGGClient",
+    "BGGClientLegacy",
     "BGGChoose",
     "BGGRestrictSearchResultsTo",
     "BGGRestrictPlaysTo",
@@ -40,6 +43,6 @@ __all__ = [
     "CacheBackendNone",
     "CacheBackendSqlite",
     "CacheBackendMemory",
-]
+)
 
 __version__ = "1.1.6"

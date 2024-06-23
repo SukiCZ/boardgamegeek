@@ -70,6 +70,7 @@ def check_game(game):
         "Tableau Building",
     ]
     assert game.designers == ["Uwe Rosenberg"]
+    assert game.artists == ["Klemens Franz"]
 
     assert "Lookout Games" in game.publishers
     assert "Compaya.hu - Gamer Café Kft." in game.publishers
@@ -77,17 +78,25 @@ def check_game(game):
     assert "Агрикола" in game.alternative_names
     assert "아그리콜라" in game.alternative_names
 
+    assert len(game.description) == 1985
     # some not so exact assertions
-    assert game.users_rated >= 34000
-    assert 0.0 <= game.rating_average <= 10.0
-    assert 0.0 <= game.rating_bayes_average <= 10.0
+    assert game.users_rated == 51439
+    assert game.rating_average == 8.0345
+    assert game.rating_bayes_average == 7.93694
+    assert game.rating_stddev == 1.56465
+    assert game.rating_median == 0.0
+    assert game.rating_num_weights == 5540
+    assert game.rating_average_weight == 3.6319
+    assert game.boardgame_rank == 15
 
-    assert isinstance(game.rating_stddev, float)
-    assert isinstance(game.rating_median, float)
-    assert game.rating_num_weights >= 0
-    assert isinstance(game.rating_average_weight, float)
+    assert game.users_owned == 62141
+    assert game.users_trading == 1121
+    assert game.users_wanting == 1120
+    assert game.users_wishing == 8407
+    assert game.users_commented == 11034
 
-    assert isinstance(game.boardgame_rank, int)
+    assert len(game.expansions) == 23
+    assert 43018 in [g.id for g in game.expansions]
 
     # check for videos
     assert isinstance(game.videos, list)
@@ -260,6 +269,33 @@ def test_get_games_by_name(bgg, mocker, null_logger):
         g._format(null_logger)
 
     assert len(games) > 1
+
+
+def test_implementations(bgg, mocker):
+    mock_get = mocker.patch("requests.sessions.Session.get")
+    mock_get.side_effect = _common.simulate_bgg
+
+    game = bgg.game(game_id=_common.TEST_GAME_WITH_IMPLEMENTATIONS_ID)
+
+    assert game.id == _common.TEST_GAME_WITH_IMPLEMENTATIONS_ID
+    assert len(game.implementations) == 2
+    assert "Age of Industry" in game.implementations
+    assert "Brass: Birmingham" in game.implementations
+
+
+def test_get_expansion(bgg, mocker):
+    mock_get = mocker.patch("requests.sessions.Session.get")
+    mock_get.side_effect = _common.simulate_bgg
+
+    game = bgg.game(game_id=_common.TEST_GAME_EXPANSION_ID)
+
+    assert game.id == _common.TEST_GAME_EXPANSION_ID
+    assert game.expansion
+
+    assert len(game.expands) == 2
+    expanded_game_ids = [g.id for g in game.expands]
+    assert 169786 in expanded_game_ids
+    assert 199727 in expanded_game_ids
 
 
 def test_get_accessory(bgg, mocker):

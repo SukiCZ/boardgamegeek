@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+  <item type="boardgameexpansion" id="223555">
+    <thumbnail>https://cf.geekdo-images.com/thumb/img/U-VU9r_6-0EhwRSq1Um-02hX93c=/fit-in/200x150/pic3487272.jpg</thumbnail>
+    <image>https://cf.geekdo-images.com/original/img/LH298dHMe4ltRu6bNerlqv2gS0Q=/0x0/pic3487272.jpg</image>
+    <name type="primary" sortindex="1" value="Scythe: The Wind Gambit"/>
+    <name type="alternate" sortindex="1" value="Scythe: Csapás a fellegekből"/>
+    <name type="alternate" sortindex="1" value="Scythe: Igrając z Wiatrem"/>
+    <name type="alternate" sortindex="1" value="Scythe: Kolosse der Lüfte"/>
+    <name type="alternate" sortindex="1" value="Scythe: Stratèges des cieux"/>
+    <name type="alternate" sortindex="1" value="Scythe: Titáni nebes"/>
+    <name type="alternate" sortindex="1" value="Scythe: Vientos de guerra y paz"/>
+    <name type="alternate" sortindex="1" value="Серп. Небесный Гамбит"/>
+    <name type="alternate" sortindex="1" value="サイズ: 大鎌戦役 – 拡張 風に舞う策謀"/>
+    <name type="alternate" sortindex="1" value="镰刀战争:风中的诡计"/>
+    <description>Description from the publisher:&amp;#10;&amp;#10;Mankind has long been confined to travel by land and sea, but a new technology has emerged from the greatest minds in Eastern Europa: airships. These steam-driven behemoths sail freely across the sky, aiding their empire's expansion through innovation and confrontation. As the years pass, the world has come to understand that no single faction will rise above the rest for any span of time. In the hope of decreasing the conflict and increasing the peace, leaders of Europa begin to gather each year to declare a new way for the factions to resolve their differences.&amp;#10;&amp;#10;Scythe: The Wind Gambit, an expansion for Scythe, adds two new modules that can be played together or separately at any player count and with either the base game on its own or with other Scythe expansions:&amp;#10;&amp;#10;&amp;bull; Airships: (1 miniature per faction; 16 tiles) An airship is a new type of unit that is distinctly different from characters, mechs, and workers. Unlike those units, airships never control territories. Airships are moved via a Move action, and rivers and lakes do not constrain their movement. Each airship has two randomly combined abilities (1 aggressive and 1 passive ability; same combo for all players).&amp;#10;&amp;#10;&amp;bull; Resolutions: (8 tiles) The resolution module changes the way a game of Scythe ends. If you play with this module, ignore the standard end-game trigger (when a player places their sixth star, everything stops and the game ends). Instead, the resolution tile for the current game will determine when and how the game ends.&amp;#10;&amp;#10;Scythe: The Wind Gambit is now available from retailers worldwide.&amp;#10;&amp;#10;</description>
+    <yearpublished value="2017"/>
+    <minplayers value="1"/>
+    <maxplayers value="7"/>
+    <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="15">
+      <results numplayers="1">
+        <result value="Best" numvotes="1"/>
+        <result value="Recommended" numvotes="6"/>
+        <result value="Not Recommended" numvotes="3"/>
+      </results>
+      <results numplayers="2">
+        <result value="Best" numvotes="2"/>
+        <result value="Recommended" numvotes="10"/>
+        <result value="Not Recommended" numvotes="2"/>
+      </results>
+      <results numplayers="3">
+        <result value="Best" numvotes="2"/>
+        <result value="Recommended" numvotes="12"/>
+        <result value="Not Recommended" numvotes="0"/>
+      </results>
+      <results numplayers="4">
+        <result value="Best" numvotes="11"/>
+        <result value="Recommended" numvotes="3"/>
+        <result value="Not Recommended" numvotes="0"/>
+      </results>
+      <results numplayers="5">
+        <result value="Best" numvotes="9"/>
+        <result value="Recommended" numvotes="4"/>
+        <result value="Not Recommended" numvotes="1"/>
+      </results>
+      <results numplayers="6">
+        <result value="Best" numvotes="3"/>
+        <result value="Recommended" numvotes="6"/>
+        <result value="Not Recommended" numvotes="5"/>
+      </results>
+      <results numplayers="7">
+        <result value="Best" numvotes="4"/>
+        <result value="Recommended" numvotes="4"/>
+        <result value="Not Recommended" numvotes="5"/>
+      </results>
+      <results numplayers="7+">
+        <result value="Best" numvotes="0"/>
+        <result value="Recommended" numvotes="0"/>
+        <result value="Not Recommended" numvotes="10"/>
+      </results>
+    </poll>
+    <playingtime value="140"/>
+    <minplaytime value="70"/>
+    <maxplaytime value="140"/>
+    <minage value="14"/>
+    <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="3">
+      <results>
+        <result value="2" numvotes="0"/>
+        <result value="3" numvotes="0"/>
+        <result value="4" numvotes="0"/>
+        <result value="5" numvotes="0"/>
+        <result value="6" numvotes="0"/>
+        <result value="8" numvotes="0"/>
+        <result value="10" numvotes="0"/>
+        <result value="12" numvotes="3"/>
+        <result value="14" numvotes="0"/>
+        <result value="16" numvotes="0"/>
+        <result value="18" numvotes="0"/>
+        <result value="21 and up" numvotes="0"/>
+      </results>
+    </poll>
+    <poll name="language_dependence" title="Language Dependence" totalvotes="2">
+      <results>
+        <result level="1" value="No necessary in-game text" numvotes="0"/>
+        <result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="1"/>
+        <result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="1"/>
+        <result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0"/>
+        <result level="5" value="Unplayable in another language" numvotes="0"/>
+      </results>
+    </poll>
+    <link type="boardgamecategory" id="1021" value="Economic"/>
+    <link type="boardgamecategory" id="1042" value="Expansion for Base-game"/>
+    <link type="boardgamecategory" id="1011" value="Transportation"/>
+    <link type="boardgamecategory" id="1019" value="Wargame"/>
+    <link type="boardgamemechanic" id="2080" value="Area Control / Area Influence"/>
+    <link type="boardgamemechanic" id="2078" value="Point to Point Movement"/>
+    <link type="boardgamefamily" id="26464" value="Alternate History"/>
+    <link type="boardgamefamily" id="38432" value="Scythe"/>
+    <link type="boardgamefamily" id="5666" value="Solitaire Games"/>
+    <link type="boardgameexpansion" id="169786" value="Scythe" inbound="true"/>
+    <link type="boardgameexpansion" id="199727" value="Scythe: Invaders from Afar" inbound="true"/>
+    <link type="boardgamedesigner" id="99547" value="Kai Starck"/>
+    <link type="boardgamedesigner" id="62640" value="Jamey Stegmaier"/>
+    <link type="boardgameartist" id="33148" value="Jakub Rozalski"/>
+    <link type="boardgameartist" id="62640" value="Jamey Stegmaier"/>
+    <link type="boardgamepublisher" id="23202" value="Stonemaier Games"/>
+    <link type="boardgamepublisher" id="4304" value="Albi"/>
+    <link type="boardgamepublisher" id="3475" value="Arclight"/>
+    <link type="boardgamepublisher" id="34522" value="Crowd Games"/>
+    <link type="boardgamepublisher" id="6194" value="Delta Vision Publishing"/>
+    <link type="boardgamepublisher" id="22380" value="Feuerland Spiele"/>
+    <link type="boardgamepublisher" id="4785" value="Ghenos Games"/>
+    <link type="boardgamepublisher" id="30677" value="Maldito Games"/>
+    <link type="boardgamepublisher" id="5400" value="Matagot"/>
+    <link type="boardgamepublisher" id="36186" value="PHALANX"/>
+    <link type="boardgamepublisher" id="34744" value="Playfun Games"/>
+    <statistics page="1">
+      <ratings>
+        <usersrated value="2503"/>
+        <average value="8.15663"/>
+        <bayesaverage value="7.22754"/>
+        <ranks>
+          <rank type="subtype" id="1" name="boardgame" friendlyname="Board Game Rank" value="Not Ranked" bayesaverage="7.22754"/>
+          <rank type="family" id="5497" name="strategygames" friendlyname="Strategy Game Rank" value="Not Ranked" bayesaverage="7.37281"/>
+        </ranks>
+        <stddev value="1.31229"/>
+        <median value="0"/>
+        <owned value="12684"/>
+        <trading value="26"/>
+        <wanting value="276"/>
+        <wishing value="1423"/>
+        <numcomments value="500"/>
+        <numweights value="21"/>
+        <averageweight value="3.1429"/>
+      </ratings>
+    </statistics>
+  </item>
+</items>
