@@ -62,7 +62,7 @@ def simulate_bgg(url, params, timeout):
     sorted_params = sorted(params.items(), key=lambda t: t[0])
     query_string = urllib.parse.urlencode(sorted_params, quote_via=urllib.parse.quote)
 
-    filename = os.path.join(XML_PATH, fragment + "?" + query_string + ".xml")
+    filename = os.path.join(XML_PATH, fragment + "@" + query_string + ".xml")
 
     with open(filename, encoding="utf-8") as xmlfile:
         response_text = xmlfile.read()
@@ -76,7 +76,7 @@ def simulate_legacy_bgg(url, params, timeout):
     # Response body
     query_string = urllib.parse.urlencode(sorted_params, quote_via=urllib.parse.quote)
     if query_string:
-        filename = os.path.join(XML_PATH, fragment + "?" + query_string + ".xml")
+        filename = os.path.join(XML_PATH, fragment + "@" + query_string + ".xml")
     else:
         filename = os.path.join(XML_PATH, fragment + ".xml")
 
