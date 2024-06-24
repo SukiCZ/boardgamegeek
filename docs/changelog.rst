@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.1.8
+-----
+
+* Replace question mark in tests/xml files to be able to clone on Windows
+
+
 1.1.7
 -----
 
