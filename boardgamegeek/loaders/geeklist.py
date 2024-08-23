@@ -62,6 +62,6 @@ def add_geeklist_items_from_xml(geeklist, xml_root):
             "subtype": item.attrib["subtype"],
         }
         listitem.set_object(object_data)
-        add_geeklist_comments_from_xml(listitem, xml_root)
+        add_geeklist_comments_from_xml(listitem, item)
         added_items = True
     return added_items
