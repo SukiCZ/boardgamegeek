@@ -38,6 +38,7 @@ def test_get_valid_users_collection(bgg, mocker, null_logger):
         assert type(g.comment) in _common.STR_TYPES_OR_NONE
         if g.version is not None:
             assert isinstance(g.version, BoardGameVersion)
+        assert g.year
         repr(g)
 
     str(collection)

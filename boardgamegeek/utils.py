@@ -208,6 +208,8 @@ def xml_subelement_attr(
         value = default
     else:
         value = subel.attrib.get(attribute)
+        if value is None and subelement == "yearpublished":
+            value = subel.text
         if value is None:
             value = default
         elif convert:
