@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+1.1.9
+-----
+
+* Set item comments when parsing geeklists. Thanks @darnir
+* Fix parsing yearpublished on Collection. Fixes: #80
+
+
 1.1.8
 -----
 
