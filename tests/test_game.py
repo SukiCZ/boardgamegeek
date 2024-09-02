@@ -306,3 +306,11 @@ def test_get_accessory(bgg, mocker):
 
     assert game.id == _common.TEST_GAME_ACCESSORY_ID
     assert game.accessory
+
+
+def test_get_too_many_games(bgg, mocker):
+    mock_get = mocker.patch("requests.sessions.Session.get")
+    mock_get.side_effect = _common.simulate_bgg
+
+    with pytest.raises(BGGError):
+        bgg.game_list(game_id_list=[_common.TEST_GAME_ID] * 21)

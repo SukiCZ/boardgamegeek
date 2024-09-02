@@ -896,6 +896,8 @@ class BGGClient(BGGCommon):
 
         if not game_id_list:
             raise BGGError("List of Game Ids must be specified")
+        if len(game_id_list) > 20:
+            raise BGGError("List of Game Ids must be size 20 or fewer")
 
         log.debug(f"retrieving games {game_id_list}")
 
