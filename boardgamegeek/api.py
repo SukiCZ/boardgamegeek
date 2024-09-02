@@ -894,25 +894,10 @@ class BGGClient(BGGCommon):
             if there was a timeout
         """
 
-        ID_LENGTH_LIMIT = 20
-
         if not game_id_list:
             raise BGGError("List of Game Ids must be specified")
-        if len(game_id_list) > ID_LENGTH_LIMIT:
-            log.debug("Splitting long game list into separate requests")
-            long_game_list = []
-            for x in range(0, len(game_id_list), ID_LENGTH_LIMIT):
-                step = x
-                long_game_list.append(
-                    self.game_list(
-                        game_id_list[step : step + ID_LENGTH_LIMIT],
-                        versions,
-                        videos,
-                        historical,
-                        marketplace,
-                    )
-                )
-            return long_game_list
+        if len(game_id_list) > 20:
+            raise BGGError("List of Game Ids must be size 20 or fewer")
 
         log.debug(f"retrieving games {game_id_list}")
 
