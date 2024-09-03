@@ -2,6 +2,12 @@ Changelog
 =========
 
 
+1.1.10
+-----
+
+* Add `game_id_list` length validation in `game_list`. Issue #79, PR #82. Thanks @aresen
+
+
 1.1.9
 -----
 
