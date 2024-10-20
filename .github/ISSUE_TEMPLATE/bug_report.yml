@@ -10,14 +10,6 @@ body:
       value: |
         Thanks for taking the time to fill out this bug report!
 
-  - type: input
-    id: title
-    attributes:
-      label: Bug Title
-      description: A clear and concise title for the bug.
-    validations:
-      required: true
-
   - type: textarea
     id: description
     attributes:
@@ -33,10 +25,10 @@ body:
       description: |
         Please provide a step-by-step list of actions that can be used to reproduce the bug.
         Example:
-        1. Import '...'
-        2. Initialize '...'
-        3. Call a function with parameters '...'
-        4. See error
+
+        from boardgamegeek import BGGClient
+        bgg = BGGClient()
+        game = bgg.game("Monopoly")
     validations:
       required: true
 

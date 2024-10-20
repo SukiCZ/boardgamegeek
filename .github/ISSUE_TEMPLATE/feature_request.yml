@@ -10,14 +10,6 @@ body:
       value: |
         Thanks for suggesting a feature to improve our project!
 
-  - type: input
-    id: title
-    attributes:
-      label: Feature Title
-      description: A clear and concise title for the feature.
-    validations:
-      required: true
-
   - type: textarea
     id: description
     attributes:
