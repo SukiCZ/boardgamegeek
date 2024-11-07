@@ -89,4 +89,4 @@ jobs:
         --wheel
         --outdir dist/
     - name: Build and publish 📦 to PyPI
-      uses: pypa/gh-action-pypi-publish@v1.12.0
+      uses: pypa/gh-action-pypi-publish@v1.12.2
