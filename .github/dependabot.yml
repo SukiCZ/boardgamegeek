@@ -8,7 +8,7 @@ updates:
     directory: '/'
     # Every weekday
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
 
   # Enable version updates for Python/Pip - Production
   - package-ecosystem: 'pip'
@@ -17,4 +17,4 @@ updates:
     directory: '/'
     # Every weekday
     schedule:
-      interval: 'daily'
+      interval: 'weekly'
