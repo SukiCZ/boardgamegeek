@@ -8,5 +8,5 @@ myst-parser==4.0.1
 twine==6.1.0
 pytest==8.3.5
 pytest-mock==3.14.0
-pytest-cov==6.1.0
+pytest-cov==6.1.1
 pre-commit==4.2.0
