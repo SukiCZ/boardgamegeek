@@ -1,6 +1,15 @@
 Changelog
 =========
 
+1.1.12
+-----
+* Replace bump2version with bump-my-version
+* Merge setup.cfg to pyproject.toml
+
+1.1.11
+-----
+* Add pyproject.toml
+* Update dependencies
 
 1.1.10
 -----

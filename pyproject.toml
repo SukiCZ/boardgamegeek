@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bgg-api"
-version = "1.1.10"
+version = "1.1.11"
 description = "A Python API for boardgamegeek.com"
 readme = "README.md"
 license = {text = "BSD"}
@@ -37,6 +37,27 @@ dependencies = [
 Homepage = "https://github.com/SukiCZ/boardgamegeek"
 Documentation = "https://bgg-api.readthedocs.io/en/latest/"
 Coverage = "https://codecov.io/gh/SukiCZ/boardgamegeek"
+
+[project.scripts]
+boardgamegeek = "boardgamegeek.main:main"
+
+[tool.bumpversion]
+current_version = "1.1.11"
+commit = true
+tag = true
+
+[[tool.bumpversion.files]]
+filename = "setup.py"
+search = "version=\"{current_version}\""
+replace = "version=\"{new_version}\""
+
+[[tool.bumpversion.files]]
+filename = "boardgamegeek/__init__.py"
+search = "__version__ = \"{current_version}\""
+replace = "__version__ = \"{new_version}\""
+
+[tool.bdist_wheel]
+universal = 1
 
 [tool.flake8]
 exclude = ["docs"]
