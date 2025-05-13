@@ -1,8 +1,6 @@
-from codecs import open
-
 from setuptools import find_packages, setup
 
-with open("README.md", encoding="utf-8") as f:
+with open("README.md") as f:
     long_description = f.read()
 
 
@@ -23,6 +21,8 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3.13",
         "License :: OSI Approved :: BSD License",
         "Development Status :: 4 - Beta",
         "Operating System :: OS Independent",

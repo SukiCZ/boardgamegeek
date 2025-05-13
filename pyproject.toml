@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bgg-api"
+version = "1.1.10"
+description = "A Python API for boardgamegeek.com"
+readme = "README.md"
+license = {text = "BSD"}
+requires-python = ">=3.8"
+keywords = ["boardgamegeek", "bgg", "boardgame", "api"]
+authors = [
+    {name = "Jakub Boukal", email = "www.bagr@gmail.com"}
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: BSD License",
+    "Development Status :: 4 - Beta",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Games/Entertainment :: Board Games",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content"
+]
+dependencies = [
+    "requests>=2.31.0,<3.0.0",
+    "requests-cache>=1.1.1,<2.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/SukiCZ/boardgamegeek"
+Documentation = "https://bgg-api.readthedocs.io/en/latest/"
+Coverage = "https://codecov.io/gh/SukiCZ/boardgamegeek"
+
+[tool.flake8]
+exclude = ["docs"]
+max-line-length = 120
+
+[tool.pytest.ini_options]
+markers = "integration: mark a test as an integration test"
+addopts = "-m 'not integration' --ignore=setup.py"
