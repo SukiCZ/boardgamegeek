@@ -9,6 +9,7 @@
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 
 """
+
 import datetime
 from copy import copy
 

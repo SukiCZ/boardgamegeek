@@ -184,9 +184,9 @@ class BGGCommon:
             # ...and selecting the one with the best ranking
             return min(
                 game_data,
-                key=lambda x: x.boardgame_rank
-                if x.boardgame_rank is not None
-                else 10000000000,
+                key=lambda x: (
+                    x.boardgame_rank if x.boardgame_rank is not None else 10000000000
+                ),
             ).id
 
     def guild(self, guild_id, members=True):
