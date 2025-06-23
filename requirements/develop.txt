@@ -2,7 +2,7 @@
 pip==25.1.1
 bump-my-version==1.2.0
 wheel==0.45.1
-tox==4.26.0
+tox==4.27.0
 Sphinx==8.2.3
 myst-parser==4.0.1
 twine==6.1.0
