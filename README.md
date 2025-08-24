@@ -17,6 +17,8 @@ pip install bgg-api
 
 ## Usage
 
+### Basic Usage
+
 ```python
 from boardgamegeek import BGGClient
 
@@ -27,6 +29,35 @@ game = bgg.game("Monopoly")
 print(game.year)  # 1935
 print(game.rating_average)  # 4.36166
 ```
+
+### BGG Access Token Authentication
+
+BoardGameGeek now requires users to register and obtain access tokens for API usage. You can provide your BGG access token when creating the client:
+
+```python
+from boardgamegeek import BGGClient
+
+# With access token for authentication
+bgg = BGGClient(access_token='your_bgg_access_token')
+
+game = bgg.game("Monopoly")
+```
+
+The access token is passed as an `Authorization: Bearer <token>` header with all API requests.
+
+### Legacy API with Access Token
+
+The legacy API client also supports access tokens:
+
+```python
+from boardgamegeek import BGGClientLegacy
+
+bgg = BGGClientLegacy(access_token='your_bgg_access_token')
+```
+
+### Backward Compatibility
+
+The library maintains full backward compatibility. Existing code will continue to work without access tokens, though BGG may require tokens for API access in the future.
 
 ## Development
 
