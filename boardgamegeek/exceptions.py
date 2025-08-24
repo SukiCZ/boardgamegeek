@@ -38,6 +38,12 @@ class BGGApiError(BGGError):
     pass
 
 
+class BGGApiUnauthorizedError(BGGApiError):
+    """The request to the BGG XML2 API was unauthorized (401)"""
+
+    pass
+
+
 class BGGApiRetryError(BGGApiError):
     """The request to the BGG XML2 API should be retried"""
 

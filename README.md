@@ -20,7 +20,8 @@ pip install bgg-api
 ```python
 from boardgamegeek import BGGClient
 
-bgg = BGGClient()
+# access_token is recommended (soon to be required)
+bgg = BGGClient(access_token="your_bgg_access_token")
 
 game = bgg.game("Monopoly")
 
