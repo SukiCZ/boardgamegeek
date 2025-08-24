@@ -114,7 +114,7 @@ Always validate your changes with these scenarios:
 
 ### Key Test Commands
 - **Quick validation**: `PYTHONPATH=. pytest tests/test_utils.py -v` (takes ~0.1s)
-- **Core functionality**: `PYTHONPATH=. pytest tests/test_game.py -v` (takes ~0.2s)  
+- **Core functionality**: `PYTHONPATH=. pytest tests/test_game.py -v` (takes ~0.2s)
 - **Full unit test suite**: `PYTHONPATH=. pytest -m "not integration"` (takes ~0.75s, 45 tests)
 
 ### CI Validation
@@ -123,7 +123,7 @@ Always run these commands before submitting changes:
 # 1. Run unit tests (NEVER CANCEL - timeout: 5 minutes)
 PYTHONPATH=. pytest -m "not integration"
 
-# 2. Build documentation (NEVER CANCEL - timeout: 5 minutes)  
+# 2. Build documentation (NEVER CANCEL - timeout: 5 minutes) 
 make html
 
 # 3. Check core imports work
@@ -150,7 +150,7 @@ PYTHONPATH=. python -c "from boardgamegeek import BGGClient; from boardgamegeek.
 │   └── test_*.py            # Individual test modules
 ├── docs/                     # Sphinx documentation
 ├── requirements/             # Dependencies
-│   ├── base.txt             # Runtime dependencies  
+│   ├── base.txt             # Runtime dependencies
 │   └── develop.txt          # Development dependencies
 ├── setup.py                  # Package setup (legacy)
 ├── pyproject.toml           # Modern package configuration
@@ -207,7 +207,7 @@ bgg = BGGClient(cache=CacheBackendNone(), timeout=10, retries=3)
 
 ## Critical Reminders
 - **NEVER CANCEL** long-running builds or tests - they may take several minutes
-- Use `PYTHONPATH=.` approach if package installation fails  
+- Use `PYTHONPATH=.` approach if package installation fails
 - Integration tests will fail without network access (this is expected)
 - Set generous timeouts: 5+ minutes for tests, 5+ minutes for docs, 30+ minutes for tox
 - Always validate changes with the core scenarios listed above
