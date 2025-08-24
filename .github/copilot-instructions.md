@@ -123,7 +123,7 @@ Always run these commands before submitting changes:
 # 1. Run unit tests (NEVER CANCEL - timeout: 5 minutes)
 PYTHONPATH=. pytest -m "not integration"
 
-# 2. Build documentation (NEVER CANCEL - timeout: 5 minutes) 
+# 2. Build documentation (NEVER CANCEL - timeout: 5 minutes)
 make html
 
 # 3. Check core imports work
