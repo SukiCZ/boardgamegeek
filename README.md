@@ -17,6 +17,8 @@ pip install bgg-api
 
 ## Usage
 
+Create an application and get the access token [here](https://boardgamegeek.com/applications).
+
 ```python
 from boardgamegeek import BGGClient
 
