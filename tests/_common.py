@@ -56,7 +56,7 @@ class MockResponse:
         self.text = text
 
 
-def simulate_bgg(url, params, timeout):
+def simulate_bgg(url, params, timeout, headers=None):
     *_, fragment = url.split("/")
 
     sorted_params = sorted(params.items(), key=lambda t: t[0])
@@ -70,7 +70,7 @@ def simulate_bgg(url, params, timeout):
     return MockResponse(response_text)
 
 
-def simulate_legacy_bgg(url, params, timeout):
+def simulate_legacy_bgg(url, params, timeout, headers=None):
     *_, fragment = url.split("/")
     sorted_params = sorted(params.items(), key=lambda t: t[0])
     # Response body

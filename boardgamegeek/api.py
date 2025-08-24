@@ -118,10 +118,11 @@ class BGGCommon:
     :param float timeout: timeout for a request, in seconds
     :param int retries: how many retries to perform in special cases
     :param float retry_delay: delay between retries, in seconds
+    :param str access_token: BGG access token for API authentication
     """
 
     def __init__(
-        self, api_endpoint, cache, timeout, retries, retry_delay, requests_per_minute
+        self, api_endpoint, cache, timeout, retries, retry_delay, requests_per_minute, access_token=None
     ):
         self._search_api_url = api_endpoint + "/search"
         self._thing_api_url = api_endpoint + "/thing"
@@ -130,6 +131,7 @@ class BGGCommon:
         self._plays_api_url = api_endpoint + "/plays"
         self._hot_api_url = api_endpoint + "/hot"
         self._collection_api_url = api_endpoint + "/collection"
+        self._access_token = access_token
         try:
             self._timeout = float(timeout)
             self._retries = int(retries)
@@ -145,6 +147,17 @@ class BGGCommon:
         self.requests_session.mount(
             api_endpoint, RateLimitingAdapter(rpm=requests_per_minute)
         )
+
+    def _get_auth_headers(self):
+        """
+        Returns authentication headers if access token is set.
+        
+        :return: dictionary with authentication headers or None
+        :rtype: dict or None
+        """
+        if self._access_token:
+            return {"Authorization": f"Bearer {self._access_token}"}
+        return None
 
     def _get_game_id(self, name, game_type, choose, exact=True):
         """
@@ -216,6 +229,7 @@ class BGGCommon:
             timeout=self._timeout,
             retries=self._retries,
             retry_delay=self._retry_delay,
+            headers=self._get_auth_headers(),
         )
 
         guild = create_guild_from_xml(xml_root)
@@ -239,6 +253,7 @@ class BGGCommon:
                 timeout=self._timeout,
                 retries=self._retries,
                 retry_delay=self._retry_delay,
+                headers=self._get_auth_headers(),
             )
 
             added_member = add_guild_members_from_xml(guild, xml_root)
@@ -304,6 +319,7 @@ class BGGCommon:
             timeout=self._timeout,
             retries=self._retries,
             retry_delay=self._retry_delay,
+            headers=self._get_auth_headers(),
         )
 
         # when the user is not found, the API returns an response, but with most fields empty. id is empty too
@@ -487,6 +503,7 @@ class BGGCommon:
             timeout=self._timeout,
             retries=self._retries,
             retry_delay=self._retry_delay,
+            headers=self._get_auth_headers(),
         )
 
         plays = create_plays_from_xml(xml_root, game_id)
@@ -510,7 +527,8 @@ class BGGCommon:
                 timeout=self._timeout,
                 retries=self._retries,
                 retry_delay=self._retry_delay,
-            )
+            headers=self._get_auth_headers(),
+        )
 
             added_plays = add_plays_from_xml(plays, xml_root)
 
@@ -544,6 +562,7 @@ class BGGCommon:
             timeout=self._timeout,
             retries=self._retries,
             retry_delay=self._retry_delay,
+            headers=self._get_auth_headers(),
         )
 
         hot_items = create_hot_items_from_xml(xml_root)
@@ -731,6 +750,7 @@ class BGGCommon:
             timeout=self._timeout,
             retries=self._retries,
             retry_delay=self._retry_delay,
+            headers=self._get_auth_headers(),
         )
 
         collection = create_collection_from_xml(xml_root, user_name)
@@ -784,6 +804,7 @@ class BGGCommon:
             timeout=self._timeout,
             retries=self._retries,
             retry_delay=self._retry_delay,
+            headers=self._get_auth_headers(),
         )
 
         results = []
@@ -815,6 +836,7 @@ class BGGClient(BGGCommon):
     :param float retry_delay: Time to sleep, in seconds, between retries when the API returns HTTP 202 (retry)
     :param disable_ssl: ignored, left for backwards compatibility
     :param requests_per_minute: how many requests per minute to allow to go out to BGG (throttle prevention)
+    :param str access_token: BGG access token for API authentication
 
     Example usage::
 
@@ -824,6 +846,7 @@ class BGGClient(BGGCommon):
         124742
         >>> bgg_no_cache = BGGClient(cache=CacheBackendNone())
         >>> bgg_sqlite_cache = BGGClient(cache=CacheBackendSqlite(path="/path/to/cache.db", ttl=3600))
+        >>> bgg_with_token = BGGClient(access_token="your_bgg_access_token")
 
     """
 
@@ -835,6 +858,7 @@ class BGGClient(BGGCommon):
         retry_delay=5,
         disable_ssl=False,
         requests_per_minute=DEFAULT_REQUESTS_PER_MINUTE,
+        access_token=None,
     ):
         super().__init__(
             api_endpoint="https://boardgamegeek.com/xmlapi2",
@@ -843,6 +867,7 @@ class BGGClient(BGGCommon):
             retries=retries,
             retry_delay=retry_delay,
             requests_per_minute=requests_per_minute,
+            access_token=access_token,
         )
 
     def get_game_id(self, name, choose=BGGChoose.FIRST, exact=True):
@@ -917,6 +942,7 @@ class BGGClient(BGGCommon):
             timeout=self._timeout,
             retries=self._retries,
             retry_delay=self._retry_delay,
+            headers=self._get_auth_headers(),
         )
 
         xml_root = xml_root.findall("item")
@@ -1001,6 +1027,7 @@ class BGGClient(BGGCommon):
             timeout=self._timeout,
             retries=self._retries,
             retry_delay=self._retry_delay,
+            headers=self._get_auth_headers(),
         )
 
         xml_root = xml_root.find("item")
@@ -1035,7 +1062,8 @@ class BGGClient(BGGCommon):
                 timeout=self._timeout,
                 retries=self._retries,
                 retry_delay=self._retry_delay,
-            )
+            headers=self._get_auth_headers(),
+        )
 
             xml_root = xml_root.find("item")
             if xml_root is None:

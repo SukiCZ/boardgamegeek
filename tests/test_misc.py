@@ -63,3 +63,18 @@ def test_invalid_parameter_values_for_bggclient():
 
     with pytest.raises(BGGValueError):
         BGGClient(timeout="asd")
+
+
+def test_bggclient_with_access_token_parameter():
+    """Test that access_token parameter works correctly."""
+    # Test with valid token
+    bgg = BGGClient(access_token="valid_token")
+    assert bgg._access_token == "valid_token"
+    
+    # Test with None token (default)
+    bgg = BGGClient()
+    assert bgg._access_token is None
+    
+    # Test with empty string token
+    bgg = BGGClient(access_token="")
+    assert bgg._access_token == ""
