@@ -5,7 +5,7 @@ wheel==0.45.1
 tox==4.30.2
 Sphinx==8.2.3
 myst-parser==4.0.1
-twine==6.1.0
+twine==6.2.0
 pytest==8.4.2
 pytest-mock==3.14.1
 pytest-cov==6.3.0
