@@ -21,6 +21,7 @@ class BGGClientLegacy(BGGCommon):
         retry_delay=5,
         disable_ssl=False,
         requests_per_minute=DEFAULT_REQUESTS_PER_MINUTE,
+        access_token=None,
     ):
         super().__init__(
             api_endpoint=API_ENDPOINT,
@@ -29,6 +30,7 @@ class BGGClientLegacy(BGGCommon):
             retries=retries,
             retry_delay=retry_delay,
             requests_per_minute=requests_per_minute,
+            access_token=access_token,
         )
         self._search_api_url = None
         self._thing_api_url = None
@@ -56,6 +58,7 @@ class BGGClientLegacy(BGGCommon):
             timeout=self._timeout,
             retries=self._retries,
             retry_delay=self._retry_delay,
+            headers=self._get_auth_headers(),
         )
 
         lst = create_geeklist_from_xml(xml_root, listid)

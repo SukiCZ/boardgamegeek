@@ -25,11 +25,11 @@ from .exceptions import (
     BGGApiError,
     BGGApiRetryError,
     BGGApiTimeoutError,
+    BGGApiUnauthorizedError,
     BGGItemNotFoundError,
 )
 
 html_unescape = html.unescape
-
 
 log = logging.getLogger("boardgamegeek.utils")
 
@@ -313,7 +313,13 @@ def xml_subelement_text(xml_elem, subelement, convert=None, default=None, quiet=
 
 
 def request_and_parse_xml(
-    requests_session, url, params=None, timeout=15, retries=3, retry_delay=5
+    requests_session,
+    url,
+    params=None,
+    timeout=15,
+    retries=3,
+    retry_delay=5,
+    headers=None,
 ):
     """
     Downloads an XML from the specified url, parses it and returns the xml ElementTree.
@@ -324,6 +330,7 @@ def request_and_parse_xml(
     :param timeout: number of seconds after which the request times out
     :param retries: number of retries to perform in case of timeout
     :param retry_delay: the amount of seconds to sleep when retrying an API call that returned 202
+    :param headers: dictionary containing the headers which should be sent with the request
     :return: :py:func:`xml.etree.ElementTree` corresponding to the XML
     :raises: :py:class:`BGGApiRetryError` if this request should be retried after a short delay
     :raises: :py:class:`BGGApiError` if the response was invalid or couldn't be parsed
@@ -336,7 +343,9 @@ def request_and_parse_xml(
     while retr >= 0:
         retr -= 1
         try:
-            r = requests_session.get(url, params=params, timeout=timeout)
+            r = requests_session.get(
+                url, params=params, timeout=timeout, headers=headers
+            )
 
             if r.status_code == 202:
                 if retries == 0:
@@ -358,6 +367,10 @@ def request_and_parse_xml(
                         time.sleep(retry_delay)
                         retry_delay *= 1.5
                     continue
+            elif r.status_code == 401:
+                # Unauthorized - probably invalid access token
+                log.warning("API returned 401, aborting")
+                raise BGGApiUnauthorizedError("invalid access token")
             elif r.status_code == 404:
                 # Legacy API returns a 404 when geeklist is not found
                 log.warning("API returned 404, aborting")
@@ -398,7 +411,12 @@ def request_and_parse_xml(
         except ETParseError as e:
             raise BGGApiError(f"error decoding BGG API response: {e}")
 
-        except (BGGApiRetryError, BGGApiTimeoutError, BGGItemNotFoundError):
+        except (
+            BGGApiRetryError,
+            BGGApiTimeoutError,
+            BGGItemNotFoundError,
+            BGGApiUnauthorizedError,
+        ):
             raise
 
         except Exception as e:

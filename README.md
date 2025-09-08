@@ -17,10 +17,13 @@ pip install bgg-api
 
 ## Usage
 
+Create an application and get the access token [here](https://boardgamegeek.com/applications).
+
 ```python
 from boardgamegeek import BGGClient
 
-bgg = BGGClient()
+# access_token is recommended (soon to be required)
+bgg = BGGClient(access_token="your_bgg_access_token")
 
 game = bgg.game("Monopoly")
 
