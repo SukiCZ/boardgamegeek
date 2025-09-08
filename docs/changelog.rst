@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.13
+-----
+* Add access token. Fixes: #169
+* Update dependencies
+
 1.1.12
 -----
 * Replace bump2version with bump-my-version
