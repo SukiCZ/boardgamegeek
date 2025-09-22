@@ -7,6 +7,6 @@ Sphinx==8.2.3
 myst-parser==4.0.1
 twine==6.2.0
 pytest==8.4.2
-pytest-mock==3.15.0
+pytest-mock==3.15.1
 pytest-cov==7.0.0
 pre-commit==4.3.0
