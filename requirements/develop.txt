@@ -1,6 +1,6 @@
 -r base.txt
 pip==25.2
-bump-my-version==1.2.2
+bump-my-version==1.2.3
 wheel==0.45.1
 tox==4.30.2
 Sphinx==8.2.3
