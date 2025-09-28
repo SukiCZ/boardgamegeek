@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 import logging
+from xml.etree import ElementTree as ET
 
 from ..exceptions import BGGItemNotFoundError
 from ..objects.guild import Guild
@@ -7,7 +10,7 @@ from ..utils import html_unescape, xml_subelement_text
 log = logging.getLogger("boardgamegeek.loaders.guild")
 
 
-def create_guild_from_xml(xml_root):
+def create_guild_from_xml(xml_root: ET.Element) -> Guild:
     if "name" not in xml_root.attrib:
         raise BGGItemNotFoundError("name not found")
 
@@ -43,7 +46,7 @@ def create_guild_from_xml(xml_root):
     return Guild(data)
 
 
-def add_guild_members_from_xml(guild, xml_root):
+def add_guild_members_from_xml(guild: Guild, xml_root: ET.Element) -> bool:
     """
     Processes the XML and adds members to ``guild``
     :param guild: the :py:class:`boardgamegeek.Guild` object to add members to
