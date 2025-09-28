@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from xml.etree import ElementTree as ET
+
 from ..exceptions import BGGApiError, BGGItemNotFoundError
 from ..objects.collection import Collection
 from ..utils import (
@@ -7,7 +11,7 @@ from ..utils import (
 )
 
 
-def create_collection_from_xml(xml_root, user_name):
+def create_collection_from_xml(xml_root: ET.Element, user_name: str) -> Collection:
     # check if there's an error (e.g. invalid username)
     error = xml_root.find(".//error")
     if error is not None:
@@ -18,7 +22,7 @@ def create_collection_from_xml(xml_root, user_name):
     return Collection({"owner": user_name})
 
 
-def add_collection_items_from_xml(collection, xml_root, subtype):
+def add_collection_items_from_xml(collection: Collection, xml_root: ET.Element, subtype: str) -> bool:
     added_items = False
 
     for item in xml_root.findall(f"item[@subtype='{subtype}']"):

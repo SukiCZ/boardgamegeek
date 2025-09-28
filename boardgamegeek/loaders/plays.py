@@ -7,7 +7,7 @@ from ..exceptions import BGGItemNotFoundError
 from ..objects.plays import GamePlays, UserPlays
 from ..utils import xml_subelement_attr, xml_subelement_text
 
-log = logging.getLogger("boardgamegeek.loaders.plays")
+log = logging.getLogger(__name__)
 
 Plays = UserPlays | GamePlays
 

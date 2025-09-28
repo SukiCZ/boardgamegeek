@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 import logging
+from xml.etree import ElementTree as ET
 
 from ..exceptions import BGGApiError
 from ..objects.games import BoardGame
@@ -11,10 +14,10 @@ from ..utils import (
     xml_subelement_text,
 )
 
-log = logging.getLogger("boardgamegeek.loaders.game")
+log = logging.getLogger(__name__)
 
 
-def create_game_from_xml(xml_root, game_id):
+def create_game_from_xml(xml_root: ET.Element, game_id: int) -> BoardGame:
     game_type = xml_root.attrib["type"]
     if game_type not in ["boardgame", "boardgameexpansion", "boardgameaccessory"]:
         log.debug(f"unsupported type {game_type} for item id {game_id}")
@@ -139,10 +142,11 @@ def create_game_from_xml(xml_root, game_id):
 
         ranks = stats.findall("ranks/rank")
         for rank in ranks:
-            try:
-                rank_value = int(rank.attrib.get("value"))
-            except (ValueError, TypeError):
-                rank_value = None
+            rank_value: int | None = None
+            rank_value_str = rank.attrib.get("value", None)
+            if rank_value_str is not None and rank_value_str.isdigit():
+                rank_value = int(rank_value_str)
+
             sd["ranks"].append(
                 {
                     "id": rank.attrib["id"],
@@ -188,7 +192,7 @@ def create_game_from_xml(xml_root, game_id):
     return BoardGame(data)
 
 
-def add_game_comments_from_xml(game, xml_root):
+def add_game_comments_from_xml(game: BoardGame, xml_root: ET.Element) -> tuple[bool, int]:
     added_items = False
     total_comments = 0
 

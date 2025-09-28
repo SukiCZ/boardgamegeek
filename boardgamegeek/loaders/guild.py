@@ -7,7 +7,7 @@ from ..exceptions import BGGItemNotFoundError
 from ..objects.guild import Guild
 from ..utils import html_unescape, xml_subelement_text
 
-log = logging.getLogger("boardgamegeek.loaders.guild")
+log = logging.getLogger(__name__)
 
 
 def create_guild_from_xml(xml_root: ET.Element) -> Guild:
