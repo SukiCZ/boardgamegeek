@@ -60,7 +60,7 @@ def test_get_valid_user_info(bgg, mocker, null_logger):
 
     # for coverage's sake
     user._format(null_logger)
-    assert type(user.data()) == dict
+    assert type(user.data()) is dict
 
     # test that fetching user's data without buddies, guilds, hot & top works
     user = bgg.user(

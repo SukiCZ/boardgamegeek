@@ -43,9 +43,7 @@ class RateLimitingAdapter(HTTPAdapter):
     """
 
     __last_request_timestamp = None  # time when the last request was made
-    __time_between_requests = (
-        0  # interval to wait between requests in order to match the expected number of
-    )
+    __time_between_requests = 0  # interval to wait between requests in order to match the expected number of
     # requests per second
 
     __rate_limit_lock = threading.Lock()
@@ -58,9 +56,7 @@ class RateLimitingAdapter(HTTPAdapter):
         :return:
         """
         if rpm <= 0:
-            log.warning(
-                f"invalid requests per minute value ({rpm}), falling back to default"
-            )
+            log.warning(f"invalid requests per minute value ({rpm}), falling back to default")
             rpm = DEFAULT_REQUESTS_PER_MINUTE
 
         RateLimitingAdapter.__time_between_requests = 60.0 / float(rpm)
@@ -82,9 +78,7 @@ class RateLimitingAdapter(HTTPAdapter):
                 time_delta = time.time() - RateLimitingAdapter.__last_request_timestamp
                 need_to_wait = RateLimitingAdapter.__time_between_requests - time_delta
 
-                log.debug(
-                    f"time since last request: {time_delta}, need to wait: {need_to_wait}"
-                )
+                log.debug(f"time since last request: {time_delta}, need to wait: {need_to_wait}")
 
                 if need_to_wait > 0:
                     time.sleep(need_to_wait)
@@ -175,9 +169,7 @@ def xml_subelement_attr_by_attr(
     return default
 
 
-def xml_subelement_attr(
-    xml_elem, subelement, convert=None, attribute="value", default=None, quiet=False
-):
+def xml_subelement_attr(xml_elem, subelement, convert=None, attribute="value", default=None, quiet=False):
     """
     Search for a sub-element and return the value of its attribute.
 
@@ -224,9 +216,7 @@ def xml_subelement_attr(
     return value
 
 
-def xml_subelement_attr_list(
-    xml_elem, subelement, convert=None, attribute="value", default=None, quiet=False
-):
+def xml_subelement_attr_list(xml_elem, subelement, convert=None, attribute="value", default=None, quiet=False):
     """
     Search for sub-elements and return a list of the specified attribute.
 
@@ -343,9 +333,7 @@ def request_and_parse_xml(
     while retr >= 0:
         retr -= 1
         try:
-            r = requests_session.get(
-                url, params=params, timeout=timeout, headers=headers
-            )
+            r = requests_session.get(url, params=params, timeout=timeout, headers=headers)
 
             if r.status_code == 202:
                 if retries == 0:
@@ -355,14 +343,10 @@ def request_and_parse_xml(
                     raise BGGApiRetryError
                 elif retr == 0:
                     # retries were requested, but we reached 0. Signal the application that it needs to retry itself.
-                    raise BGGApiRetryError(
-                        f"failed to retrieve data after {retries} retries"
-                    )
+                    raise BGGApiRetryError(f"failed to retrieve data after {retries} retries")
                 else:
                     # sleep for the specified delay and retry
-                    log.debug(
-                        f"API call will be retried in {retry_delay} seconds ({retr} more retries)"
-                    )
+                    log.debug(f"API call will be retried in {retry_delay} seconds ({retr} more retries)")
                     if retr >= 0:
                         time.sleep(retry_delay)
                         retry_delay *= 1.5
@@ -398,13 +382,9 @@ def request_and_parse_xml(
                 raise BGGApiTimeoutError
             elif retr == 0:
                 # ... reached 0 retries
-                raise BGGApiTimeoutError(
-                    f"failed to retrieve data after {retries} retries"
-                )
+                raise BGGApiTimeoutError(f"failed to retrieve data after {retries} retries")
             else:
-                log.debug(
-                    f"API request timeout, retrying {retr} more times w/timeout {timeout}"
-                )
+                log.debug(f"API request timeout, retrying {retr} more times w/timeout {timeout}")
                 timeout *= 2.5
                 continue
 
@@ -450,17 +430,11 @@ def get_board_game_version_from_element(xml_elem):
     data = {
         "id": int(xml_elem.attrib["id"]),
         "yearpublished": fix_unsigned_negative(
-            xml_subelement_attr(
-                xml_elem, "yearpublished", convert=int, default=0, quiet=True
-            )
+            xml_subelement_attr(xml_elem, "yearpublished", convert=int, default=0, quiet=True)
         ),
         "language": xml_subelement_attr_by_attr(xml_elem, "link", "type", "language"),
-        "publisher": xml_subelement_attr_by_attr(
-            xml_elem, "link", "type", "boardgamepublisher"
-        ),
-        "artist": xml_subelement_attr_by_attr(
-            xml_elem, "link", "type", "boardgameartist"
-        ),
+        "publisher": xml_subelement_attr_by_attr(xml_elem, "link", "type", "boardgamepublisher"),
+        "artist": xml_subelement_attr_by_attr(xml_elem, "link", "type", "boardgameartist"),
         "thumbnail": xml_subelement_text(xml_elem, "thumbnail"),
         "image": xml_subelement_text(xml_elem, "image"),
         "name": xml_subelement_attr(xml_elem, "name"),
@@ -468,9 +442,7 @@ def get_board_game_version_from_element(xml_elem):
     }
 
     for item in ["width", "length", "depth", "weight"]:
-        data[item] = xml_subelement_attr(
-            xml_elem, item, convert=float, quiet=True, default=0.0
-        )
+        data[item] = xml_subelement_attr(xml_elem, item, convert=float, quiet=True, default=0.0)
 
     return data
 
@@ -478,9 +450,7 @@ def get_board_game_version_from_element(xml_elem):
 def get_marketplace_listing_from_element(xml_elem):
     try:
         list_date_string = xml_subelement_attr(xml_elem, "listdate")
-        list_date = datetime.datetime.strptime(
-            list_date_string, "%a, %d %b %Y %H:%M:%S %z"
-        )
+        list_date = datetime.datetime.strptime(list_date_string, "%a, %d %b %Y %H:%M:%S %z")
     except ValueError:
         list_date = None
 

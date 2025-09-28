@@ -221,9 +221,7 @@ class BoardGameVideo(Thing):
             date = kw["post_date"]
             if not isinstance(date, datetime.datetime):
                 try:
-                    kw["post_date"] = datetime.datetime.strptime(
-                        date[:-6], "%Y-%m-%dT%H:%M:%S"
-                    )
+                    kw["post_date"] = datetime.datetime.strptime(date[:-6], "%Y-%m-%dT%H:%M:%S")
                 except ValueError:
                     kw["post_date"] = None
 
@@ -826,9 +824,7 @@ class BoardGame(BaseGame):
 
         self._expands = []  # list of Thing which this item expands
         self._expands_set = set()  # set for keeping things unique
-        for exp in data.get(
-            "expands", []
-        ):  # for all the items this game expands, create a Thing
+        for exp in data.get("expands", []):  # for all the items this game expands, create a Thing
             try:
                 if exp["id"] not in self._expands_set:
                     self._expands_set.add(exp["id"])

@@ -176,25 +176,21 @@ def test_get_known_game_info(bgg, mocker, null_logger):
     mock_get.side_effect = _common.simulate_bgg
 
     # use an older game that's not so likely to change
-    game = bgg.game(
-        _common.TEST_GAME_NAME, videos=True, versions=True, marketplace=True
-    )
+    game = bgg.game(_common.TEST_GAME_NAME, videos=True, versions=True, marketplace=True)
 
     check_game(game)
 
     # for coverage's sake
     game._format(null_logger)
 
-    assert type(game.data()) == dict
+    assert type(game.data()) is dict
 
 
 def test_get_known_game_info_by_id(bgg, mocker):
     mock_get = mocker.patch("requests.sessions.Session.get")
     mock_get.side_effect = _common.simulate_bgg
 
-    game = bgg.game(
-        None, game_id=_common.TEST_GAME_ID, videos=True, versions=True, marketplace=True
-    )
+    game = bgg.game(None, game_id=_common.TEST_GAME_ID, videos=True, versions=True, marketplace=True)
     check_game(game)
 
 

@@ -19,9 +19,7 @@ def create_guild_from_xml(xml_root):
         "category": xml_subelement_text(xml_root, "category"),
         "website": xml_subelement_text(xml_root, "website"),
         "manager": xml_subelement_text(xml_root, "manager"),
-        "description": xml_subelement_text(
-            xml_root, "description", convert=html_unescape, quiet=True
-        ),
+        "description": xml_subelement_text(xml_root, "description", convert=html_unescape, quiet=True),
     }
 
     # Grab location info

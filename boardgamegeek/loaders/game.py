@@ -23,33 +23,19 @@ def create_game_from_xml(xml_root, game_id):
     data = {
         "id": game_id,
         "name": xml_subelement_attr(xml_root, "name[@type='primary']"),
-        "alternative_names": xml_subelement_attr_list(
-            xml_root, "name[@type='alternate']"
-        ),
+        "alternative_names": xml_subelement_attr_list(xml_root, "name[@type='alternate']"),
         "thumbnail": xml_subelement_text(xml_root, "thumbnail"),
         "image": xml_subelement_text(xml_root, "image"),
         "expansion": game_type == "boardgameexpansion",  # is this game an expansion?
         "accessory": game_type == "boardgameaccessory",  # is this game an accessory?
         "families": xml_subelement_attr_list(xml_root, "link[@type='boardgamefamily']"),
-        "categories": xml_subelement_attr_list(
-            xml_root, "link[@type='boardgamecategory']"
-        ),
-        "implementations": xml_subelement_attr_list(
-            xml_root, "link[@type='boardgameimplementation']"
-        ),
-        "mechanics": xml_subelement_attr_list(
-            xml_root, "link[@type='boardgamemechanic']"
-        ),
-        "designers": xml_subelement_attr_list(
-            xml_root, "link[@type='boardgamedesigner']"
-        ),
+        "categories": xml_subelement_attr_list(xml_root, "link[@type='boardgamecategory']"),
+        "implementations": xml_subelement_attr_list(xml_root, "link[@type='boardgameimplementation']"),
+        "mechanics": xml_subelement_attr_list(xml_root, "link[@type='boardgamemechanic']"),
+        "designers": xml_subelement_attr_list(xml_root, "link[@type='boardgamedesigner']"),
         "artists": xml_subelement_attr_list(xml_root, "link[@type='boardgameartist']"),
-        "publishers": xml_subelement_attr_list(
-            xml_root, "link[@type='boardgamepublisher']"
-        ),
-        "description": xml_subelement_text(
-            xml_root, "description", convert=html_unescape, quiet=True
-        ),
+        "publishers": xml_subelement_attr_list(xml_root, "link[@type='boardgamepublisher']"),
+        "description": xml_subelement_text(xml_root, "description", convert=html_unescape, quiet=True),
     }
 
     expands = []  # list of items this game expands
@@ -136,28 +122,18 @@ def create_game_from_xml(xml_root, game_id):
     stats = xml_root.find("statistics/ratings")
     if stats is not None:
         sd = {
-            "usersrated": xml_subelement_attr(
-                stats, "usersrated", convert=int, quiet=True
-            ),
+            "usersrated": xml_subelement_attr(stats, "usersrated", convert=int, quiet=True),
             "average": xml_subelement_attr(stats, "average", convert=float, quiet=True),
-            "bayesaverage": xml_subelement_attr(
-                stats, "bayesaverage", convert=float, quiet=True
-            ),
+            "bayesaverage": xml_subelement_attr(stats, "bayesaverage", convert=float, quiet=True),
             "stddev": xml_subelement_attr(stats, "stddev", convert=float, quiet=True),
             "median": xml_subelement_attr(stats, "median", convert=float, quiet=True),
             "owned": xml_subelement_attr(stats, "owned", convert=int, quiet=True),
             "trading": xml_subelement_attr(stats, "trading", convert=int, quiet=True),
             "wanting": xml_subelement_attr(stats, "wanting", convert=int, quiet=True),
             "wishing": xml_subelement_attr(stats, "wishing", convert=int, quiet=True),
-            "numcomments": xml_subelement_attr(
-                stats, "numcomments", convert=int, quiet=True
-            ),
-            "numweights": xml_subelement_attr(
-                stats, "numweights", convert=int, quiet=True
-            ),
-            "averageweight": xml_subelement_attr(
-                stats, "averageweight", convert=float, quiet=True
-            ),
+            "numcomments": xml_subelement_attr(stats, "numcomments", convert=int, quiet=True),
+            "numweights": xml_subelement_attr(stats, "numweights", convert=int, quiet=True),
+            "averageweight": xml_subelement_attr(stats, "averageweight", convert=float, quiet=True),
             "ranks": [],
         }
 
@@ -184,9 +160,7 @@ def create_game_from_xml(xml_root, game_id):
             dsp = data["suggested_players"]
             dsp.update(
                 {
-                    "total_votes": int(
-                        suggested_players_poll.attrib.get("totalvotes", 0)
-                    ),
+                    "total_votes": int(suggested_players_poll.attrib.get("totalvotes", 0)),
                     "results": {},
                 }
             )

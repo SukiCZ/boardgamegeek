@@ -14,9 +14,7 @@ def add_hot_items_from_xml(hot_items, xml_root):
             "name": xml_subelement_attr(item, "name"),
             "id": int(item.attrib["id"]),
             "rank": int(item.attrib["rank"]),
-            "yearpublished": xml_subelement_attr(
-                item, "yearpublished", convert=int, quiet=True
-            ),
+            "yearpublished": xml_subelement_attr(item, "yearpublished", convert=int, quiet=True),
             "thumbnail": xml_subelement_attr(item, "thumbnail"),
         }
 

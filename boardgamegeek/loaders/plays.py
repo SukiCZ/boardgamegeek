@@ -64,9 +64,7 @@ def add_plays_from_xml(plays, xml_root):
             "nowinstats": int(play.attrib["nowinstats"]),
             # for User plays, will be overwritten with the user id when adding the play.
             "user_id": int(play.attrib.get("userid", -1)),
-            "game_id": xml_subelement_attr(
-                play, "item", attribute="objectid", convert=int
-            ),
+            "game_id": xml_subelement_attr(play, "item", attribute="objectid", convert=int),
             "game_name": xml_subelement_attr(play, "item", attribute="name"),
             "comment": xml_subelement_text(play, "comments"),
             "players": player_list,

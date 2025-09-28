@@ -155,11 +155,7 @@ class PlaySession(DictObject):
         if self.players:
             log.info("players")
             for player in self.players:
-                log.info(
-                    "\t{} ({}): name: {}, score: {}".format(
-                        player.username, player.user_id, player.name, player.score
-                    )
-                )
+                log.info(f"\t{player.username} ({player.user_id}): name: {player.name}, score: {player.score}")
 
     @property
     def id(self):

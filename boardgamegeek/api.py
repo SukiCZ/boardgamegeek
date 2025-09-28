@@ -151,9 +151,7 @@ class BGGCommon:
         self.requests_session = cache.cache
 
         # add the rate limiting adapter
-        self.requests_session.mount(
-            api_endpoint, RateLimitingAdapter(rpm=requests_per_minute)
-        )
+        self.requests_session.mount(api_endpoint, RateLimitingAdapter(rpm=requests_per_minute))
 
     def _get_auth_headers(self):
         """
@@ -204,9 +202,7 @@ class BGGCommon:
             # ...and selecting the one with the best ranking
             return min(
                 game_data,
-                key=lambda x: (
-                    x.boardgame_rank if x.boardgame_rank is not None else 10000000000
-                ),
+                key=lambda x: (x.boardgame_rank if x.boardgame_rank is not None else 10000000000),
             ).id
 
     def guild(self, guild_id, members=True):
@@ -350,9 +346,7 @@ class BGGCommon:
         ]:
             data[i] = xml_subelement_attr(root, i)
 
-        data["yearregistered"] = xml_subelement_attr(
-            root, "yearregistered", convert=int, quiet=True
-        )
+        data["yearregistered"] = xml_subelement_attr(root, "yearregistered", convert=int, quiet=True)
         data["lastlogin"] = xml_subelement_attr(
             root,
             "lastlogin",
@@ -366,16 +360,12 @@ class BGGCommon:
         # add top items
         if top:
             for top_item in root.findall(".//top/item"):
-                user.add_top_item(
-                    {"id": int(top_item.attrib["id"]), "name": top_item.attrib["name"]}
-                )
+                user.add_top_item({"id": int(top_item.attrib["id"]), "name": top_item.attrib["name"]})
 
         # add hot items
         if hot:
             for hot_item in root.findall(".//hot/item"):
-                user.add_hot_item(
-                    {"id": int(hot_item.attrib["id"]), "name": hot_item.attrib["name"]}
-                )
+                user.add_hot_item({"id": int(hot_item.attrib["id"]), "name": hot_item.attrib["name"]})
 
         if not buddies and not guilds:
             return user
@@ -389,9 +379,7 @@ class BGGCommon:
             if total_buddies > 0:
                 # add the buddies from the first page
                 for buddy in buddies.findall(".//buddy"):
-                    user.add_buddy(
-                        {"name": buddy.attrib["name"], "id": buddy.attrib["id"]}
-                    )
+                    user.add_buddy({"name": buddy.attrib["name"], "id": buddy.attrib["id"]})
 
         guilds = root.find("guilds")
         if guilds is not None:
@@ -399,9 +387,7 @@ class BGGCommon:
             if total_guilds > 0:
                 # add the guilds from the first page
                 for guild in guilds.findall(".//guild"):
-                    user.add_guild(
-                        {"name": guild.attrib["name"], "id": guild.attrib["id"]}
-                    )
+                    user.add_guild({"name": guild.attrib["name"], "id": guild.attrib["id"]})
 
         # It seems that the BGG API can return more results than what's specified in the documentation (they say
         # page size is 100, but for an user with 114 friends, all buddies are there on the first page).
@@ -433,9 +419,7 @@ class BGGCommon:
             page += 1
 
             if not added_buddy and not added_guild:
-                log.debug(
-                    f"didn't add any buddy/guild after fetching page {page}, stopping here"
-                )
+                log.debug(f"didn't add any buddy/guild after fetching page {page}, stopping here")
                 break
 
         return user
@@ -819,9 +803,7 @@ class BGGCommon:
             kwargs = {
                 "id": item.attrib["id"],
                 "name": xml_subelement_attr(item, "name"),
-                "yearpublished": xml_subelement_attr(
-                    item, "yearpublished", default=0, convert=int, quiet=True
-                ),
+                "yearpublished": xml_subelement_attr(item, "yearpublished", default=0, convert=int, quiet=True),
                 "type": item.attrib["type"],
             }
 
@@ -1008,11 +990,7 @@ class BGGClient(BGGCommon):
             if game_id is None:
                 raise BGGItemNotFoundError
 
-        log.debug(
-            "retrieving game id {}{}".format(
-                game_id, f" ({name})" if name is not None else ""
-            )
-        )
+        log.debug("retrieving game id {}{}".format(game_id, f" ({name})" if name is not None else ""))
 
         params = {
             "id": game_id,
@@ -1039,9 +1017,7 @@ class BGGClient(BGGCommon):
 
         xml_root = xml_root.find("item")
         if xml_root is None:
-            msg = "invalid data for game id: {}{}".format(
-                game_id, "" if name is None else f" ({name})"
-            )
+            msg = "invalid data for game id: {}{}".format(game_id, "" if name is None else f" ({name})")
             raise BGGApiError(msg)
 
         game = create_game_from_xml(xml_root, game_id=game_id)
@@ -1074,9 +1050,7 @@ class BGGClient(BGGCommon):
 
             xml_root = xml_root.find("item")
             if xml_root is None:
-                msg = "invalid data for game id: {}{}".format(
-                    game_id, "" if name is None else f" ({name})"
-                )
+                msg = "invalid data for game id: {}{}".format(game_id, "" if name is None else f" ({name})")
                 raise BGGApiError(msg)
 
             added_items, total = add_game_comments_from_xml(game, xml_root)

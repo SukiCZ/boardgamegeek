@@ -7,9 +7,7 @@ import urllib.parse
 # Kinda hard to test without having a "test" user
 TEST_VALID_USER = "fagentu007"
 TEST_VALID_USER_ID = 818216
-TEST_USER_WITH_LOTS_OF_FRIENDS = (
-    "Solamar"  # user chosen randomly (..after a long search :)) ), just needed
-)
+TEST_USER_WITH_LOTS_OF_FRIENDS = "Solamar"  # user chosen randomly (..after a long search :)) ), just needed
 # someone with lots of friends :D
 TEST_INVALID_USER = "someOneThatHopefullyWontExistPlsGuysDontCreateThisUser"
 TEST_INVALID_GAME_NAME = "blablablathisgamewonteverexist"
@@ -29,9 +27,7 @@ TEST_GAME_WITH_IMPLEMENTATIONS_ID = 28720  # Brass
 
 TEST_GAME_EXPANSION_ID = 223555  # Scythe: The Wind Gambit
 
-TEST_GAME_ACCESSORY_ID = (
-    104163  # Descent: Journeys in the Dark (second edition) – Conversion Kit
-)
+TEST_GAME_ACCESSORY_ID = 104163  # Descent: Journeys in the Dark (second edition) – Conversion Kit
 
 TEST_GEEKLIST_ID = 1
 TEST_GEEKLIST_INVALID_ID = -1

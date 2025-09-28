@@ -28,9 +28,7 @@ def add_collection_items_from_xml(collection, xml_root, subtype):
             "id": int(item.attrib["objectid"]),
             "image": xml_subelement_text(item, "image"),
             "thumbnail": xml_subelement_text(item, "thumbnail"),
-            "yearpublished": xml_subelement_attr(
-                item, "yearpublished", default=0, convert=int, quiet=True
-            ),
+            "yearpublished": xml_subelement_attr(item, "yearpublished", default=0, convert=int, quiet=True),
             "numplays": xml_subelement_text(item, "numplays", convert=int, default=0),
             "comment": xml_subelement_text(item, "comment", default=""),
         }
@@ -41,13 +39,9 @@ def add_collection_items_from_xml(collection, xml_root, subtype):
             raise BGGApiError("missing 'stats'")
 
         stat_data = {
-            "usersrated": xml_subelement_attr(
-                stats, "usersrated", convert=int, quiet=True
-            ),
+            "usersrated": xml_subelement_attr(stats, "usersrated", convert=int, quiet=True),
             "average": xml_subelement_attr(stats, "average", convert=float, quiet=True),
-            "bayesaverage": xml_subelement_attr(
-                stats, "bayesaverage", convert=float, quiet=True
-            ),
+            "bayesaverage": xml_subelement_attr(stats, "bayesaverage", convert=float, quiet=True),
             "stddev": xml_subelement_attr(stats, "stddev", convert=float, quiet=True),
             "median": xml_subelement_attr(stats, "median", convert=float, quiet=True),
             "ranks": [],
@@ -73,9 +67,7 @@ def add_collection_items_from_xml(collection, xml_root, subtype):
                 "minplaytime": int(stats.attrib.get("minplaytime", 0)),
                 "maxplaytime": int(stats.attrib.get("maxplaytime", 0)),
                 "playingtime": int(stats.attrib.get("playingtime", 0)),
-                "rating": xml_subelement_attr(
-                    stats, "rating", convert=float, quiet=True
-                ),
+                "rating": xml_subelement_attr(stats, "rating", convert=float, quiet=True),
             }
         )
 

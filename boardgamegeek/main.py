@@ -57,9 +57,7 @@ def main():
     p.add_argument("-c", "--collection", help="Query user's collection")
     p.add_argument("-p", "--plays", help="Query user's play list")
     p.add_argument("-P", "--plays-by-game", help="Query a game's plays")
-    p.add_argument(
-        "-H", "--hot-items", help="List all hot items by type", choices=HOT_ITEM_CHOICES
-    )
+    p.add_argument("-H", "--hot-items", help="List all hot items by type", choices=HOT_ITEM_CHOICES)
     p.add_argument("-S", "--search", help="search and return results")
 
     p.add_argument("-l", "--geeklist", type=int, help="get geeklist by id")

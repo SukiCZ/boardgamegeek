@@ -5,8 +5,6 @@ import pytest
 
 from boardgamegeek import BGGClient, BGGClientLegacy, CacheBackendNone
 
-pytest.mark.serialize = pytest.mark.markers
-
 
 @pytest.fixture
 def xml():
