@@ -1,3 +1,9 @@
+from __future__ import annotations
+
+import logging
+from collections.abc import Generator
+from typing import Any
+
 from ..utils import DictObject
 from ..exceptions import BGGError
 from .things import Thing
@@ -8,13 +14,10 @@ class GeekListComment(DictObject):
     Object containing details about a comment in a geeklist
     """
 
-    def __init__(self, data):
-        super().__init__(data)
-
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"GeekListComment (on {self.date} by [{self.username}])"
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"  date         : {self.date}")
         log.info(f"  username     : {self.username}")
         log.info(f"  postdate     : {self.postdate}")
@@ -28,18 +31,18 @@ class GeekList(Thing):
     Object containing information about a geeklist
     """
 
-    def __init__(self, data):
-        self._comments = []
-        self._items = []
+    def __init__(self, data: dict[str, Any]):
+        self._comments: list[GeekListComment] = []
+        self._items: list[GeekListItem] = []
         super().__init__(data)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"GeekList (id: {self.id})"
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self._items)
 
-    def add_comment(self, comment_data):
+    def add_comment(self, comment_data: dict[str, Any]) -> GeekListComment:
         """
         Add a comment to the ``GeekList``
 
@@ -53,7 +56,7 @@ class GeekList(Thing):
         self._comments.append(comment)
         return comment
 
-    def add_item(self, item_data):
+    def add_item(self, item_data: dict[str, Any]) -> GeekListItem:
         """
         Add an item to the ``GeekList``
 
@@ -68,7 +71,7 @@ class GeekList(Thing):
         return item
 
     @property
-    def comments(self):
+    def comments(self) -> list[GeekListComment]:
         """
         Returns the comments in the collection
 
@@ -78,7 +81,7 @@ class GeekList(Thing):
         return self._comments
 
     @property
-    def items(self):
+    def items(self) -> list[GeekListItem]:
         """
         Returns the items in the geeklist
 
@@ -87,10 +90,10 @@ class GeekList(Thing):
         """
         return self._items
 
-    def __iter__(self):
+    def __iter__(self) -> Generator[GeekListItem]:
         yield from self._items
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"geeklist id           : {self.id}")
         log.info(f"geeklist name (title) : {self.name}")
         log.info(f"geeklist posted at    : {self.postdate}")
@@ -108,7 +111,7 @@ class GeekList(Thing):
             log.info("")
 
     @property
-    def title(self):
+    def title(self) -> str:
         # alias for name
         return self.name
 
@@ -118,14 +121,14 @@ class GeekListItem(DictObject):
     Object containing information about a geeklist item
     """
 
-    def __init__(self, data):
-        self._comments = []
+    def __init__(self, data: dict[str, Any]):
+        self._comments: list[GeekListComment] = []
         super().__init__(data)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"GeekListItem (id: {self.id})"
 
-    def set_object(self, object_data):
+    def set_object(self, object_data: dict[str, Any]) -> GeekListObject:
         """
         Set the object in the ``GeekListItem``
 
@@ -138,7 +141,7 @@ class GeekListItem(DictObject):
             raise BGGError("invalid object data")
         return self._object
 
-    def add_comment(self, comment_data):
+    def add_comment(self, comment_data: dict[str, Any]) -> GeekListComment:
         """
         Add a comment to the ``GeekList``
 
@@ -153,7 +156,7 @@ class GeekListItem(DictObject):
         return comment
 
     @property
-    def comments(self):
+    def comments(self) -> list[GeekListComment]:
         """
         Returns the comments in the collection
 
@@ -162,7 +165,7 @@ class GeekListItem(DictObject):
         """
         return self._comments
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"id                 : {self.id}")
         log.info(f"username           : {self.username}")
         log.info("object")
@@ -177,13 +180,13 @@ class GeekListItem(DictObject):
             log.info("")
 
     @property
-    def object(self):
+    def object(self) -> GeekListObject:
         return self._object
 
     @property
-    def description(self):
+    def description(self) -> str:
         # alias for body
-        return self.body
+        return str(self.body)
 
 
 class GeekListObject(Thing):
@@ -191,14 +194,14 @@ class GeekListObject(Thing):
     Object containing information about a geeklist object (e.g. a game reference)
     """
 
-    def __init__(self, data):
-        self._items = []
+    def __init__(self, data: dict[str, Any]):
+        self._items: list[GeekListItem] = []
         super().__init__(data)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"GeekListItem (id: {self.id})"
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"id      : {self.id}")
         log.info(f"name    : {self.name}")
         log.info(f"imageid : {self.imageid}")
