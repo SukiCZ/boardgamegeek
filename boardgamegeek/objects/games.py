@@ -10,8 +10,13 @@
 
 """
 
+from __future__ import annotations
+
 import datetime
+import logging
+import warnings
 from copy import copy
+from typing import Any
 
 from ..exceptions import BGGError
 from ..utils import DictObject, fix_unsigned_negative, fix_url
@@ -20,19 +25,19 @@ from .things import Thing
 
 class BoardGameRank(Thing):
     @property
-    def type(self):
+    def type(self) -> str | None:
         return self._data.get("type")
 
     @property
-    def friendly_name(self):
+    def friendly_name(self) -> str | None:
         return self._data.get("friendlyname")
 
     @property
-    def value(self):
+    def value(self) -> str | None:
         return self._data.get("value")
 
     @property
-    def rating_bayes_average(self):
+    def rating_bayes_average(self) -> float | None:
         return self._data.get("bayesaverage")
 
 
@@ -41,13 +46,10 @@ class PlayerSuggestion(DictObject):
     Player Suggestion
     """
 
-    def __init__(self, data):
-        super().__init__(data)
-
     @property
-    def numeric_player_count(self):
+    def numeric_player_count(self) -> int:
         """
-        Convert player count to a an int
+        Convert player count to an int
         If player count contains a + symbol
         then add one to the player count
         """
@@ -62,29 +64,30 @@ class BoardGameStats(DictObject):
     Statistics about a board game
     """
 
-    def __init__(self, data):
-        self._ranks = []
+    def __init__(self, data: dict[str, Any]):
+        self._ranks: list[BoardGameRank] = []
+        self._bgg_rank: int | None = None
 
         for rank in data.get("ranks", []):
             if rank.get("name") == "boardgame":
                 try:
                     self._bgg_rank = int(rank["value"])
                 except (KeyError, TypeError):
-                    self._bgg_rank = None
+                    pass
             self._ranks.append(BoardGameRank(rank))
 
         super().__init__(data)
 
     @property
-    def bgg_rank(self):
+    def bgg_rank(self) -> int | None:
         return self._bgg_rank
 
     @property
-    def ranks(self):
+    def ranks(self) -> list[BoardGameRank]:
         return self._ranks
 
     @property
-    def users_rated(self):
+    def users_rated(self) -> int | None:
         """
         :return: how many users rated the game
         :rtype: integer
@@ -93,7 +96,7 @@ class BoardGameStats(DictObject):
         return self._data.get("usersrated")
 
     @property
-    def rating_average(self):
+    def rating_average(self) -> float | None:
         """
         :return: average rating
         :rtype: float
@@ -102,7 +105,7 @@ class BoardGameStats(DictObject):
         return self._data.get("average")
 
     @property
-    def rating_bayes_average(self):
+    def rating_bayes_average(self) -> float | None:
         """
         :return: bayes average rating
         :rtype: float
@@ -111,7 +114,7 @@ class BoardGameStats(DictObject):
         return self._data.get("bayesaverage")
 
     @property
-    def rating_stddev(self):
+    def rating_stddev(self) -> float | None:
         """
         :return: standard deviation
         :rtype: float
@@ -120,7 +123,7 @@ class BoardGameStats(DictObject):
         return self._data.get("stddev")
 
     @property
-    def rating_median(self):
+    def rating_median(self) -> float | None:
         """
         :return:
         :rtype: float
@@ -129,7 +132,7 @@ class BoardGameStats(DictObject):
         return self._data.get("median")
 
     @property
-    def users_owned(self):
+    def users_owned(self) -> int | None:
         """
         :return: number of users owning this game
         :rtype: integer
@@ -138,7 +141,7 @@ class BoardGameStats(DictObject):
         return self._data.get("owned")
 
     @property
-    def users_trading(self):
+    def users_trading(self) -> int | None:
         """
         :return: number of users trading this game
         :rtype: integer
@@ -147,7 +150,7 @@ class BoardGameStats(DictObject):
         return self._data.get("trading")
 
     @property
-    def users_wanting(self):
+    def users_wanting(self) -> int | None:
         """
         :return: number of users wanting this game
         :rtype: integer
@@ -156,7 +159,7 @@ class BoardGameStats(DictObject):
         return self._data.get("wanting")
 
     @property
-    def users_wishing(self):
+    def users_wishing(self) -> int | None:
         """
         :return: number of users wishing for this game
         :rtype: integer
@@ -165,7 +168,7 @@ class BoardGameStats(DictObject):
         return self._data.get("wishing")
 
     @property
-    def users_commented(self):
+    def users_commented(self) -> int | None:
         """
         :return: number of user comments
         :rtype: integer
@@ -174,7 +177,7 @@ class BoardGameStats(DictObject):
         return self._data.get("numcomments")
 
     @property
-    def rating_num_weights(self):
+    def rating_num_weights(self) -> int | None:
         """
         :return:
         :rtype: integer
@@ -183,7 +186,7 @@ class BoardGameStats(DictObject):
         return self._data.get("numweights")
 
     @property
-    def rating_average_weight(self):
+    def rating_average_weight(self) -> float | None:
         """
         :return: average weight
         :rtype: float
@@ -194,18 +197,18 @@ class BoardGameStats(DictObject):
 
 class BoardGameComment(DictObject):
     @property
-    def commenter(self):
-        return self._data["username"]
+    def commenter(self) -> str:
+        return str(self._data["username"])
 
     @property
-    def comment(self):
-        return self._data["comment"]
+    def comment(self) -> str:
+        return str(self._data["comment"])
 
     @property
-    def rating(self):
-        return self._data["rating"]
+    def rating(self) -> float:
+        return float(self._data["rating"])
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"comment by {self.commenter} (rating: {self.rating}): {self.comment}")
 
 
@@ -214,7 +217,7 @@ class BoardGameVideo(Thing):
     Object containing information about a board game video
     """
 
-    def __init__(self, data):
+    def __init__(self, data: dict[str, Any]):
         kw = copy(data)
 
         if "post_date" in kw:
@@ -229,7 +232,7 @@ class BoardGameVideo(Thing):
 
         super().__init__(kw)
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"video id          : {self.id}")
         log.info(f"video title       : {self.name}")
         log.info(f"video category    : {self.category}")
@@ -240,7 +243,7 @@ class BoardGameVideo(Thing):
         log.info(f"video posted at   : {self.post_date}")
 
     @property
-    def category(self):
+    def category(self) -> str | None:
         """
         :return: the category of this video
         :return: ``None`` if n/a
@@ -249,7 +252,7 @@ class BoardGameVideo(Thing):
         return self._data.get("category")
 
     @property
-    def link(self):
+    def link(self) -> str | None:
         """
         :return: the link to this video
         :return: ``None`` if n/a
@@ -258,7 +261,7 @@ class BoardGameVideo(Thing):
         return self._data.get("link")
 
     @property
-    def language(self):
+    def language(self) -> str | None:
         """
         :return: the language of this video
         :return: ``None`` if n/a
@@ -267,7 +270,7 @@ class BoardGameVideo(Thing):
         return self._data.get("language")
 
     @property
-    def uploader(self):
+    def uploader(self) -> str | None:
         """
         :return: the name of the user which uploaded this video
         :return: ``None`` if n/a
@@ -276,7 +279,7 @@ class BoardGameVideo(Thing):
         return self._data.get("uploader")
 
     @property
-    def uploader_id(self):
+    def uploader_id(self) -> int | None:
         """
         :return: id of the uploader
         :rtype: integer
@@ -285,7 +288,7 @@ class BoardGameVideo(Thing):
         return self._data.get("uploader_id")
 
     @property
-    def post_date(self):
+    def post_date(self) -> datetime.datetime | None:
         """
         :return: date when this video was uploaded
         :rtype: datetime.datetime
@@ -299,7 +302,7 @@ class BoardGameVersion(Thing):
     Object containing information about a board game version
     """
 
-    def __init__(self, data):
+    def __init__(self, data: dict[str, Any]):
         kw = copy(data)
 
         for to_fix in ["thumbnail", "image"]:
@@ -308,10 +311,10 @@ class BoardGameVersion(Thing):
 
         super().__init__(kw)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"BoardGameVersion (id: {self.id})"
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"version id           : {self.id}")
         log.info(f"version name         : {self.name}")
         log.info(f"version language     : {self.language}")
@@ -323,7 +326,7 @@ class BoardGameVersion(Thing):
         log.info(f"year                 : {self.year}")
 
     @property
-    def artist(self):
+    def artist(self) -> str | None:
         """
 
         :return: artist of this version
@@ -333,7 +336,7 @@ class BoardGameVersion(Thing):
         return self._data.get("artist")
 
     @property
-    def depth(self):
+    def depth(self) -> float | None:
         """
         :return: depth of the box
         :rtype: double
@@ -342,7 +345,7 @@ class BoardGameVersion(Thing):
         return self._data.get("depth")
 
     @property
-    def length(self):
+    def length(self) -> float | None:
         """
         :return: length of the box
         :rtype: double
@@ -351,7 +354,7 @@ class BoardGameVersion(Thing):
         return self._data.get("length")
 
     @property
-    def language(self):
+    def language(self) -> str | None:
         """
         :return: language of this version
         :rtype: string
@@ -360,16 +363,16 @@ class BoardGameVersion(Thing):
         return self._data.get("language")
 
     @property
-    def name(self):
+    def name(self) -> str:
         """
         :return: name of this version
         :rtype: string
         :return: ``None`` if n/a
         """
-        return self._data.get("name")
+        return str(self._data.get("name"))
 
     @property
-    def product_code(self):
+    def product_code(self) -> str | None:
         """
 
         :return: product code of this version
@@ -379,7 +382,7 @@ class BoardGameVersion(Thing):
         return self._data.get("product_code")
 
     @property
-    def publisher(self):
+    def publisher(self) -> str | None:
         """
 
         :return: publisher of this version
@@ -389,7 +392,7 @@ class BoardGameVersion(Thing):
         return self._data.get("publisher")
 
     @property
-    def weight(self):
+    def weight(self) -> float | None:
         """
         :return: weight of the box
         :rtype: double
@@ -398,16 +401,16 @@ class BoardGameVersion(Thing):
         return self._data.get("weight")
 
     @property
-    def width(self):
+    def width(self) -> float | None:
         """
         :return: width of the box
-        :rtype: double
+        :rtype: float
         :return: 0.0 if n/a
         """
         return self._data.get("width")
 
     @property
-    def year(self):
+    def year(self) -> int | None:
         """
         :return: publishing year
         :rtype: integer
@@ -421,11 +424,11 @@ class MarketplaceListing(DictObject):
     Object containing information about a marketplace listing
     """
 
-    def __init__(self, data):
+    def __init__(self, data: dict[str, Any]):
         kw = copy(data)
         super().__init__(kw)
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"listing date       : {self.list_date}")
         log.info(f"listing price    : {self.price}")
         log.info(f"listing currency : {self.currency}")
@@ -434,7 +437,7 @@ class MarketplaceListing(DictObject):
         log.info(f"listing link     : {self.link}")
 
     @property
-    def list_date(self):
+    def list_date(self) -> datetime.datetime | None:
         """
         :return: date when this listing was created
         :rtype: datetime.datetime
@@ -443,7 +446,7 @@ class MarketplaceListing(DictObject):
         return self._data.get("list_date")
 
     @property
-    def price(self):
+    def price(self) -> float | None:
         """
         :return: price of the item
         :rtype: float
@@ -451,7 +454,7 @@ class MarketplaceListing(DictObject):
         return self._data.get("price")
 
     @property
-    def currency(self):
+    def currency(self) -> str | None:
         """
         :return: ISO code of the currency (EUR, USD, etc.)
         :rtype: string
@@ -459,7 +462,7 @@ class MarketplaceListing(DictObject):
         return self._data.get("currency")
 
     @property
-    def condition(self):
+    def condition(self) -> str | None:
         """
         :return: condition of the item ((like)new, (very)good, acceptable, etc.)
         :rtype: string
@@ -467,7 +470,7 @@ class MarketplaceListing(DictObject):
         return self._data.get("condition")
 
     @property
-    def notes(self):
+    def notes(self) -> str | None:
         """
         :return: notes about the item
             Example: "Game is in great shape, but the box has shelf-wear."
@@ -476,7 +479,7 @@ class MarketplaceListing(DictObject):
         return self._data.get("notes")
 
     @property
-    def link(self):
+    def link(self) -> str | None:
         """
         :return: link to the item
             Example: https://boardgamegeek.com/market/product/633634
@@ -486,7 +489,7 @@ class MarketplaceListing(DictObject):
 
 
 class BaseGame(Thing):
-    def __init__(self, data):
+    def __init__(self, data: dict[str, Any]):
         self._thumbnail = fix_url(data["thumbnail"]) if "thumbnail" in data else None
         self._image = fix_url(data["image"]) if "image" in data else None
         if "stats" not in data:
@@ -494,13 +497,14 @@ class BaseGame(Thing):
 
         self._stats = BoardGameStats(data["stats"])
 
-        self._versions = []
-        self._versions_set = set()
+        self._versions: list[BoardGameVersion] = []
+        self._versions_set: set[int] = set()
+        self._year_published: int | None = None
 
         try:
             self._year_published = fix_unsigned_negative(data["yearpublished"])
         except (KeyError, TypeError):
-            self._year_published = None
+            pass
 
         for version in data.get("versions", []):
             try:
@@ -510,7 +514,7 @@ class BaseGame(Thing):
             except KeyError:
                 raise BGGError("invalid version data")
 
-        self._marketplace = []
+        self._marketplace: list[MarketplaceListing] = []
 
         for listing in data.get("marketplace", []):
             try:
@@ -521,7 +525,7 @@ class BaseGame(Thing):
         super().__init__(data)
 
     @property
-    def thumbnail(self):
+    def thumbnail(self) -> str | None:
         """
         :return: thumbnail URL
         :rtype: str
@@ -530,7 +534,7 @@ class BaseGame(Thing):
         return self._thumbnail
 
     @property
-    def image(self):
+    def image(self) -> str | None:
         """
         :return: image URL
         :rtype: str
@@ -539,7 +543,7 @@ class BaseGame(Thing):
         return self._image
 
     @property
-    def year(self):
+    def year(self) -> int | None:
         """
         :return: publishing year
         :rtype: integer
@@ -548,7 +552,7 @@ class BaseGame(Thing):
         return self._year_published
 
     @property
-    def min_players(self):
+    def min_players(self) -> int | None:
         """
         :return: minimum number of players
         :rtype: integer
@@ -557,7 +561,7 @@ class BaseGame(Thing):
         return self._data.get("minplayers")
 
     @property
-    def max_players(self):
+    def max_players(self) -> int | None:
         """
         :return: maximum number of players
         :rtype: integer
@@ -566,7 +570,7 @@ class BaseGame(Thing):
         return self._data.get("maxplayers")
 
     @property
-    def min_playing_time(self):
+    def min_playing_time(self) -> int | None:
         """
         Minimum playing time
         :return: ``None if n/a
@@ -575,7 +579,7 @@ class BaseGame(Thing):
         return self._data.get("minplaytime")
 
     @property
-    def max_playing_time(self):
+    def max_playing_time(self) -> int | None:
         """
         Maximum playing time
         :return: ``None if n/a
@@ -584,7 +588,7 @@ class BaseGame(Thing):
         return self._data.get("maxplaytime")
 
     @property
-    def playing_time(self):
+    def playing_time(self) -> int | None:
         """
         :return: playing time
         :rtype: integer
@@ -595,7 +599,7 @@ class BaseGame(Thing):
     # TODO: create properties to access the stats
 
     @property
-    def users_rated(self):
+    def users_rated(self) -> int | None:
         """
         :return: how many users rated the game
         :rtype: integer
@@ -604,7 +608,7 @@ class BaseGame(Thing):
         return self._stats.users_rated
 
     @property
-    def rating_average(self):
+    def rating_average(self) -> float | None:
         """
         :return: average rating
         :rtype: float
@@ -613,7 +617,7 @@ class BaseGame(Thing):
         return self._stats.rating_average
 
     @property
-    def rating_bayes_average(self):
+    def rating_bayes_average(self) -> float | None:
         """
         :return: bayes average rating
         :rtype: float
@@ -622,7 +626,7 @@ class BaseGame(Thing):
         return self._stats.rating_bayes_average
 
     @property
-    def rating_stddev(self):
+    def rating_stddev(self) -> float | None:
         """
         :return: standard deviation
         :rtype: float
@@ -631,7 +635,7 @@ class BaseGame(Thing):
         return self._stats.rating_stddev
 
     @property
-    def rating_median(self):
+    def rating_median(self) -> float | None:
         """
         :return:
         :rtype: float
@@ -640,27 +644,26 @@ class BaseGame(Thing):
         return self._stats.rating_median
 
     @property
-    def ranks(self):
-        # TODO: document this change. It's not returning list of dicts anymore, but BoardGameRank objects
+    def ranks(self) -> list[BoardGameRank]:
         """
         :return: rankings of this game
-        :rtype: list of dicts, keys: ``friendlyname`` (the friendly name of the rank, e.g. "Board Game Rank"), ``name``
-                (name of the rank, e.g "boardgame"), ``value`` (the rank)
+        :rtype: list of :py:class:`boardgamegeek.games.BoardGameRank`
         :return: ``None`` if n/a
         """
         return self._stats.ranks
 
     @property
-    def bgg_rank(self):
+    def bgg_rank(self) -> int | None:
         """
         :return: The board game geek rank of this game
+        :rtype: integer
+        :return: ``None`` if n/a
         """
-        # TODO: document this
         return self._stats.bgg_rank
 
     @property
-    def boardgame_rank(self):
-        # TODO: mark as deprecated (use bgg_rank instead)
+    def boardgame_rank(self) -> int | None:
+        warnings.warn("deprecated, use 'bgg_rank' instead", DeprecationWarning, stacklevel=2)
         return self.bgg_rank
 
 
@@ -670,17 +673,11 @@ class CollectionBoardGame(BaseGame):
     via the /thing api and which also contains some user-specific information.
     """
 
-    def __init__(self, data):
-        super().__init__(data)
-
-    def __repr__(self):
-        return f"CollectionBoardGame (id: {self.id})"
-
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"boardgame id      : {self.id}")
         log.info(f"boardgame name    : {self.name}")
         log.info(f"number of plays   : {self.numplays}")
-        log.info(f"last modified     : {self.lastmodified}")
+        log.info(f"last modified     : {self.last_modified}")
         log.info(f"rating            : {self.rating}")
         log.info(f"own               : {self.owned}")
         log.info(f"preordered        : {self.preordered}")
@@ -696,12 +693,12 @@ class CollectionBoardGame(BaseGame):
             v._format(log)
 
     @property
-    def lastmodified(self):
-        # TODO: deprecate this
+    def lastmodified(self) -> str | None:
+        warnings.warn("deprecated, use 'last_modified' instead", DeprecationWarning, stacklevel=2)
         return self._data.get("lastmodified")
 
     @property
-    def last_modified(self):
+    def last_modified(self) -> str | None:
         """
         :return: last modified date
         :rtype: str
@@ -709,18 +706,18 @@ class CollectionBoardGame(BaseGame):
         return self._data.get("lastmodified")
 
     @property
-    def version(self):
-        if len(self._versions):
+    def version(self) -> BoardGameVersion | None:
+        if self._versions:
             return self._versions[0]
         else:
             return None
 
     @property
-    def numplays(self):
-        return self._data.get("numplays", 0)
+    def numplays(self) -> int:
+        return int(self._data.get("numplays", 0))
 
     @property
-    def rating(self):
+    def rating(self) -> float | None:
         """
         :return: user's rating of the game
         :rtype: float
@@ -729,7 +726,7 @@ class CollectionBoardGame(BaseGame):
         return self._data.get("rating")
 
     @property
-    def owned(self):
+    def owned(self) -> bool:
         """
         :return: game owned
         :rtype: bool
@@ -737,7 +734,7 @@ class CollectionBoardGame(BaseGame):
         return bool(int(self._data.get("own", 0)))
 
     @property
-    def preordered(self):
+    def preordered(self) -> bool:
         """
         :return: game preordered
         :rtype: bool
@@ -745,7 +742,7 @@ class CollectionBoardGame(BaseGame):
         return bool(int(self._data.get("preordered", 0)))
 
     @property
-    def prev_owned(self):
+    def prev_owned(self) -> bool:
         """
         :return: game previously owned
         :rtype: bool
@@ -753,7 +750,7 @@ class CollectionBoardGame(BaseGame):
         return bool(int(self._data.get("prevowned", 0)))
 
     @property
-    def want(self):
+    def want(self) -> bool:
         """
         :return: game wanted
         :rtype: bool
@@ -761,7 +758,7 @@ class CollectionBoardGame(BaseGame):
         return bool(int(self._data.get("want", 0)))
 
     @property
-    def want_to_buy(self):
+    def want_to_buy(self) -> bool:
         """
         :return: want to buy
         :rtype: bool
@@ -769,7 +766,7 @@ class CollectionBoardGame(BaseGame):
         return bool(int(self._data.get("wanttobuy", 0)))
 
     @property
-    def want_to_play(self):
+    def want_to_play(self) -> bool:
         """
         :return: want to play
         :rtype: bool
@@ -777,7 +774,7 @@ class CollectionBoardGame(BaseGame):
         return bool(int(self._data.get("wanttoplay", 0)))
 
     @property
-    def for_trade(self):
+    def for_trade(self) -> bool:
         """
         :return: game for trading
         :rtype: bool
@@ -785,7 +782,7 @@ class CollectionBoardGame(BaseGame):
         return bool(int(self._data.get("fortrade", 0)))
 
     @property
-    def wishlist(self):
+    def wishlist(self) -> bool:
         """
         :return: game on wishlist
         :rtype: bool
@@ -793,17 +790,17 @@ class CollectionBoardGame(BaseGame):
         return bool(int(self._data.get("wishlist", 0)))
 
     @property
-    def wishlist_priority(self):
+    def wishlist_priority(self) -> str | None:
         # TODO: convert to int (it's str)
         return self._data.get("wishlistpriority")
 
     @property
-    def comment(self):
+    def comment(self) -> str:
         """
         :return: comment left by user
         :rtype: str
         """
-        return self._data.get("comment", "")
+        return str(self._data.get("comment", ""))
 
 
 class BoardGame(BaseGame):
@@ -811,9 +808,9 @@ class BoardGame(BaseGame):
     Object containing information about a board game
     """
 
-    def __init__(self, data):
-        self._expansions = []  # list of Thing for the expansions
-        self._expansions_set = set()  # set for making sure things are unique
+    def __init__(self, data: dict[str, Any]):
+        self._expansions: list[Thing] = []  # list of Thing for the expansions
+        self._expansions_set: set[int] = set()  # set for making sure things are unique
         for exp in data.get("expansions", []):
             try:
                 if exp["id"] not in self._expansions_set:
@@ -822,8 +819,8 @@ class BoardGame(BaseGame):
             except KeyError:
                 raise BGGError("invalid expansion data")
 
-        self._expands = []  # list of Thing which this item expands
-        self._expands_set = set()  # set for keeping things unique
+        self._expands: list[Thing] = []  # list of Thing which this item expands
+        self._expands_set: set[int] = set()  # set for keeping things unique
         for exp in data.get("expands", []):  # for all the items this game expands, create a Thing
             try:
                 if exp["id"] not in self._expands_set:
@@ -832,8 +829,8 @@ class BoardGame(BaseGame):
             except KeyError:
                 raise BGGError("invalid expanded game data")
 
-        self._videos = []
-        self._videos_ids = set()
+        self._videos: list[BoardGameVideo] = []
+        self._videos_ids: set[int] = set()
         for video in data.get("videos", []):
             try:
                 if video["id"] not in self._videos_ids:
@@ -842,11 +839,11 @@ class BoardGame(BaseGame):
             except KeyError:
                 raise BGGError("invalid video data")
 
-        self._comments = []
+        self._comments: list[BoardGameComment] = []
         for comment in data.get("comments", []):
             self.add_comment(comment)
 
-        self._player_suggestion = []
+        self._player_suggestion: list[PlayerSuggestion] = []
         if "suggested_players" in data and "results" in data["suggested_players"]:
             for count, result in data["suggested_players"]["results"].items():
                 suggestion_data = {
@@ -859,13 +856,13 @@ class BoardGame(BaseGame):
 
         super().__init__(data)
 
-    def __repr__(self):
-        return f"BoardGame (id: {self.id})"
+    def __repr__(self) -> str:
+        return f"{self.__class__.__name__} (id: {self.id})"
 
-    def add_comment(self, data):
+    def add_comment(self, data: dict[str, Any]) -> None:
         self._comments.append(BoardGameComment(data))
 
-    def add_expanded_game(self, data):
+    def add_expanded_game(self, data: dict[str, Any]) -> None:
         """
         Add a game expanded by this one
 
@@ -880,7 +877,7 @@ class BoardGame(BaseGame):
         except KeyError:
             raise BGGError("invalid expanded game data")
 
-    def add_expansion(self, data):
+    def add_expansion(self, data: dict[str, Any]) -> None:
         """
         Add an expansion of this game
 
@@ -895,13 +892,13 @@ class BoardGame(BaseGame):
         except KeyError:
             raise BGGError("invalid expansion data")
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"boardgame id      : {self.id}")
         log.info(f"boardgame name    : {self.name}")
         log.info(f"boardgame rank    : {self.bgg_rank}")
         if self.alternative_names:
-            for i in self.alternative_names:
-                log.info(f"alternative name  : {i}")
+            for alternative_name in self.alternative_names:
+                log.info(f"alternative name  : {alternative_name}")
         log.info(f"year published    : {self.year}")
         log.info(f"minimum players   : {self.min_players}")
         log.info(f"maximum players   : {self.max_players}")
@@ -915,68 +912,68 @@ class BoardGame(BaseGame):
 
         if self.expansions:
             log.info("expansions")
-            for i in self.expansions:
-                log.info(f"- {i.name}")
+            for expansion in self.expansions:
+                log.info(f"- {expansion.name}")
 
         if self.expands:
             log.info("expands")
-            for i in self.expands:
-                log.info(f"- {i.name}")
+            for expand in self.expands:
+                log.info(f"- {expand.name}")
 
         if self.categories:
             log.info("categories")
-            for i in self.categories:
-                log.info(f"- {i}")
+            for category in self.categories:
+                log.info(f"- {category}")
 
         if self.families:
             log.info("families")
-            for i in self.families:
-                log.info(f"- {i}")
+            for family in self.families:
+                log.info(f"- {family}")
 
         if self.mechanics:
             log.info("mechanics")
-            for i in self.mechanics:
-                log.info(f"- {i}")
+            for mechanic in self.mechanics:
+                log.info(f"- {mechanic}")
 
         if self.implementations:
             log.info("implementations")
-            for i in self.implementations:
-                log.info(f"- {i}")
+            for implementation in self.implementations:
+                log.info(f"- {implementation}")
 
         if self.designers:
             log.info("designers")
-            for i in self.designers:
-                log.info(f"- {i}")
+            for designer in self.designers:
+                log.info(f"- {designer}")
 
         if self.artists:
             log.info("artistis")
-            for i in self.artists:
-                log.info(f"- {i}")
+            for artist in self.artists:
+                log.info(f"- {artist}")
 
         if self.publishers:
             log.info("publishers")
-            for i in self.publishers:
-                log.info(f"- {i}")
+            for publisher in self.publishers:
+                log.info(f"- {publisher}")
 
         if self.videos:
             log.info("videos")
-            for v in self.videos:
-                v._format(log)
+            for video in self.videos:
+                video._format(log)
                 log.info("--------")
 
         if self.versions:
             log.info("versions")
-            for v in self.versions:
-                v._format(log)
+            for version in self.versions:
+                version._format(log)
                 log.info("--------")
 
         if self.player_suggestions:
             log.info("Player Suggestions")
-            for v in self.player_suggestions:
+            for suggestion in self.player_suggestions:
                 log.info(
-                    "- {} - Best: {}, Recommended: {}, Not Recommended: {}".format(
-                        v.player_count, v.best, v.recommended, v.not_recommended
-                    )
+                    f"- {suggestion.player_count} - Best: {suggestion.best}, "
+                    f"Recommended: {suggestion.recommended}, "
+                    f"Not Recommended: {suggestion.not_recommended}"
                 )
                 log.info("--------")
 
@@ -995,51 +992,55 @@ class BoardGame(BaseGame):
                 c._format(log)
 
     @property
-    def alternative_names(self):
+    def alternative_names(self) -> list[str]:
         """
         :return: alternative names
         :rtype: list of str
         """
-        return self._data.get("alternative_names", [])
+        names = self._data.get("alternative_names", [])
+        return [str(name) for name in names]
 
     @property
-    def description(self):
+    def description(self) -> str:
         """
         :return: description
         :rtype: str
         """
-        return self._data.get("description", "")
+        return str(self._data.get("description", ""))
 
     @property
-    def families(self):
+    def families(self) -> list[str]:
         """
         :return: families
         :rtype: list of str
         """
-        return self._data.get("families", [])
+        families = self._data.get("families", [])
+        return [str(family) for family in families]
 
     @property
-    def categories(self):
+    def categories(self) -> list[str]:
         """
         :return: categories
         :rtype: list of str
         """
-        return self._data.get("categories", [])
+        categories = self._data.get("categories", [])
+        return [str(category) for category in categories]
 
     @property
-    def comments(self):
+    def comments(self) -> list[BoardGameComment]:
         return self._comments
 
     @property
-    def mechanics(self):
+    def mechanics(self) -> list[str]:
         """
         :return: mechanics
         :rtype: list of str
         """
-        return self._data.get("mechanics", [])
+        mechanics = self._data.get("mechanics", [])
+        return [str(mechanic) for mechanic in mechanics]
 
     @property
-    def expansions(self):
+    def expansions(self) -> list[Thing]:
         """
         :return: expansions
         :rtype: list of :py:class:`boardgamegeek.things.Thing`
@@ -1047,7 +1048,7 @@ class BoardGame(BaseGame):
         return self._expansions
 
     @property
-    def expands(self):
+    def expands(self) -> list[Thing]:
         """
         :return: games this item expands
         :rtype: list of :py:class:`boardgamegeek.things.Thing`
@@ -1055,55 +1056,59 @@ class BoardGame(BaseGame):
         return self._expands
 
     @property
-    def implementations(self):
+    def implementations(self) -> list[str]:
         """
         :return: implementations
         :rtype: list of str
         """
-        return self._data.get("implementations", [])
+        implementations = self._data.get("implementations", [])
+        return [str(implementation) for implementation in implementations]
 
     @property
-    def designers(self):
+    def designers(self) -> list[str]:
         """
         :return: designers
         :rtype: list of str
         """
-        return self._data.get("designers", [])
+        designers = self._data.get("designers", [])
+        return [str(designer) for designer in designers]
 
     @property
-    def artists(self):
+    def artists(self) -> list[str]:
         """
         :return: artists
         :rtype: list of str
         """
-        return self._data.get("artists", [])
+        artists = self._data.get("artists", [])
+        return [str(artist) for artist in artists]
 
     @property
-    def publishers(self):
+    def publishers(self) -> list[str]:
         """
         :return: publishers
         :rtype: list of str
         """
-        return self._data.get("publishers", [])
+        publishers = self._data.get("publishers", [])
+        return [str(publisher) for publisher in publishers]
 
     @property
-    def expansion(self):
+    def expansion(self) -> bool:
         """
         :return: True if this item is an expansion
         :rtype: bool
         """
-        return self._data.get("expansion", False)
+        return bool(self._data.get("expansion", False))
 
     @property
-    def accessory(self):
+    def accessory(self) -> bool:
         """
         :return: True if this item is an accessory
         :rtype: bool
         """
-        return self._data.get("accessory", False)
+        return bool(self._data.get("accessory", False))
 
     @property
-    def min_age(self):
+    def min_age(self) -> int | None:
         """
         :return: minimum recommended age
         :rtype: integer
@@ -1112,7 +1117,7 @@ class BoardGame(BaseGame):
         return self._data.get("minage")
 
     @property
-    def users_owned(self):
+    def users_owned(self) -> int | None:
         """
         :return: number of users owning this game
         :rtype: integer
@@ -1121,7 +1126,7 @@ class BoardGame(BaseGame):
         return self._stats.users_owned
 
     @property
-    def users_trading(self):
+    def users_trading(self) -> int | None:
         """
         :return: number of users trading this game
         :rtype: integer
@@ -1130,7 +1135,7 @@ class BoardGame(BaseGame):
         return self._stats.users_trading
 
     @property
-    def users_wanting(self):
+    def users_wanting(self) -> int | None:
         """
         :return: number of users wanting this game
         :rtype: integer
@@ -1139,7 +1144,7 @@ class BoardGame(BaseGame):
         return self._stats.users_wanting
 
     @property
-    def users_wishing(self):
+    def users_wishing(self) -> int | None:
         """
         :return: number of users wishing for this game
         :rtype: integer
@@ -1148,7 +1153,7 @@ class BoardGame(BaseGame):
         return self._stats.users_wishing
 
     @property
-    def users_commented(self):
+    def users_commented(self) -> int | None:
         """
         :return: number of user comments
         :rtype: integer
@@ -1157,7 +1162,7 @@ class BoardGame(BaseGame):
         return self._stats.users_commented
 
     @property
-    def rating_num_weights(self):
+    def rating_num_weights(self) -> int | None:
         """
         :return:
         :rtype: integer
@@ -1166,7 +1171,7 @@ class BoardGame(BaseGame):
         return self._stats.rating_num_weights
 
     @property
-    def rating_average_weight(self):
+    def rating_average_weight(self) -> float | None:
         """
         :return: average weight
         :rtype: float
@@ -1175,7 +1180,7 @@ class BoardGame(BaseGame):
         return self._stats.rating_average_weight
 
     @property
-    def videos(self):
+    def videos(self) -> list[BoardGameVideo]:
         """
         :return: videos of this game
         :rtype: list of :py:class:`boardgamegeek.game.BoardGameVideo`
@@ -1183,7 +1188,7 @@ class BoardGame(BaseGame):
         return self._videos
 
     @property
-    def versions(self):
+    def versions(self) -> list[BoardGameVersion]:
         """
         :return: versions of this game
         :rtype: list of :py:class:`boardgamegeek.game.BoardGameVersion`
@@ -1191,7 +1196,7 @@ class BoardGame(BaseGame):
         return self._versions
 
     @property
-    def marketplace(self):
+    def marketplace(self) -> list[MarketplaceListing]:
         """
         :return: marketplace listings of this game
         :rtype: list of :py:class:`boardgamegeek.game.MarketplaceListing`
@@ -1199,7 +1204,7 @@ class BoardGame(BaseGame):
         return self._marketplace
 
     @property
-    def player_suggestions(self):
+    def player_suggestions(self) -> list[PlayerSuggestion]:
         """
         :return player suggestion list with votes
         :rtype: list of dicts

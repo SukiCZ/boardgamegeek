@@ -47,4 +47,4 @@ class Thing(DictObject):
         return self._id
 
     def __repr__(self) -> str:
-        return f"Thing (id: {self.id})"
+        return f"{self.__class__.__name__} (id: {self.id})"
