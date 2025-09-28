@@ -9,21 +9,28 @@
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 """
 
-from copy import copy
+from __future__ import annotations
 
+import logging
+from copy import copy
+from typing import Any
+from collections.abc import Generator
+
+from .things import Thing
 from ..exceptions import BGGError
 from ..utils import DictObject, fix_url
-from .things import Thing
 
 
 class HotItem(Thing):
     """
-    A hot item from a list. Can refer to either an item (``boardgame``, ``videogame``, etc.), a person (``rpgperson``,
-    ``boardgameperson``) or even a company (``boardgamecompany``, ``videogamecompany``), depending on the type of hot
-    list retrieved.
+    A hot item from a list. Can refer to either
+    an item (``boardgame``, ``videogame``, etc.),
+    a person (``rpgperson``, ``boardgameperson``)
+    or even a company (``boardgamecompany``, ``videogamecompany``),
+    depending on the type of hot list retrieved.
     """
 
-    def __init__(self, data):
+    def __init__(self, data: dict[str, Any]):
         if "rank" not in data:
             raise BGGError("missing rank of HotItem")
 
@@ -32,10 +39,10 @@ class HotItem(Thing):
 
         super().__init__(data)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"HotItem (id: {self.id})"
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"hot item id        : {self.id}")
         log.info(f"hot item name      : {self.name}")
         log.info(f"hot item rank      : {self.rank}")
@@ -43,15 +50,15 @@ class HotItem(Thing):
         log.info(f"hot item thumbnail : {self.thumbnail}")
 
     @property
-    def rank(self):
+    def rank(self) -> int:
         """
         :return: Ranking of this hot item
         :rtype: integer
         """
-        return self._data["rank"]
+        return int(self._data["rank"])
 
     @property
-    def year(self):
+    def year(self) -> int | None:
         """
         :return: publishing year
         :rtype: integer
@@ -60,7 +67,7 @@ class HotItem(Thing):
         return self._data.get("yearpublished")
 
     @property
-    def thumbnail(self):
+    def thumbnail(self) -> str | None:
         """
         :return: thumbnail URL
         :rtype: str
@@ -74,7 +81,7 @@ class HotItems(DictObject):
     A collection of :py:class:`boardgamegeek.hotitems.HotItem`
     """
 
-    def __init__(self, data):
+    def __init__(self, data: dict[str, Any]):
         kw = copy(data)
         if "items" not in kw:
             kw["items"] = []
@@ -85,7 +92,7 @@ class HotItems(DictObject):
 
         super().__init__(kw)
 
-    def add_hot_item(self, data):
+    def add_hot_item(self, data: dict[str, Any]) -> None:
         """
         Add a new hot item to the container
 
@@ -95,19 +102,19 @@ class HotItems(DictObject):
         self._items.append(HotItem(data))
 
     @property
-    def items(self):
+    def items(self) -> list[HotItem]:
         """
         :return: list of hotitems
         :rtype: list of :py:class:`boardgamegeek.hotitems.HotItem`
         """
         return self._items
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self._items)
 
-    def __iter__(self):
+    def __iter__(self) -> Generator[HotItem]:
         for item in self._data["items"]:
             yield HotItem(item)
 
-    def __getitem__(self, item):
+    def __getitem__(self, item: int) -> HotItem:
         return self._items.__getitem__(item)

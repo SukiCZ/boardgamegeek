@@ -10,6 +10,8 @@
 
 """
 
+from __future__ import annotations
+
 import datetime
 import logging
 from copy import copy
