@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 import logging
+import xml.etree.ElementTree as ET
 
 from ..exceptions import BGGItemNotFoundError
 from ..objects.plays import GamePlays, UserPlays
@@ -6,8 +9,10 @@ from ..utils import xml_subelement_attr, xml_subelement_text
 
 log = logging.getLogger("boardgamegeek.loaders.plays")
 
+Plays = UserPlays | GamePlays
 
-def create_plays_from_xml(xml_root, game_id=None):
+
+def create_plays_from_xml(xml_root: ET.Element, game_id: int | None = None) -> Plays:
     count = 0
     try:
         # in case of error, the root node doesn't have a 'total' attribute
@@ -33,7 +38,7 @@ def create_plays_from_xml(xml_root, game_id=None):
         return GamePlays({"game_id": game_id, "plays_count": count})
 
 
-def add_plays_from_xml(plays, xml_root):
+def add_plays_from_xml(plays: Plays, xml_root: ET.Element) -> bool:
     added_items = False
 
     for play in xml_root.findall("play"):
