@@ -32,13 +32,15 @@ from .loaders import (
     create_hot_items_from_xml,
     create_plays_from_xml,
 )
-from .objects.collection import Collection
-from .objects.games import BoardGame
-from .objects.guild import Guild
-from .objects.hotitems import HotItems
-from .objects.plays import Plays
-from .objects.search import SearchResult
-from .objects.user import User
+from .objects import (
+    Collection,
+    BoardGame,
+    Guild,
+    HotItems,
+    Plays,
+    SearchResult,
+    User,
+)
 from .utils import (
     DEFAULT_REQUESTS_PER_MINUTE,
     RateLimitingAdapter,
