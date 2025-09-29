@@ -1,7 +1,6 @@
 import _common
-import pytest
 
-from boardgamegeek import BGGRestrictSearchResultsTo, BGGValueError
+from boardgamegeek import BGGRestrictSearchResultsTo
 
 
 def test_search(bgg, mocker):
@@ -14,9 +13,6 @@ def test_search(bgg, mocker):
     res = bgg.search("Twilight Struggle", exact=True)
     assert len(res)
 
-    # test that the new type of search works
+    # test that the search type is ignored
     res = bgg.search("Agricola", search_type=[BGGRestrictSearchResultsTo.BOARD_GAME])
     assert isinstance(res[0].id, int)
-
-    with pytest.raises(BGGValueError):
-        bgg.search("Agricola", search_type=["invalid-search-type"])

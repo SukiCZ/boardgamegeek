@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import datetime
 import logging
+import warnings
 
 from .cache import CacheBackendMemory, CacheBackendNone, CacheBackend
 from .exceptions import BGGApiError, BGGError, BGGItemNotFoundError, BGGValueError
@@ -671,8 +672,11 @@ class BGGCommon:
         if ids is not None:
             params["id"] = ",".join([f"{id_}" for id_ in ids])
 
+        if versions is not None:
+            warnings.warn("'versions' is deprecated, use 'version' instead", DeprecationWarning, stacklevel=2)
+            version = version or versions
+
         for param in [
-            "versions",
             "version",
             "own",
             "rated",
@@ -684,8 +688,6 @@ class BGGCommon:
         ]:
             p = locals()[param]
             if p is not None:
-                if param == "versions":
-                    param = "version"
                 params[param] = int(p)
 
         if commented is not None:
@@ -789,21 +791,10 @@ class BGGCommon:
         if not query:
             raise BGGValueError("invalid query string")
 
-        if search_type is None:
-            search_type = [BGGRestrictSearchResultsTo.BOARD_GAME]
+        if search_type is not None:
+            warnings.warn("'search_type' is deprecated, will be removed", DeprecationWarning, stacklevel=2)
 
         params = {"query": query}
-
-        for s in search_type:
-            if s not in (
-                BGGRestrictSearchResultsTo.RPG,
-                BGGRestrictSearchResultsTo.VIDEO_GAME,
-                BGGRestrictSearchResultsTo.BOARD_GAME,
-                BGGRestrictSearchResultsTo.BOARD_GAME_EXPANSION,
-            ):
-                raise BGGValueError(f"invalid search type: {search_type}")
-
-        params["type"] = ",".join(search_type)
 
         if exact:
             params["exact"] = "1"
@@ -869,6 +860,9 @@ class BGGClient(BGGCommon):
         requests_per_minute: int = DEFAULT_REQUESTS_PER_MINUTE,
         access_token: str | None = None,
     ):
+        if disable_ssl:
+            warnings.warn("'disable_ssl' is deprecated, will be removed", DeprecationWarning, stacklevel=2)
+
         super().__init__(
             api_endpoint="https://boardgamegeek.com/xmlapi2",
             cache=cache,
