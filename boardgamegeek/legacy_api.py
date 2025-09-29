@@ -1,11 +1,15 @@
+from __future__ import annotations
+
 import logging
+import warnings
 
 from .api import BGGCommon
-from .api import CacheBackendMemory
-from .api import DEFAULT_REQUESTS_PER_MINUTE
-from .api import BGGValueError
-from .api import request_and_parse_xml
+from .cache import CacheBackendMemory, CacheBackend
+from .exceptions import BGGValueError
 from .loaders import create_geeklist_from_xml, add_geeklist_items_from_xml
+from .objects.geeklist import GeekList
+from .utils import DEFAULT_REQUESTS_PER_MINUTE
+from .utils import request_and_parse_xml
 
 log = logging.getLogger("boardgamegeek.legacy_api")
 
@@ -15,14 +19,17 @@ API_ENDPOINT = "https://www.boardgamegeek.com/xmlapi"
 class BGGClientLegacy(BGGCommon):
     def __init__(
         self,
-        cache=CacheBackendMemory(ttl=3600),
-        timeout=15,
-        retries=3,
-        retry_delay=5,
-        disable_ssl=False,
-        requests_per_minute=DEFAULT_REQUESTS_PER_MINUTE,
-        access_token=None,
+        cache: CacheBackend = CacheBackendMemory(ttl=3600),
+        timeout: float = 15,
+        retries: int = 3,
+        retry_delay: float = 5,
+        disable_ssl: bool = False,  # deprecated, will be removed in future versions
+        requests_per_minute: int = DEFAULT_REQUESTS_PER_MINUTE,
+        access_token: str | None = None,
     ):
+        if disable_ssl:
+            warnings.warn("'disable_ssl' is deprecated, will be removed", DeprecationWarning, stacklevel=2)
+
         super().__init__(
             api_endpoint=API_ENDPOINT,
             cache=cache,
@@ -32,16 +39,9 @@ class BGGClientLegacy(BGGCommon):
             requests_per_minute=requests_per_minute,
             access_token=access_token,
         )
-        self._search_api_url = None
-        self._thing_api_url = None
-        self._guild_api_url = None
-        self._user_api_url = None
-        self._plays_api_url = None
-        self._hot_api_url = None
-        self._collection_api_url = None
         self._geeklist_api_url = API_ENDPOINT + "/geeklist"
 
-    def geeklist(self, listid, comments=False):
+    def geeklist(self, listid: int, comments: bool = False) -> GeekList:
         # Parameter validation
         if not listid:
             raise BGGValueError("List Id must be specified")
