@@ -9,10 +9,14 @@ StrOrPath = str | Path
 
 
 class CacheBackend:
-    pass
+    """Base class for cache backends"""
+
+    cache: requests.Session
 
 
 class CacheBackendNone(CacheBackend):
+    """Do not cache HTTP requests"""
+
     def __init__(self) -> None:
         self.cache = requests.Session()
 
@@ -25,7 +29,11 @@ class CacheBackendMemory(CacheBackend):
             int(ttl)
         except ValueError as e:
             raise BGGValueError from e
-        self.cache = requests_cache.CachedSession(backend="memory", expire_after=ttl, allowable_codes=(200,))
+        self.cache = requests_cache.CachedSession(
+            backend="memory",
+            expire_after=ttl,
+            allowable_codes=(200,),
+        )
 
 
 class CacheBackendSqlite(CacheBackend):
