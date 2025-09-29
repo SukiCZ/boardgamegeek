@@ -39,8 +39,8 @@ repos:
     hooks:
       # MyPy type checker
       - id: mypy
+        additional_dependencies: [ types-requests ]
         exclude: ^tests/
-        args: [ --strict, --ignore-missing-imports ]
 
   - repo: https://github.com/lsst-ts/pre-commit-xmllint
     rev: 6f36260b537bf9a42b6ea5262c915ae50786296e

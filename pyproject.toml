@@ -64,3 +64,8 @@ line-length = 120
 
 [tool.pytest.ini_options]
 addopts = "-m 'not integration' --ignore=setup.py"
+
+[tool.mypy]
+exclude = "tests"
+ignore_missing_imports = true
+strict = true
