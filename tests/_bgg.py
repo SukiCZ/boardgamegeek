@@ -2,6 +2,7 @@ import logging
 import pickle
 import threading
 import time
+from xml.etree import ElementTree as ET
 
 import pytest
 
@@ -12,7 +13,7 @@ from boardgamegeek.objects.things import Thing
 logging.basicConfig(level=logging.INFO)
 
 
-def test_thing_creation():
+def test_thing_creation() -> None:
     with pytest.raises(BGGError):
         Thing({"id": 100})  # missing name
 
@@ -29,7 +30,7 @@ def test_thing_creation():
 
 
 # region Utils testing
-def test_get_xml_subelement_attr(xml):
+def test_get_xml_subelement_attr(xml: ET.Element) -> None:
     node = bggutil.xml_subelement_attr(None, "hello")
     assert node is None
 
@@ -55,7 +56,7 @@ def test_get_xml_subelement_attr(xml):
     # test quiet
     with pytest.raises(Exception):
         # attr can't be converted to int
-        node = bggutil.xml_subelement_attr(xml, "node1", attribute="attr", convert=int)
+        bggutil.xml_subelement_attr(xml, "node1", attribute="attr", convert=int)
 
     node = bggutil.xml_subelement_attr(xml, "node1", attribute="attr", convert=int, quiet=True)
     assert node is None
@@ -64,7 +65,7 @@ def test_get_xml_subelement_attr(xml):
     assert node == 999
 
 
-def test_get_xml_subelement_attr_list(xml):
+def test_get_xml_subelement_attr_list(xml: ET.Element) -> None:
     nodes = bggutil.xml_subelement_attr_list(None, "list")
     assert nodes is None
 
@@ -99,7 +100,7 @@ def test_get_xml_subelement_attr_list(xml):
     assert nodes == [1, 1, 1, 1]
 
 
-def test_get_xml_subelement_text(xml):
+def test_get_xml_subelement_text(xml: ET.Element) -> None:
     node = bggutil.xml_subelement_text(None, "node1")
     assert node is None
 
@@ -128,7 +129,7 @@ def test_get_xml_subelement_text(xml):
 
 
 @pytest.mark.serialize
-def test_serialization():
+def test_serialization() -> None:
     dummy_plays = Thing({"id": "10", "name": "fubar"})
 
     s = pickle.dumps(dummy_plays)
@@ -138,7 +139,7 @@ def test_serialization():
     assert isinstance(dummy_unserialized, Thing)
 
 
-def test_rate_limiting_for_requests():
+def test_rate_limiting_for_requests() -> None:
     # create two threads, give each a list of games to fetch, disable cache and time the amount needed to
     # fetch the data. requests should be serialized, even if made from two different threads
 
@@ -146,10 +147,10 @@ def test_rate_limiting_for_requests():
 
     test_set_2 = [18602, 28720, 53953]  # caylus  # brass  # thunderstone]
 
-    def _worker_thread(games):
+    def _worker_thread(game_ids: list[int]) -> None:
         bgg = BGGClient(cache=CacheBackendNone(), requests_per_minute=20)
-        for g in games:
-            bgg.game(game_id=g)
+        for game_id in game_ids:
+            bgg.game(game_id=game_id)
 
     t1 = threading.Thread(target=_worker_thread, args=(test_set_1,))
     t2 = threading.Thread(target=_worker_thread, args=(test_set_2,))

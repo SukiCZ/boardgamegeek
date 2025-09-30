@@ -138,8 +138,8 @@ def get_link_by_type(
 
 
 def xml_subelement_attr(
-    xml_elem: ET.Element,
-    subelement: str,
+    xml_elem: ET.Element | None,
+    subelement: str | None,
     convert: Callable[[str], Any] | None = None,
     attribute: str = "value",
     default: Any = None,
@@ -192,8 +192,8 @@ def xml_subelement_attr(
 
 
 def xml_subelement_attr_list(
-    xml_elem: ET.Element,
-    subelement: str,
+    xml_elem: ET.Element | None,
+    subelement: str | None,
     convert: Callable[[str], Any] | None = None,
     attribute: str = "value",
     default: Any = None,
@@ -243,8 +243,8 @@ def xml_subelement_attr_list(
 
 
 def xml_subelement_text(
-    xml_elem: ET.Element,
-    subelement: str,
+    xml_elem: ET.Element | None,
+    subelement: str | None,
     convert: Callable[[str], Any] | None = None,
     default: Any = None,
     quiet: bool = False,
