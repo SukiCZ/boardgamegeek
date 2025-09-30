@@ -2,6 +2,7 @@ import logging
 import pickle
 import threading
 import time
+from xml.etree import ElementTree as ET
 
 import pytest
 
@@ -12,7 +13,7 @@ from boardgamegeek.objects.things import Thing
 logging.basicConfig(level=logging.INFO)
 
 
-def test_thing_creation():
+def test_thing_creation() -> None:
     with pytest.raises(BGGError):
         Thing({"id": 100})  # missing name
 
@@ -29,7 +30,7 @@ def test_thing_creation():
 
 
 # region Utils testing
-def test_get_xml_subelement_attr(xml):
+def test_get_xml_subelement_attr(xml: ET.Element) -> None:
     node = bggutil.xml_subelement_attr(None, "hello")
     assert node is None
 
@@ -49,28 +50,22 @@ def test_get_xml_subelement_attr(xml):
     node = bggutil.xml_subelement_attr(xml, "node_thats_missing", default="hello")
     assert node == "hello"
 
-    node = bggutil.xml_subelement_attr(
-        xml, "node1", attribute="attribute_thats_missing", default=1234
-    )
+    node = bggutil.xml_subelement_attr(xml, "node1", attribute="attribute_thats_missing", default=1234)
     assert node == 1234
 
     # test quiet
     with pytest.raises(Exception):
         # attr can't be converted to int
-        node = bggutil.xml_subelement_attr(xml, "node1", attribute="attr", convert=int)
+        bggutil.xml_subelement_attr(xml, "node1", attribute="attr", convert=int)
 
-    node = bggutil.xml_subelement_attr(
-        xml, "node1", attribute="attr", convert=int, quiet=True
-    )
+    node = bggutil.xml_subelement_attr(xml, "node1", attribute="attr", convert=int, quiet=True)
     assert node is None
 
-    node = bggutil.xml_subelement_attr(
-        xml, "node1", attribute="attr", convert=int, default=999, quiet=True
-    )
+    node = bggutil.xml_subelement_attr(xml, "node1", attribute="attr", convert=int, default=999, quiet=True)
     assert node == 999
 
 
-def test_get_xml_subelement_attr_list(xml):
+def test_get_xml_subelement_attr_list(xml: ET.Element) -> None:
     nodes = bggutil.xml_subelement_attr_list(None, "list")
     assert nodes is None
 
@@ -84,38 +79,28 @@ def test_get_xml_subelement_attr_list(xml):
     nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="attr")
     assert nodes == ["elem1", "elem2", "elem3", "elem4"]
 
-    nodes = bggutil.xml_subelement_attr_list(
-        list_root, "li", attribute="int_attr", convert=int
-    )
+    nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="int_attr", convert=int)
     assert nodes == [1, 2, 3, 4]
 
     nodes = bggutil.xml_subelement_attr_list(xml, "node1", attribute="attr")
     assert nodes == ["hello1"]
 
     # test default
-    nodes = bggutil.xml_subelement_attr_list(
-        list_root, "li", attribute="missing_attr", default="n/a"
-    )
+    nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="missing_attr", default="n/a")
     assert nodes == ["n/a", "n/a", "n/a", "n/a"]
 
     # test quiet
     with pytest.raises(Exception):
-        nodes = bggutil.xml_subelement_attr_list(
-            list_root, "li", attribute="attr", convert=int
-        )
+        nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="attr", convert=int)
 
-    nodes = bggutil.xml_subelement_attr_list(
-        list_root, "li", attribute="attr", convert=int, quiet=True
-    )
+    nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="attr", convert=int, quiet=True)
     assert nodes == [None, None, None, None]
 
-    nodes = bggutil.xml_subelement_attr_list(
-        list_root, "li", attribute="attr", convert=int, quiet=True, default=1
-    )
+    nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="attr", convert=int, quiet=True, default=1)
     assert nodes == [1, 1, 1, 1]
 
 
-def test_get_xml_subelement_text(xml):
+def test_get_xml_subelement_text(xml: ET.Element) -> None:
     node = bggutil.xml_subelement_text(None, "node1")
     assert node is None
 
@@ -129,9 +114,7 @@ def test_get_xml_subelement_text(xml):
     assert node == "text"
 
     # test that default is working
-    node = bggutil.xml_subelement_text(
-        xml, "node_thats_missing", default="default text"
-    )
+    node = bggutil.xml_subelement_text(xml, "node_thats_missing", default="default text")
     assert node == "default text"
 
     # test that quiet is working
@@ -141,14 +124,12 @@ def test_get_xml_subelement_text(xml):
     node = bggutil.xml_subelement_text(xml, "node1", convert=int, quiet=True)
     assert node is None
 
-    node = bggutil.xml_subelement_text(
-        xml, "node1", convert=int, quiet=True, default="asd"
-    )
+    node = bggutil.xml_subelement_text(xml, "node1", convert=int, quiet=True, default="asd")
     assert node == "asd"
 
 
 @pytest.mark.serialize
-def test_serialization():
+def test_serialization() -> None:
     dummy_plays = Thing({"id": "10", "name": "fubar"})
 
     s = pickle.dumps(dummy_plays)
@@ -158,7 +139,7 @@ def test_serialization():
     assert isinstance(dummy_unserialized, Thing)
 
 
-def test_rate_limiting_for_requests():
+def test_rate_limiting_for_requests() -> None:
     # create two threads, give each a list of games to fetch, disable cache and time the amount needed to
     # fetch the data. requests should be serialized, even if made from two different threads
 
@@ -166,10 +147,10 @@ def test_rate_limiting_for_requests():
 
     test_set_2 = [18602, 28720, 53953]  # caylus  # brass  # thunderstone]
 
-    def _worker_thread(games):
+    def _worker_thread(game_ids: list[int]) -> None:
         bgg = BGGClient(cache=CacheBackendNone(), requests_per_minute=20)
-        for g in games:
-            bgg.game(game_id=g)
+        for game_id in game_ids:
+            bgg.game(game_id=game_id)
 
     t1 = threading.Thread(target=_worker_thread, args=(test_set_1,))
     t2 = threading.Thread(target=_worker_thread, args=(test_set_2,))

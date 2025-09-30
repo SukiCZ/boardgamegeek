@@ -10,17 +10,22 @@
 
 """
 
+from __future__ import annotations
+
+import datetime
+import logging
 from copy import copy
+from typing import Any
 
 from .things import Thing
 
 
 class User(Thing):
     """
-    Information about an user.
+    Information about a user.
     """
 
-    def __init__(self, data):
+    def __init__(self, data: dict[str, Any]):
         kw = copy(data)
         if "buddies" not in kw:
             kw["buddies"] = []
@@ -49,13 +54,13 @@ class User(Thing):
 
         super().__init__(kw)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"User: {self.firstname} {self.lastname}"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"User: {self.name} (id: {self.id})"
 
-    def add_buddy(self, data):
+    def add_buddy(self, data: dict[str, Any]) -> None:
         """
         Add a buddy to this user
 
@@ -64,19 +69,19 @@ class User(Thing):
         self._buddies.append(Thing(data))
         # self._data["buddies"].append(data)
 
-    def add_guild(self, data):
+    def add_guild(self, data: dict[str, Any]) -> None:
         self._guilds.append(Thing(data))
         # self._data["guilds"].append(data)
 
-    def add_top_item(self, data):
+    def add_top_item(self, data: dict[str, Any]) -> None:
         self._data["top"].append(data)
         self._top.append(Thing(data))
 
-    def add_hot_item(self, data):
+    def add_hot_item(self, data: dict[str, Any]) -> None:
         self._data["hot"].append(data)
         self._hot.append(Thing(data))
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"id          : {self.id}")
         log.info(f"login name  : {self.name}")
         log.info(f"first name  : {self.firstname}")
@@ -118,7 +123,7 @@ class User(Thing):
             log.info(f"- {i.name} (id: {i.id})")
 
     @property
-    def total_buddies(self):
+    def total_buddies(self) -> int:
         """
         :return: number of buddies
         :rtype: integer
@@ -126,7 +131,7 @@ class User(Thing):
         return len(self._buddies)
 
     @property
-    def total_guilds(self):
+    def total_guilds(self) -> int:
         """
         :return: number of guilds
         :rtype: integer
@@ -134,7 +139,7 @@ class User(Thing):
         return len(self._guilds)
 
     @property
-    def top10(self):
+    def top10(self) -> list[Thing]:
         """
         :return: user's top10
         :rtype: list of :py:class:`boardgamegeek.things.Thing`
@@ -142,7 +147,7 @@ class User(Thing):
         return self._top
 
     @property
-    def hot10(self):
+    def hot10(self) -> list[Thing]:
         """
         :return: user's hot10
         :rtype: list of :py:class:`boardgamegeek.things.Thing`
@@ -150,7 +155,7 @@ class User(Thing):
         return self._hot
 
     @property
-    def buddies(self):
+    def buddies(self) -> list[Thing]:
         """
         :return: user's buddies
         :rtype: list of :py:class:`boardgamegeek.things.Thing`
@@ -158,7 +163,7 @@ class User(Thing):
         return self._buddies
 
     @property
-    def guilds(self):
+    def guilds(self) -> list[Thing]:
         """
         :return: user's guilds
         :rtype: list of :py:class:`boardgamegeek.things.Thing`
@@ -166,7 +171,7 @@ class User(Thing):
         return self._guilds
 
     @property
-    def firstname(self):
+    def firstname(self) -> str | None:
         """
         :return: user's first name
         :rtype: str
@@ -175,7 +180,7 @@ class User(Thing):
         return self._data.get("firstname")
 
     @property
-    def lastname(self):
+    def lastname(self) -> str | None:
         """
         :return: user's last name
         :rtype: str
@@ -184,7 +189,7 @@ class User(Thing):
         return self._data.get("lastname")
 
     @property
-    def avatar(self):
+    def avatar(self) -> str | None:
         """
         :return: avatar's URL
         :rtype: str
@@ -193,37 +198,37 @@ class User(Thing):
         return self._data.get("avatarlink")
 
     @property
-    def last_login(self):
+    def last_login(self) -> datetime.datetime | None:
         return self._data.get("lastlogin")
 
     @property
-    def state(self):
+    def state(self) -> str | None:
         return self._data.get("stateorprovince")
 
     @property
-    def country(self):
+    def country(self) -> str | None:
         return self._data.get("country")
 
     @property
-    def homepage(self):
+    def homepage(self) -> str | None:
         return self._data.get("webaddress")
 
     @property
-    def xbox_account(self):
+    def xbox_account(self) -> str | None:
         return self._data.get("xboxaccount")
 
     @property
-    def wii_account(self):
+    def wii_account(self) -> str | None:
         return self._data.get("wiiaccount")
 
     @property
-    def steam_account(self):
+    def steam_account(self) -> str | None:
         return self._data.get("steam_account")
 
     @property
-    def psn_account(self):
+    def psn_account(self) -> str | None:
         return self._data.get("psnaccount")
 
     @property
-    def trade_rating(self):
+    def trade_rating(self) -> str | None:
         return self._data.get("trade_rating")

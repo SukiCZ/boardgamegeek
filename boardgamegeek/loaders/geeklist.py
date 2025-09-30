@@ -1,14 +1,17 @@
 import datetime
+from xml.etree import ElementTree as ET
 
+from ..objects.geeklist import GeekList, GeekListItem
 from ..utils import xml_subelement_text
-from ..objects.geeklist import GeekList
+
+GeekListOrItem = GeekList | GeekListItem
 
 
-def parse_date(str_date):
+def parse_date(str_date: str) -> datetime.datetime:
     return datetime.datetime.strptime(str_date, "%a, %d %b %Y %H:%M:%S %z")
 
 
-def add_geeklist_comments_from_xml(geeklist_or_item, xml_root):
+def add_geeklist_comments_from_xml(geeklist_or_item: GeekListOrItem, xml_root: ET.Element) -> bool:
     added_comments = False
     for comment in xml_root.findall("comment"):
         # initial data for this collection item
@@ -18,14 +21,14 @@ def add_geeklist_comments_from_xml(geeklist_or_item, xml_root):
             "postdate": parse_date(comment.attrib["postdate"]) or None,
             "editdate": parse_date(comment.attrib["editdate"]) or None,
             "thumbs": int(comment.attrib["thumbs"]),
-            "text": comment.text.strip(),
+            "text": (comment.text or "").strip(),
         }
         geeklist_or_item.add_comment(data)
         added_comments = True
     return added_comments
 
 
-def create_geeklist_from_xml(xml_root, listid):
+def create_geeklist_from_xml(xml_root: ET.Element, listid: int) -> GeekList:
     data = {
         "id": listid,
         "name": xml_subelement_text(xml_root, "title"),  # need a name for a thing!
@@ -41,7 +44,7 @@ def create_geeklist_from_xml(xml_root, listid):
     return geeklist
 
 
-def add_geeklist_items_from_xml(geeklist, xml_root):
+def add_geeklist_items_from_xml(geeklist: GeekList, xml_root: ET.Element) -> bool:
     added_items = False
     for item in xml_root.findall("item"):
         # initial data for this geeklist item

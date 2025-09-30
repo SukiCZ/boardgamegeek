@@ -12,10 +12,13 @@ objects.
 .. moduleauthor:: Cosmin Luță <q4break@gmail.com>
 """
 
+from __future__ import annotations
+
 import datetime
 import logging
+import warnings
 
-from .cache import CacheBackendMemory, CacheBackendNone
+from .cache import CacheBackendMemory, CacheBackendNone, CacheBackend
 from .exceptions import BGGApiError, BGGError, BGGItemNotFoundError, BGGValueError
 from .loaders import (
     add_collection_items_from_xml,
@@ -29,8 +32,15 @@ from .loaders import (
     create_hot_items_from_xml,
     create_plays_from_xml,
 )
-from .objects.search import SearchResult
-from .objects.user import User
+from .objects import (
+    Collection,
+    BoardGame,
+    Guild,
+    HotItems,
+    Plays,
+    SearchResult,
+    User,
+)
 from .utils import (
     DEFAULT_REQUESTS_PER_MINUTE,
     RateLimitingAdapter,
@@ -74,6 +84,8 @@ class BGGChoose:
 class BGGRestrictSearchResultsTo:
     """
     Item types that should be included in search results
+
+    *DEPRECATED* will be removed in future versions
     """
 
     RPG = "rpgitem"
@@ -123,39 +135,37 @@ class BGGCommon:
 
     def __init__(
         self,
-        api_endpoint,
-        cache,
-        timeout,
-        retries,
-        retry_delay,
-        requests_per_minute,
-        access_token=None,
+        api_endpoint: str,
+        cache: CacheBackend,
+        timeout: float | int,
+        retries: int,
+        retry_delay: float | int,
+        requests_per_minute: int,
+        access_token: str | None = None,
     ):
-        self._search_api_url = api_endpoint + "/search"
-        self._thing_api_url = api_endpoint + "/thing"
-        self._guild_api_url = api_endpoint + "/guild"
-        self._user_api_url = api_endpoint + "/user"
-        self._plays_api_url = api_endpoint + "/plays"
-        self._hot_api_url = api_endpoint + "/hot"
-        self._collection_api_url = api_endpoint + "/collection"
+        self._search_api_url = f"{api_endpoint}/search"
+        self._thing_api_url = f"{api_endpoint}/thing"
+        self._guild_api_url = f"{api_endpoint}/guild"
+        self._user_api_url = f"{api_endpoint}/user"
+        self._plays_api_url = f"{api_endpoint}/plays"
+        self._hot_api_url = f"{api_endpoint}/hot"
+        self._collection_api_url = f"{api_endpoint}/collection"
         self._access_token = access_token
         try:
             self._timeout = float(timeout)
             self._retries = int(retries)
             self._retry_delay = float(retry_delay)
-        except ValueError:
-            raise BGGValueError
+        except ValueError as e:
+            raise BGGValueError from e
 
         if cache is None:
             cache = CacheBackendNone()
         self.requests_session = cache.cache
 
         # add the rate limiting adapter
-        self.requests_session.mount(
-            api_endpoint, RateLimitingAdapter(rpm=requests_per_minute)
-        )
+        self.requests_session.mount(api_endpoint, RateLimitingAdapter(rpm=requests_per_minute))
 
-    def _get_auth_headers(self):
+    def _get_auth_headers(self) -> dict[str, str] | None:
         """
         Returns authentication headers if access token is set.
 
@@ -166,13 +176,11 @@ class BGGCommon:
             return {"Authorization": f"Bearer {self._access_token}"}
         return None
 
-    def _get_game_id(self, name, game_type, choose, exact=True):
+    def _get_game_id(self, name: str, choose: str, exact: bool = True) -> int:
         """
         Returns the BGG ID of a game, searching by name
 
         :param str name: the name of the game to search for
-        :param str game_type: searched game type (BGGItemType.RPG, BGGItemType.VIDEO_GAME, BGGItemType.BOARD_GAME,
-                                                  BGGItemType.BOARD_GAME_EXPANSION)
         :param str choose: method of selecting the game by name, when having multiple results. Valid values are:
                            `BGGChoose.FIRST`, `BGGChoose.RECENT`, `BGGChoose.BEST_RANK`
         :param bool exact: limit results to items that match the `name` exactly
@@ -188,28 +196,27 @@ class BGGCommon:
             raise BGGValueError(f"invalid value for parameter 'choose': {choose}")
 
         log.debug(f"getting game id for '{name}'")
-        res = self.search(name, search_type=[game_type], exact=exact)
+        res = self.search(name, exact=exact)
 
         if not res:
             raise BGGItemNotFoundError(f"can't find '{name}'")
 
         if choose == BGGChoose.FIRST:
-            return res[0].id
+            first, *rest = res
+            return first.id
         elif choose == BGGChoose.RECENT:
             # choose the result with the biggest year
-            return max(res, key=lambda x: x.year if x.year is not None else -300000).id
+            recent = max(res, key=lambda x: x.year or -300000)
+            return recent.id
         else:
             # getting the best rank requires fetching the data of all games returned
-            game_data = [self.game(game_id=r.id) for r in res]
+            # TODO define `game` in BGGCommon
+            game_data = [self.game(game_id=r.id) for r in res]  # type: ignore[attr-defined]
             # ...and selecting the one with the best ranking
-            return min(
-                game_data,
-                key=lambda x: (
-                    x.boardgame_rank if x.boardgame_rank is not None else 10000000000
-                ),
-            ).id
+            best = min(game_data, key=lambda x: x.boardgame_rank or 10000000000)
+            return int(best.id)
 
-    def guild(self, guild_id, members=True):
+    def guild(self, guild_id: int, members: bool = True) -> Guild:
         """
         Retrieves details about a guild
 
@@ -226,8 +233,8 @@ class BGGCommon:
 
         try:
             guild_id = int(guild_id)
-        except (ValueError, TypeError):
-            raise BGGValueError("invalid guild id")
+        except (ValueError, TypeError) as e:
+            raise BGGValueError("invalid guild id") from e
 
         xml_root = request_and_parse_xml(
             self.requests_session,
@@ -270,15 +277,15 @@ class BGGCommon:
     # TODO: refactor
     def user(
         self,
-        name,
-        buddies=True,
-        guilds=True,
-        hot=True,
-        top=True,
-        domain=BGGRestrictDomainTo.BOARD_GAME,
-    ):
+        name: str,
+        buddies: bool = True,
+        guilds: bool = True,
+        hot: bool = True,
+        top: bool = True,
+        domain: str = BGGRestrictDomainTo.BOARD_GAME,
+    ) -> User:
         """
-        Retrieves details about an user
+        Retrieves details about a user
 
         :param str name: user's login name
         :param bool buddies: if ``True``, get the user's buddies
@@ -303,11 +310,11 @@ class BGGCommon:
         if not name:
             raise BGGValueError("no user name specified")
 
-        if domain not in [
+        if domain not in (
             BGGRestrictDomainTo.BOARD_GAME,
             BGGRestrictDomainTo.RPG,
             BGGRestrictDomainTo.VIDEO_GAME,
-        ]:
+        ):
             raise BGGValueError("invalid domain")
 
         params = {
@@ -332,8 +339,8 @@ class BGGCommon:
         # when the user is not found, the API returns an response, but with most fields empty. id is empty too
         try:
             data = {"name": root.attrib["name"], "id": int(root.attrib["id"])}
-        except (KeyError, ValueError):
-            raise BGGItemNotFoundError
+        except (KeyError, ValueError) as e:
+            raise BGGItemNotFoundError from e
 
         for i in [
             "firstname",
@@ -350,9 +357,7 @@ class BGGCommon:
         ]:
             data[i] = xml_subelement_attr(root, i)
 
-        data["yearregistered"] = xml_subelement_attr(
-            root, "yearregistered", convert=int, quiet=True
-        )
+        data["yearregistered"] = xml_subelement_attr(root, "yearregistered", convert=int, quiet=True)
         data["lastlogin"] = xml_subelement_attr(
             root,
             "lastlogin",
@@ -366,16 +371,12 @@ class BGGCommon:
         # add top items
         if top:
             for top_item in root.findall(".//top/item"):
-                user.add_top_item(
-                    {"id": int(top_item.attrib["id"]), "name": top_item.attrib["name"]}
-                )
+                user.add_top_item({"id": int(top_item.attrib["id"]), "name": top_item.attrib["name"]})
 
         # add hot items
         if hot:
             for hot_item in root.findall(".//hot/item"):
-                user.add_hot_item(
-                    {"id": int(hot_item.attrib["id"]), "name": hot_item.attrib["name"]}
-                )
+                user.add_hot_item({"id": int(hot_item.attrib["id"]), "name": hot_item.attrib["name"]})
 
         if not buddies and not guilds:
             return user
@@ -383,25 +384,21 @@ class BGGCommon:
         total_buddies = 0
         total_guilds = 0
 
-        buddies = root.find("buddies")
-        if buddies is not None:
-            total_buddies = int(buddies.attrib["total"])
+        root_buddies = root.find("buddies")
+        if root_buddies is not None:
+            total_buddies = int(root_buddies.attrib["total"])
             if total_buddies > 0:
                 # add the buddies from the first page
-                for buddy in buddies.findall(".//buddy"):
-                    user.add_buddy(
-                        {"name": buddy.attrib["name"], "id": buddy.attrib["id"]}
-                    )
+                for buddy in root_buddies.findall(".//buddy"):
+                    user.add_buddy({"name": buddy.attrib["name"], "id": buddy.attrib["id"]})
 
-        guilds = root.find("guilds")
-        if guilds is not None:
-            total_guilds = int(guilds.attrib["total"])
+        root_guilds = root.find("guilds")
+        if root_guilds is not None:
+            total_guilds = int(root_guilds.attrib["total"])
             if total_guilds > 0:
                 # add the guilds from the first page
-                for guild in guilds.findall(".//guild"):
-                    user.add_guild(
-                        {"name": guild.attrib["name"], "id": guild.attrib["id"]}
-                    )
+                for guild in root_guilds.findall(".//guild"):
+                    user.add_guild({"name": guild.attrib["name"], "id": guild.attrib["id"]})
 
         # It seems that the BGG API can return more results than what's specified in the documentation (they say
         # page size is 100, but for an user with 114 friends, all buddies are there on the first page).
@@ -433,25 +430,23 @@ class BGGCommon:
             page += 1
 
             if not added_buddy and not added_guild:
-                log.debug(
-                    f"didn't add any buddy/guild after fetching page {page}, stopping here"
-                )
+                log.debug(f"didn't add any buddy/guild after fetching page {page}, stopping here")
                 break
 
         return user
 
     def plays(
         self,
-        name=None,
-        game_id=None,
-        min_date=None,
-        max_date=None,
-        subtype=BGGRestrictPlaysTo.BOARD_GAME,
-    ):
+        name: str | None = None,
+        game_id: int | None = None,
+        min_date: datetime.date | None = None,
+        max_date: datetime.date | None = None,
+        subtype: str = BGGRestrictPlaysTo.BOARD_GAME,
+    ) -> Plays:
         """
-        Retrieves the plays for an user (if using ``name``) or for a game (if using ``game_id``)
+        Retrieves the plays for n user (if using ``name``) or for a game (if using ``game_id``)
 
-        :param str name: user name to retrieve the plays for
+        :param str name: username to retrieve the plays for
         :param integer game_id: game id to retrieve the plays for
         :param datetime.date min_date: return only plays of the specified date or later
         :param datetime.date max_date: return only plays of the specified date or earlier
@@ -465,43 +460,41 @@ class BGGCommon:
         :raises: `boardgamegeek.exceptions.BGGApiTimeoutError` if there was a timeout
 
         """
-        if not name and not game_id:
-            raise BGGValueError("no user name specified")
+        if not bool(name) ^ bool(game_id):
+            raise BGGValueError("exactly one of 'name' or 'game_id' must be specified")
 
-        if name and game_id:
-            raise BGGValueError("can't retrieve by user and by game at the same time")
+        if game_id and not str(game_id).isdigit():
+            raise BGGValueError("invalid game id")
 
-        if subtype not in [
-            "boardgame",
-            "boardgameexpansion",
-            "boardgameaccessory",
-            "rpgitem",
-            "videogame",
-        ]:
+        if subtype not in (
+            BGGRestrictPlaysTo.BOARD_GAME,
+            BGGRestrictPlaysTo.BOARD_GAME_EXTENSION,
+            BGGRestrictPlaysTo.BOARD_GAME_ACCESSORY,
+            BGGRestrictPlaysTo.RPG,
+            BGGRestrictPlaysTo.VIDEO_GAME,
+        ):
             raise BGGValueError("invalid subtype")
 
         params = {"subtype": subtype}
 
         if name:
             params["username"] = name
-            game_id = None
+        elif game_id:
+            params["id"] = str(game_id)
         else:
-            try:
-                params["id"] = int(game_id)
-            except ValueError:
-                raise BGGValueError("invalid game id")
+            raise BGGError("neither name nor game_id specified")
 
         if min_date:
             try:
                 params["mindate"] = min_date.isoformat()
-            except AttributeError:
-                raise BGGValueError("mindate must be a datetime.date object")
+            except AttributeError as e:
+                raise BGGValueError("mindate must be a datetime.date object") from e
 
         if max_date:
             try:
                 params["maxdate"] = max_date.isoformat()
-            except AttributeError:
-                raise BGGValueError("maxdate must be a datetime.date object")
+            except AttributeError as e:
+                raise BGGValueError("maxdate must be a datetime.date object") from e
 
         xml_root = request_and_parse_xml(
             self.requests_session,
@@ -524,7 +517,7 @@ class BGGCommon:
             page += 1
             log.debug(f"fetching page {page} of plays")
 
-            params["page"] = page
+            params["page"] = str(page)
 
             # fetch the next pages of plays
             xml_root = request_and_parse_xml(
@@ -541,7 +534,7 @@ class BGGCommon:
 
         return plays
 
-    def hot_items(self, item_type):
+    def hot_items(self, item_type: str) -> HotItems:
         """
         Return the list of "Hot Items"
 
@@ -579,35 +572,35 @@ class BGGCommon:
 
     def collection(
         self,
-        user_name,
-        subtype=BGGRestrictCollectionTo.BOARD_GAME,
-        exclude_subtype=None,
-        ids=None,
-        versions=None,
-        version=None,
-        own=None,
-        rated=None,
-        played=None,
-        commented=None,
-        trade=None,
-        want=None,
-        wishlist=None,
-        wishlist_prio=None,
-        preordered=None,
-        want_to_play=None,
-        want_to_buy=None,
-        prev_owned=None,
-        has_parts=None,
-        want_parts=None,
-        min_rating=None,
-        rating=None,
-        min_bgg_rating=None,
-        bgg_rating=None,
-        min_plays=None,
-        max_plays=None,
-        collection_id=None,
-        modified_since=None,
-    ):
+        user_name: str,
+        subtype: str = BGGRestrictCollectionTo.BOARD_GAME,
+        exclude_subtype: str | None = None,
+        ids: list[int] | None = None,
+        versions: bool | None = None,  # deprecated, use 'version'
+        version: bool | None = None,
+        own: bool | None = None,
+        rated: bool | None = None,
+        played: bool | None = None,
+        commented: bool | None = None,
+        trade: bool | None = None,
+        want: bool | None = None,
+        wishlist: bool | None = None,
+        wishlist_prio: int | None = None,
+        preordered: bool | None = None,
+        want_to_play: bool | None = None,
+        want_to_buy: bool | None = None,
+        prev_owned: bool | None = None,
+        has_parts: bool | None = None,
+        want_parts: bool | None = None,
+        min_rating: float | None = None,
+        rating: float | None = None,
+        min_bgg_rating: float | None = None,
+        bgg_rating: float | None = None,
+        min_plays: int | None = None,
+        max_plays: int | None = None,
+        collection_id: int | None = None,
+        modified_since: str | None = None,
+    ) -> Collection:
         """
         Returns an user's game collection
 
@@ -637,10 +630,12 @@ class BGGCommon:
                                "Has parts" field
         :param bool want_parts: include (if ``True``) or exclude (if ``False``) items for which there is a comment in
                                 the "Want parts" field
-        :param double min_rating: return items rated by the user with a minimum of ``min_rating``
-        :param double rating: return items rated by the user with a maximum of ``rating``
-        :param double min_bgg_rating : return items rated on BGG with a minimum of ``min_bgg_rating``
-        :param double bgg_rating: return items rated on BGG with a maximum of ``bgg_rating``
+        :param float min_rating: return items rated by the user with a minimum of ``min_rating``
+        :param float rating: return items rated by the user with a maximum of ``rating``
+        :param float min_bgg_rating : return items rated on BGG with a minimum of ``min_bgg_rating``
+        :param float bgg_rating: return items rated on BGG with a maximum of ``bgg_rating``
+        :param int min_plays: minimum number of recorded plays
+        :param int max_plays: maximum number of recorded plays
         :param int collection_id: restrict results to the collection specified by this id
         :param str modified_since:
             restrict results to those whose status (own, want, etc.) has been changed/added since ``modified_since``.
@@ -679,8 +674,11 @@ class BGGCommon:
         if ids is not None:
             params["id"] = ",".join([f"{id_}" for id_ in ids])
 
+        if versions is not None:
+            warnings.warn("'versions' is deprecated, use 'version' instead", DeprecationWarning, stacklevel=2)
+            version = version or versions
+
         for param in [
-            "versions",
             "version",
             "own",
             "rated",
@@ -692,8 +690,6 @@ class BGGCommon:
         ]:
             p = locals()[param]
             if p is not None:
-                if param == "versions":
-                    param = "version"
                 params[param] = int(p)
 
         if commented is not None:
@@ -722,27 +718,33 @@ class BGGCommon:
 
         if min_rating is not None:
             if 1.0 <= min_rating <= 10.0:
-                params["minrating"] = min_rating
+                params["minrating"] = str(min_rating)
             else:
                 raise BGGValueError("invalid 'min_rating'")
 
         if rating is not None:
             if 1.0 <= rating <= 10.0:
-                params["rating"] = rating
+                params["rating"] = str(rating)
             else:
                 raise BGGValueError("invalid 'rating'")
 
         if min_bgg_rating is not None:
             if 1.0 <= min_bgg_rating <= 10.0:
-                params["minbggrating"] = min_bgg_rating
+                params["minbggrating"] = str(min_bgg_rating)
             else:
                 raise BGGValueError("invalid 'bgg_min_rating'")
 
         if bgg_rating is not None:
             if 1.0 <= bgg_rating <= 10.0:
-                params["bggrating"] = bgg_rating
+                params["bggrating"] = str(bgg_rating)
             else:
                 raise BGGValueError("invalid 'bgg_rating'")
+
+        if min_plays is not None:
+            params["minplays"] = str(min_plays)
+
+        if max_plays is not None:
+            params["maxplays"] = str(max_plays)
 
         if collection_id is not None:
             params["collid"] = collection_id
@@ -765,13 +767,19 @@ class BGGCommon:
 
         return collection
 
-    def search(self, query, search_type=None, exact=False):
+    def search(
+        self,
+        query: str,
+        search_type: list[str] | None = None,
+        exact: bool = False,
+    ) -> list[SearchResult]:
         """
         Search for a game
 
         :param str query: the string to search for
         :param list search_type:
-            list of :py:class:`boardgamegeek.api.BGGRestrictItemTypeTo`,
+            **DEPRECATED** will be removed in future versions.
+            list of :py:class:`boardgamegeek.api.BGGRestrictSearchResultsTo`,
             indicating what to include in the search results.
         :param bool exact: if True, try to match the name exactly
         :return: list of ``SearchResult``
@@ -785,24 +793,13 @@ class BGGCommon:
         if not query:
             raise BGGValueError("invalid query string")
 
-        if search_type is None:
-            search_type = [BGGRestrictSearchResultsTo.BOARD_GAME]
+        if search_type is not None:
+            warnings.warn("'search_type' is deprecated, will be removed", DeprecationWarning, stacklevel=2)
 
         params = {"query": query}
 
-        for s in search_type:
-            if s not in [
-                BGGRestrictSearchResultsTo.RPG,
-                BGGRestrictSearchResultsTo.VIDEO_GAME,
-                BGGRestrictSearchResultsTo.BOARD_GAME,
-                BGGRestrictSearchResultsTo.BOARD_GAME_EXPANSION,
-            ]:
-                raise BGGValueError(f"invalid search type: {search_type}")
-
-        params["type"] = ",".join(search_type)
-
         if exact:
-            params["exact"] = 1
+            params["exact"] = "1"
 
         root = request_and_parse_xml(
             self.requests_session,
@@ -819,9 +816,7 @@ class BGGCommon:
             kwargs = {
                 "id": item.attrib["id"],
                 "name": xml_subelement_attr(item, "name"),
-                "yearpublished": xml_subelement_attr(
-                    item, "yearpublished", default=0, convert=int, quiet=True
-                ),
+                "yearpublished": xml_subelement_attr(item, "yearpublished", default=0, convert=int, quiet=True),
                 "type": item.attrib["type"],
             }
 
@@ -859,14 +854,17 @@ class BGGClient(BGGCommon):
 
     def __init__(
         self,
-        cache=CacheBackendMemory(ttl=3600),
-        timeout=15,
-        retries=3,
-        retry_delay=5,
-        disable_ssl=False,
-        requests_per_minute=DEFAULT_REQUESTS_PER_MINUTE,
-        access_token=None,
+        cache: CacheBackend = CacheBackendMemory(ttl=3600),
+        timeout: float = 15,
+        retries: int = 3,
+        retry_delay: float = 5,
+        disable_ssl: bool = False,  # deprecated, will be removed in future versions
+        requests_per_minute: int = DEFAULT_REQUESTS_PER_MINUTE,
+        access_token: str | None = None,
     ):
+        if disable_ssl:
+            warnings.warn("'disable_ssl' is deprecated, will be removed", DeprecationWarning, stacklevel=2)
+
         super().__init__(
             api_endpoint="https://boardgamegeek.com/xmlapi2",
             cache=cache,
@@ -877,7 +875,7 @@ class BGGClient(BGGCommon):
             access_token=access_token,
         )
 
-    def get_game_id(self, name, choose=BGGChoose.FIRST, exact=True):
+    def get_game_id(self, name: str, choose: str = BGGChoose.FIRST, exact: bool = True) -> int:
         """
         Returns the BGG ID of a game, searching by name
 
@@ -894,19 +892,18 @@ class BGGClient(BGGCommon):
         """
         return self._get_game_id(
             name,
-            game_type=BGGRestrictSearchResultsTo.BOARD_GAME,
             choose=choose,
             exact=exact,
         )
 
     def game_list(
         self,
-        game_id_list,
-        versions=False,
-        videos=False,
-        historical=False,
-        marketplace=False,
-    ):
+        game_id_list: list[int],
+        versions: bool = False,
+        videos: bool = False,
+        historical: bool = False,
+        marketplace: bool = False,
+    ) -> list[BoardGame]:
         """
         Get list of games by from a list of ids.
 
@@ -952,13 +949,13 @@ class BGGClient(BGGCommon):
             headers=self._get_auth_headers(),
         )
 
-        xml_root = xml_root.findall("item")
-        if xml_root is None:
+        xml_items = xml_root.findall("item")
+        if xml_items is None:
             msg = f"invalid data for game ids: {game_id_list}"
             raise BGGApiError(msg)
 
         game_list = []
-        for i, game_root in enumerate(xml_root):
+        for i, game_root in enumerate(xml_items):
             game = create_game_from_xml(game_root, game_id=game_id_list[i])
             game_list.append(game)
 
@@ -966,17 +963,17 @@ class BGGClient(BGGCommon):
 
     def game(
         self,
-        name=None,
-        game_id=None,
-        choose=BGGChoose.FIRST,
-        versions=False,
-        videos=False,
-        historical=False,
-        marketplace=False,
-        comments=False,
-        rating_comments=False,
-        exact=True,
-    ):
+        name: str | None = None,
+        game_id: int | None = None,
+        choose: str = BGGChoose.FIRST,
+        versions: bool = False,
+        videos: bool = False,
+        historical: bool = False,
+        marketplace: bool = False,
+        comments: bool = False,
+        rating_comments: bool = False,
+        exact: bool = True,
+    ) -> BoardGame:
         """
         Get information about a game.
 
@@ -1000,19 +997,16 @@ class BGGClient(BGGCommon):
         :raises: `boardgamegeek.exceptions.BoardGameGeekTimeoutError` if there was a timeout
         """
 
-        if not name and game_id is None:
-            raise BGGError("game name or id not specified")
+        if not bool(name) ^ bool(game_id):
+            raise BGGError("exactly one of 'name' or 'game_id' must be specified")
+
+        if name:
+            game_id = self.get_game_id(name, choose=choose, exact=exact)
 
         if game_id is None:
-            game_id = self.get_game_id(name, choose=choose, exact=exact)
-            if game_id is None:
-                raise BGGItemNotFoundError
+            raise BGGItemNotFoundError
 
-        log.debug(
-            "retrieving game id {}{}".format(
-                game_id, f" ({name})" if name is not None else ""
-            )
-        )
+        log.debug("retrieving game id {}{}".format(game_id, f" ({name})" if name is not None else ""))
 
         params = {
             "id": game_id,
@@ -1037,19 +1031,17 @@ class BGGClient(BGGCommon):
             headers=self._get_auth_headers(),
         )
 
-        xml_root = xml_root.find("item")
-        if xml_root is None:
-            msg = "invalid data for game id: {}{}".format(
-                game_id, "" if name is None else f" ({name})"
-            )
+        xml_item = xml_root.find("item")
+        if xml_item is None:
+            msg = "invalid data for game id: {}{}".format(game_id, "" if name is None else f" ({name})")
             raise BGGApiError(msg)
 
-        game = create_game_from_xml(xml_root, game_id=game_id)
+        game = create_game_from_xml(xml_item, game_id=game_id)
 
         if not (comments or rating_comments):
             return game
 
-        added_items, total = add_game_comments_from_xml(game, xml_root)
+        added_items, total = add_game_comments_from_xml(game, xml_item)
 
         page = 1
         while added_items and len(game.comments) < total:
@@ -1072,18 +1064,16 @@ class BGGClient(BGGCommon):
                 headers=self._get_auth_headers(),
             )
 
-            xml_root = xml_root.find("item")
-            if xml_root is None:
-                msg = "invalid data for game id: {}{}".format(
-                    game_id, "" if name is None else f" ({name})"
-                )
+            xml_item = xml_root.find("item")
+            if xml_item is None:
+                msg = "invalid data for game id: {}{}".format(game_id, "" if name is None else f" ({name})")
                 raise BGGApiError(msg)
 
-            added_items, total = add_game_comments_from_xml(game, xml_root)
+            added_items, total = add_game_comments_from_xml(game, xml_item)
 
         return game
 
-    def games(self, name):
+    def games(self, name: str) -> list[BoardGame]:
         """
         Return a list containing all games with the given name
 
@@ -1093,14 +1083,4 @@ class BGGClient(BGGCommon):
         :raises: `boardgamegeek.exceptions.BoardGameGeekAPIError` if the response couldn't be parsed
         :raises: `boardgamegeek.exceptions.BoardGameGeekTimeoutError` if there was a timeout
         """
-        return [
-            self.game(game_id=s.id)
-            for s in self.search(
-                name,
-                search_type=[
-                    BGGRestrictSearchResultsTo.BOARD_GAME,
-                    BGGRestrictSearchResultsTo.BOARD_GAME_EXPANSION,
-                ],
-                exact=True,
-            )
-        ]
+        return [self.game(game_id=s.id) for s in self.search(name, exact=True)]

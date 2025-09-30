@@ -27,7 +27,7 @@ def test_get_valid_id_geeklist(legacy_bgg, mocker, null_logger):
 
     assert geeklist is not None
     assert geeklist.id == int(_common.TEST_GEEKLIST_ID)
-    assert type(len(geeklist)) == int
+    assert type(len(geeklist)) is int
     assert isinstance(geeklist.items, list)
 
     # make sure we can iterate through the geeklist
@@ -45,7 +45,7 @@ def test_get_valid_id_geeklist(legacy_bgg, mocker, null_logger):
 
     # for coverage's sake
     geeklist._format(null_logger)
-    assert type(geeklist.data()) == dict
+    assert type(geeklist.data()) is dict
 
     geeklist = legacy_bgg.geeklist(_common.TEST_GEEKLIST_ID, comments=False)
     for g in geeklist:

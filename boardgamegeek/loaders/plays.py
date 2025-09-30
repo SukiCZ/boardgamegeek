@@ -1,13 +1,18 @@
+from __future__ import annotations
+
 import logging
+import xml.etree.ElementTree as ET
 
 from ..exceptions import BGGItemNotFoundError
 from ..objects.plays import GamePlays, UserPlays
 from ..utils import xml_subelement_attr, xml_subelement_text
 
-log = logging.getLogger("boardgamegeek.loaders.plays")
+log = logging.getLogger(__name__)
+
+Plays = UserPlays | GamePlays
 
 
-def create_plays_from_xml(xml_root, game_id=None):
+def create_plays_from_xml(xml_root: ET.Element, game_id: int | None = None) -> Plays:
     count = 0
     try:
         # in case of error, the root node doesn't have a 'total' attribute
@@ -33,7 +38,7 @@ def create_plays_from_xml(xml_root, game_id=None):
         return GamePlays({"game_id": game_id, "plays_count": count})
 
 
-def add_plays_from_xml(plays, xml_root):
+def add_plays_from_xml(plays: Plays, xml_root: ET.Element) -> bool:
     added_items = False
 
     for play in xml_root.findall("play"):
@@ -64,9 +69,7 @@ def add_plays_from_xml(plays, xml_root):
             "nowinstats": int(play.attrib["nowinstats"]),
             # for User plays, will be overwritten with the user id when adding the play.
             "user_id": int(play.attrib.get("userid", -1)),
-            "game_id": xml_subelement_attr(
-                play, "item", attribute="objectid", convert=int
-            ),
+            "game_id": xml_subelement_attr(play, "item", attribute="objectid", convert=int),
             "game_name": xml_subelement_attr(play, "item", attribute="name"),
             "comment": xml_subelement_text(play, "comments"),
             "players": player_list,

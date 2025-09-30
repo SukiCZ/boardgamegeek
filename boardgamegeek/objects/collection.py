@@ -10,7 +10,12 @@
 
 """
 
+from __future__ import annotations
+
+import logging
+from collections.abc import Generator
 from copy import copy
+from typing import Any
 
 from ..exceptions import BGGError
 from ..utils import DictObject
@@ -25,18 +30,18 @@ class Collection(DictObject):
     :raises: :py:class:`boardgamegeek.exceptions.BoardGameGeekError` in case of invalid data
     """
 
-    def __init__(self, data):
+    def __init__(self, data: dict[str, Any]):
         kw = copy(data)
 
-        self._items = []
-        self.__game_ids = set()
+        self._items: list[CollectionBoardGame] = []
+        self.__game_ids: set[int] = set()
 
         for game in kw.get("items", []):
             self.add_game(game)
 
         super().__init__(kw)
 
-    def _format(self, log):
+    def _format(self, log: logging.Logger) -> None:
         log.info(f"owner    : {self.owner}")
         log.info(f"size     : {len(self)} items")
 
@@ -46,7 +51,7 @@ class Collection(DictObject):
             i._format(log)
             log.info("")
 
-    def add_game(self, game):
+    def add_game(self, game: dict[str, Any]) -> None:
         """
         Add a game to the ``Collection``
 
@@ -62,20 +67,20 @@ class Collection(DictObject):
         except KeyError:
             raise BGGError("invalid game data")
 
-    def __getitem__(self, item):
+    def __getitem__(self, item: int) -> CollectionBoardGame:
         return self._items.__getitem__(item)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.owner}'s collection, {len(self)} items"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Collection: (owner: {self.owner}, items: {len(self)})"
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self._items)
 
     @property
-    def owner(self):
+    def owner(self) -> str | None:
         """
         Return the collection's owner
 
@@ -85,7 +90,7 @@ class Collection(DictObject):
         return self._data.get("owner")
 
     @property
-    def items(self):
+    def items(self) -> list[CollectionBoardGame]:
         """
         Returns the items in the collection
 
@@ -94,5 +99,5 @@ class Collection(DictObject):
         """
         return self._items
 
-    def __iter__(self):
+    def __iter__(self) -> Generator[CollectionBoardGame]:
         yield from self._items

@@ -16,6 +16,8 @@ import logging
 import threading
 import time
 import xml.etree.ElementTree as ET
+from typing import Any
+from collections.abc import Callable
 from xml.etree.ElementTree import ParseError as ETParseError
 
 import requests
@@ -43,31 +45,25 @@ class RateLimitingAdapter(HTTPAdapter):
     """
 
     __last_request_timestamp = None  # time when the last request was made
-    __time_between_requests = (
-        0  # interval to wait between requests in order to match the expected number of
-    )
+    __time_between_requests = 0.0  # interval to wait between requests in order to match the expected number of
     # requests per second
 
     __rate_limit_lock = threading.Lock()
 
-    def __init__(self, rpm=DEFAULT_REQUESTS_PER_MINUTE, **kw):
+    def __init__(self, rpm: int = DEFAULT_REQUESTS_PER_MINUTE, **kwargs: Any):
         """
 
         :param rpm: how many requests per minute to allow
-        :param kw:
-        :return:
         """
         if rpm <= 0:
-            log.warning(
-                f"invalid requests per minute value ({rpm}), falling back to default"
-            )
+            log.warning(f"invalid requests per minute value ({rpm}), falling back to default")
             rpm = DEFAULT_REQUESTS_PER_MINUTE
 
         RateLimitingAdapter.__time_between_requests = 60.0 / float(rpm)
 
-        super().__init__(**kw)
+        super().__init__(**kwargs)
 
-    def send(self, request, **kw):
+    def send(self, request: requests.PreparedRequest, *args: Any, **kwargs: Any) -> requests.Response:
         log.debug("acquiring rate limiting lock")
         with RateLimitingAdapter.__rate_limit_lock:
             log.debug(
@@ -82,9 +78,7 @@ class RateLimitingAdapter(HTTPAdapter):
                 time_delta = time.time() - RateLimitingAdapter.__last_request_timestamp
                 need_to_wait = RateLimitingAdapter.__time_between_requests - time_delta
 
-                log.debug(
-                    f"time since last request: {time_delta}, need to wait: {need_to_wait}"
-                )
+                log.debug(f"time since last request: {time_delta}, need to wait: {need_to_wait}")
 
                 if need_to_wait > 0:
                     time.sleep(need_to_wait)
@@ -93,7 +87,7 @@ class RateLimitingAdapter(HTTPAdapter):
             log.debug("releasing rate limiting lock")
 
         log.debug(f"sending request: {request}")
-        return super().send(request, **kw)
+        return super().send(request, *args, **kwargs)
 
 
 class DictObject:
@@ -101,10 +95,10 @@ class DictObject:
     Just a fancy wrapper over a dictionary
     """
 
-    def __init__(self, data):
+    def __init__(self, data: dict[str, Any]):
         self._data = data
 
-    def __getattr__(self, item):
+    def __getattr__(self, item: str) -> Any:
         # allow accessing user's variables using .attribute
         try:
             return self._data[item]
@@ -113,7 +107,7 @@ class DictObject:
             raise AttributeError
 
     # TODO: remove this ? Turn to property ?
-    def data(self):
+    def data(self) -> dict[str, Any]:
         """
         Access to the internal data dictionary, for easy dumping
         :return: the internal data dictionary
@@ -121,63 +115,36 @@ class DictObject:
         return self._data
 
 
-def xml_subelement_attr_by_attr(
-    xml_elem,
-    subelement,
-    filter_attr,
-    filter_value,
-    convert=None,
-    attribute="value",
-    default=None,
-    quiet=False,
-):
+def get_link_by_type(
+    xml_elem: ET.Element,
+    link_type: str,
+    default: Any = None,
+) -> Any:
     """
-    Search for a sub-element having an attribute ``filter_attr`` set to ``filter_value``
-
-    For the following XML document:
-
-    .. code-block:: xml
-
-        <xml_elem>
-            <subelement filter="this" value="THIS" />
-        </xml_elem>
-
-    a call to ``xml_subelement_attr(xml_elem, "subelement", "filter", "this")`` would return ``"THIS"``
-
+    Search for a 'link' sub-element having a 'type' attribute set to the specified link_type
+    and return its 'value' attribute.
 
     :param xml_elem: search the children nodes of this element
-    :param subelement: Name of the sub-element to search for
-    :param filter_attr: Name of the attribute the sub-element must contain
-    :param filter_value: Value of the attribute
-    :param convert: if not None, a callable to perform the conversion of this attribute to a certain object type
-    :param attribute: name of the attribute to get
+    :param link_type: Value of the type attribute to search for
     :param default: default value if the subelement or attribute is not found
-    :param quiet: if True, don't raise exception from conversions, return default instead
-    :return: value of the attribute or ``None`` in error cases
-
+    :return: value of the attribute or default value if not found
     """
-    if xml_elem is None or not subelement:
+    if xml_elem is None:
         return None
 
-    for subel in xml_elem.findall(f'.//{subelement}[@{filter_attr}="{filter_value}"]'):
-        value = subel.attrib.get(attribute)
-        if value is None:
-            value = default
-        elif convert:
-            try:
-                value = convert(value)
-            except Exception as e:
-                if quiet:
-                    value = default
-                else:
-                    raise e
-        return value
+    for subel in xml_elem.findall(f'.//link[@type="{link_type}"]'):
+        return subel.attrib.get("value", default)
     return default
 
 
 def xml_subelement_attr(
-    xml_elem, subelement, convert=None, attribute="value", default=None, quiet=False
-):
+    xml_elem: ET.Element | None,
+    subelement: str | None,
+    convert: Callable[[str], Any] | None = None,
+    attribute: str = "value",
+    default: Any = None,
+    quiet: bool = False,
+) -> Any:
     """
     Search for a sub-element and return the value of its attribute.
 
@@ -225,8 +192,13 @@ def xml_subelement_attr(
 
 
 def xml_subelement_attr_list(
-    xml_elem, subelement, convert=None, attribute="value", default=None, quiet=False
-):
+    xml_elem: ET.Element | None,
+    subelement: str | None,
+    convert: Callable[[str], Any] | None = None,
+    attribute: str = "value",
+    default: Any = None,
+    quiet: bool = False,
+) -> list[Any] | None:
     """
     Search for sub-elements and return a list of the specified attribute.
 
@@ -270,7 +242,13 @@ def xml_subelement_attr_list(
     return res
 
 
-def xml_subelement_text(xml_elem, subelement, convert=None, default=None, quiet=False):
+def xml_subelement_text(
+    xml_elem: ET.Element | None,
+    subelement: str | None,
+    convert: Callable[[str], Any] | None = None,
+    default: Any = None,
+    quiet: bool = False,
+) -> Any:
     """
     Return the text of the specified subelement
 
@@ -313,14 +291,14 @@ def xml_subelement_text(xml_elem, subelement, convert=None, default=None, quiet=
 
 
 def request_and_parse_xml(
-    requests_session,
-    url,
-    params=None,
-    timeout=15,
-    retries=3,
-    retry_delay=5,
-    headers=None,
-):
+    requests_session: requests.Session,
+    url: str,
+    params: dict[str, Any] | None = None,
+    timeout: float = 15.0,
+    retries: int = 3,
+    retry_delay: float = 5.0,
+    headers: dict[str, str] | None = None,
+) -> ET.Element:
     """
     Downloads an XML from the specified url, parses it and returns the xml ElementTree.
 
@@ -343,9 +321,7 @@ def request_and_parse_xml(
     while retr >= 0:
         retr -= 1
         try:
-            r = requests_session.get(
-                url, params=params, timeout=timeout, headers=headers
-            )
+            r = requests_session.get(url, params=params, timeout=timeout, headers=headers)
 
             if r.status_code == 202:
                 if retries == 0:
@@ -355,14 +331,10 @@ def request_and_parse_xml(
                     raise BGGApiRetryError
                 elif retr == 0:
                     # retries were requested, but we reached 0. Signal the application that it needs to retry itself.
-                    raise BGGApiRetryError(
-                        f"failed to retrieve data after {retries} retries"
-                    )
+                    raise BGGApiRetryError(f"failed to retrieve data after {retries} retries")
                 else:
                     # sleep for the specified delay and retry
-                    log.debug(
-                        f"API call will be retried in {retry_delay} seconds ({retr} more retries)"
-                    )
+                    log.debug(f"API call will be retried in {retry_delay} seconds ({retr} more retries)")
                     if retr >= 0:
                         time.sleep(retry_delay)
                         retry_delay *= 1.5
@@ -384,7 +356,7 @@ def request_and_parse_xml(
                     retry_delay *= 3
                 continue
 
-            if not r.headers.get("content-type").lower().startswith("text/xml"):
+            if not r.headers.get("content-type", "").lower().startswith("text/xml"):
                 raise BGGApiError("non-XML reply")
 
             xml = r.text
@@ -398,13 +370,9 @@ def request_and_parse_xml(
                 raise BGGApiTimeoutError
             elif retr == 0:
                 # ... reached 0 retries
-                raise BGGApiTimeoutError(
-                    f"failed to retrieve data after {retries} retries"
-                )
+                raise BGGApiTimeoutError(f"failed to retrieve data after {retries} retries")
             else:
-                log.debug(
-                    f"API request timeout, retrying {retr} more times w/timeout {timeout}"
-                )
+                log.debug(f"API request timeout, retrying {retr} more times w/timeout {timeout}")
                 timeout *= 2.5
                 continue
 
@@ -425,7 +393,7 @@ def request_and_parse_xml(
     raise BGGApiError("couldn't fetch data within the configured number of retries")
 
 
-def fix_url(url):
+def fix_url(url: str | None) -> str | None:
     """
     The BGG API started returning URLs like //cf.geekdo-images.com/images/pic55406.jpg for thumbnails and images.
     This function fixes them.
@@ -438,29 +406,23 @@ def fix_url(url):
     return url
 
 
-def fix_unsigned_negative(value):
-    # the BGG api seems to return negative years cast to unsigned ints (32 bit) in search results. This function
-    # fixes the values so that they're negative again.
+def fix_unsigned_negative(value: int) -> int:
+    # The BGG api seems to return negative years cast to unsigned ints (32 bit) in search results.
+    # This function fixes the values so that they're negative again.
     if value > 0x7FFFFFFF:
         value -= 0x100000000
     return value
 
 
-def get_board_game_version_from_element(xml_elem):
+def get_board_game_version_from_element(xml_elem: ET.Element) -> dict[str, Any]:
     data = {
         "id": int(xml_elem.attrib["id"]),
         "yearpublished": fix_unsigned_negative(
-            xml_subelement_attr(
-                xml_elem, "yearpublished", convert=int, default=0, quiet=True
-            )
+            xml_subelement_attr(xml_elem, "yearpublished", convert=int, default=0, quiet=True)
         ),
-        "language": xml_subelement_attr_by_attr(xml_elem, "link", "type", "language"),
-        "publisher": xml_subelement_attr_by_attr(
-            xml_elem, "link", "type", "boardgamepublisher"
-        ),
-        "artist": xml_subelement_attr_by_attr(
-            xml_elem, "link", "type", "boardgameartist"
-        ),
+        "language": get_link_by_type(xml_elem, "language"),
+        "publisher": get_link_by_type(xml_elem, "boardgamepublisher"),
+        "artist": get_link_by_type(xml_elem, "boardgameartist"),
         "thumbnail": xml_subelement_text(xml_elem, "thumbnail"),
         "image": xml_subelement_text(xml_elem, "image"),
         "name": xml_subelement_attr(xml_elem, "name"),
@@ -468,19 +430,15 @@ def get_board_game_version_from_element(xml_elem):
     }
 
     for item in ["width", "length", "depth", "weight"]:
-        data[item] = xml_subelement_attr(
-            xml_elem, item, convert=float, quiet=True, default=0.0
-        )
+        data[item] = xml_subelement_attr(xml_elem, item, convert=float, quiet=True, default=0.0)
 
     return data
 
 
-def get_marketplace_listing_from_element(xml_elem):
+def get_marketplace_listing_from_element(xml_elem: ET.Element) -> dict[str, Any]:
     try:
         list_date_string = xml_subelement_attr(xml_elem, "listdate")
-        list_date = datetime.datetime.strptime(
-            list_date_string, "%a, %d %b %Y %H:%M:%S %z"
-        )
+        list_date = datetime.datetime.strptime(list_date_string, "%a, %d %b %Y %H:%M:%S %z")
     except ValueError:
         list_date = None
 

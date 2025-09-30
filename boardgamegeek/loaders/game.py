@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 import logging
+from xml.etree import ElementTree as ET
 
 from ..exceptions import BGGApiError
 from ..objects.games import BoardGame
@@ -11,10 +14,10 @@ from ..utils import (
     xml_subelement_text,
 )
 
-log = logging.getLogger("boardgamegeek.loaders.game")
+log = logging.getLogger(__name__)
 
 
-def create_game_from_xml(xml_root, game_id):
+def create_game_from_xml(xml_root: ET.Element, game_id: int) -> BoardGame:
     game_type = xml_root.attrib["type"]
     if game_type not in ["boardgame", "boardgameexpansion", "boardgameaccessory"]:
         log.debug(f"unsupported type {game_type} for item id {game_id}")
@@ -23,33 +26,19 @@ def create_game_from_xml(xml_root, game_id):
     data = {
         "id": game_id,
         "name": xml_subelement_attr(xml_root, "name[@type='primary']"),
-        "alternative_names": xml_subelement_attr_list(
-            xml_root, "name[@type='alternate']"
-        ),
+        "alternative_names": xml_subelement_attr_list(xml_root, "name[@type='alternate']"),
         "thumbnail": xml_subelement_text(xml_root, "thumbnail"),
         "image": xml_subelement_text(xml_root, "image"),
         "expansion": game_type == "boardgameexpansion",  # is this game an expansion?
         "accessory": game_type == "boardgameaccessory",  # is this game an accessory?
         "families": xml_subelement_attr_list(xml_root, "link[@type='boardgamefamily']"),
-        "categories": xml_subelement_attr_list(
-            xml_root, "link[@type='boardgamecategory']"
-        ),
-        "implementations": xml_subelement_attr_list(
-            xml_root, "link[@type='boardgameimplementation']"
-        ),
-        "mechanics": xml_subelement_attr_list(
-            xml_root, "link[@type='boardgamemechanic']"
-        ),
-        "designers": xml_subelement_attr_list(
-            xml_root, "link[@type='boardgamedesigner']"
-        ),
+        "categories": xml_subelement_attr_list(xml_root, "link[@type='boardgamecategory']"),
+        "implementations": xml_subelement_attr_list(xml_root, "link[@type='boardgameimplementation']"),
+        "mechanics": xml_subelement_attr_list(xml_root, "link[@type='boardgamemechanic']"),
+        "designers": xml_subelement_attr_list(xml_root, "link[@type='boardgamedesigner']"),
         "artists": xml_subelement_attr_list(xml_root, "link[@type='boardgameartist']"),
-        "publishers": xml_subelement_attr_list(
-            xml_root, "link[@type='boardgamepublisher']"
-        ),
-        "description": xml_subelement_text(
-            xml_root, "description", convert=html_unescape, quiet=True
-        ),
+        "publishers": xml_subelement_attr_list(xml_root, "link[@type='boardgamepublisher']"),
+        "description": xml_subelement_text(xml_root, "description", convert=html_unescape, quiet=True),
     }
 
     expands = []  # list of items this game expands
@@ -136,37 +125,28 @@ def create_game_from_xml(xml_root, game_id):
     stats = xml_root.find("statistics/ratings")
     if stats is not None:
         sd = {
-            "usersrated": xml_subelement_attr(
-                stats, "usersrated", convert=int, quiet=True
-            ),
+            "usersrated": xml_subelement_attr(stats, "usersrated", convert=int, quiet=True),
             "average": xml_subelement_attr(stats, "average", convert=float, quiet=True),
-            "bayesaverage": xml_subelement_attr(
-                stats, "bayesaverage", convert=float, quiet=True
-            ),
+            "bayesaverage": xml_subelement_attr(stats, "bayesaverage", convert=float, quiet=True),
             "stddev": xml_subelement_attr(stats, "stddev", convert=float, quiet=True),
             "median": xml_subelement_attr(stats, "median", convert=float, quiet=True),
             "owned": xml_subelement_attr(stats, "owned", convert=int, quiet=True),
             "trading": xml_subelement_attr(stats, "trading", convert=int, quiet=True),
             "wanting": xml_subelement_attr(stats, "wanting", convert=int, quiet=True),
             "wishing": xml_subelement_attr(stats, "wishing", convert=int, quiet=True),
-            "numcomments": xml_subelement_attr(
-                stats, "numcomments", convert=int, quiet=True
-            ),
-            "numweights": xml_subelement_attr(
-                stats, "numweights", convert=int, quiet=True
-            ),
-            "averageweight": xml_subelement_attr(
-                stats, "averageweight", convert=float, quiet=True
-            ),
+            "numcomments": xml_subelement_attr(stats, "numcomments", convert=int, quiet=True),
+            "numweights": xml_subelement_attr(stats, "numweights", convert=int, quiet=True),
+            "averageweight": xml_subelement_attr(stats, "averageweight", convert=float, quiet=True),
             "ranks": [],
         }
 
         ranks = stats.findall("ranks/rank")
         for rank in ranks:
-            try:
-                rank_value = int(rank.attrib.get("value"))
-            except (ValueError, TypeError):
-                rank_value = None
+            rank_value: int | None = None
+            rank_value_str = rank.attrib.get("value", None)
+            if rank_value_str is not None and rank_value_str.isdigit():
+                rank_value = int(rank_value_str)
+
             sd["ranks"].append(
                 {
                     "id": rank.attrib["id"],
@@ -184,9 +164,7 @@ def create_game_from_xml(xml_root, game_id):
             dsp = data["suggested_players"]
             dsp.update(
                 {
-                    "total_votes": int(
-                        suggested_players_poll.attrib.get("totalvotes", 0)
-                    ),
+                    "total_votes": int(suggested_players_poll.attrib.get("totalvotes", 0)),
                     "results": {},
                 }
             )
@@ -214,7 +192,7 @@ def create_game_from_xml(xml_root, game_id):
     return BoardGame(data)
 
 
-def add_game_comments_from_xml(game, xml_root):
+def add_game_comments_from_xml(game: BoardGame, xml_root: ET.Element) -> tuple[bool, int]:
     added_items = False
     total_comments = 0
 

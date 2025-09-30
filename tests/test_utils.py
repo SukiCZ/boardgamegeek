@@ -29,9 +29,7 @@ def test_get_xml_subelement_attr(xml):
     node = bggutil.xml_subelement_attr(xml, "node_thats_missing", default="hello")
     assert node == "hello"
 
-    node = bggutil.xml_subelement_attr(
-        xml, "node1", attribute="attribute_thats_missing", default=1234
-    )
+    node = bggutil.xml_subelement_attr(xml, "node1", attribute="attribute_thats_missing", default=1234)
     assert node == 1234
 
     # test quiet
@@ -39,14 +37,10 @@ def test_get_xml_subelement_attr(xml):
         # attr can't be converted to int
         node = bggutil.xml_subelement_attr(xml, "node1", attribute="attr", convert=int)
 
-    node = bggutil.xml_subelement_attr(
-        xml, "node1", attribute="attr", convert=int, quiet=True
-    )
+    node = bggutil.xml_subelement_attr(xml, "node1", attribute="attr", convert=int, quiet=True)
     assert node is None
 
-    node = bggutil.xml_subelement_attr(
-        xml, "node1", attribute="attr", convert=int, default=999, quiet=True
-    )
+    node = bggutil.xml_subelement_attr(xml, "node1", attribute="attr", convert=int, default=999, quiet=True)
     assert node == 999
 
 
@@ -64,34 +58,24 @@ def test_get_xml_subelement_attr_list(xml):
     nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="attr")
     assert nodes == ["elem1", "elem2", "elem3", "elem4"]
 
-    nodes = bggutil.xml_subelement_attr_list(
-        list_root, "li", attribute="int_attr", convert=int
-    )
+    nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="int_attr", convert=int)
     assert nodes == [1, 2, 3, 4]
 
     nodes = bggutil.xml_subelement_attr_list(xml, "node1", attribute="attr")
     assert nodes == ["hello1"]
 
     # test default
-    nodes = bggutil.xml_subelement_attr_list(
-        list_root, "li", attribute="missing_attr", default="n/a"
-    )
+    nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="missing_attr", default="n/a")
     assert nodes == ["n/a", "n/a", "n/a", "n/a"]
 
     # test quiet
     with pytest.raises(Exception):
-        nodes = bggutil.xml_subelement_attr_list(
-            list_root, "li", attribute="attr", convert=int
-        )
+        nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="attr", convert=int)
 
-    nodes = bggutil.xml_subelement_attr_list(
-        list_root, "li", attribute="attr", convert=int, quiet=True
-    )
+    nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="attr", convert=int, quiet=True)
     assert nodes == [None, None, None, None]
 
-    nodes = bggutil.xml_subelement_attr_list(
-        list_root, "li", attribute="attr", convert=int, quiet=True, default=1
-    )
+    nodes = bggutil.xml_subelement_attr_list(list_root, "li", attribute="attr", convert=int, quiet=True, default=1)
     assert nodes == [1, 1, 1, 1]
 
 
@@ -109,9 +93,7 @@ def test_get_xml_subelement_text(xml):
     assert node == "text"
 
     # test that default is working
-    node = bggutil.xml_subelement_text(
-        xml, "node_thats_missing", default="default text"
-    )
+    node = bggutil.xml_subelement_text(xml, "node_thats_missing", default="default text")
     assert node == "default text"
 
     # test that quiet is working
@@ -121,9 +103,7 @@ def test_get_xml_subelement_text(xml):
     node = bggutil.xml_subelement_text(xml, "node1", convert=int, quiet=True)
     assert node is None
 
-    node = bggutil.xml_subelement_text(
-        xml, "node1", convert=int, quiet=True, default="asd"
-    )
+    node = bggutil.xml_subelement_text(xml, "node1", convert=int, quiet=True, default="asd")
     assert node == "asd"
 
 

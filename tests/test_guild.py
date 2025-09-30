@@ -34,7 +34,7 @@ def test_get_valid_guild_info(bgg, mocker, null_logger):
 
     # for coverage's sake
     guild._format(null_logger)
-    assert type(guild.data()) == dict
+    assert type(guild.data()) is dict
 
     # try to fetch a guild that also has an address besides members :D
     guild = bgg.guild(_common.TEST_GUILD_ID_2)

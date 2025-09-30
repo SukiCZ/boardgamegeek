@@ -1,39 +1,49 @@
+from pathlib import Path
+
 import requests
 import requests_cache
 
 from .exceptions import BGGValueError
 
+StrOrPath = str | Path
+
 
 class CacheBackend:
-    pass
+    """Base class for cache backends"""
+
+    cache: requests.Session
 
 
 class CacheBackendNone(CacheBackend):
-    def __init__(self):
+    """Do not cache HTTP requests"""
+
+    def __init__(self) -> None:
         self.cache = requests.Session()
 
 
 class CacheBackendMemory(CacheBackend):
     """Cache HTTP requests in memory"""
 
-    def __init__(self, ttl):
+    def __init__(self, ttl: int):
         try:
             int(ttl)
-        except ValueError:
-            raise BGGValueError
+        except ValueError as e:
+            raise BGGValueError from e
         self.cache = requests_cache.CachedSession(
-            backend="memory", expire_after=ttl, allowable_codes=(200,)
+            backend="memory",
+            expire_after=ttl,
+            allowable_codes=(200,),
         )
 
 
 class CacheBackendSqlite(CacheBackend):
     """Cache HTTP requests in a SQLite database"""
 
-    def __init__(self, path, ttl, fast_save=True):
+    def __init__(self, path: StrOrPath, ttl: int, fast_save: bool = True):
         try:
             int(ttl)
-        except ValueError:
-            raise BGGValueError
+        except ValueError as e:
+            raise BGGValueError from e
 
         self.cache = requests_cache.CachedSession(
             cache_name=path,

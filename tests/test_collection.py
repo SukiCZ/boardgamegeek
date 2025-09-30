@@ -28,7 +28,7 @@ def test_get_valid_users_collection(bgg, mocker, null_logger):
 
     assert collection is not None
     assert collection.owner == _common.TEST_VALID_USER
-    assert type(len(collection)) == int
+    assert type(len(collection)) is int
     assert isinstance(collection.items, list)
 
     # make sure we can iterate through the collection
@@ -46,7 +46,7 @@ def test_get_valid_users_collection(bgg, mocker, null_logger):
 
     # for coverage's sake
     collection._format(null_logger)
-    assert type(collection.data()) == dict
+    assert type(collection.data()) is dict
 
     collection = bgg.collection(_common.TEST_VALID_USER, versions=False)
     for g in collection:

@@ -3,12 +3,13 @@ import logging
 
 from boardgamegeek.api import BGGClient, HOT_ITEM_CHOICES
 from boardgamegeek import BGGClientLegacy
+from boardgamegeek.objects import BoardGame
 
 log = logging.getLogger("boardgamegeek")
 log_fmt = "[%(levelname)s] %(message)s"
 
 
-def brief_game_stats(game):
+def brief_game_stats(game: BoardGame) -> None:
     # XXX: Is it needed?
     desc = '''"{}",{},{}-{},{},{},{},{},"{}","{}"'''.format(
         game.name,
@@ -35,7 +36,7 @@ def brief_game_stats(game):
     log.info(f"Votes       : {game.users_rated}")
 
 
-def main():
+def main() -> None:
     p = argparse.ArgumentParser(prog="boardgamegeek")
 
     p.add_argument("-u", "--user", help="Query by user name")
@@ -57,9 +58,7 @@ def main():
     p.add_argument("-c", "--collection", help="Query user's collection")
     p.add_argument("-p", "--plays", help="Query user's play list")
     p.add_argument("-P", "--plays-by-game", help="Query a game's plays")
-    p.add_argument(
-        "-H", "--hot-items", help="List all hot items by type", choices=HOT_ITEM_CHOICES
-    )
+    p.add_argument("-H", "--hot-items", help="List all hot items by type", choices=HOT_ITEM_CHOICES)
     p.add_argument("-S", "--search", help="search and return results")
 
     p.add_argument("-l", "--geeklist", type=int, help="get geeklist by id")

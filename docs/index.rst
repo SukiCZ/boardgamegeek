@@ -41,6 +41,8 @@ This library exposes (as Python objects with properties) the following BoardGame
 
 requests-cache_ is used for locally caching replies in order to reduce the amount of requests sent to the server.
 
+BoardGameGeek API documentation can be found here_
+
 .. note::
     The cache is enabled by default and it's configured to use memory only. It's also possible to use SQLite for a
     persistent cache.
@@ -110,3 +112,4 @@ Indices and tables
 .. _boardgamegeek2: https://github.com/lcosmin/boardgamegeek
 .. _libBGG: https://github.com/philsstein/libBGG
 .. _requests-cache: https://pypi.python.org/pypi/requests-cache
+.. _here: https://boardgamegeek.com/wiki/page/BGG_XML_API
