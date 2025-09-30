@@ -84,6 +84,8 @@ class BGGChoose:
 class BGGRestrictSearchResultsTo:
     """
     Item types that should be included in search results
+
+    *DEPRECATED* will be removed in future versions
     """
 
     RPG = "rpgitem"
@@ -174,13 +176,11 @@ class BGGCommon:
             return {"Authorization": f"Bearer {self._access_token}"}
         return None
 
-    def _get_game_id(self, name: str, game_type: str, choose: str, exact: bool = True) -> int:
+    def _get_game_id(self, name: str, choose: str, exact: bool = True) -> int:
         """
         Returns the BGG ID of a game, searching by name
 
         :param str name: the name of the game to search for
-        :param str game_type: searched game type (BGGRestrictSearchResultsTo.RPG, BGGItemType.VIDEO_GAME, BGGItemType.BOARD_GAME,
-                                                  BGGItemType.BOARD_GAME_EXPANSION)
         :param str choose: method of selecting the game by name, when having multiple results. Valid values are:
                            `BGGChoose.FIRST`, `BGGChoose.RECENT`, `BGGChoose.BEST_RANK`
         :param bool exact: limit results to items that match the `name` exactly
@@ -196,7 +196,7 @@ class BGGCommon:
             raise BGGValueError(f"invalid value for parameter 'choose': {choose}")
 
         log.debug(f"getting game id for '{name}'")
-        res = self.search(name, search_type=[game_type], exact=exact)
+        res = self.search(name, exact=exact)
 
         if not res:
             raise BGGItemNotFoundError(f"can't find '{name}'")
@@ -892,7 +892,6 @@ class BGGClient(BGGCommon):
         """
         return self._get_game_id(
             name,
-            game_type=BGGRestrictSearchResultsTo.BOARD_GAME,
             choose=choose,
             exact=exact,
         )
@@ -1084,14 +1083,4 @@ class BGGClient(BGGCommon):
         :raises: `boardgamegeek.exceptions.BoardGameGeekAPIError` if the response couldn't be parsed
         :raises: `boardgamegeek.exceptions.BoardGameGeekTimeoutError` if there was a timeout
         """
-        return [
-            self.game(game_id=s.id)
-            for s in self.search(
-                name,
-                search_type=[
-                    BGGRestrictSearchResultsTo.BOARD_GAME,
-                    BGGRestrictSearchResultsTo.BOARD_GAME_EXPANSION,
-                ],
-                exact=True,
-            )
-        ]
+        return [self.game(game_id=s.id) for s in self.search(name, exact=True)]
