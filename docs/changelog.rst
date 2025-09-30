@@ -1,23 +1,27 @@
 Changelog
 =========
 
+TBD
+---
+* Add Ruff formatting and MyPy type hints
+
 1.1.13
------
+------
 * Add access token. Fixes: #169
 * Update dependencies
 
 1.1.12
------
+------
 * Replace bump2version with bump-my-version
 * Merge setup.cfg to pyproject.toml
 
 1.1.11
------
+------
 * Add pyproject.toml
 * Update dependencies
 
 1.1.10
------
+------
 
 * Add `game_id_list` length validation in `game_list`. Issue #79, PR #82. Thanks @aresen
 
