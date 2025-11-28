@@ -58,11 +58,13 @@ Installation
 Usage
 =====
 
+Obtain access token here: https://boardgamegeek.com/applications
+
 .. code-block:: python
 
     from boardgamegeek import BGGClient
 
-    bgg = BGGClient()
+    bgg = BGGClient("access_token")
 
     game = bgg.game("Monopoly")
 
