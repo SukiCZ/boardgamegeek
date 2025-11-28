@@ -3,7 +3,7 @@ default_stages: [ pre-commit ]
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -18,7 +18,7 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.1
+    rev: v3.21.2
     hooks:
       # Automatically upgrade syntax for newer versions of Python.
       - id: pyupgrade
@@ -26,7 +26,7 @@ repos:
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
-    rev: v0.13.2
+    rev: v0.14.7
     hooks:
       # Linter
       - id: ruff-check
