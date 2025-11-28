@@ -6,7 +6,7 @@ with open("README.md") as f:
 
 setup(
     name="bgg-api",
-    version="1.1.13",
+    version="1.1.14",
     packages=find_packages(),
     license="BSD",
     author="Jakub Boukal",
