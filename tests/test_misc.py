@@ -15,7 +15,7 @@ def test_no_caching(mocker):
     mock_get.side_effect = _common.simulate_bgg
 
     # test that we can disable caching
-    bgg = BGGClient(cache=CacheBackendNone())
+    bgg = BGGClient(access_token="token", cache=CacheBackendNone())
 
     user = bgg.user(_common.TEST_VALID_USER)
 
@@ -40,9 +40,9 @@ def test_sqlite_caching(mocker):
 
     with pytest.raises(BGGValueError):
         # invalid value for the ttl parameter
-        BGGClient(cache=CacheBackendSqlite(name, ttl="blabla", fast_save=False))
+        BGGClient(access_token="token", cache=CacheBackendSqlite(name, ttl="blabla", fast_save=False))
 
-    bgg = BGGClient(cache=CacheBackendSqlite(name, ttl=1000))
+    bgg = BGGClient(access_token="token", cache=CacheBackendSqlite(name, ttl=1000))
 
     user = bgg.user(_common.TEST_VALID_USER)
     assert user is not None
@@ -56,13 +56,13 @@ def test_sqlite_caching(mocker):
 
 def test_invalid_parameter_values_for_bggclient():
     with pytest.raises(BGGValueError):
-        BGGClient(retries="asd")
+        BGGClient(access_token="token", retries="asd")
 
     with pytest.raises(BGGValueError):
-        BGGClient(retry_delay="asd")
+        BGGClient(access_token="token", retry_delay="asd")
 
     with pytest.raises(BGGValueError):
-        BGGClient(timeout="asd")
+        BGGClient(access_token="token", timeout="asd")
 
 
 def test_bggclient_with_access_token_parameter():
@@ -72,8 +72,8 @@ def test_bggclient_with_access_token_parameter():
     assert bgg._access_token == "valid_token"
 
     # Test with None token (default)
-    bgg = BGGClient()
-    assert bgg._access_token is None
+    with pytest.raises(TypeError):
+        BGGClient()  # noqa
 
     # Test with empty string token
     bgg = BGGClient(access_token="")

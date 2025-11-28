@@ -25,12 +25,12 @@ def xml() -> ET.Element:
 
 @pytest.fixture
 def bgg() -> BGGClient:
-    return BGGClient(cache=CacheBackendNone(), retries=2, retry_delay=1)
+    return BGGClient(access_token="token", cache=CacheBackendNone(), retries=2, retry_delay=1)
 
 
 @pytest.fixture
 def legacy_bgg() -> BGGClientLegacy:
-    return BGGClientLegacy(cache=CacheBackendNone(), retries=2, retry_delay=1)
+    return BGGClientLegacy(access_token="token", cache=CacheBackendNone(), retries=2, retry_delay=1)
 
 
 @pytest.fixture

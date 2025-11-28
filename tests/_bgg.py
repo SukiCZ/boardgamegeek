@@ -148,7 +148,7 @@ def test_rate_limiting_for_requests() -> None:
     test_set_2 = [18602, 28720, 53953]  # caylus  # brass  # thunderstone]
 
     def _worker_thread(game_ids: list[int]) -> None:
-        bgg = BGGClient(cache=CacheBackendNone(), requests_per_minute=20)
+        bgg = BGGClient(access_token="token", cache=CacheBackendNone(), requests_per_minute=20)
         for game_id in game_ids:
             bgg.game(game_id=game_id)
 
@@ -169,7 +169,7 @@ def test_rate_limiting_for_requests() -> None:
     # second test, use caching and confirm it's working when combined with the rate limiting algorithm
     # do cached requests for the test set, then do them again. should take only half of the time
 
-    bgg = BGGClient(requests_per_minute=20)
+    bgg = BGGClient(access_token="token", requests_per_minute=20)
 
     start_time = time.time()
     for g in test_set_1:

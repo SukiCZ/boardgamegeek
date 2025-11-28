@@ -12,7 +12,7 @@ def test_bgg_client_with_access_token(mocker):
 
     # Create client with access token
     access_token = "test_access_token_12345"
-    bgg = BGGClient(cache=CacheBackendNone(), access_token=access_token)
+    bgg = BGGClient(access_token=access_token, cache=CacheBackendNone())
 
     # Store the access token
     assert bgg._access_token == access_token
@@ -41,7 +41,7 @@ def test_bgg_client_with_invalid_access_token(mocker):
 
     # Create client with an invalid access token (empty string)
     access_token = ""
-    bgg = BGGClient(cache=CacheBackendNone(), access_token=access_token)
+    bgg = BGGClient(access_token=access_token, cache=CacheBackendNone())
 
     # Store the access token
     assert bgg._access_token == access_token
@@ -60,30 +60,6 @@ def test_bgg_client_with_invalid_access_token(mocker):
     assert headers is None
 
 
-def test_bgg_client_without_access_token(mocker):
-    """Test that BGGClient works without access token (backward compatibility)."""
-    mock_get = mocker.patch("requests.sessions.Session.get")
-    mock_get.side_effect = _common.simulate_bgg
-
-    # Create client without access token
-    bgg = BGGClient(cache=CacheBackendNone())
-
-    # Access token should be None
-    assert bgg._access_token is None
-
-    # Make a request
-    bgg.user(_common.TEST_VALID_USER)
-
-    # Verify that the request was made
-    mock_get.assert_called()
-    call_args = mock_get.call_args
-
-    # Check that headers parameter is None when no token is provided
-    assert "headers" in call_args.kwargs
-    headers = call_args.kwargs["headers"]
-    assert headers is None
-
-
 def test_bgg_client_legacy_with_access_token(mocker):
     """Test that BGGClientLegacy also supports access tokens."""
     mock_get = mocker.patch("requests.sessions.Session.get")
@@ -91,7 +67,7 @@ def test_bgg_client_legacy_with_access_token(mocker):
 
     # Create legacy client with access token
     access_token = "legacy_test_token_67890"
-    bgg = BGGClientLegacy(cache=CacheBackendNone(), access_token=access_token)
+    bgg = BGGClientLegacy(access_token=access_token, cache=CacheBackendNone())
 
     # Store the access token
     assert bgg._access_token == access_token
@@ -119,8 +95,3 @@ def test_auth_headers_method():
     bgg_with_token = BGGClient(access_token="my_token")
     headers = bgg_with_token._get_auth_headers()
     assert headers == {"Authorization": "Bearer my_token"}
-
-    # Test without token
-    bgg_without_token = BGGClient()
-    headers = bgg_without_token._get_auth_headers()
-    assert headers is None
