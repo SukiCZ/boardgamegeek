@@ -22,8 +22,7 @@ Create an application and get the access token [here](https://boardgamegeek.com/
 ```python
 from boardgamegeek import BGGClient
 
-# access_token is recommended (soon to be required)
-bgg = BGGClient(access_token="your_bgg_access_token")
+bgg = BGGClient("<access_token_here>")
 
 game = bgg.game("Monopoly")
 

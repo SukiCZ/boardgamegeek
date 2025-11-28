@@ -1,13 +1,14 @@
 Changelog
 =========
 
-TBD
+1.1.14
 ---
+* Make access token mandatory
 * Add Ruff formatting and MyPy type hints
 
 1.1.13
 ------
-* Add access token. Fixes: #169
+* Add optional access token. Fixes: #169
 * Update dependencies
 
 1.1.12

@@ -1,5 +1,6 @@
 import argparse
 import logging
+import warnings
 
 from boardgamegeek.api import BGGClient, HOT_ITEM_CHOICES
 from boardgamegeek import BGGClientLegacy
@@ -37,8 +38,14 @@ def brief_game_stats(game: BoardGame) -> None:
 
 
 def main() -> None:
+    warnings.warn(
+        "The 'boardgamegeek' CLI is deprecated and will be removed in a future release.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
     p = argparse.ArgumentParser(prog="boardgamegeek")
 
+    p.add_argument("--token", dest="token", help="access token for BGG API")
     p.add_argument("-u", "--user", help="Query by user name")
     p.add_argument("-g", "--game", help="Query by game name")
     p.add_argument(
@@ -111,7 +118,7 @@ def main() -> None:
     ):
         p.error("no action specified!")
 
-    bgg = BGGClient(timeout=args.timeout, retries=args.retries)
+    bgg = BGGClient(access_token=args.token, timeout=args.timeout, retries=args.retries)
 
     if args.user:
         user = bgg.user(args.user)

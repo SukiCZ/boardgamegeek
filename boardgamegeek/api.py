@@ -829,20 +829,21 @@ class BGGClient(BGGCommon):
     """
     Python client for www.boardgamegeek.com's XML API 2.
 
-    Caching for the requests can be used by specifying an URI for the ``cache`` parameter. By default, an in-memory
+    Caching for the requests can be used by specifying a URI for the ``cache`` parameter. By default, an in-memory
     cache is used, with sqlite being the other currently supported option.
 
+    :param str access_token: BGG access token for API authentication
+        See the `BGG applications page <https://boardgamegeek.com/applications>`_ to obtain an access token.
     :param :py:class:`boardgamegeek.cache.CacheBackend` cache: An object to be used for caching the requests
     :param float timeout: Timeout for network operations, in seconds
     :param int retries: Number of retries to perform in case the API returns HTTP 202 (retry) or in case of timeouts
     :param float retry_delay: Time to sleep, in seconds, between retries when the API returns HTTP 202 (retry)
     :param disable_ssl: ignored, left for backwards compatibility
     :param requests_per_minute: how many requests per minute to allow to go out to BGG (throttle prevention)
-    :param str access_token: BGG access token for API authentication
 
     Example usage::
 
-        >>> bgg = BGGClient()
+        >>> bgg = BGGClient("<access_token_here>")
         >>> game = bgg.game("Android: Netrunner")
         >>> game.id
         124742
@@ -854,13 +855,13 @@ class BGGClient(BGGCommon):
 
     def __init__(
         self,
+        access_token: str,
         cache: CacheBackend = CacheBackendMemory(ttl=3600),
         timeout: float = 15,
         retries: int = 3,
         retry_delay: float = 5,
         disable_ssl: bool = False,  # deprecated, will be removed in future versions
         requests_per_minute: int = DEFAULT_REQUESTS_PER_MINUTE,
-        access_token: str | None = None,
     ):
         if disable_ssl:
             warnings.warn("'disable_ssl' is deprecated, will be removed", DeprecationWarning, stacklevel=2)
