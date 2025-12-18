@@ -42,26 +42,31 @@ def add_collection_items_from_xml(collection: Collection, xml_root: ET.Element, 
         if stats is None:
             raise BGGApiError("missing 'stats'")
 
+        rating = stats.find("rating")
         stat_data = {
-            "usersrated": xml_subelement_attr(stats, "usersrated", convert=int, quiet=True),
-            "average": xml_subelement_attr(stats, "average", convert=float, quiet=True),
-            "bayesaverage": xml_subelement_attr(stats, "bayesaverage", convert=float, quiet=True),
-            "stddev": xml_subelement_attr(stats, "stddev", convert=float, quiet=True),
-            "median": xml_subelement_attr(stats, "median", convert=float, quiet=True),
+            "usersrated": xml_subelement_attr(rating, "usersrated", convert=int, quiet=True),
+            "average": xml_subelement_attr(rating, "average", convert=float, quiet=True),
+            "bayesaverage": xml_subelement_attr(rating, "bayesaverage", convert=float, quiet=True),
+            "stddev": xml_subelement_attr(rating, "stddev", convert=float, quiet=True),
+            "median": xml_subelement_attr(rating, "median", convert=float, quiet=True),
             "ranks": [],
         }
 
-        for rank in stats.findall("ranks/rank"):
-            stat_data["ranks"].append(
-                {
+        if rating is not None:
+            for rank in rating.findall("ranks/rank"):
+                rank_data = {
                     "type": rank.attrib.get("type"),
                     "id": rank.attrib["id"],
                     "name": rank.attrib["name"],
                     "friendlyname": rank.attrib["friendlyname"],
                     "value": rank.attrib.get("value"),
-                    "bayesaverage": float(rank.attrib.get("bayesaverage", 0.0)),
+                    "bayesaverage": rank.attrib.get("bayesaverage"),
                 }
-            )
+
+                for field in ["value", "bayesaverage"]:
+                    if rank_data[field] in ["Not Ranked", "N/A"]:
+                        rank_data[field] = None
+                stat_data["ranks"].append(rank_data)
 
         data.update(
             {
