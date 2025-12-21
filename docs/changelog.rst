@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.15
+---
+* Fix collection rating. PR #199 Thanks @randomwalk
+
+
 1.1.14
 ---
 * Make access token mandatory
