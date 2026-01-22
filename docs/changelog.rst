@@ -1,10 +1,14 @@
 Changelog
 =========
 
+1.1.16
+---
+* Bump wheel from 0.45.1 to 0.46.2 (CVE-2026-24049)
+* Update dependencies
+
 1.1.15
 ---
 * Fix collection rating. PR #199 Thanks @randomwalk
-
 
 1.1.14
 ---
