@@ -213,7 +213,7 @@ class BGGCommon:
             # TODO define `game` in BGGCommon
             game_data = [self.game(game_id=r.id) for r in res]  # type: ignore[attr-defined]
             # ...and selecting the one with the best ranking
-            best = min(game_data, key=lambda x: x.boardgame_rank or 10000000000)
+            best = min(game_data, key=lambda x: x.bgg_rank or 10000000000)
             return int(best.id)
 
     def guild(self, guild_id: int, members: bool = True) -> Guild:

@@ -87,7 +87,7 @@ def check_game(game):
     assert game.rating_median == 0.0
     assert game.rating_num_weights == 5540
     assert game.rating_average_weight == 3.6319
-    assert game.boardgame_rank == 15
+    assert game.bgg_rank == 15
 
     assert game.users_owned == 62141
     assert game.users_trading == 1121
@@ -238,9 +238,9 @@ def test_get_game_id_by_name(bgg, mocker):
     best_rank = 1000000000
     best_id = None
     for g in all_eclipse_games:
-        if g.boardgame_rank is not None and g.boardgame_rank < best_rank:
+        if g.bgg_rank is not None and g.bgg_rank < best_rank:
             best_id = g.id
-            best_rank = g.boardgame_rank
+            best_rank = g.bgg_rank
     assert game_id == best_id
 
 

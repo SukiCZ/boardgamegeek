@@ -125,7 +125,7 @@ def test_create_plays_with_initial_data():
     assert p[0].date.strftime("%Y-%m-%d") == "2014-01-02"
 
     # it also accepts datetime objects
-    now = datetime.datetime.utcnow()
+    now = datetime.datetime.now(datetime.UTC)
     p = Plays({"plays": [{"id": 10, "user_id": 102, "date": now}]})
 
     assert p[0].date == now
