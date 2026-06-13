@@ -12,6 +12,12 @@
 ## Installation
 
 ```bash
+uv add bgg-api
+```
+
+Or with pip:
+
+```bash
 pip install bgg-api
 ```
 
@@ -34,14 +40,14 @@ print(game.rating_average)  # 4.36166
 
 ```bash
 # Install dependencies
-pip install -r requirements/develop.txt
+uv sync --extra dev
 # Install pre-commit hooks
-pre-commit install
+uv run pre-commit install
 
 # Run tests
-pytest .
+uv run pytest .
 # Run tests with tox
-tox
+uv run tox
 ```
 
 ## Publishing

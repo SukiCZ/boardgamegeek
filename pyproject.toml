@@ -8,19 +8,17 @@ version = "1.1.16"
 description = "A Python API for boardgamegeek.com"
 readme = "README.md"
 license = {text = "BSD"}
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 keywords = ["boardgamegeek", "bgg", "boardgame", "api"]
 authors = [
     {name = "Jakub Boukal", email = "www.bagr@gmail.com"}
 ]
 classifiers = [
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "License :: OSI Approved :: BSD License",
     "Development Status :: 4 - Beta",
     "Operating System :: OS Independent",
@@ -31,6 +29,21 @@ classifiers = [
 dependencies = [
     "requests>=2.31.0,<3.0.0",
     "requests-cache>=1.1.1,<2.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "bump-my-version==1.2.6",
+    "wheel==0.46.2",
+    "tox==4.30.3",
+    "Sphinx==8.2.3",
+    "myst-parser==4.0.1",
+    "twine==6.2.0",
+    "pytest==8.4.2",
+    "pytest-mock==3.15.1",
+    "pytest-cov==7.0.0",
+    "pre-commit==4.3.0",
+    "types-requests==2.32.4.20260107",
 ]
 
 [project.urls]
