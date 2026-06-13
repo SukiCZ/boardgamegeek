@@ -42,11 +42,6 @@ repos:
         additional_dependencies: [ types-requests ]
         exclude: ^tests/
 
-  - repo: https://github.com/lsst-ts/pre-commit-xmllint
-    rev: 6f36260b537bf9a42b6ea5262c915ae50786296e
-    hooks:
-      # XML formatter
-      - id: format-xmllint
 
 # sets up .pre-commit-ci.yaml to ensure pre-commit dependencies stay up to date
 ci:
