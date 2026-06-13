@@ -66,9 +66,10 @@ wheels = [
 
 [[package]]
 name = "bgg-api"
-version = "1.1.16"
+version = "1.1.18"
 source = { editable = "." }
 dependencies = [
+    { name = "pydantic" },
     { name = "requests" },
     { name = "requests-cache" },
 ]
@@ -94,6 +95,7 @@ requires-dist = [
     { name = "bump-my-version", marker = "extra == 'dev'" },
     { name = "myst-parser", marker = "extra == 'dev'" },
     { name = "prek", marker = "extra == 'dev'" },
+    { name = "pydantic", specifier = ">=2.0,<3.0" },
     { name = "pytest", marker = "extra == 'dev'" },
     { name = "pytest-cov", marker = "extra == 'dev'" },
     { name = "pytest-mock", marker = "extra == 'dev'" },
