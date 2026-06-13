@@ -42,7 +42,7 @@ dev = [
     "pytest",
     "pytest-mock",
     "pytest-cov",
-    "pre-commit",
+    "prek",
     "types-requests",
 ]
 

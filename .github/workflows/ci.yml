@@ -36,11 +36,17 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libxml2-utils
 
+      - name: Cache prek environments
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/prek
+          key: prek-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}
+
       - name: Install dependencies
         run: uv sync --extra dev
 
-      - name: Run pre-commit
-        run: uv run pre-commit run --all-files
+      - name: Run prek
+        run: uv run prek run --all-files
 
   test:
     runs-on: ubuntu-latest

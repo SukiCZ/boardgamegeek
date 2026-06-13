@@ -42,7 +42,7 @@ print(game.rating_average)  # 4.36166
 # Install dependencies
 uv sync --extra dev
 # Install pre-commit hooks
-uv run pre-commit install
+uv run prek install
 
 # Run tests
 uv run pytest .
