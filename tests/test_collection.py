@@ -24,7 +24,7 @@ def test_get_valid_users_collection(bgg, mocker, null_logger):
     mock_get = mocker.patch("requests.sessions.Session.get")
     mock_get.side_effect = _common.simulate_bgg
 
-    collection = bgg.collection(_common.TEST_VALID_USER, versions=True)
+    collection = bgg.collection(_common.TEST_VALID_USER, version=True)
 
     assert collection is not None
     assert collection.owner == _common.TEST_VALID_USER
@@ -48,7 +48,7 @@ def test_get_valid_users_collection(bgg, mocker, null_logger):
     collection._format(null_logger)
     assert type(collection.data()) is dict
 
-    collection = bgg.collection(_common.TEST_VALID_USER, versions=False)
+    collection = bgg.collection(_common.TEST_VALID_USER, version=False)
     for g in collection:
         assert g.version is None
 

@@ -1,7 +1,5 @@
 import _common
 
-from boardgamegeek import BGGRestrictSearchResultsTo
-
 
 def test_search(bgg, mocker):
     mock_get = mocker.patch("requests.sessions.Session.get")
@@ -13,6 +11,5 @@ def test_search(bgg, mocker):
     res = bgg.search("Twilight Struggle", exact=True)
     assert len(res)
 
-    # test that the search type is ignored
-    res = bgg.search("Agricola", search_type=[BGGRestrictSearchResultsTo.BOARD_GAME])
+    res = bgg.search("Agricola")
     assert isinstance(res[0].id, int)
