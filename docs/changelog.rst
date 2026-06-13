@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.1.17
+---
+* Migrate requirements to pyproject.toml
+* Drop support for Python 3.11
+* Remove deprecation warnings in tests
+* Update dependencies
+
 1.1.16
 ---
 * Bump wheel from 0.45.1 to 0.46.2 (CVE-2026-24049)
