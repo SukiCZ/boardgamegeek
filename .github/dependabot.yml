@@ -10,10 +10,8 @@ updates:
     schedule:
       interval: 'weekly'
 
-  # Enable version updates for Python/Pip - Production
-  - package-ecosystem: 'pip'
-    # Look for a `requirements.txt` in the `root` directory
-    # also 'setup.cfg', 'runtime.txt' and 'requirements/*.txt'
+  # Enable version updates for Python/uv
+  - package-ecosystem: 'uv'
     directory: '/'
     # Every weekday
     schedule:
