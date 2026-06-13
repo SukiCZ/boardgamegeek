@@ -29,6 +29,7 @@ jobs:
         uses: astral-sh/setup-uv@v8.2.0
         with:
           python-version: '3.13'
+          enable-cache: true
 
       - name: Install xmllint
         run: |
@@ -43,6 +44,14 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental || false }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.12', '3.13']
+        include:
+          - python-version: '3.14'
+            experimental: true
     steps:
       - name: Checkout Code Repository
         uses: actions/checkout@v6.0.3
@@ -50,16 +59,17 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@v8.2.0
         with:
-          python-version: '3.13'
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
 
       - name: Install dependencies
         run: uv sync --extra dev
 
-      - name: Run tox
-        run: uv run tox
+      - name: Run tests
+        run: uv run pytest --cov=boardgamegeek --cov-report=xml
 
       - name: Upload coverage to Codecov
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: ${{ github.ref == 'refs/heads/master' && matrix.python-version == '3.13' }}
         uses: codecov/codecov-action@v7.0.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
