@@ -1,11 +1,16 @@
 import datetime
 
+import pytest
+
 from boardgamegeek.objects.games import (
+    BaseGame,
+    BoardGame,
+    BoardGameComment,
     BoardGameRank,
     BoardGameStats,
-    BoardGameComment,
-    BoardGameVideo,
     BoardGameVersion,
+    BoardGameVideo,
+    CollectionBoardGame,
     MarketplaceListing,
     PlayerSuggestion,
 )
@@ -132,3 +137,111 @@ def test_marketplace_listing():
     )
     assert ml.price == 19.99
     assert ml.currency == "USD"
+
+
+MINIMAL_STATS = {
+    "usersrated": 0,
+    "average": 0.0,
+    "bayesaverage": 0.0,
+    "stddev": 0.0,
+    "median": 0.0,
+    "owned": 0,
+    "trading": 0,
+    "wanting": 0,
+    "wishing": 0,
+    "numcomments": 0,
+    "numweights": 0,
+    "averageweight": 0.0,
+    "ranks": [],
+}
+
+
+def test_base_game_construction():
+    data = {
+        "id": 1,
+        "name": "Test",
+        "stats": MINIMAL_STATS,
+        "thumbnail": "//cf.geekdo-images.com/pic.jpg",
+        "yearpublished": 2007,
+        "minplayers": 2,
+        "maxplayers": 4,
+    }
+    game = BaseGame.model_validate(data)
+    assert game.id == 1
+    assert game.thumbnail == "http://cf.geekdo-images.com/pic.jpg"
+    assert game.year == 2007
+    assert game.min_players == 2
+
+
+def test_base_game_missing_stats_raises():
+    from pydantic import ValidationError
+
+    with pytest.raises(ValidationError):
+        BaseGame.model_validate({"id": 1, "name": "Test"})
+
+
+def test_board_game_add_expansion():
+    data = {
+        "id": 1,
+        "name": "Test",
+        "stats": MINIMAL_STATS,
+        "expansions": [],
+        "expands": [],
+        "videos": [],
+    }
+    game = BoardGame.model_validate(data)
+    assert len(game.expansions) == 0
+    game.add_expansion({"id": 99, "name": "Big Expansion"})
+    assert len(game.expansions) == 1
+    assert game.expansions[0].id == 99
+    # dedup: adding same id again is a no-op
+    game.add_expansion({"id": 99, "name": "Big Expansion"})
+    assert len(game.expansions) == 1
+
+
+def test_board_game_add_comment():
+    data = {"id": 1, "name": "Test", "stats": MINIMAL_STATS}
+    game = BoardGame.model_validate(data)
+    game.add_comment({"username": "alice", "comment": "fun!", "rating": 9.0})
+    assert len(game.comments) == 1
+    assert game.comments[0].commenter == "alice"
+
+
+def test_board_game_player_suggestions():
+    data = {
+        "id": 1,
+        "name": "Test",
+        "stats": MINIMAL_STATS,
+        "suggested_players": {
+            "total_votes": 100,
+            "results": {
+                "4": {"best_rating": 80, "recommended_rating": 15, "not_recommended_rating": 5},
+            },
+        },
+    }
+    game = BoardGame.model_validate(data)
+    assert len(game.player_suggestions) == 1
+    assert game.player_suggestions[0].player_count == "4"
+    assert game.player_suggestions[0].best == 80
+
+
+def test_collection_board_game_status_fields():
+    data = {
+        "id": 1,
+        "name": "Test",
+        "stats": MINIMAL_STATS,
+        "own": "1",
+        "prevowned": "0",
+        "want": "1",
+        "wanttobuy": "0",
+        "wanttoplay": "1",
+        "fortrade": "0",
+        "wishlist": "0",
+        "preordered": "1",
+    }
+    game = CollectionBoardGame.model_validate(data)
+    assert game.owned is True
+    assert game.prev_owned is False
+    assert game.want is True
+    assert game.want_to_buy is False
+    assert game.preordered is True

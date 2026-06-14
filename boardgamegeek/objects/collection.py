@@ -17,6 +17,8 @@ from collections.abc import Generator
 from copy import copy
 from typing import Any
 
+from pydantic import ValidationError
+
 from ..exceptions import BGGError
 from ..utils import DictObject
 from .games import CollectionBoardGame
@@ -63,8 +65,8 @@ class Collection(DictObject):
             # multiple times
             if game["id"] not in self.__game_ids:
                 self.__game_ids.add(game["id"])
-                self._items.append(CollectionBoardGame(game))
-        except KeyError:
+                self._items.append(CollectionBoardGame.model_validate(game))
+        except (KeyError, ValidationError):
             raise BGGError("invalid game data")
 
     def __getitem__(self, item: int) -> CollectionBoardGame:
