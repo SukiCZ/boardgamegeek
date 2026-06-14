@@ -7,7 +7,7 @@ from ..utils import xml_subelement_attr
 
 
 def create_hot_items_from_xml(_xml_root: ET.Element) -> HotItems:
-    return HotItems({})
+    return HotItems.model_validate({})
 
 
 def add_hot_items_from_xml(hot_items: HotItems, xml_root: ET.Element) -> bool:

@@ -366,7 +366,7 @@ class BGGCommon:
         )
 
         # TODO: move add_top_item add_hot_item to sepparated files
-        user = User(data)
+        user = User.model_validate(data)
 
         # add top items
         if top:
@@ -820,7 +820,7 @@ class BGGCommon:
                 "type": item.attrib["type"],
             }
 
-            results.append(SearchResult(kwargs))
+            results.append(SearchResult.model_validate(kwargs))
 
         return results
 

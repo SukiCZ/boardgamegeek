@@ -19,7 +19,7 @@ def create_collection_from_xml(xml_root: ET.Element, user_name: str) -> Collecti
         # TODO: this is probably the invalid user error, but need to find out if there are any other error cases
         raise BGGItemNotFoundError(msg)
 
-    return Collection({"owner": user_name})
+    return Collection.model_validate({"owner": user_name})
 
 
 def add_collection_items_from_xml(collection: Collection, xml_root: ET.Element, subtype: str) -> bool:

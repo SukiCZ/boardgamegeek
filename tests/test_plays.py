@@ -1,9 +1,10 @@
 import datetime
 
 import pytest
+from pydantic import ValidationError
 
 import _common
-from boardgamegeek import BGGError, BGGItemNotFoundError, BGGValueError
+from boardgamegeek import BGGItemNotFoundError, BGGValueError
 from boardgamegeek.objects.plays import GamePlays, Plays, PlaySession, UserPlays
 
 
@@ -112,10 +113,10 @@ def test_get_plays_of_game(bgg, mocker, null_logger):
 
 
 def test_create_plays_with_initial_data():
-    with pytest.raises(BGGError):
-        Plays({"plays": [{"user_id": 10}]})
+    with pytest.raises(ValidationError):
+        Plays.model_validate({"plays": [{"user_id": 10}]})
 
-    p = Plays({"plays": [{"id": 10, "user_id": 102, "date": "2014-01-02"}]})
+    p = Plays.model_validate({"plays": [{"id": 10, "user_id": 102, "date": "2014-01-02"}]})
 
     assert len(p) == 1
     assert isinstance(p[0], PlaySession)
@@ -126,6 +127,6 @@ def test_create_plays_with_initial_data():
 
     # it also accepts datetime objects
     now = datetime.datetime.now(datetime.UTC)
-    p = Plays({"plays": [{"id": 10, "user_id": 102, "date": now}]})
+    p = Plays.model_validate({"plays": [{"id": 10, "user_id": 102, "date": now}]})
 
     assert p[0].date == now
