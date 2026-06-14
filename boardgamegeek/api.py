@@ -820,7 +820,7 @@ class BGGCommon:
                 "type": item.attrib["type"],
             }
 
-            results.append(SearchResult(kwargs))
+            results.append(SearchResult.model_validate(kwargs))
 
         return results
 
