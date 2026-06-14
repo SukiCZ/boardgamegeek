@@ -14,37 +14,23 @@ from __future__ import annotations
 
 from typing import Any
 
-from ..exceptions import BGGError
-from ..utils import DictObject
+from pydantic import BaseModel, ConfigDict
+
+from ..exceptions import BGGError  # noqa: F401  kept for import compat
 
 
-class Thing(DictObject):
+class Thing(BaseModel):  # type: ignore[misc]
     """
     A thing, an object with a name and an id. Base class for various objects in the library.
     """
 
-    def __init__(self, data: dict[str, Any]):
-        if "id" not in data:
-            raise BGGError("missing 'id' when trying to create a Thing")
-        if "name" not in data:
-            raise BGGError("missing 'name' when trying to create a Thing")
+    model_config = ConfigDict(populate_by_name=True, extra="allow")
 
-        try:
-            self._id = int(data["id"])
-        except ValueError:
-            raise BGGError("id ({}) is not an int when trying to create a Thing".format(data["id"]))
+    id: int
+    name: str
 
-        self._name = str(data["name"])
-
-        super().__init__(data)
-
-    @property
-    def name(self) -> str:
-        return self._name
-
-    @property
-    def id(self) -> int:
-        return self._id
+    def data(self) -> dict[str, Any]:
+        return self.model_dump()  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__} (id: {self.id})"
