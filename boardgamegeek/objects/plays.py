@@ -101,6 +101,9 @@ class Plays(BaseModel):
     def __len__(self) -> int:
         return len(self.plays)
 
+    def _format(self, log: logging.Logger) -> None:
+        pass
+
     def data(self) -> dict[str, Any]:
         return self.model_dump()
 

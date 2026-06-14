@@ -78,7 +78,7 @@ class Collection(BaseModel):
     def __len__(self) -> int:
         return len(self.items)
 
-    def __iter__(self) -> Generator[CollectionBoardGame]:
+    def __iter__(self) -> Generator[CollectionBoardGame]:  # type: ignore[override]
         yield from self.items
 
     def data(self) -> dict[str, Any]:

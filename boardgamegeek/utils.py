@@ -90,31 +90,6 @@ class RateLimitingAdapter(HTTPAdapter):
         return super().send(request, *args, **kwargs)
 
 
-class DictObject:
-    """
-    Just a fancy wrapper over a dictionary
-    """
-
-    def __init__(self, data: dict[str, Any]):
-        self._data = data
-
-    def __getattr__(self, item: str) -> Any:
-        # allow accessing user's variables using .attribute
-        try:
-            return self._data[item]
-        except Exception:
-            # TODO Too broad?
-            raise AttributeError
-
-    # TODO: remove this ? Turn to property ?
-    def data(self) -> dict[str, Any]:
-        """
-        Access to the internal data dictionary, for easy dumping
-        :return: the internal data dictionary
-        """
-        return self._data
-
-
 def get_link_by_type(
     xml_elem: ET.Element,
     link_type: str,

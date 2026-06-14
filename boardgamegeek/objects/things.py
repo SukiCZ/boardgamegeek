@@ -19,7 +19,7 @@ from pydantic import BaseModel, ConfigDict
 from ..exceptions import BGGError  # noqa: F401  kept for import compat
 
 
-class Thing(BaseModel):  # type: ignore[misc]
+class Thing(BaseModel):
     """
     A thing, an object with a name and an id. Base class for various objects in the library.
     """
@@ -30,7 +30,7 @@ class Thing(BaseModel):  # type: ignore[misc]
     name: str
 
     def data(self) -> dict[str, Any]:
-        return self.model_dump()  # type: ignore[no-any-return]
+        return self.model_dump()
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__} (id: {self.id})"

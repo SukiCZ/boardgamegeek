@@ -50,7 +50,7 @@ class PlayerSuggestion(BaseModel):
     recommended: int
     not_recommended: int
 
-    @computed_field
+    @computed_field  # type: ignore[prop-decorator]
     @property
     def numeric_player_count(self) -> int:
         """

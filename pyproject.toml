@@ -45,6 +45,7 @@ dev = [
     "pytest-cov",
     "prek",
     "types-requests",
+    "mypy",
 ]
 
 [project.urls]

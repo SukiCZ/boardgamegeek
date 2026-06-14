@@ -75,7 +75,7 @@ class HotItems(BaseModel):
     def __len__(self) -> int:
         return len(self.items)
 
-    def __iter__(self) -> Generator[HotItem]:
+    def __iter__(self) -> Generator[HotItem]:  # type: ignore[override]
         yield from self.items
 
     def __getitem__(self, item: int) -> HotItem:

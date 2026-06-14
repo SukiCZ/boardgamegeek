@@ -43,7 +43,7 @@ def create_guild_from_xml(xml_root: ET.Element) -> Guild:
     if members is not None:
         data["member_count"] = int(members.attrib["count"])
 
-    return Guild(data)
+    return Guild.model_validate(data)
 
 
 def add_guild_members_from_xml(guild: Guild, xml_root: ET.Element) -> bool:

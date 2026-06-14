@@ -119,7 +119,7 @@ class GeekList(Thing):
         self.items.append(item)
         return item
 
-    def __iter__(self) -> Generator[GeekListItem]:
+    def __iter__(self) -> Generator[GeekListItem]:  # type: ignore[override]
         yield from self.items
 
     @property
