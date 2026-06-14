@@ -366,7 +366,7 @@ class BGGCommon:
         )
 
         # TODO: move add_top_item add_hot_item to sepparated files
-        user = User(data)
+        user = User.model_validate(data)
 
         # add top items
         if top:
