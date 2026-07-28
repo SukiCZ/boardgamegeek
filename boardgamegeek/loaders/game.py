@@ -189,7 +189,7 @@ def create_game_from_xml(xml_root: ET.Element, game_id: int) -> BoardGame:
 
                 dsp["results"][player_count] = dspr
 
-    return BoardGame(data)
+    return BoardGame.model_validate(data)
 
 
 def add_game_comments_from_xml(game: BoardGame, xml_root: ET.Element) -> tuple[bool, int]:

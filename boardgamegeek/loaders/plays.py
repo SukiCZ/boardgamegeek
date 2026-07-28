@@ -27,7 +27,7 @@ def create_plays_from_xml(xml_root: ET.Element, game_id: int | None = None) -> P
 
     if game_id is None:
         # User's plays
-        return UserPlays(
+        return UserPlays.model_validate(
             {
                 "username": xml_root.attrib["username"],
                 "user_id": int(xml_root.attrib["userid"]),
@@ -35,7 +35,7 @@ def create_plays_from_xml(xml_root: ET.Element, game_id: int | None = None) -> P
             }
         )
     else:
-        return GamePlays({"game_id": game_id, "plays_count": count})
+        return GamePlays.model_validate({"game_id": game_id, "plays_count": count})
 
 
 def add_plays_from_xml(plays: Plays, xml_root: ET.Element) -> bool:

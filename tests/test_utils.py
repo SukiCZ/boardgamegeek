@@ -109,7 +109,7 @@ def test_get_xml_subelement_text(xml):
 
 @pytest.mark.serialize
 def test_serialization():
-    dummy_plays = Thing({"id": "10", "name": "fubar"})
+    dummy_plays = Thing.model_validate({"id": "10", "name": "fubar"})
 
     s = pickle.dumps(dummy_plays)
     assert s is not None

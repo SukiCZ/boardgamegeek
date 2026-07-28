@@ -12,13 +12,13 @@
 from __future__ import annotations
 
 import logging
-from copy import copy
 from typing import Any
 from collections.abc import Generator
 
+from pydantic import BaseModel, ConfigDict, Field, model_validator
+
 from .things import Thing
-from ..exceptions import BGGError
-from ..utils import DictObject, fix_url
+from ..utils import fix_url
 
 
 class HotItem(Thing):
@@ -30,14 +30,19 @@ class HotItem(Thing):
     depending on the type of hot list retrieved.
     """
 
-    def __init__(self, data: dict[str, Any]):
-        if "rank" not in data:
-            raise BGGError("missing rank of HotItem")
+    rank: int
+    year: int | None = Field(None, alias="yearpublished")
+    thumbnail: str | None = None
 
+    @model_validator(mode="before")
+    @classmethod
+    def _fix_thumbnail(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        data = dict(data)
         if "thumbnail" in data:
             data["thumbnail"] = fix_url(data["thumbnail"])
-
-        super().__init__(data)
+        return data
 
     def __repr__(self) -> str:
         return f"HotItem (id: {self.id})"
@@ -49,48 +54,15 @@ class HotItem(Thing):
         log.info(f"hot item published : {self.year}")
         log.info(f"hot item thumbnail : {self.thumbnail}")
 
-    @property
-    def rank(self) -> int:
-        """
-        :return: Ranking of this hot item
-        :rtype: integer
-        """
-        return int(self._data["rank"])
 
-    @property
-    def year(self) -> int | None:
-        """
-        :return: publishing year
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("yearpublished")
-
-    @property
-    def thumbnail(self) -> str | None:
-        """
-        :return: thumbnail URL
-        :rtype: str
-        :return: ``None`` if n/a
-        """
-        return self._data.get("thumbnail")
-
-
-class HotItems(DictObject):
+class HotItems(BaseModel):
     """
     A collection of :py:class:`boardgamegeek.hotitems.HotItem`
     """
 
-    def __init__(self, data: dict[str, Any]):
-        kw = copy(data)
-        if "items" not in kw:
-            kw["items"] = []
+    model_config = ConfigDict(populate_by_name=True, extra="allow")
 
-        self._items = []
-        for data in kw["items"]:
-            self._items.append(HotItem(data))
-
-        super().__init__(kw)
+    items: list[HotItem] = Field(default_factory=list)
 
     def add_hot_item(self, data: dict[str, Any]) -> None:
         """
@@ -98,23 +70,16 @@ class HotItems(DictObject):
 
         :param data: dictionary containing the data
         """
-        self._data["items"].append(data)
-        self._items.append(HotItem(data))
-
-    @property
-    def items(self) -> list[HotItem]:
-        """
-        :return: list of hotitems
-        :rtype: list of :py:class:`boardgamegeek.hotitems.HotItem`
-        """
-        return self._items
+        self.items.append(HotItem.model_validate(data))
 
     def __len__(self) -> int:
-        return len(self._items)
+        return len(self.items)
 
-    def __iter__(self) -> Generator[HotItem]:
-        for item in self._data["items"]:
-            yield HotItem(item)
+    def __iter__(self) -> Generator[HotItem]:  # type: ignore[override]
+        yield from self.items
 
     def __getitem__(self, item: int) -> HotItem:
-        return self._items.__getitem__(item)
+        return self.items[item]
+
+    def data(self) -> dict[str, Any]:
+        return self.model_dump()

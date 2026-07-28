@@ -14,32 +14,31 @@ from __future__ import annotations
 
 import logging
 from collections.abc import Generator
-from copy import copy
 from typing import Any
 
+from pydantic import BaseModel, ConfigDict, Field, PrivateAttr
+
 from ..exceptions import BGGError
-from ..utils import DictObject
 from .games import CollectionBoardGame
 
 
-class Collection(DictObject):
+class Collection(BaseModel):
     """
-    A dictionary-like object represeting a ``Collection``
+    A pydantic model representing a ``Collection``
 
     :param dict data: a dictionary containing the collection data
     :raises: :py:class:`boardgamegeek.exceptions.BoardGameGeekError` in case of invalid data
     """
 
-    def __init__(self, data: dict[str, Any]):
-        kw = copy(data)
+    model_config = ConfigDict(populate_by_name=True, extra="allow")
 
-        self._items: list[CollectionBoardGame] = []
-        self.__game_ids: set[int] = set()
+    owner: str | None = None
+    items: list[CollectionBoardGame] = Field(default_factory=list)
 
-        for game in kw.get("items", []):
-            self.add_game(game)
+    _game_ids: set[int] = PrivateAttr(default_factory=set)
 
-        super().__init__(kw)
+    def model_post_init(self, __context: Any) -> None:
+        self._game_ids = {item.id for item in self.items}
 
     def _format(self, log: logging.Logger) -> None:
         log.info(f"owner    : {self.owner}")
@@ -61,14 +60,14 @@ class Collection(DictObject):
         try:
             # Collections can have duplicate elements (different collection ids), so don't add the same thing
             # multiple times
-            if game["id"] not in self.__game_ids:
-                self.__game_ids.add(game["id"])
-                self._items.append(CollectionBoardGame(game))
+            if game["id"] not in self._game_ids:
+                self._game_ids.add(game["id"])
+                self.items.append(CollectionBoardGame.model_validate(game))
         except KeyError:
             raise BGGError("invalid game data")
 
     def __getitem__(self, item: int) -> CollectionBoardGame:
-        return self._items.__getitem__(item)
+        return self.items[item]
 
     def __str__(self) -> str:
         return f"{self.owner}'s collection, {len(self)} items"
@@ -77,27 +76,10 @@ class Collection(DictObject):
         return f"Collection: (owner: {self.owner}, items: {len(self)})"
 
     def __len__(self) -> int:
-        return len(self._items)
+        return len(self.items)
 
-    @property
-    def owner(self) -> str | None:
-        """
-        Return the collection's owner
+    def __iter__(self) -> Generator[CollectionBoardGame]:  # type: ignore[override]
+        yield from self.items
 
-        :returns: the collection's owner
-        :rtype: str
-        """
-        return self._data.get("owner")
-
-    @property
-    def items(self) -> list[CollectionBoardGame]:
-        """
-        Returns the items in the collection
-
-        :returns: the items in the collection
-        :rtype: list of :py:class:`boardgamegeek.games.CollectionBoardGame`
-        """
-        return self._items
-
-    def __iter__(self) -> Generator[CollectionBoardGame]:
-        yield from self._items
+    def data(self) -> dict[str, Any]:
+        return self.model_dump()

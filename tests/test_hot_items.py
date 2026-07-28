@@ -1,7 +1,8 @@
 import _common
 import pytest
+from pydantic import ValidationError
 
-from boardgamegeek import BGGError, BGGValueError
+from boardgamegeek import BGGValueError
 from boardgamegeek.objects.hotitems import HotItem, HotItems
 
 
@@ -40,11 +41,11 @@ def test_get_hot_items_boardgamepersons(bgg, mocker, null_logger):
 
 def test_hot_items_initial_data():
     # test that exception is raised if invalid initial data is given when trying to create a HotItems object
-    with pytest.raises(BGGError):
-        HotItems({"items": [{"id": 100, "name": "hotitem"}]})
+    with pytest.raises(ValidationError):
+        HotItems.model_validate({"items": [{"id": 100, "name": "hotitem"}]})
 
-    h = HotItems({"items": [{"id": 100, "name": "hotitem", "rank": 10}]})
-    with pytest.raises(BGGError):
+    h = HotItems.model_validate({"items": [{"id": 100, "name": "hotitem", "rank": 10}]})
+    with pytest.raises(ValidationError):
         h.add_hot_item({"id": 100, "name": "hotitem"})
 
     assert isinstance(h[0], HotItem)

@@ -57,11 +57,13 @@ def test_get_valid_users_collection(bgg, mocker, null_logger):
 
 def test_creating_collection_out_of_raw_data():
     # test raise exception if invalid items given
-    with pytest.raises(BGGError):
-        Collection({"items": [{"id": 102}]})
+    from pydantic import ValidationError
+
+    with pytest.raises(ValidationError):
+        Collection.model_validate({"items": [{"id": 102}]})
 
     # test that items are added to the collection from the constructor
-    c = Collection(
+    c = Collection.model_validate(
         {
             "owner": "me",
             "items": [

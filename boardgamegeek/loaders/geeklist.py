@@ -39,7 +39,7 @@ def create_geeklist_from_xml(xml_root: ET.Element, listid: int) -> GeekList:
         "username": xml_subelement_text(xml_root, "username"),
         "description": xml_subelement_text(xml_root, "description"),
     }
-    geeklist = GeekList(data)
+    geeklist = GeekList.model_validate(data)
     add_geeklist_comments_from_xml(geeklist, xml_root)
     return geeklist
 

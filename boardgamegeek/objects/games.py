@@ -15,37 +15,42 @@ from __future__ import annotations
 import datetime
 import logging
 import warnings
-from copy import copy
 from typing import Any
 
+from pydantic import BaseModel, ConfigDict, Field, PrivateAttr, computed_field, field_validator, model_validator
+
 from ..exceptions import BGGError
-from ..utils import DictObject, fix_unsigned_negative, fix_url
+from ..utils import fix_url
 from .things import Thing
 
 
 class BoardGameRank(Thing):
-    @property
-    def type(self) -> str | None:
-        return self._data.get("type")
+    type: str | None = None
+    friendly_name: str | None = Field(None, alias="friendlyname")
+    value: str | None = None
+    rating_bayes_average: float | None = Field(None, alias="bayesaverage")
 
-    @property
-    def friendly_name(self) -> str | None:
-        return self._data.get("friendlyname")
-
-    @property
-    def value(self) -> str | None:
-        return self._data.get("value")
-
-    @property
-    def rating_bayes_average(self) -> float | None:
-        return self._data.get("bayesaverage")
+    @field_validator("value", mode="before")
+    @classmethod
+    def _coerce_value_to_str(cls, v: Any) -> str | None:
+        if v is None:
+            return None
+        return str(v)
 
 
-class PlayerSuggestion(DictObject):
+class PlayerSuggestion(BaseModel):
     """
     Player Suggestion
     """
 
+    model_config = ConfigDict(populate_by_name=True, extra="allow")
+
+    player_count: str
+    best: int
+    recommended: int
+    not_recommended: int
+
+    @computed_field  # type: ignore[prop-decorator]
     @property
     def numeric_player_count(self) -> int:
         """
@@ -55,161 +60,67 @@ class PlayerSuggestion(DictObject):
         """
         if "+" in self.player_count:
             return int(self.player_count[:-1]) + 1
-        else:
-            return int(self.player_count)
+        return int(self.player_count)
+
+    def data(self) -> dict[str, Any]:
+        return self.model_dump()
 
 
-class BoardGameStats(DictObject):
+class BoardGameStats(BaseModel):
     """
     Statistics about a board game
     """
 
-    def __init__(self, data: dict[str, Any]):
-        self._ranks: list[BoardGameRank] = []
-        self._bgg_rank: int | None = None
+    model_config = ConfigDict(populate_by_name=True, extra="allow")
 
-        for rank in data.get("ranks", []):
+    users_rated: int | None = Field(None, alias="usersrated")
+    rating_average: float | None = Field(None, alias="average")
+    rating_bayes_average: float | None = Field(None, alias="bayesaverage")
+    rating_stddev: float | None = Field(None, alias="stddev")
+    rating_median: float | None = Field(None, alias="median")
+    users_owned: int | None = Field(None, alias="owned")
+    users_trading: int | None = Field(None, alias="trading")
+    users_wanting: int | None = Field(None, alias="wanting")
+    users_wishing: int | None = Field(None, alias="wishing")
+    users_commented: int | None = Field(None, alias="numcomments")
+    rating_num_weights: int | None = Field(None, alias="numweights")
+    rating_average_weight: float | None = Field(None, alias="averageweight")
+    ranks: list[BoardGameRank] = Field(default_factory=list)
+    bgg_rank: int | None = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def _build_ranks(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        data = dict(data)
+        rank_dicts = data.get("ranks", [])
+        bgg_rank: int | None = None
+        for rank in rank_dicts:
             if rank.get("name") == "boardgame":
                 try:
-                    self._bgg_rank = int(rank["value"])
+                    bgg_rank = int(rank["value"])
                 except (KeyError, TypeError, ValueError):
                     pass
-            self._ranks.append(BoardGameRank(rank))
+        data["bgg_rank"] = bgg_rank
+        return data
 
-        super().__init__(data)
-
-    @property
-    def bgg_rank(self) -> int | None:
-        return self._bgg_rank
-
-    @property
-    def ranks(self) -> list[BoardGameRank]:
-        return self._ranks
-
-    @property
-    def users_rated(self) -> int | None:
-        """
-        :return: how many users rated the game
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("usersrated")
-
-    @property
-    def rating_average(self) -> float | None:
-        """
-        :return: average rating
-        :rtype: float
-        :return: ``None`` if n/a
-        """
-        return self._data.get("average")
-
-    @property
-    def rating_bayes_average(self) -> float | None:
-        """
-        :return: bayes average rating
-        :rtype: float
-        :return: ``None`` if n/a
-        """
-        return self._data.get("bayesaverage")
-
-    @property
-    def rating_stddev(self) -> float | None:
-        """
-        :return: standard deviation
-        :rtype: float
-        :return: ``None`` if n/a
-        """
-        return self._data.get("stddev")
-
-    @property
-    def rating_median(self) -> float | None:
-        """
-        :return:
-        :rtype: float
-        :return: ``None`` if n/a
-        """
-        return self._data.get("median")
-
-    @property
-    def users_owned(self) -> int | None:
-        """
-        :return: number of users owning this game
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("owned")
-
-    @property
-    def users_trading(self) -> int | None:
-        """
-        :return: number of users trading this game
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("trading")
-
-    @property
-    def users_wanting(self) -> int | None:
-        """
-        :return: number of users wanting this game
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("wanting")
-
-    @property
-    def users_wishing(self) -> int | None:
-        """
-        :return: number of users wishing for this game
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("wishing")
-
-    @property
-    def users_commented(self) -> int | None:
-        """
-        :return: number of user comments
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("numcomments")
-
-    @property
-    def rating_num_weights(self) -> int | None:
-        """
-        :return:
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("numweights")
-
-    @property
-    def rating_average_weight(self) -> float | None:
-        """
-        :return: average weight
-        :rtype: float
-        :return: ``None`` if n/a
-        """
-        return self._data.get("averageweight")
+    def data(self) -> dict[str, Any]:
+        return self.model_dump()
 
 
-class BoardGameComment(DictObject):
-    @property
-    def commenter(self) -> str:
-        return str(self._data["username"])
+class BoardGameComment(BaseModel):
+    model_config = ConfigDict(populate_by_name=True, extra="allow")
 
-    @property
-    def comment(self) -> str:
-        return str(self._data["comment"])
-
-    @property
-    def rating(self) -> float:
-        return float(self._data["rating"])
+    commenter: str = Field(alias="username")
+    comment: str
+    rating: float
 
     def _format(self, log: logging.Logger) -> None:
         log.info(f"comment by {self.commenter} (rating: {self.rating}): {self.comment}")
+
+    def data(self) -> dict[str, Any]:
+        return self.model_dump()
 
 
 class BoardGameVideo(Thing):
@@ -217,20 +128,30 @@ class BoardGameVideo(Thing):
     Object containing information about a board game video
     """
 
-    def __init__(self, data: dict[str, Any]):
-        kw = copy(data)
+    category: str | None = None
+    link: str | None = None
+    language: str | None = None
+    uploader: str | None = None
+    uploader_id: int | None = None
+    post_date: datetime.datetime | None = None
 
-        if "post_date" in kw:
-            date = kw["post_date"]
-            if not isinstance(date, datetime.datetime):
-                try:
-                    kw["post_date"] = datetime.datetime.strptime(date[:-6], "%Y-%m-%dT%H:%M:%S")
-                except ValueError:
-                    kw["post_date"] = None
-
-        kw["uploader_id"] = int(kw["uploader_id"])
-
-        super().__init__(kw)
+    @model_validator(mode="before")
+    @classmethod
+    def _process_video_fields(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        data = dict(data)
+        if "post_date" in data and not isinstance(data["post_date"], datetime.datetime):
+            try:
+                data["post_date"] = datetime.datetime.strptime(data["post_date"][:-6], "%Y-%m-%dT%H:%M:%S")
+            except (ValueError, TypeError, IndexError):
+                data["post_date"] = None
+        if "uploader_id" in data and not isinstance(data["uploader_id"], int):
+            try:
+                data["uploader_id"] = int(data["uploader_id"])
+            except (ValueError, TypeError):
+                data["uploader_id"] = None
+        return data
 
     def _format(self, log: logging.Logger) -> None:
         log.info(f"video id          : {self.id}")
@@ -242,74 +163,34 @@ class BoardGameVideo(Thing):
         log.info(f"video uploader id : {self.uploader_id}")
         log.info(f"video posted at   : {self.post_date}")
 
-    @property
-    def category(self) -> str | None:
-        """
-        :return: the category of this video
-        :return: ``None`` if n/a
-        :rtype: string
-        """
-        return self._data.get("category")
-
-    @property
-    def link(self) -> str | None:
-        """
-        :return: the link to this video
-        :return: ``None`` if n/a
-        :rtype: string
-        """
-        return self._data.get("link")
-
-    @property
-    def language(self) -> str | None:
-        """
-        :return: the language of this video
-        :return: ``None`` if n/a
-        :rtype: string
-        """
-        return self._data.get("language")
-
-    @property
-    def uploader(self) -> str | None:
-        """
-        :return: the name of the user which uploaded this video
-        :return: ``None`` if n/a
-        :rtype: string
-        """
-        return self._data.get("uploader")
-
-    @property
-    def uploader_id(self) -> int | None:
-        """
-        :return: id of the uploader
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("uploader_id")
-
-    @property
-    def post_date(self) -> datetime.datetime | None:
-        """
-        :return: date when this video was uploaded
-        :rtype: datetime.datetime
-        :return: ``None`` if n/a
-        """
-        return self._data.get("post_date")
-
 
 class BoardGameVersion(Thing):
     """
     Object containing information about a board game version
     """
 
-    def __init__(self, data: dict[str, Any]):
-        kw = copy(data)
+    artist: str | None = None
+    depth: float | None = None
+    length: float | None = None
+    language: str | None = None
+    product_code: str | None = None
+    publisher: str | None = None
+    weight: float | None = None
+    width: float | None = None
+    year: int | None = Field(None, alias="yearpublished")
+    thumbnail: str | None = None
+    image: str | None = None
 
-        for to_fix in ["thumbnail", "image"]:
-            if to_fix in kw:
-                kw[to_fix] = fix_url(kw[to_fix])
-
-        super().__init__(kw)
+    @model_validator(mode="before")
+    @classmethod
+    def _fix_urls(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        data = dict(data)
+        for field in ["thumbnail", "image"]:
+            if field in data:
+                data[field] = fix_url(data[field])
+        return data
 
     def __repr__(self) -> str:
         return f"BoardGameVersion (id: {self.id})"
@@ -325,108 +206,20 @@ class BoardGameVersion(Thing):
         log.info(f"weight               : {self.weight}")
         log.info(f"year                 : {self.year}")
 
-    @property
-    def artist(self) -> str | None:
-        """
 
-        :return: artist of this version
-        :rtype: string
-        :return: ``None`` if n/a
-        """
-        return self._data.get("artist")
-
-    @property
-    def depth(self) -> float | None:
-        """
-        :return: depth of the box
-        :rtype: double
-        :return: 0.0 if n/a
-        """
-        return self._data.get("depth")
-
-    @property
-    def length(self) -> float | None:
-        """
-        :return: length of the box
-        :rtype: double
-        :return: 0.0 if n/a
-        """
-        return self._data.get("length")
-
-    @property
-    def language(self) -> str | None:
-        """
-        :return: language of this version
-        :rtype: string
-        :return: ``None`` if n/a
-        """
-        return self._data.get("language")
-
-    @property
-    def name(self) -> str:
-        """
-        :return: name of this version
-        :rtype: string
-        :return: ``None`` if n/a
-        """
-        return str(self._data.get("name"))
-
-    @property
-    def product_code(self) -> str | None:
-        """
-
-        :return: product code of this version
-        :rtype: string
-        :return: ``None`` if n/a
-        """
-        return self._data.get("product_code")
-
-    @property
-    def publisher(self) -> str | None:
-        """
-
-        :return: publisher of this version
-        :rtype: string
-        :return: ``None`` if n/a
-        """
-        return self._data.get("publisher")
-
-    @property
-    def weight(self) -> float | None:
-        """
-        :return: weight of the box
-        :rtype: double
-        :return: 0.0 if n/a
-        """
-        return self._data.get("weight")
-
-    @property
-    def width(self) -> float | None:
-        """
-        :return: width of the box
-        :rtype: float
-        :return: 0.0 if n/a
-        """
-        return self._data.get("width")
-
-    @property
-    def year(self) -> int | None:
-        """
-        :return: publishing year
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("yearpublished")
-
-
-class MarketplaceListing(DictObject):
+class MarketplaceListing(BaseModel):
     """
     Object containing information about a marketplace listing
     """
 
-    def __init__(self, data: dict[str, Any]):
-        kw = copy(data)
-        super().__init__(kw)
+    model_config = ConfigDict(populate_by_name=True, extra="allow")
+
+    list_date: datetime.datetime | None = None
+    price: float | None = None
+    currency: str | None = None
+    condition: str | None = None
+    notes: str | None = None
+    link: str | None = None
 
     def _format(self, log: logging.Logger) -> None:
         log.info(f"listing date       : {self.list_date}")
@@ -436,167 +229,33 @@ class MarketplaceListing(DictObject):
         log.info(f"listing notes    : {self.notes}")
         log.info(f"listing link     : {self.link}")
 
-    @property
-    def list_date(self) -> datetime.datetime | None:
-        """
-        :return: date when this listing was created
-        :rtype: datetime.datetime
-        :return: ``None`` on parse error
-        """
-        return self._data.get("list_date")
-
-    @property
-    def price(self) -> float | None:
-        """
-        :return: price of the item
-        :rtype: float
-        """
-        return self._data.get("price")
-
-    @property
-    def currency(self) -> str | None:
-        """
-        :return: ISO code of the currency (EUR, USD, etc.)
-        :rtype: string
-        """
-        return self._data.get("currency")
-
-    @property
-    def condition(self) -> str | None:
-        """
-        :return: condition of the item ((like)new, (very)good, acceptable, etc.)
-        :rtype: string
-        """
-        return self._data.get("condition")
-
-    @property
-    def notes(self) -> str | None:
-        """
-        :return: notes about the item
-            Example: "Game is in great shape, but the box has shelf-wear."
-        :rtype: string
-        """
-        return self._data.get("notes")
-
-    @property
-    def link(self) -> str | None:
-        """
-        :return: link to the item
-            Example: https://boardgamegeek.com/market/product/633634
-        :rtype: string
-        """
-        return self._data.get("link")
+    def data(self) -> dict[str, Any]:
+        return self.model_dump()
 
 
 class BaseGame(Thing):
-    def __init__(self, data: dict[str, Any]):
-        self._thumbnail = fix_url(data["thumbnail"]) if "thumbnail" in data else None
-        self._image = fix_url(data["image"]) if "image" in data else None
-        if "stats" not in data:
-            raise BGGError("invalid data")
+    thumbnail: str | None = None
+    image: str | None = None
+    year: int | None = Field(None, alias="yearpublished")
+    min_players: int | None = Field(None, alias="minplayers")
+    max_players: int | None = Field(None, alias="maxplayers")
+    min_playing_time: int | None = Field(None, alias="minplaytime")
+    max_playing_time: int | None = Field(None, alias="maxplaytime")
+    playing_time: int | None = Field(None, alias="playingtime")
+    stats: BoardGameStats
+    versions: list[BoardGameVersion] = Field(default_factory=list)
+    marketplace: list[MarketplaceListing] = Field(default_factory=list)
 
-        self._stats = BoardGameStats(data["stats"])
-
-        self._versions: list[BoardGameVersion] = []
-        self._versions_set: set[int] = set()
-        self._year_published: int | None = None
-
-        try:
-            self._year_published = fix_unsigned_negative(data["yearpublished"])
-        except (KeyError, TypeError):
-            pass
-
-        for version in data.get("versions", []):
-            try:
-                if version["id"] not in self._versions_set:
-                    self._versions.append(BoardGameVersion(version))
-                    self._versions_set.add(version["id"])
-            except KeyError:
-                raise BGGError("invalid version data")
-
-        self._marketplace: list[MarketplaceListing] = []
-
-        for listing in data.get("marketplace", []):
-            try:
-                self._marketplace.append(MarketplaceListing(listing))
-            except KeyError:
-                raise BGGError("invalid marketplace data")
-
-        super().__init__(data)
-
-    @property
-    def thumbnail(self) -> str | None:
-        """
-        :return: thumbnail URL
-        :rtype: str
-        :return: ``None`` if n/a
-        """
-        return self._thumbnail
-
-    @property
-    def image(self) -> str | None:
-        """
-        :return: image URL
-        :rtype: str
-        :return: ``None`` if n/a
-        """
-        return self._image
-
-    @property
-    def year(self) -> int | None:
-        """
-        :return: publishing year
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._year_published
-
-    @property
-    def min_players(self) -> int | None:
-        """
-        :return: minimum number of players
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("minplayers")
-
-    @property
-    def max_players(self) -> int | None:
-        """
-        :return: maximum number of players
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("maxplayers")
-
-    @property
-    def min_playing_time(self) -> int | None:
-        """
-        Minimum playing time
-        :return: ``None if n/a
-        :rtype: integer
-        """
-        return self._data.get("minplaytime")
-
-    @property
-    def max_playing_time(self) -> int | None:
-        """
-        Maximum playing time
-        :return: ``None if n/a
-        :rtype: integer
-        """
-        return self._data.get("maxplaytime")
-
-    @property
-    def playing_time(self) -> int | None:
-        """
-        :return: playing time
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("playingtime")
-
-    # TODO: create properties to access the stats
+    @model_validator(mode="before")
+    @classmethod
+    def _fix_base_game(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        data = dict(data)
+        for field in ["thumbnail", "image"]:
+            if field in data:
+                data[field] = fix_url(data[field])
+        return data
 
     @property
     def users_rated(self) -> int | None:
@@ -605,7 +264,7 @@ class BaseGame(Thing):
         :rtype: integer
         :return: ``None`` if n/a
         """
-        return self._stats.users_rated
+        return self.stats.users_rated
 
     @property
     def rating_average(self) -> float | None:
@@ -614,7 +273,7 @@ class BaseGame(Thing):
         :rtype: float
         :return: ``None`` if n/a
         """
-        return self._stats.rating_average
+        return self.stats.rating_average
 
     @property
     def rating_bayes_average(self) -> float | None:
@@ -623,7 +282,7 @@ class BaseGame(Thing):
         :rtype: float
         :return: ``None`` if n/a
         """
-        return self._stats.rating_bayes_average
+        return self.stats.rating_bayes_average
 
     @property
     def rating_stddev(self) -> float | None:
@@ -632,7 +291,7 @@ class BaseGame(Thing):
         :rtype: float
         :return: ``None`` if n/a
         """
-        return self._stats.rating_stddev
+        return self.stats.rating_stddev
 
     @property
     def rating_median(self) -> float | None:
@@ -641,7 +300,7 @@ class BaseGame(Thing):
         :rtype: float
         :return: ``None`` if n/a
         """
-        return self._stats.rating_median
+        return self.stats.rating_median
 
     @property
     def ranks(self) -> list[BoardGameRank]:
@@ -650,7 +309,7 @@ class BaseGame(Thing):
         :rtype: list of :py:class:`boardgamegeek.games.BoardGameRank`
         :return: ``None`` if n/a
         """
-        return self._stats.ranks
+        return self.stats.ranks
 
     @property
     def bgg_rank(self) -> int | None:
@@ -659,7 +318,7 @@ class BaseGame(Thing):
         :rtype: integer
         :return: ``None`` if n/a
         """
-        return self._stats.bgg_rank
+        return self.stats.bgg_rank
 
     @property
     def boardgame_rank(self) -> int | None:
@@ -672,6 +331,45 @@ class CollectionBoardGame(BaseGame):
     A boardgame retrieved from the collection information, which has less information than the one retrieved
     via the /thing api and which also contains some user-specific information.
     """
+
+    last_modified: str | None = Field(None, alias="lastmodified")
+    numplays: int = 0
+    rating: float | None = None
+    owned: bool = Field(False, alias="own")
+    preordered: bool = False
+    prev_owned: bool = Field(False, alias="prevowned")
+    want: bool = False
+    want_to_buy: bool = Field(False, alias="wanttobuy")
+    want_to_play: bool = Field(False, alias="wanttoplay")
+    for_trade: bool = Field(False, alias="fortrade")
+    wishlist: bool = False
+    wishlist_priority: str | None = Field(None, alias="wishlistpriority")
+    comment: str = ""
+
+    @model_validator(mode="before")
+    @classmethod
+    def _coerce_status_bools(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        data = dict(data)
+        for field in ["own", "preordered", "prevowned", "want", "wanttobuy", "wanttoplay", "fortrade", "wishlist"]:
+            if field in data and data[field] is not None:
+                try:
+                    data[field] = bool(int(data[field]))
+                except (ValueError, TypeError):
+                    data[field] = False
+        return data
+
+    @property
+    def lastmodified(self) -> str | None:
+        warnings.warn("deprecated, use 'last_modified' instead", DeprecationWarning, stacklevel=2)
+        return self.last_modified
+
+    @property
+    def version(self) -> BoardGameVersion | None:
+        if self.versions:
+            return self.versions[0]
+        return None
 
     def _format(self, log: logging.Logger) -> None:
         log.info(f"boardgame id      : {self.id}")
@@ -689,118 +387,8 @@ class CollectionBoardGame(BaseGame):
         log.info(f"wishlist priority : {self.wishlist_priority}")
         log.info(f"for trade         : {self.for_trade}")
         log.info(f"comment           : {self.comment}")
-        for v in self._versions:
+        for v in self.versions:
             v._format(log)
-
-    @property
-    def lastmodified(self) -> str | None:
-        warnings.warn("deprecated, use 'last_modified' instead", DeprecationWarning, stacklevel=2)
-        return self._data.get("lastmodified")
-
-    @property
-    def last_modified(self) -> str | None:
-        """
-        :return: last modified date
-        :rtype: str
-        """
-        return self._data.get("lastmodified")
-
-    @property
-    def version(self) -> BoardGameVersion | None:
-        if self._versions:
-            return self._versions[0]
-        else:
-            return None
-
-    @property
-    def numplays(self) -> int:
-        return int(self._data.get("numplays", 0))
-
-    @property
-    def rating(self) -> float | None:
-        """
-        :return: user's rating of the game
-        :rtype: float
-        :return: ``None`` if n/a
-        """
-        return self._data.get("rating")
-
-    @property
-    def owned(self) -> bool:
-        """
-        :return: game owned
-        :rtype: bool
-        """
-        return bool(int(self._data.get("own", 0)))
-
-    @property
-    def preordered(self) -> bool:
-        """
-        :return: game preordered
-        :rtype: bool
-        """
-        return bool(int(self._data.get("preordered", 0)))
-
-    @property
-    def prev_owned(self) -> bool:
-        """
-        :return: game previously owned
-        :rtype: bool
-        """
-        return bool(int(self._data.get("prevowned", 0)))
-
-    @property
-    def want(self) -> bool:
-        """
-        :return: game wanted
-        :rtype: bool
-        """
-        return bool(int(self._data.get("want", 0)))
-
-    @property
-    def want_to_buy(self) -> bool:
-        """
-        :return: want to buy
-        :rtype: bool
-        """
-        return bool(int(self._data.get("wanttobuy", 0)))
-
-    @property
-    def want_to_play(self) -> bool:
-        """
-        :return: want to play
-        :rtype: bool
-        """
-        return bool(int(self._data.get("wanttoplay", 0)))
-
-    @property
-    def for_trade(self) -> bool:
-        """
-        :return: game for trading
-        :rtype: bool
-        """
-        return bool(int(self._data.get("fortrade", 0)))
-
-    @property
-    def wishlist(self) -> bool:
-        """
-        :return: game on wishlist
-        :rtype: bool
-        """
-        return bool(int(self._data.get("wishlist", 0)))
-
-    @property
-    def wishlist_priority(self) -> str | None:
-        # TODO: convert to int (it's str)
-        return self._data.get("wishlistpriority")
-
-    @property
-    def comment(self) -> str:
-        """
-        :return: comment left by user
-        :rtype: str
-        """
-        return str(self._data.get("comment", ""))
 
 
 class BoardGame(BaseGame):
@@ -808,59 +396,70 @@ class BoardGame(BaseGame):
     Object containing information about a board game
     """
 
-    def __init__(self, data: dict[str, Any]):
-        self._expansions: list[Thing] = []  # list of Thing for the expansions
-        self._expansions_set: set[int] = set()  # set for making sure things are unique
-        for exp in data.get("expansions", []):
-            try:
-                if exp["id"] not in self._expansions_set:
-                    self._expansions_set.add(exp["id"])
-                    self._expansions.append(Thing(exp))
-            except KeyError:
-                raise BGGError("invalid expansion data")
+    alternative_names: list[str] = Field(default_factory=list)
+    description: str = ""
+    families: list[str] = Field(default_factory=list)
+    categories: list[str] = Field(default_factory=list)
+    mechanics: list[str] = Field(default_factory=list)
+    implementations: list[str] = Field(default_factory=list)
+    designers: list[str] = Field(default_factory=list)
+    artists: list[str] = Field(default_factory=list)
+    publishers: list[str] = Field(default_factory=list)
+    expansion: bool = False
+    accessory: bool = False
+    min_age: int | None = Field(None, alias="minage")
+    expansions: list[Thing] = Field(default_factory=list)
+    expands: list[Thing] = Field(default_factory=list)
+    videos: list[BoardGameVideo] = Field(default_factory=list)
+    comments: list[BoardGameComment] = Field(default_factory=list)
+    player_suggestions: list[PlayerSuggestion] = Field(default_factory=list)
 
-        self._expands: list[Thing] = []  # list of Thing which this item expands
-        self._expands_set: set[int] = set()  # set for keeping things unique
-        for exp in data.get("expands", []):  # for all the items this game expands, create a Thing
-            try:
-                if exp["id"] not in self._expands_set:
-                    self._expands_set.add(exp["id"])
-                    self._expands.append(Thing(exp))
-            except KeyError:
-                raise BGGError("invalid expanded game data")
+    _expansion_ids: set[int] = PrivateAttr(default_factory=set)
+    _expands_ids: set[int] = PrivateAttr(default_factory=set)
+    _video_ids: set[int] = PrivateAttr(default_factory=set)
 
-        self._videos: list[BoardGameVideo] = []
-        self._videos_ids: set[int] = set()
-        for video in data.get("videos", []):
-            try:
-                if video["id"] not in self._videos_ids:
-                    self._videos.append(BoardGameVideo(video))
-                    self._videos_ids.add(video["id"])
-            except KeyError:
-                raise BGGError("invalid video data")
+    @model_validator(mode="before")
+    @classmethod
+    def _build_board_game(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        data = dict(data)
+        # Convert suggested_players dict -> player_suggestions list
+        suggested = data.get("suggested_players", {})
+        if suggested and "results" in suggested:
+            suggestions = []
+            for count, result in suggested["results"].items():
+                suggestions.append(
+                    {
+                        "player_count": count,
+                        "best": result.get("best_rating", 0),
+                        "recommended": result.get("recommended_rating", 0),
+                        "not_recommended": result.get("not_recommended_rating", 0),
+                    }
+                )
+            data.setdefault("player_suggestions", suggestions)
+        # Deduplicate expansions/expands by id
+        for field in ["expansions", "expands"]:
+            seen: set[Any] = set()
+            unique = []
+            for item in data.get(field, []):
+                item_id = item.get("id") if isinstance(item, dict) else getattr(item, "id", None)
+                if item_id not in seen:
+                    seen.add(item_id)
+                    unique.append(item)
+            data[field] = unique
+        return data
 
-        self._comments: list[BoardGameComment] = []
-        for comment in data.get("comments", []):
-            self.add_comment(comment)
-
-        self._player_suggestion: list[PlayerSuggestion] = []
-        if "suggested_players" in data and "results" in data["suggested_players"]:
-            for count, result in data["suggested_players"]["results"].items():
-                suggestion_data = {
-                    "player_count": count,
-                    "best": result["best_rating"],
-                    "recommended": result["recommended_rating"],
-                    "not_recommended": result["not_recommended_rating"],
-                }
-                self._player_suggestion.append(PlayerSuggestion(suggestion_data))
-
-        super().__init__(data)
+    def model_post_init(self, __context: Any) -> None:
+        self._expansion_ids = {exp.id for exp in self.expansions}
+        self._expands_ids = {exp.id for exp in self.expands}
+        self._video_ids = {vid.id for vid in self.videos}
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__} (id: {self.id})"
 
     def add_comment(self, data: dict[str, Any]) -> None:
-        self._comments.append(BoardGameComment(data))
+        self.comments.append(BoardGameComment.model_validate(data))
 
     def add_expanded_game(self, data: dict[str, Any]) -> None:
         """
@@ -870,10 +469,9 @@ class BoardGame(BaseGame):
         :raises: :py:exc:`boardgamegeek.exceptions.BoardGameGeekError` if data is invalid
         """
         try:
-            if data["id"] not in self._expands_set:
-                self._data["expands"].append(data)
-                self._expands_set.add(data["id"])
-                self._expands.append(Thing(data))
+            if data["id"] not in self._expands_ids:
+                self._expands_ids.add(data["id"])
+                self.expands.append(Thing.model_validate(data))
         except KeyError:
             raise BGGError("invalid expanded game data")
 
@@ -885,12 +483,74 @@ class BoardGame(BaseGame):
         :raises: :py:exc:`boardgamegeek.exceptions.BoardGameGeekError` if data is invalid
         """
         try:
-            if data["id"] not in self._expansions_set:
-                self._data["expansions"].append(data)
-                self._expansions_set.add(data["id"])
-                self._expansions.append(Thing(data))
+            if data["id"] not in self._expansion_ids:
+                self._expansion_ids.add(data["id"])
+                self.expansions.append(Thing.model_validate(data))
         except KeyError:
             raise BGGError("invalid expansion data")
+
+    @property
+    def users_owned(self) -> int | None:
+        """
+        :return: number of users owning this game
+        :rtype: integer
+        :return: ``None`` if n/a
+        """
+        return self.stats.users_owned
+
+    @property
+    def users_trading(self) -> int | None:
+        """
+        :return: number of users trading this game
+        :rtype: integer
+        :return: ``None`` if n/a
+        """
+        return self.stats.users_trading
+
+    @property
+    def users_wanting(self) -> int | None:
+        """
+        :return: number of users wanting this game
+        :rtype: integer
+        :return: ``None`` if n/a
+        """
+        return self.stats.users_wanting
+
+    @property
+    def users_wishing(self) -> int | None:
+        """
+        :return: number of users wishing for this game
+        :rtype: integer
+        :return: ``None`` if n/a
+        """
+        return self.stats.users_wishing
+
+    @property
+    def users_commented(self) -> int | None:
+        """
+        :return: number of user comments
+        :rtype: integer
+        :return: ``None`` if n/a
+        """
+        return self.stats.users_commented
+
+    @property
+    def rating_num_weights(self) -> int | None:
+        """
+        :return:
+        :rtype: integer
+        :return: ``None`` if n/a
+        """
+        return self.stats.rating_num_weights
+
+    @property
+    def rating_average_weight(self) -> float | None:
+        """
+        :return: average weight
+        :rtype: float
+        :return: ``None`` if n/a
+        """
+        return self.stats.rating_average_weight
 
     def _format(self, log: logging.Logger) -> None:
         log.info(f"boardgame id      : {self.id}")
@@ -990,223 +650,3 @@ class BoardGame(BaseGame):
         if self.comments:
             for c in self.comments:
                 c._format(log)
-
-    @property
-    def alternative_names(self) -> list[str]:
-        """
-        :return: alternative names
-        :rtype: list of str
-        """
-        names = self._data.get("alternative_names", [])
-        return [str(name) for name in names]
-
-    @property
-    def description(self) -> str:
-        """
-        :return: description
-        :rtype: str
-        """
-        return str(self._data.get("description", ""))
-
-    @property
-    def families(self) -> list[str]:
-        """
-        :return: families
-        :rtype: list of str
-        """
-        families = self._data.get("families", [])
-        return [str(family) for family in families]
-
-    @property
-    def categories(self) -> list[str]:
-        """
-        :return: categories
-        :rtype: list of str
-        """
-        categories = self._data.get("categories", [])
-        return [str(category) for category in categories]
-
-    @property
-    def comments(self) -> list[BoardGameComment]:
-        return self._comments
-
-    @property
-    def mechanics(self) -> list[str]:
-        """
-        :return: mechanics
-        :rtype: list of str
-        """
-        mechanics = self._data.get("mechanics", [])
-        return [str(mechanic) for mechanic in mechanics]
-
-    @property
-    def expansions(self) -> list[Thing]:
-        """
-        :return: expansions
-        :rtype: list of :py:class:`boardgamegeek.things.Thing`
-        """
-        return self._expansions
-
-    @property
-    def expands(self) -> list[Thing]:
-        """
-        :return: games this item expands
-        :rtype: list of :py:class:`boardgamegeek.things.Thing`
-        """
-        return self._expands
-
-    @property
-    def implementations(self) -> list[str]:
-        """
-        :return: implementations
-        :rtype: list of str
-        """
-        implementations = self._data.get("implementations", [])
-        return [str(implementation) for implementation in implementations]
-
-    @property
-    def designers(self) -> list[str]:
-        """
-        :return: designers
-        :rtype: list of str
-        """
-        designers = self._data.get("designers", [])
-        return [str(designer) for designer in designers]
-
-    @property
-    def artists(self) -> list[str]:
-        """
-        :return: artists
-        :rtype: list of str
-        """
-        artists = self._data.get("artists", [])
-        return [str(artist) for artist in artists]
-
-    @property
-    def publishers(self) -> list[str]:
-        """
-        :return: publishers
-        :rtype: list of str
-        """
-        publishers = self._data.get("publishers", [])
-        return [str(publisher) for publisher in publishers]
-
-    @property
-    def expansion(self) -> bool:
-        """
-        :return: True if this item is an expansion
-        :rtype: bool
-        """
-        return bool(self._data.get("expansion", False))
-
-    @property
-    def accessory(self) -> bool:
-        """
-        :return: True if this item is an accessory
-        :rtype: bool
-        """
-        return bool(self._data.get("accessory", False))
-
-    @property
-    def min_age(self) -> int | None:
-        """
-        :return: minimum recommended age
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._data.get("minage")
-
-    @property
-    def users_owned(self) -> int | None:
-        """
-        :return: number of users owning this game
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._stats.users_owned
-
-    @property
-    def users_trading(self) -> int | None:
-        """
-        :return: number of users trading this game
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._stats.users_trading
-
-    @property
-    def users_wanting(self) -> int | None:
-        """
-        :return: number of users wanting this game
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._stats.users_wanting
-
-    @property
-    def users_wishing(self) -> int | None:
-        """
-        :return: number of users wishing for this game
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._stats.users_wishing
-
-    @property
-    def users_commented(self) -> int | None:
-        """
-        :return: number of user comments
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._stats.users_commented
-
-    @property
-    def rating_num_weights(self) -> int | None:
-        """
-        :return:
-        :rtype: integer
-        :return: ``None`` if n/a
-        """
-        return self._stats.rating_num_weights
-
-    @property
-    def rating_average_weight(self) -> float | None:
-        """
-        :return: average weight
-        :rtype: float
-        :return: ``None`` if n/a
-        """
-        return self._stats.rating_average_weight
-
-    @property
-    def videos(self) -> list[BoardGameVideo]:
-        """
-        :return: videos of this game
-        :rtype: list of :py:class:`boardgamegeek.game.BoardGameVideo`
-        """
-        return self._videos
-
-    @property
-    def versions(self) -> list[BoardGameVersion]:
-        """
-        :return: versions of this game
-        :rtype: list of :py:class:`boardgamegeek.game.BoardGameVersion`
-        """
-        return self._versions
-
-    @property
-    def marketplace(self) -> list[MarketplaceListing]:
-        """
-        :return: marketplace listings of this game
-        :rtype: list of :py:class:`boardgamegeek.game.MarketplaceListing`
-        """
-        return self._marketplace
-
-    @property
-    def player_suggestions(self) -> list[PlayerSuggestion]:
-        """
-        :return player suggestion list with votes
-        :rtype: list of dicts
-        """
-        return self._player_suggestion

@@ -14,8 +14,9 @@ from __future__ import annotations
 
 import datetime
 import logging
-from copy import copy
 from typing import Any
+
+from pydantic import Field, model_validator
 
 from .things import Thing
 
@@ -25,34 +26,32 @@ class User(Thing):
     Information about a user.
     """
 
-    def __init__(self, data: dict[str, Any]):
-        kw = copy(data)
-        if "buddies" not in kw:
-            kw["buddies"] = []
+    firstname: str | None = None
+    lastname: str | None = None
+    avatar: str | None = Field(None, alias="avatarlink")
+    last_login: datetime.datetime | None = Field(None, alias="lastlogin")
+    state: str | None = Field(None, alias="stateorprovince")
+    country: str | None = None
+    homepage: str | None = Field(None, alias="webaddress")
+    xbox_account: str | None = Field(None, alias="xboxaccount")
+    wii_account: str | None = Field(None, alias="wiiaccount")
+    steam_account: str | None = Field(None, alias="steam_account")
+    psn_account: str | None = Field(None, alias="psnaccount")
+    trade_rating: str | None = None
+    buddies: list[Thing] = Field(default_factory=list)
+    guilds: list[Thing] = Field(default_factory=list)
+    hot: list[Thing] = Field(default_factory=list)
+    top: list[Thing] = Field(default_factory=list)
 
-        self._buddies = []
-        for i in kw["buddies"]:
-            self._buddies.append(Thing(i))
-
-        if "guilds" not in kw:
-            kw["guilds"] = []
-        self._guilds = []
-        for i in kw["guilds"]:
-            self._guilds.append(Thing(i))
-
-        if "hot" not in kw:
-            kw["hot"] = []
-        self._hot = []
-        for i in kw["hot"]:
-            self._hot.append(Thing(i))
-
-        if "top" not in kw:
-            kw["top"] = []
-        self._top = []
-        for i in kw["top"]:
-            self._top.append(Thing(i))
-
-        super().__init__(kw)
+    @model_validator(mode="before")
+    @classmethod
+    def _ensure_lists(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        data = dict(data)
+        for field in ["buddies", "guilds", "hot", "top"]:
+            data.setdefault(field, [])
+        return data
 
     def __str__(self) -> str:
         return f"User: {self.firstname} {self.lastname}"
@@ -61,25 +60,48 @@ class User(Thing):
         return f"User: {self.name} (id: {self.id})"
 
     def add_buddy(self, data: dict[str, Any]) -> None:
-        """
-        Add a buddy to this user
-
-        :param dict data: buddy's data
-        """
-        self._buddies.append(Thing(data))
-        # self._data["buddies"].append(data)
+        self.buddies.append(Thing.model_validate(data))
 
     def add_guild(self, data: dict[str, Any]) -> None:
-        self._guilds.append(Thing(data))
-        # self._data["guilds"].append(data)
+        self.guilds.append(Thing.model_validate(data))
 
     def add_top_item(self, data: dict[str, Any]) -> None:
-        self._data["top"].append(data)
-        self._top.append(Thing(data))
+        self.top.append(Thing.model_validate(data))
 
     def add_hot_item(self, data: dict[str, Any]) -> None:
-        self._data["hot"].append(data)
-        self._hot.append(Thing(data))
+        self.hot.append(Thing.model_validate(data))
+
+    @property
+    def total_buddies(self) -> int:
+        """
+        :return: number of buddies
+        :rtype: integer
+        """
+        return len(self.buddies)
+
+    @property
+    def total_guilds(self) -> int:
+        """
+        :return: number of guilds
+        :rtype: integer
+        """
+        return len(self.guilds)
+
+    @property
+    def top10(self) -> list[Thing]:
+        """
+        :return: user's top10
+        :rtype: list of :py:class:`boardgamegeek.things.Thing`
+        """
+        return self.top
+
+    @property
+    def hot10(self) -> list[Thing]:
+        """
+        :return: user's hot10
+        :rtype: list of :py:class:`boardgamegeek.things.Thing`
+        """
+        return self.hot
 
     def _format(self, log: logging.Logger) -> None:
         log.info(f"id          : {self.id}")
@@ -96,139 +118,20 @@ class User(Thing):
         log.info(f"psn acct    : {self.psn_account}")
         log.info(f"last login  : {self.last_login}")
         log.info(f"trade rating: {self.trade_rating}")
-
         log.info(
             "user has {} buddies{}".format(
                 self.total_buddies,
                 " (forever alone :'( )" if self.total_buddies == 0 else "",
             )
         )
-        buddies = self.buddies
-        if buddies:
-            for b in buddies:
-                log.info(f"- {b.name}")
-
+        for b in self.buddies:
+            log.info(f"- {b.name}")
         log.info(f"user is member in {self.total_guilds} guilds")
-        guilds = self.guilds
-        if guilds:
-            for g in guilds:
-                log.info(f"- {g.name}")
-
+        for g in self.guilds:
+            log.info(f"- {g.name}")
         log.info("top10 items")
         for i in self.top10:
             log.info(f"- {i.name} (id: {i.id})")
-
         log.info("hot10 items")
         for i in self.hot10:
             log.info(f"- {i.name} (id: {i.id})")
-
-    @property
-    def total_buddies(self) -> int:
-        """
-        :return: number of buddies
-        :rtype: integer
-        """
-        return len(self._buddies)
-
-    @property
-    def total_guilds(self) -> int:
-        """
-        :return: number of guilds
-        :rtype: integer
-        """
-        return len(self._guilds)
-
-    @property
-    def top10(self) -> list[Thing]:
-        """
-        :return: user's top10
-        :rtype: list of :py:class:`boardgamegeek.things.Thing`
-        """
-        return self._top
-
-    @property
-    def hot10(self) -> list[Thing]:
-        """
-        :return: user's hot10
-        :rtype: list of :py:class:`boardgamegeek.things.Thing`
-        """
-        return self._hot
-
-    @property
-    def buddies(self) -> list[Thing]:
-        """
-        :return: user's buddies
-        :rtype: list of :py:class:`boardgamegeek.things.Thing`
-        """
-        return self._buddies
-
-    @property
-    def guilds(self) -> list[Thing]:
-        """
-        :return: user's guilds
-        :rtype: list of :py:class:`boardgamegeek.things.Thing`
-        """
-        return self._guilds
-
-    @property
-    def firstname(self) -> str | None:
-        """
-        :return: user's first name
-        :rtype: str
-        :return: ``None`` if n/a
-        """
-        return self._data.get("firstname")
-
-    @property
-    def lastname(self) -> str | None:
-        """
-        :return: user's last name
-        :rtype: str
-        :return: ``None`` if n/a
-        """
-        return self._data.get("lastname")
-
-    @property
-    def avatar(self) -> str | None:
-        """
-        :return: avatar's URL
-        :rtype: str
-        :return: ``None`` if n/a
-        """
-        return self._data.get("avatarlink")
-
-    @property
-    def last_login(self) -> datetime.datetime | None:
-        return self._data.get("lastlogin")
-
-    @property
-    def state(self) -> str | None:
-        return self._data.get("stateorprovince")
-
-    @property
-    def country(self) -> str | None:
-        return self._data.get("country")
-
-    @property
-    def homepage(self) -> str | None:
-        return self._data.get("webaddress")
-
-    @property
-    def xbox_account(self) -> str | None:
-        return self._data.get("xboxaccount")
-
-    @property
-    def wii_account(self) -> str | None:
-        return self._data.get("wiiaccount")
-
-    @property
-    def steam_account(self) -> str | None:
-        return self._data.get("steam_account")
-
-    @property
-    def psn_account(self) -> str | None:
-        return self._data.get("psnaccount")
-
-    @property
-    def trade_rating(self) -> str | None:
-        return self._data.get("trade_rating")
