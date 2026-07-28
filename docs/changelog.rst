@@ -1,24 +1,29 @@
 Changelog
 =========
 
+1.1.19
+------
+* Fix Legacy API URL. Thanks @darnir
+* Update dependencies
+
 1.1.17
----
+------
 * Migrate requirements to pyproject.toml
 * Drop support for Python 3.11
 * Remove deprecation warnings in tests
 * Update dependencies
 
 1.1.16
----
+------
 * Bump wheel from 0.45.1 to 0.46.2 (CVE-2026-24049)
 * Update dependencies
 
 1.1.15
----
+------
 * Fix collection rating. PR #199 Thanks @randomwalk
 
 1.1.14
----
+------
 * Make access token mandatory
 * Add Ruff formatting and MyPy type hints
 
