@@ -13,7 +13,7 @@ from .utils import request_and_parse_xml
 
 log = logging.getLogger("boardgamegeek.legacy_api")
 
-API_ENDPOINT = "https://www.boardgamegeek.com/xmlapi"
+API_ENDPOINT = "https://boardgamegeek.com/xmlapi"
 
 
 class BGGClientLegacy(BGGCommon):
