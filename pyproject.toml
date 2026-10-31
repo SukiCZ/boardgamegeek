@@ -70,6 +70,11 @@ filename = "boardgamegeek/__init__.py"
 search = "__version__ = \"{current_version}\""
 replace = "__version__ = \"{new_version}\""
 
+[[tool.bumpversion.files]]
+filename = "uv.lock"
+search = "name = \"bgg-api\"\nversion = \"{current_version}\""
+replace = "name = \"bgg-api\"\nversion = \"{new_version}\""
+
 [tool.bdist_wheel]
 universal = 1
 
