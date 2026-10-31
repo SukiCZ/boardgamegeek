@@ -44,8 +44,8 @@ class RateLimitingAdapter(HTTPAdapter):
     so that we don't get throttled
     """
 
-    __last_request_timestamp = None  # time when the last request was made
-    __time_between_requests = 0.0  # interval to wait between requests in order to match the expected number of
+    __last_request_timestamp: float | None = None  # time when the last request was made
+    __time_between_requests: float = 0.0  # interval to wait between requests in order to match the expected number off
     # requests per second
 
     __rate_limit_lock = threading.Lock()
