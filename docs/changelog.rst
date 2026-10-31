@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.1.20
+------
+* Add py.typed marker. Thanks @darnir
+* Add mypy to CI pipeline
+* Update dependencies (security; eMudhra certificates incident)
+
 1.1.19
 ------
 * Fix Legacy API URL. Thanks @darnir
