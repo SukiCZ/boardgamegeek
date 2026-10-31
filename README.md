@@ -48,13 +48,15 @@ uv run prek install
 uv run pytest .
 # Run tests with tox
 uv run tox
+# Run mypy
+uv run mypy boardgamegeek
 ```
 
 ## Publishing
 
 ```bash
 # Bump version (patch, minor, major)
-bump2version patch
+bump-my-version patch
 # Push to github
-git push --tags origin master
+git push --follow-tags
 ```
